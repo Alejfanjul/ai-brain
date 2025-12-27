@@ -1,0 +1,37 @@
+name: Daily RSS Capture
+
+on:
+  schedule:
+    # 14:00 UTC = 11:00 Brasília
+    - cron: '0 14 * * *'
+  workflow_dispatch: # permite rodar manualmente
+
+jobs:
+  capture-rss:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+      
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      
+      - name: Install dependencies
+        run: |
+          pip install feedparser requests beautifulsoup4 markdownify
+      
+      - name: Run RSS capture script
+        run: python scripts/rss_capture.py
+      
+      - name: Commit and push if changes
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git diff --staged --quiet || git commit -m "capture: daily RSS $(date +%Y-%m-%d)"
+          git push

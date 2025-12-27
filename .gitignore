@@ -1,0 +1,8 @@
+# Google OAuth - NUNCA commitar
+credentials.json
+token.json
+
+# Python
+__pycache__/
+*.py[cod]
+.env

@@ -24,16 +24,19 @@ STATE_FILE = Path(".github/captured_emails.json")
 # Remetentes para capturar
 SENDERS = [
     {
-        "email": "nate@natesnewsletter.com",
-        "name": "Nate",
-        "type": "newsletter",
-        "author": "Nate"
+        "email": "natesnewsletter.substack.com",
+        "author": "Nate",
+        "type": "newsletter"
     },
     {
-        "email": "hello@substack.com",  # Substack genérico
-        "name_contains": "Nate",
-        "type": "newsletter",
-        "author": "Nate"
+        "email": "notify@sethgodin.com",
+        "author": "Seth Godin",
+        "type": "blog"
+    },
+    {
+        "email": "simonw.substack.com",
+        "author": "Simon Willison",
+        "type": "newsletter"
     }
 ]
 
@@ -200,8 +203,8 @@ def process_emails(service, days_back=2):
     # Data de corte
     after_date = (datetime.now() - timedelta(days=days_back)).strftime('%Y/%m/%d')
 
-    # Busca emails do Nate
-    query = f'from:(nate@natesnewsletter.com OR natesnewsletter.substack.com) after:{after_date}'
+    # Busca emails de todas as fontes configuradas
+    query = f'from:(natesnewsletter.substack.com OR notify@sethgodin.com OR simonw.substack.com) after:{after_date}'
 
     print(f"Buscando emails: {query}")
 
@@ -231,6 +234,17 @@ def process_emails(service, days_back=2):
         headers = full_msg['payload'].get('headers', [])
         subject = get_header(headers, 'Subject') or 'Sem título'
         date_raw = get_header(headers, 'Date') or ''
+
+        # Detecta autor baseado no remetente
+        from_header = get_header(headers, 'From') or ''
+        author = "Unknown"
+        email_type = "newsletter"
+
+        for sender in SENDERS:
+            if sender['email'].lower() in from_header.lower():
+                author = sender['author']
+                email_type = sender['type']
+                break
 
         print(f"  Processando: {subject[:50]}...")
 
@@ -267,10 +281,10 @@ def process_emails(service, days_back=2):
         # Cria arquivo
         filepath = create_capture_file(
             subject=subject,
-            author="Nate",
+            author=author,
             content=markdown_content,
             date_str=date_str,
-            email_type="newsletter",
+            email_type=email_type,
             notion_links=notion_links
         )
 

@@ -27,8 +27,8 @@ jobs:
           echo '${{ secrets.GMAIL_CREDENTIALS }}' > credentials.json
           echo '${{ secrets.GMAIL_TOKEN }}' > token.json
 
-      - name: Run RSS capture
-        run: python scripts/rss_capture.py
+      # - name: Run RSS capture
+      #   run: python scripts/rss_capture.py
 
       - name: Run Email capture
         run: python scripts/email_capture.py

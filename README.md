@@ -49,7 +49,9 @@ python3 scripts/capture_youtube.py "https://www.youtube.com/watch?v=..."
 
 **O que faz:**
 - Extrai metadata do vídeo (título, canal, duração)
-- Baixa transcript/legendas (PT ou EN)
+- **Detecta automaticamente o idioma original do vídeo**
+- Baixa transcript/legendas no idioma original (melhor qualidade)
+- Funciona com qualquer idioma (fallback para inglês se necessário)
 - Cria arquivo em `sources/` com nome `YYYY-MM-DD-titulo.md`
 - Faz commit automático
 

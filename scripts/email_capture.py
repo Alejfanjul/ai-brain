@@ -216,7 +216,7 @@ def process_emails(service, days_back=2):
     results = service.users().messages().list(
         userId='me',
         q=query,
-        maxResults=10
+        maxResults=100
     ).execute()
 
     messages = results.get('messages', [])
@@ -310,7 +310,7 @@ def main():
 
     try:
         service = get_gmail_service()
-        captures = process_emails(service, days_back=7)  # Últimos 7 dias
+        captures = process_emails(service, days_back=30)  # Últimos 30 dias
 
         print(f"\n=== Resumo ===")
         print(f"Novos emails capturados: {len(captures)}")

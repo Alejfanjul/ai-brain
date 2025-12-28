@@ -24,6 +24,14 @@ Extrai conteúdo de artigo/post web e salva em sources/.
 ### /capture manual
 Fluxo guiado para salvar conteúdo copiado manualmente.
 
+### /capture course
+Captura conteúdo de cursos (Udemy, etc) onde o usuário cola o transcript.
+Executa: `python3 scripts/capture_course.py`
+
+### /capture playlist <url>
+Captura playlist inteira do YouTube, extraindo transcripts de todos os vídeos.
+Executa: `python3 scripts/capture_playlist.py "<url>"`
+
 ## Convenções
 
 ### Nomes de arquivo

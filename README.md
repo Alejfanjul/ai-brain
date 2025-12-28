@@ -1,111 +1,67 @@
 # AI Brain
 
-Repositório de conhecimento para alimentar conversas com Claude.
+Sistema de captura e organização de conhecimento para alimentar conversas com Claude.
 
-## Propósito
+## O que é
 
-Capturar conhecimento de diversas fontes (newsletters, vídeos, artigos, cursos) em formato que Claude possa acessar e usar para ajudar em projetos e decisões.
+Repositório pessoal que captura conteúdo de múltiplas fontes (newsletters, vídeos, cursos, artigos) em formato que o Claude pode acessar via Project Knowledge.
+
+## Fontes Automatizadas (diárias)
+
+| Fonte | Autor | Tipo |
+|-------|-------|------|
+| Nate's Newsletter | Nate | newsletter |
+| Seth's Blog | Seth Godin | blog |
+| Simon Willison's Newsletter | Simon Willison | newsletter |
+
+O GitHub Actions roda diariamente às 11h (Brasília) e captura novos posts automaticamente.
+
+## Comandos Manuais
+
+### YouTube (vídeo único)
+```bash
+python3 scripts/capture_youtube.py "<URL>"
+```
+
+### YouTube (playlist inteira)
+```bash
+python3 scripts/capture_playlist.py "<URL_DA_PLAYLIST>"
+```
+
+### Artigo Web
+```bash
+python3 scripts/capture_article.py "<URL>"
+```
+
+### Curso (Udemy, Coursera, etc)
+```bash
+python3 scripts/capture_course.py
+# Preenche interativamente e cola o transcript
+```
 
 ## Estrutura
-
 ```
 ai-brain/
-├── sources/          ← Conteúdo capturado (raw + metadata)
-├── scripts/          ← Scripts de captura automática
-│   ├── capture_youtube.py
-│   ├── capture_article.py
-│   └── email_capture.py
-├── notes/            ← Minhas reflexões e conexões
-├── TEMPLATE.md       ← Template para capturas manuais
-└── README.md
+├── sources/              # Conteúdo capturado
+├── scripts/              # Scripts de captura
+│   ├── email_capture.py      # Automático (GitHub Actions)
+│   ├── rss_capture.py        # Automático (pausado)
+│   ├── capture_youtube.py    # Manual
+│   ├── capture_playlist.py   # Manual
+│   ├── capture_article.py    # Manual
+│   └── capture_course.py     # Manual
+├── .claude/skills/       # Skills para Claude Code
+└── .github/workflows/    # Automação diária
 ```
 
-## Dependências
+## Como Usar com Claude
 
-Os scripts de captura automática requerem:
-
-```bash
-pip install -r requirements.txt
-```
-
-**Incluído:**
-- `yt-dlp` - Download de vídeos/transcrições YouTube
-- `requests`, `beautifulsoup4`, `markdownify` - Extração de artigos web
-
-## Como usar
-
-### Captura Automática
-
-#### YouTube
-
-```bash
-python3 scripts/capture_youtube.py <URL>
-```
-
-**Exemplo:**
-```bash
-python3 scripts/capture_youtube.py "https://www.youtube.com/watch?v=..."
-```
-
-**O que faz:**
-- Extrai metadata do vídeo (título, canal, duração)
-- **Detecta automaticamente o idioma original do vídeo**
-- Baixa transcript/legendas no idioma original (melhor qualidade)
-- Funciona com qualquer idioma (fallback para inglês se necessário)
-- Cria arquivo em `sources/` com nome `YYYY-MM-DD-titulo.md`
-- Faz commit automático
-
-#### Artigo/Blog/Newsletter
-
-```bash
-python3 scripts/capture_article.py <URL>
-```
-
-**Exemplo:**
-```bash
-python3 scripts/capture_article.py "https://seths.blog/..."
-```
-
-**O que faz:**
-- Extrai título e autor
-- Converte conteúdo HTML para Markdown
-- Cria arquivo em `sources/`
-- Faz commit automático
-
-### Captura Manual (Interativa)
-
-Usar a skill Claude:
-
-```
-/capture manual
-```
-
-**Fluxo guiado que:**
-- Pergunta título, tipo, autor, URL
-- Pede para colar conteúdo
-- Cria arquivo e commit automático
-
-### Captura Manual (TEMPLATE)
-
-Quando os scripts não funcionam ou para conteúdo copiado:
-
-1. Copiar `TEMPLATE.md` para `sources/`
-2. Nomear: `YYYY-MM-DD-titulo-slug.md`
-3. Preencher metadata e colar conteúdo
-4. Commit manual
-
-### Consultar
-
-Perguntar ao Claude no projeto que tem este repo como Knowledge.
-
-## Fontes frequentes
-
-- **Nate's Newsletter** - técnicas de IA, agents, prompts
-- **Seth Godin** - marketing, posicionamento, filosofia de negócios
-- **Cursos** - RM, operações hoteleiras, etc.
+1. Adicione este repositório como Project Knowledge em um Projeto do Claude
+2. Faça perguntas normalmente - Claude vai buscar nos conteúdos automaticamente
+3. Não precisa dizer "procura no artigo X", apenas pergunte
 
 ## Princípios
 
-- **Raw over polished**: conteúdo original > resumos elaborados
-- **Capture fast**: não deixar para depois
-- **Claude does the work**: classificação e conexões acontecem na consulta, não na captura
+- **Raw over polished**: Conteúdo original, não resumido
+- **Capture fast**: Automatiza o que for possível
+- **Claude does the work**: Classificação e conexões acontecem na consulta

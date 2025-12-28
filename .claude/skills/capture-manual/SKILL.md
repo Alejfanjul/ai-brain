@@ -13,7 +13,7 @@ Fluxo guiado para capturar conteúdo copiado manualmente.
 1. Pergunta título, tipo, autor e URL
 2. Pede para colar o conteúdo
 3. Cria arquivo em `sources/` usando o template padrão
-4. Faz git commit automaticamente com mensagem "capture: [título]"
+4. Faz git commit e push automaticamente com mensagem "capture: [título]"
 
 ## Implementation
 
@@ -117,8 +117,12 @@ def create_manual_capture():
     subprocess.run(['git', 'add', str(filepath)], cwd='/home/alejandro/ai-brain')
     commit_msg = f"capture: {title}"
     subprocess.run(['git', 'commit', '-m', commit_msg], cwd='/home/alejandro/ai-brain')
-    
+
     print(f"✓ Commit criado: {commit_msg}")
+
+    # Fazer git push
+    subprocess.run(['git', 'push'], cwd='/home/alejandro/ai-brain')
+    print(f"✓ Push feito")
     
     return str(filepath)
 

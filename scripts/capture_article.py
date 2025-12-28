@@ -162,6 +162,10 @@ def main():
     subprocess.run(['git', 'commit', '-m', f'capture: {data["title"][:50]}'])
     print("✅ Commit feito")
 
+    # Git push
+    subprocess.run(['git', 'push'])
+    print("✅ Push feito")
+
 
 if __name__ == "__main__":
     main()

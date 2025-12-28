@@ -8,6 +8,7 @@ import sys
 import subprocess
 import re
 import json
+import glob
 from datetime import datetime
 from pathlib import Path
 
@@ -48,45 +49,72 @@ def get_video_info(url):
 
 
 def get_transcript(url):
-    """Extrai transcript/legendas do vídeo."""
+    """Extrai transcript/legendas do vídeo - detecta idioma automaticamente."""
     import tempfile
     import os
 
     with tempfile.TemporaryDirectory() as tmpdir:
-        # Tenta legendas automáticas primeiro
+        output_template = os.path.join(tmpdir, '%(id)s')
+
+        # Primeiro, descobre quais legendas estão disponíveis
+        cmd_info = [
+            'yt-dlp',
+            '--dump-json',
+            '--skip-download',
+            url
+        ]
+
+        result = subprocess.run(cmd_info, capture_output=True, text=True)
+
+        # Detecta idioma original do vídeo
+        sub_lang = 'en'  # fallback
+        try:
+            video_info = json.loads(result.stdout)
+
+            # Pega legendas automáticas disponíveis
+            auto_captions = video_info.get('automatic_captions', {})
+
+            if auto_captions:
+                # Prioridade: idioma original (-orig), depois en, depois qualquer um
+                available_langs = list(auto_captions.keys())
+
+                # Procura idioma original
+                orig_langs = [l for l in available_langs if '-orig' in l]
+                if orig_langs:
+                    sub_lang = orig_langs[0]
+                elif 'en' in available_langs:
+                    sub_lang = 'en'
+                elif available_langs:
+                    sub_lang = available_langs[0]
+
+                print(f"Idioma detectado: {sub_lang} (disponíveis: {len(available_langs)} idiomas)")
+        except Exception as e:
+            print(f"Erro ao detectar idioma: {e}, usando fallback 'en'")
+
+        # Baixa legendas no idioma detectado
         cmd = [
             'yt-dlp',
             '--write-auto-sub',
-            '--sub-lang', 'pt,en',
+            '--sub-lang', sub_lang,
             '--skip-download',
-            '--sub-format', 'vtt',
-            '-o', f'{tmpdir}/%(id)s',
+            '-o', output_template,
             url
         ]
+
         subprocess.run(cmd, capture_output=True, text=True)
 
-        # Procura arquivo de legenda
-        for f in os.listdir(tmpdir):
-            if f.endswith('.vtt'):
-                vtt_path = os.path.join(tmpdir, f)
-                return parse_vtt(vtt_path)
+        # Busca arquivo de legendas
+        vtt_files = glob.glob(os.path.join(tmpdir, '*.vtt'))
+        if vtt_files:
+            print(f"Legendas extraídas: {os.path.basename(vtt_files[0])}")
+            return parse_vtt(vtt_files[0])
 
-        # Se não encontrou, tenta legendas manuais
-        cmd = [
-            'yt-dlp',
-            '--write-sub',
-            '--sub-lang', 'pt,en',
-            '--skip-download',
-            '--sub-format', 'vtt',
-            '-o', f'{tmpdir}/%(id)s',
-            url
-        ]
-        subprocess.run(cmd, capture_output=True, text=True)
+        srt_files = glob.glob(os.path.join(tmpdir, '*.srt'))
+        if srt_files:
+            print(f"Legendas extraídas: {os.path.basename(srt_files[0])}")
+            return parse_vtt(srt_files[0])
 
-        for f in os.listdir(tmpdir):
-            if f.endswith('.vtt'):
-                vtt_path = os.path.join(tmpdir, f)
-                return parse_vtt(vtt_path)
+        print("Nenhuma legenda encontrada")
 
     return None
 

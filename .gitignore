@@ -5,4 +5,4 @@ token.json
 # Python
 __pycache__/
 *.py[cod]
-.env
+.envvenv/

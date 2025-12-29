@@ -6,6 +6,14 @@ Sistema de captura e organização de conhecimento para alimentar conversas com 
 
 Repositório pessoal que captura conteúdo de múltiplas fontes (newsletters, vídeos, cursos, artigos) em formato que o Claude pode acessar via Project Knowledge.
 
+## Setup
+
+Para ativar o ambiente virtual antes de usar os scripts de captura:
+
+```bash
+source venv/bin/activate
+```
+
 ## Fontes Automatizadas (diárias)
 
 | Fonte | Autor | Tipo |

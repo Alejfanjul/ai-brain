@@ -5,4 +5,14 @@ token.json
 # Python
 __pycache__/
 *.py[cod]
-.envvenv/
+*.pyc
+.env
+venv/
+env/
+
+# OS
+.DS_Store
+
+# IDE
+.vscode/
+.idea/

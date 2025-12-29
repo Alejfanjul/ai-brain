@@ -2,8 +2,8 @@ name: Daily Capture
 
 on:
   schedule:
-    # 14:00 UTC = 11:00 Brasília
-    - cron: '0 14 * * *'
+    # 16:00 UTC = 13:00 Brasília
+    - cron: '0 16 * * *'
   workflow_dispatch:
 
 jobs:

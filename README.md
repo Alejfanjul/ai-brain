@@ -31,21 +31,45 @@ O GitHub Actions roda diariamente às 11h (Brasília) e captura novos posts auto
 python3 scripts/capture_youtube.py "<URL>"
 ```
 
+Extrai transcript de um vídeo do YouTube e salva em `sources/`.
+
 ### YouTube (playlist inteira)
 ```bash
 python3 scripts/capture_playlist.py "<URL_DA_PLAYLIST>"
 ```
 
-### Artigo Web
+**Exemplo:**
+```bash
+python3 scripts/capture_playlist.py "https://www.youtube.com/playlist?list=PLxxxxxx"
+```
+
+**O que faz:**
+- Lista todos os vídeos da playlist
+- Pede confirmação antes de continuar
+- Extrai transcript de cada vídeo automaticamente
+- Cria arquivo único com todos os transcripts
+- Faz commit automático
+
+### Artigo/Blog/Newsletter
 ```bash
 python3 scripts/capture_article.py "<URL>"
 ```
 
+Extrai conteúdo de artigos, posts e newsletters da web e salva em `sources/`.
+
 ### Curso (Udemy, Coursera, etc)
 ```bash
 python3 scripts/capture_course.py
-# Preenche interativamente e cola o transcript
 ```
+
+**O que faz:**
+- Pede informações interativamente (nome, autor, plataforma, seção)
+- Você cola o transcript copiado da plataforma
+- Cria arquivo em `sources/` com nome `YYYY-MM-DD-curso-sX-secao.md`
+- Pergunta se quer capturar outra seção
+- Faz commit automático
+
+**Dica:** Capture uma seção por vez. Estrutura recomendada: 1 arquivo por seção do curso.
 
 ## Estrutura
 ```

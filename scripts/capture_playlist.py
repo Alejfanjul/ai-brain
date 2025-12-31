@@ -158,13 +158,14 @@ def create_playlist_file(playlist_info, video_transcripts):
     """Cria arquivo único com toda a playlist."""
     date_str = datetime.now().strftime('%Y-%m-%d')
 
-    slug = slugify(playlist_info['title'])
-    filename = f"{date_str}-playlist-{slug}.md"
+    author_slug = slugify(playlist_info['author'])
+    title_slug = slugify(playlist_info['title'])
+    filename = f"{date_str}-{author_slug}-playlist-{title_slug}.md"
     filepath = SOURCES_DIR / filename
 
     counter = 1
     while filepath.exists():
-        filename = f"{date_str}-playlist-{slug}-{counter}.md"
+        filename = f"{date_str}-{author_slug}-playlist-{title_slug}-{counter}.md"
         filepath = SOURCES_DIR / filename
         counter += 1
 

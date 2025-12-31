@@ -162,8 +162,9 @@ def get_header(headers, name):
 
 def create_capture_file(subject, author, content, date_str, email_type, notion_links=None):
     """Cria arquivo de captura."""
-    slug = slugify(subject)
-    filename = f"{date_str}-{slug}.md"
+    author_slug = slugify(author)
+    title_slug = slugify(subject)
+    filename = f"{date_str}-{author_slug}-{title_slug}.md"
     filepath = SOURCES_DIR / filename
 
     # Evita sobrescrever

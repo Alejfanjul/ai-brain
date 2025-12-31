@@ -2,7 +2,7 @@
 
 ## Fonte
 - **Tipo:** newsletter
-- **Autor:** Unknown
+- **Autor:** Nate
 - **URL:** email
 - **Data original:** 2025-12-30
 - **Data captura:** 2025-12-30

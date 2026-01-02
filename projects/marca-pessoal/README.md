@@ -14,7 +14,7 @@ Construir presença e posicionamento pessoal como parte da estratégia de criar 
 ## Fontes relevantes
 - Seth Godin → posicionamento, marketing de permissão
 - Derek Sivers → autenticidade, simplicidade
-- Bruno Perini → marca pessoal na prática
+- Bruno Faggion → marca pessoal na prática
 
 ## Histórico
 | Data | O que mudou |

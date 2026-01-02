@@ -29,11 +29,6 @@ SENDERS = [
         "type": "newsletter"
     },
     {
-        "email": "notify@sethgodin.com",
-        "author": "Seth Godin",
-        "type": "blog"
-    },
-    {
         "email": "simonw.substack.com",
         "author": "Simon Willison",
         "type": "newsletter"
@@ -232,7 +227,7 @@ def process_emails(service, days_back=2):
     after_date = (datetime.now() - timedelta(days=days_back)).strftime('%Y/%m/%d')
 
     # Busca emails de todas as fontes configuradas
-    query = f'from:(natesnewsletter.substack.com OR notify@sethgodin.com OR simonw.substack.com OR joe@artofaccomplishment.com) after:{after_date}'
+    query = f'from:(natesnewsletter.substack.com OR simonw.substack.com OR joe@artofaccomplishment.com) after:{after_date}'
 
     print(f"Buscando emails: {query}")
 

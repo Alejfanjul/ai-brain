@@ -160,6 +160,28 @@ def get_header(headers, name):
     return None
 
 
+def extract_author_from_content(html_content, subject):
+    """Tenta extrair autor do conteúdo HTML/subject quando header falha."""
+    soup = BeautifulSoup(html_content, 'html.parser')
+    text = soup.get_text()
+
+    # Combina subject + body para buscar
+    combined_text = f"{subject} {text}"
+
+    # Patterns específicos baseados em análise dos emails capturados
+    patterns = [
+        ("Simon Willison", r"Simon Willison'?s? Newsletter|simonw\.substack\.com"),
+        ("Nate", r"Nate'?s? Newsletter|natesnewsletter\.substack\.com"),
+        ("Joe Hudson", r"Joe Hudson|artofaccomplishment\.com"),
+    ]
+
+    for author, pattern in patterns:
+        if re.search(pattern, combined_text, re.IGNORECASE):
+            return author
+
+    return None
+
+
 def create_capture_file(subject, author, content, date_str, email_type, notion_links=None):
     """Cria arquivo de captura."""
     author_slug = slugify(author)
@@ -240,19 +262,38 @@ def process_emails(service, days_back=2):
         headers = full_msg['payload'].get('headers', [])
         subject = get_header(headers, 'Subject') or 'Sem título'
         date_raw = get_header(headers, 'Date') or ''
-
-        # Detecta autor baseado no remetente
         from_header = get_header(headers, 'From') or ''
+
+        # Extrai conteúdo HTML PRIMEIRO (necessário para fallback de autor)
+        html_content = extract_email_content(full_msg['payload'])
+
+        if not html_content:
+            print(f"    ⚠️ Sem conteúdo HTML")
+            continue
+
+        # Detecta autor baseado no remetente (com fallback para conteúdo)
         author = "Unknown"
         email_type = "newsletter"
 
+        # Tenta match direto com SENDERS
         for sender in SENDERS:
             if sender['email'].lower() in from_header.lower():
                 author = sender['author']
                 email_type = sender['type']
                 break
 
-        print(f"  Processando: {subject[:50]}...")
+        # Fallback: extrai do conteúdo se falhou
+        if author == "Unknown":
+            extracted_author = extract_author_from_content(html_content, subject)
+            if extracted_author:
+                author = extracted_author
+                # Busca o type correspondente em SENDERS
+                for sender in SENDERS:
+                    if sender['author'] == author:
+                        email_type = sender['type']
+                        break
+
+        print(f"  Processando: {subject[:50]}... [autor: {author}]")
 
         # Parse da data
         try:
@@ -268,13 +309,6 @@ def process_emails(service, days_back=2):
             date_str = date_obj.strftime('%Y-%m-%d')
         except:
             date_str = datetime.now().strftime('%Y-%m-%d')
-
-        # Extrai conteúdo
-        html_content = extract_email_content(full_msg['payload'])
-
-        if not html_content:
-            print(f"    ⚠️ Sem conteúdo HTML")
-            continue
 
         # Converte para markdown
         markdown_content = html_to_markdown(html_content)

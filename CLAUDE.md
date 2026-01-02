@@ -32,6 +32,10 @@ Executa: `python3 scripts/capture_course.py`
 Captura playlist inteira do YouTube, extraindo transcripts de todos os vídeos.
 Executa: `python3 scripts/capture_playlist.py "<url>"`
 
+### /capture epub <file_path>
+Extrai conteúdo de livro EPUB e salva em sources/.
+Executa: `python3 scripts/capture_epub.py "<file_path>"`
+
 ## Convenções
 
 ### Nomes de arquivo

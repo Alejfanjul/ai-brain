@@ -1,0 +1,12 @@
+Defaulting to user installation because normal site-packages is not writeable
+Collecting ebooklib
+  Downloading ebooklib-0.20-py3-none-any.whl.metadata (6.3 kB)
+Collecting lxml (from ebooklib)
+  Downloading lxml-6.0.2-cp311-cp311-manylinux_2_26_x86_64.manylinux_2_28_x86_64.whl.metadata (3.6 kB)
+Requirement already satisfied: six in /usr/lib/python3/dist-packages (from ebooklib) (1.16.0)
+Downloading ebooklib-0.20-py3-none-any.whl (40 kB)
+Downloading lxml-6.0.2-cp311-cp311-manylinux_2_26_x86_64.manylinux_2_28_x86_64.whl (5.2 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 5.2/5.2 MB 16.7 MB/s  0:00:00
+Installing collected packages: lxml, ebooklib
+
+Successfully installed ebooklib-0.20 lxml-6.0.2

@@ -2,7 +2,7 @@
 
 ## Fonte
 - **Tipo:** video
-- **Autor:** Mighty Networks
+- **Autor:** Seth Godin
 - **URL:** https://www.youtube.com/watch?v=Y1efkifcgag&list=WL&index=18
 - **Duração:** 55 min
 - **Data original:** 2025-02-10

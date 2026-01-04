@@ -2,7 +2,7 @@
 
 ## Fonte
 - **Tipo:** video
-- **Autor:** Alastair
+- **Autor:** Jim Carrey
 - **URL:** https://www.youtube.com/watch?v=RrOGQD4Z9A4&list=WL&index=22
 - **Duração:** 8 min
 - **Data original:** 2025-12-29

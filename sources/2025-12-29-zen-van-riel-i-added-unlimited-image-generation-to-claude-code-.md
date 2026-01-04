@@ -14,3 +14,5 @@ Kind: captions Language: en There's one thing getting in the way of AI agents li
 
 ## Minhas Anotações
 
+**Implementação realizada:** Criei uma skill para Claude Code que encapsula a API Gemini 3 Pro (Nano Banana). Agora posso simplesmente dizer "use Nano Banana para gerar uma..." ou "use Nano Banana para remover o texto desta imagem" e o sistema processa tanto geração quanto edição automaticamente. Não preciso mais executar scripts Python manualmente - Claude Code faz tudo durante a conversa de forma natural.
+

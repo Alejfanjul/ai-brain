@@ -53,6 +53,27 @@ cp templates/PROJECT-EXPLORATION.md projects/nome-do-projeto/README.md
 
 Detalhes completos em [CONTEXT.md](CONTEXT.md).
 
+## Manutenção
+
+### Renovar Token OAuth do Gmail
+
+Se o GitHub Action `daily-capture` falhar com erro `invalid_grant: Token has been expired or revoked`:
+
+1. **Gerar novo token localmente:**
+   ```bash
+   python3 scripts/gmail_auth.py
+   ```
+   O navegador abrirá para autorização. Faça login e autorize o acesso.
+
+2. **Atualizar o GitHub Secret:**
+   - Abrir: https://github.com/Alejfanjul/ai-brain/settings/secrets/actions
+   - Editar o secret `GMAIL_TOKEN`
+   - Colar o conteúdo completo do arquivo `token.json` gerado
+   - Salvar
+
+3. **Testar:**
+   - GitHub → Actions → daily-capture → Run workflow
+
 ## Princípios
 
 - **Raw over polished** - conteúdo original > resumos

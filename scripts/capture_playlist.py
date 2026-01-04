@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 """
 Captura playlist inteira do YouTube.
+Cria uma pasta com um arquivo por vídeo + índice.
+
 Uso: python3 scripts/capture_playlist.py <URL_DA_PLAYLIST>
 """
 
@@ -14,7 +16,7 @@ import os
 from datetime import datetime
 from pathlib import Path
 
-SOURCES_DIR = Path("sources")
+PLAYLISTS_DIR = Path("sources/playlists")
 
 
 def slugify(text):
@@ -23,6 +25,23 @@ def slugify(text):
     text = re.sub(r'[^\w\s-]', '', text)
     text = re.sub(r'[-\s]+', '-', text)
     return text.strip('-')[:50]
+
+
+def format_transcript(text):
+    """Formata transcript adicionando parágrafos."""
+    if not text:
+        return ""
+
+    # Remove prefixo de metadados se existir
+    text = re.sub(r'^Kind:\s*\w+\s*Language:\s*\w+\s*', '', text)
+
+    # Adiciona quebras após pontuação final seguida de letra maiúscula
+    text = re.sub(r'([.!?])\s+([A-ZÁÉÍÓÚÀÂÊÔÃÕÇ])', r'\1\n\n\2', text)
+
+    # Limpa espaços extras
+    text = re.sub(r'\n{3,}', '\n\n', text)
+
+    return text.strip()
 
 
 def get_playlist_info(url):
@@ -39,6 +58,7 @@ def get_playlist_info(url):
     videos = []
     playlist_title = None
     playlist_author = None
+    playlist_id = None
 
     for line in result.stdout.strip().split('\n'):
         if not line:
@@ -49,6 +69,8 @@ def get_playlist_info(url):
                 playlist_title = data.get('playlist_title')
             if not playlist_author and data.get('playlist_uploader'):
                 playlist_author = data.get('playlist_uploader')
+            if not playlist_id and data.get('playlist_id'):
+                playlist_id = data.get('playlist_id')
 
             videos.append({
                 'id': data.get('id'),
@@ -61,6 +83,7 @@ def get_playlist_info(url):
     return {
         'title': playlist_title or 'Playlist',
         'author': playlist_author or 'Desconhecido',
+        'playlist_id': playlist_id,
         'videos': videos
     }
 
@@ -92,6 +115,8 @@ def get_transcript(video_id):
                 orig_langs = [l for l in available_langs if '-orig' in l]
                 if orig_langs:
                     sub_lang = orig_langs[0]
+                elif 'pt' in available_langs:
+                    sub_lang = 'pt'
                 elif 'en' in available_langs:
                     sub_lang = 'en'
                 elif available_langs:
@@ -154,49 +179,81 @@ def parse_vtt(filepath):
     return ' '.join(cleaned)
 
 
-def create_playlist_file(playlist_info, video_transcripts):
-    """Cria arquivo único com toda a playlist."""
-    date_str = datetime.now().strftime('%Y-%m-%d')
-
+def create_playlist_folder(playlist_info, url):
+    """Cria pasta da playlist e retorna o caminho."""
     author_slug = slugify(playlist_info['author'])
     title_slug = slugify(playlist_info['title'])
-    filename = f"{date_str}-{author_slug}-playlist-{title_slug}.md"
-    filepath = SOURCES_DIR / filename
+    folder_name = f"{author_slug}-{title_slug}"
 
+    folder_path = PLAYLISTS_DIR / folder_name
+
+    # Se já existe, adiciona sufixo
     counter = 1
-    while filepath.exists():
-        filename = f"{date_str}-{author_slug}-playlist-{title_slug}-{counter}.md"
-        filepath = SOURCES_DIR / filename
+    while folder_path.exists():
+        folder_name = f"{author_slug}-{title_slug}-{counter}"
+        folder_path = PLAYLISTS_DIR / folder_name
         counter += 1
 
-    # Monta conteúdo
-    videos_content = ""
-    for i, (video, transcript) in enumerate(video_transcripts, 1):
-        videos_content += f"""
-### Vídeo {i}: {video['title']}
+    folder_path.mkdir(parents=True, exist_ok=True)
+    return folder_path
 
-{transcript if transcript else '[Transcript não disponível]'}
 
----
-"""
+def create_video_file(folder_path, index, video, transcript, playlist_info):
+    """Cria arquivo individual para um vídeo."""
+    title_slug = slugify(video['title'])
+    filename = f"{index:02d}-{title_slug}.md"
+    filepath = folder_path / filename
 
-    template = f"""# {playlist_info['title']}
+    formatted_transcript = format_transcript(transcript) if transcript else '[Transcript não disponível]'
+
+    content = f"""# {video['title']}
 
 ## Fonte
-- **Tipo:** playlist
+- **Playlist:** {playlist_info['title']}
 - **Autor:** {playlist_info['author']}
-- **Plataforma:** YouTube
-- **Total de vídeos:** {len(video_transcripts)}
-- **Data captura:** {date_str}
+- **URL:** {video['url']}
 
-## Conteúdo
-{videos_content}
+## Transcript
+
+{formatted_transcript}
 
 ## Minhas Anotações
 
 """
 
-    filepath.write_text(template, encoding='utf-8')
+    filepath.write_text(content, encoding='utf-8')
+    return filename
+
+
+def create_index_file(folder_path, playlist_info, video_files, url):
+    """Cria arquivo _index.md com metadata e lista de vídeos."""
+    date_str = datetime.now().strftime('%Y-%m-%d')
+
+    videos_list = ""
+    for i, (video, filename) in enumerate(video_files, 1):
+        # Link relativo para o arquivo
+        link_name = filename.replace('.md', '')
+        videos_list += f"{i}. [[{link_name}]] - {video['title']}\n"
+
+    content = f"""# {playlist_info['title']}
+
+## Fonte
+- **Tipo:** playlist
+- **Autor:** {playlist_info['author']}
+- **Plataforma:** YouTube
+- **URL:** {url}
+- **Total de vídeos:** {len(video_files)}
+- **Data captura:** {date_str}
+
+## Vídeos
+
+{videos_list}
+## Minhas Anotações
+
+"""
+
+    filepath = folder_path / "_index.md"
+    filepath.write_text(content, encoding='utf-8')
     return filepath
 
 
@@ -212,7 +269,7 @@ def main():
     print(f"URL: {url}")
     print()
 
-    SOURCES_DIR.mkdir(exist_ok=True)
+    PLAYLISTS_DIR.mkdir(parents=True, exist_ok=True)
 
     print("Obtendo informações da playlist...")
     playlist_info = get_playlist_info(url)
@@ -228,28 +285,40 @@ def main():
         print("Cancelado.")
         return
 
+    # Cria pasta da playlist
+    folder_path = create_playlist_folder(playlist_info, url)
+    print(f"\nPasta criada: {folder_path}")
     print()
-    video_transcripts = []
+
+    video_files = []
 
     for i, video in enumerate(playlist_info['videos'], 1):
         print(f"[{i}/{len(playlist_info['videos'])}] {video['title'][:50]}...")
         transcript = get_transcript(video['id'])
-        video_transcripts.append((video, transcript))
+
+        # Cria arquivo do vídeo
+        filename = create_video_file(folder_path, i, video, transcript, playlist_info)
+        video_files.append((video, filename))
 
         if transcript:
             print(f"    ✅ {len(transcript)} caracteres")
         else:
             print(f"    ⚠️ Sem transcript")
 
+    # Cria índice
     print()
-    filepath = create_playlist_file(playlist_info, video_transcripts)
+    index_path = create_index_file(folder_path, playlist_info, video_files, url)
+    print(f"✅ Índice criado: {index_path}")
 
-    print(f"✅ Arquivo criado: {filepath}")
-
-    subprocess.run(['git', 'add', str(filepath)])
+    # Git commit
+    print()
+    subprocess.run(['git', 'add', str(folder_path)])
     commit_msg = f"capture: playlist - {playlist_info['title'][:40]}"
     subprocess.run(['git', 'commit', '-m', commit_msg])
     print(f"✅ Commit: {commit_msg}")
+
+    print()
+    print(f"📁 {len(video_files)} arquivos criados em: {folder_path}")
 
 
 if __name__ == "__main__":

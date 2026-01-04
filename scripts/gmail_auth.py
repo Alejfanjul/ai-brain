@@ -24,9 +24,15 @@ def main():
     # Se não existe ou expirou, gera novo
     if not creds or not creds.valid:
         if creds and creds.expired and creds.refresh_token:
-            print("Token expirado. Renovando...")
-            creds.refresh(Request())
-        else:
+            try:
+                print("Token expirado. Renovando...")
+                creds.refresh(Request())
+            except Exception as e:
+                print(f"Falha ao renovar token: {e}")
+                print("Token foi revogado. Iniciando nova autenticação...")
+                creds = None
+
+        if not creds:
             print("Gerando novo token...")
             print("Uma janela do navegador vai abrir para autorização.")
             print()

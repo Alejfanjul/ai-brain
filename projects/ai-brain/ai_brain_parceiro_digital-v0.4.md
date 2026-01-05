@@ -8,6 +8,7 @@
 - Status atualizado: Marcos 1 e 2 concluídos
 - Seção "Sistema de Memória" clarificada como referência do Hillman
 - Links para `memory_lane_plan.md` (detalhes do Marco 3)
+- **Nova seção:** Estrutura Padrão de Projetos (7 arquivos + ciclo Factorio)
 
 **Changelog v0.3:**
 - Arquitetura simplificada: Claude Code CLI + Hooks (em vez de API direta + FastAPI)
@@ -636,6 +637,104 @@ Hillman descobriu que ~1/3 das features novas vieram de sugestoes do proprio sis
        v
 [Agente replica o processo]
 ```
+
+---
+
+## Estrutura Padrão de Projetos (Embrionária)
+
+> **Objetivo:** Todo projeto segue a mesma estrutura de documentação, facilitando automação futura e navegação consistente.
+
+### Arquivos Padrão
+
+```
+projeto/
+├── VISION.md         ← Por que existe? (manual)
+├── ROADMAP.md        ← Marcos e status (semi-auto)
+├── PLAYBOOK.md       ← Lições, regras, o que fazer/não fazer (semi-auto)
+├── CHANGELOG.md      ← O que mudou (auto)
+├── STRUCTURE.md      ← Mapa de arquivos (auto)
+├── FEATURES.md       ← O que o sistema faz (auto)
+├── COMMANDS.md       ← Comandos úteis (auto)
+└── src/              ← Código
+```
+
+### Descrição de cada arquivo
+
+| Arquivo | Propósito | Atualização |
+|---------|-----------|-------------|
+| **VISION.md** | Norte do projeto, problema que resolve, por que existe | Manual |
+| **ROADMAP.md** | Marcos, fases, status atual, próximos passos | Semi-auto |
+| **PLAYBOOK.md** | Lições aprendidas, regras, o que fazer em situação X | Semi-auto |
+| **CHANGELOG.md** | Histórico de mudanças significativas | Auto |
+| **STRUCTURE.md** | Mapa de pastas/arquivos e o que cada um faz | Auto |
+| **FEATURES.md** | Inventário de funcionalidades do sistema | Auto |
+| **COMMANDS.md** | Comandos úteis, scripts disponíveis, como executar | Auto |
+
+### Níveis de automação
+
+```
+MANUAL          SEMI-AUTO           AUTO
+   │                │                 │
+   │  Você          │  Sistema        │  Sistema
+   │  escreve       │  sugere,        │  atualiza
+   │                │  você aprova    │  sozinho
+   │                │                 │
+   ▼                ▼                 ▼
+VISION.md       ROADMAP.md        CHANGELOG.md
+                PLAYBOOK.md       STRUCTURE.md
+                                  FEATURES.md
+                                  COMMANDS.md
+```
+
+### O ciclo completo (Factorio Style)
+
+```
+┌─────────────────────────────────────────────────────────────────┐
+│                                                                 │
+│   CONVERSA ──▶ MEMÓRIA ──▶ DOCS ──▶ CONTEXTO ──▶ CONVERSA      │
+│       │                                              │          │
+│       └──────────────────◀───────────────────────────┘          │
+│                                                                 │
+│   1. Você conversa com Claude                                   │
+│   2. Sistema extrai memórias (decisões, lições, padrões)        │
+│   3. Sistema atualiza docs automaticamente                      │
+│   4. Próxima conversa já tem contexto atualizado                │
+│   5. Loop infinito de melhoria                                  │
+│                                                                 │
+└─────────────────────────────────────────────────────────────────┘
+```
+
+### Integração com Memory Lane
+
+Cada tipo de memória alimenta arquivos específicos:
+
+| Tipo de Memória | Alimenta qual arquivo |
+|-----------------|----------------------|
+| `decisao` | ROADMAP.md, CHANGELOG.md |
+| `insight` | PLAYBOOK.md, VISION.md (sugestões) |
+| `padrao` | PLAYBOOK.md, COMMANDS.md |
+| `aprendizado` | PLAYBOOK.md |
+| `correcao` | PLAYBOOK.md ("O que NÃO fazer") |
+| `workflow` | FEATURES.md, COMMANDS.md |
+| `gap` | ROADMAP.md (novos itens) |
+
+### Status atual
+
+| Arquivo | Hoje | Automação |
+|---------|------|-----------|
+| VISION.md | ❌ Não existe | Manual |
+| ROADMAP.md | ⚠️ Fragmentado | Fase 6 Memory Lane |
+| PLAYBOOK.md | ❌ Não existe | Futuro |
+| CHANGELOG.md | ⚠️ Só no header | Futuro |
+| STRUCTURE.md | ❌ Não existe | Futuro |
+| FEATURES.md | ❌ Não existe | Futuro |
+| COMMANDS.md | ⚠️ Parcial em CLAUDE.md | Futuro |
+
+### Filosofia
+
+> "O objetivo não é documentar melhor. É criar a fábrica que documenta sozinha."
+
+Com o uso, veremos o que mais precisamos. O importante é ter a estrutura base para evoluir.
 
 ---
 

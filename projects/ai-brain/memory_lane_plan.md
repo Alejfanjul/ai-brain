@@ -1,10 +1,10 @@
 # Plano: Memory Lane System (baseado no JFDI do Hillman)
 
-> **Contexto:** Este plano implementa a **Fase 3: Memória e Síntese** do documento `ai_brain_parceiro_digital-v0.3.md`.
+> **Contexto:** Este plano implementa o **Marco 3: Memória e Síntese** do documento [`ai_brain_parceiro_digital-v0.4.md`](./ai_brain_parceiro_digital-v0.4.md).
 >
-> As fases anteriores já foram concluídas:
-> - ✅ Fase 1: Audit Trail (hooks + Supabase)
-> - ✅ Fase 2: Persistência de Conversas (81 sessões, 1000+ mensagens salvas)
+> Marcos anteriores já foram concluídos:
+> - ✅ Marco 1: Audit Trail (hooks + Supabase)
+> - ✅ Marco 2: Persistência de Conversas (81 sessões, 1000+ mensagens salvas)
 
 ## Objetivo
 Implementar sistema completo de memória para o AI Brain, similar ao Memory Lane do Alex Hillman.
@@ -26,6 +26,7 @@ Implementar sistema completo de memória para o AI Brain, similar ao Memory Lane
 | Fase 3: Hooks de Retrieval | 📋 Pendente | - |
 | Fase 4: Surprise Triggers | 📋 Pendente | - |
 | Fase 5: Feedback Loop | 📋 Pendente | - |
+| Fase 6: Auto-Atualização de Planos | 📋 Pendente | - |
 
 ### Resultados da Fase 1
 - **22 memórias extraídas** das conversas existentes
@@ -120,6 +121,32 @@ Implementar sistema completo de memória para o AI Brain, similar ao Memory Lane
 2. Coletar feedback (útil/não útil)
 3. Re-ranking baseado em feedback (+/-5% por voto)
 
+### 📋 Fase 6: Auto-Atualização de Planos (PENDENTE)
+
+**Objetivo:** Sistema analisa conversas e atualiza automaticamente arquivos de planejamento.
+
+**Arquivos a criar:**
+- `~/ai-brain/scripts/update_plans.py`
+
+**Tarefas:**
+1. Analisar conversas em busca de:
+   - Decisões tomadas (atualizar status de itens)
+   - Novos itens identificados (adicionar ao roadmap)
+   - Mudanças de escopo (ajustar descrições)
+   - Conclusões de tarefas (marcar como ✅)
+2. Gerar diff proposto antes de aplicar mudanças
+3. Aplicar mudanças nos arquivos `.md` de planejamento
+4. Commitar automaticamente com mensagem descritiva
+
+**Arquivos monitorados:**
+- `projects/ai-brain/ai_brain_parceiro_digital-v*.md`
+- `projects/ai-brain/memory_lane_plan.md`
+- `projects/*/README.md`
+
+**Frequência:** Diária ou ao final de sessões significativas
+
+**Insight:** Isso fecha o loop - o sistema não só aprende das conversas, mas mantém sua própria documentação atualizada.
+
 ---
 
 ## Cron Setup (✅ ATIVO)
@@ -170,5 +197,6 @@ ANTHROPIC_API_KEY=sk-ant-api03-...
 ---
 
 ## Referências
+- [Documento principal do AI Brain](./ai_brain_parceiro_digital-v0.4.md)
 - [Alex Hillman - Memory Lane](https://www.youtube.com/watch?v=Wpz7LNI737Q)
-- [JFDI System](sources/2025-12-13-alex-hillman-jfdi-system-my-ai-executive-assistant-full-life-co.md)
+- [JFDI System](../../sources/2025-12-13-alex-hillman-jfdi-system-my-ai-executive-assistant-full-life-co.md)

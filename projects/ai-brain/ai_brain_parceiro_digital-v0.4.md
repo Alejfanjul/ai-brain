@@ -1,7 +1,14 @@
 # AI Brain - Parceiro Digital Pessoal
 
-**Data:** 05/01/2026 (v0.3)
-**Status:** Em concepção - arquitetura simplificada
+**Data:** 05/01/2026 (v0.4)
+**Status:** Em desenvolvimento - Marco 3 em progresso
+
+**Changelog v0.4:**
+- Reorganização: "Fases" → "Marcos" para evitar confusão com planos detalhados
+- Status atualizado: Marcos 1 e 2 concluídos
+- Seção "Sistema de Memória" clarificada como referência do Hillman
+- Links para `memory_lane_plan.md` (detalhes do Marco 3)
+
 **Changelog v0.3:**
 - Arquitetura simplificada: Claude Code CLI + Hooks (em vez de API direta + FastAPI)
 - Removido Telegram como interface inicial
@@ -304,11 +311,13 @@ Manter foco nas prioridades certas ao longo do tempo.
 
 ---
 
-## Sistema de Memoria: Evolucao e Implementacao
+## Referência: Como Hillman Construiu a Memória do JFDI
 
-Esta e uma das partes mais sofisticadas do sistema do Hillman. Ele evoluiu em tres fases.
+> **Nota:** Esta seção documenta como Alex Hillman construiu o sistema de memória do JFDI. É referência conceitual, não nosso roadmap. Para nosso plano de implementação, veja **Marco 3** e o arquivo [`memory_lane_plan.md`](./memory_lane_plan.md).
 
-### Fase 1: Audit Trail (Semanas 1-2)
+Esta é uma das partes mais sofisticadas do sistema do Hillman. Ele evoluiu em três etapas.
+
+### Etapa 1 do Hillman: Audit Trail
 
 **Conceito:** Cada agente/comando documenta o que fez depois de executar.
 
@@ -336,7 +345,7 @@ Esta e uma das partes mais sofisticadas do sistema do Hillman. Ele evoluiu em tr
 
 ---
 
-### Fase 2: Sintese Semanal (Semanas 3-4)
+### Etapa 2 do Hillman: Síntese Semanal
 
 **Conceito:** Semanalmente, analisar todos os audits e extrair padroes.
 
@@ -358,7 +367,7 @@ Esta e uma das partes mais sofisticadas do sistema do Hillman. Ele evoluiu em tr
 
 ---
 
-### Fase 3: Memory Lane (Semanas 4+)
+### Etapa 3 do Hillman: Memory Lane
 
 **Conceito:** Memoria semantica com recall automatico baseado em contexto.
 
@@ -406,66 +415,69 @@ Esta e uma das partes mais sofisticadas do sistema do Hillman. Ele evoluiu em tr
 
 ---
 
-## Jornada de Construcao: Por Onde Comecar
+## Jornada de Construcao: Marcos do Projeto
 
 Baseado na evolucao do JFDI System e nas decisoes desta conversa.
 
-### Fase 1: Audit Trail (Semana 1) - PRIMEIRA VITORIA
+> **Nota:** Esta seção descreve os marcos de alto nível do projeto. Para detalhes de implementação de cada marco, veja os planos específicos linkados.
+
+### Marco 1: Audit Trail ✅ CONCLUÍDO
 
 **Objetivo:** Deixar de usar Claude Web e usar somente via ai-brain/sistema-os, com todas as conversas persistidas.
 
-```
-1. Criar conta Supabase (free tier)
-2. Schema basico: sessoes, audits
-3. Configurar hooks do Claude Code
-4. Hook PostToolUse salva no Supabase
-5. Testar em: ai-brain E sistema-os
-```
+**O que foi feito:**
+- Conta Supabase criada (free tier)
+- Schema básico: sessões, audits
+- Hooks do Claude Code configurados
+- Hook PostToolUse salvando no Supabase
 
-**O que Hillman tinha nessa fase:** Claude Code + arquivos markdown + comandos basicos
-
-**Entregavel:** Toda interacao com Claude Code e registrada automaticamente.
+**Resultado:** Toda interação com Claude Code é registrada automaticamente.
 
 ---
 
-### Fase 2: Persistencia de Conversas (Semana 2)
+### Marco 2: Persistência de Conversas ✅ CONCLUÍDO
 
-```
-1. Session ID para continuar conversas
-2. Salvar transcripts completos
-3. Busca basica em conversas anteriores
-4. Campo 'repositorio' para distinguir origem
-```
+**O que foi feito:**
+- Session ID para continuar conversas
+- Transcripts completos salvos
+- 81+ sessões e 1000+ mensagens registradas
+- Campo 'repositório' distinguindo origem
 
-**Entregavel:** Posso continuar conversas de onde parei e buscar o que ja discuti.
-
----
-
-### Fase 3: Memoria e Sintese (Semanas 3-4)
-
-```
-1. Extracao de memorias dos transcripts
-2. Sintese semanal de padroes
-3. Sugestoes de automacoes baseadas em padroes
-```
-
-**Insight chave:**
-> "You can get so much value out of this without vector search. Don't let people tell you that you need fancy databases with vector search to get the power."
-
-**Entregavel:** Sistema comeca a sugerir melhorias baseado em padroes.
+**Resultado:** Conversas persistidas e buscáveis.
 
 ---
 
-### Fase 4: Interface e Proatividade (Semanas 5+)
+### Marco 3: Memória e Síntese 🔄 EM PROGRESSO
 
-```
-1. Interface web propria (se necessario)
-2. Morning overview automatico
-3. Lembretes e check-ins
-4. Embeddings para busca semantica (opcional)
-```
+> **Plano detalhado:** [`memory_lane_plan.md`](./memory_lane_plan.md)
 
-**Entregavel:** Sistema me procura, prepara meu dia, lembra de contexto.
+**Objetivo:** Sistema de memória semântica com extração automática e retrieval inteligente.
+
+**Status atual:** Fase 1 de 6 concluída (sync periódico + extração básica)
+- 22 memórias extraídas das conversas
+- Cron jobs configurados e funcionando
+
+**Inclui:**
+- Extração de memórias das conversas
+- Embeddings e busca semântica
+- Retrieval inteligente no contexto
+- **Auto-atualização de planos** (sistema atualiza seus próprios arquivos de planejamento)
+
+**Próximos passos:** Ver plano detalhado para Fases 2-6.
+
+---
+
+### Marco 4: Interface e Proatividade 📋 FUTURO
+
+**Objetivo:** Sistema proativo que me procura, prepara meu dia, sugere ações.
+
+**Features planejadas:**
+- Interface web própria (se necessário)
+- Morning overview automático
+- Lembretes e check-ins
+- Sistema me procurando (não eu procurando ele)
+
+**Pré-requisito:** Marco 3 concluído.
 
 ---
 
@@ -627,28 +639,31 @@ Hillman descobriu que ~1/3 das features novas vieram de sugestoes do proprio sis
 
 ---
 
-## Proximos passos
+## Próximos Passos
 
-### Imediato (proxima sessao)
-1. **Criar conta Supabase** - free tier
-2. **Criar schema basico** - sessoes + audits
-3. **Configurar hook PostToolUse** - salvar no Supabase
-4. **Testar** - fazer uma tarefa no ai-brain e verificar se salvou
+> Status atualizado em: 05/01/2026
 
-### Curto prazo (Semana 1)
-5. **Configurar no sistema-os** - mesmo hook, mesmo banco
-6. **Validar persistencia** - session_id funcionando
-7. **Primeira vitoria** - parar de usar Claude Web
+### ✅ Concluído (Marcos 1 e 2)
+- ~~Criar conta Supabase~~ ✅
+- ~~Criar schema básico~~ ✅
+- ~~Configurar hooks do Claude Code~~ ✅
+- ~~Session ID e persistência~~ ✅
+- ~~81+ sessões e 1000+ mensagens salvas~~ ✅
 
-### Medio prazo (Semanas 2-4)
-8. **Busca em conversas** - encontrar o que ja discuti
-9. **Extracao de memorias** - decisoes, insights, padroes
-10. **Sintese semanal** - identificar padroes repetitivos
+### 🔄 Em Progresso (Marco 3: Memória)
+> Detalhes: [`memory_lane_plan.md`](./memory_lane_plan.md)
 
-### Longo prazo (Semanas 5+)
-11. **Morning overview** - dashboard diario automatico
-12. **Busca semantica** - pgvector + Ollama
-13. **Interface web** - se necessario
+- ✅ Sync periódico + extração básica (22 memórias extraídas)
+- 📋 Embeddings via Ollama + pgvector
+- 📋 Hooks de retrieval (injetar memórias no contexto)
+- 📋 Surprise triggers (detectar correções, entusiasmo)
+- 📋 Feedback loop (memórias úteis vs não úteis)
+- 📋 Auto-atualização de planos (sistema mantém documentação atualizada)
+
+### 📋 Futuro (Marco 4: Proatividade)
+- Morning overview automático
+- Sistema me procurando proativamente
+- Interface web (se necessário)
 
 ---
 

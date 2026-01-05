@@ -29,10 +29,50 @@ ai-brain/
 | `python3 scripts/capture_epub.py <file>` | Livro EPUB |
 | `python3 scripts/capture_course.py` | Curso (cola transcript) |
 
+## Memory Lane System
+
+Sistema de memória persistente baseado no JFDI do Alex Hillman. Extrai automaticamente aprendizados das conversas com Claude Code.
+
+### Status
+- ✅ Fase 1: Sync Periódico + Extração de Memórias (22 memórias extraídas)
+- 📋 Fase 2: Embeddings via Ollama (pendente)
+- 📋 Fase 3: Hooks de Retrieval (pendente)
+
+### Como funciona
+
+```
+CRON JOBS (automático)
+├── */5 min  → sync_sessions.py    → Sincroniza sessões para Supabase
+└── */15 min → extract_memories.py → Extrai memórias via Claude Haiku
+```
+
+### Tipos de memória capturadas
+| Tipo | Descrição |
+|------|-----------|
+| decisao | Escolhas de implementação ou arquitetura |
+| insight | Realizações sobre como algo funciona |
+| padrao | Comportamentos ou workflows repetidos |
+| aprendizado | Conhecimento novo adquirido |
+| correcao | Erros identificados e corrigidos |
+| workflow | Sequências de ações documentadas |
+| gap | Desconexões entre sistemas |
+
+### Monitorar logs
+```bash
+tail -f /tmp/ml_sync.log      # Sync de sessões
+tail -f /tmp/ml_extract.log   # Extração de memórias
+```
+
+### Documentação completa
+→ [Memory Lane Plan](projects/ai-brain/memory_lane_plan.md)
+
+---
+
 ## Projetos
 
 | Projeto | Estágio | Descrição |
 |---------|---------|-----------|
+| ai-brain | Execução | Sistema de memória e conhecimento com IA |
 | marca-pessoal | Exploração | Construção de presença pessoal |
 
 ### Criar novo projeto

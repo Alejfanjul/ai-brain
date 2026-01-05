@@ -54,7 +54,7 @@ Para cada memória, retorne JSON com:
 - reasoning: por que isso vale lembrar
 - confidence_score: 0.0-1.0 (quão confiante que é memorável)
 - surprise_score: 0.0-1.0 (quão forte são os surprise triggers)
-- entidades: lista de {type: pessoa|projeto|arquivo, name: string}
+- entidades: lista de {{type: pessoa|projeto|arquivo, name: string}}
 - contexto_original: o trecho relevante do transcript
 - formada_em: timestamp aproximado (do transcript)
 
@@ -114,10 +114,20 @@ def call_claude_api(prompt: str, max_tokens: int = 4000) -> str:
     try:
         with urllib.request.urlopen(req, timeout=60) as response:
             result = json.loads(response.read().decode())
+            # Verificar estrutura da resposta
+            if "content" not in result:
+                raise ValueError(f"Resposta sem 'content': {list(result.keys())}")
+            if not result["content"]:
+                raise ValueError("Content vazio")
+            if "text" not in result["content"][0]:
+                raise ValueError(f"Bloco sem 'text': {result['content'][0]}")
             return result["content"][0]["text"]
     except urllib.error.HTTPError as e:
         error_body = e.read().decode() if e.fp else ""
         print(f"Claude API Error {e.code}: {error_body}", file=sys.stderr)
+        raise
+    except Exception as e:
+        print(f"Erro parseando resposta Claude: {e}", file=sys.stderr)
         raise
 
 
@@ -163,8 +173,9 @@ def format_transcript(messages: list, max_chars: int = 15000) -> str:
     """Formata mensagens em transcript legível."""
     lines = []
     for msg in messages:
-        tipo = "USER" if msg["tipo"] == "user" else "ASSISTANT"
-        conteudo = msg.get("conteudo", "")[:2000]  # Limitar cada mensagem
+        tipo_raw = msg.get("tipo", "unknown")
+        tipo = "USER" if tipo_raw == "user" else "ASSISTANT"
+        conteudo = msg.get("conteudo", "")[:2000] if msg.get("conteudo") else ""
         timestamp = msg.get("timestamp_original", "")[:19] if msg.get("timestamp_original") else ""
         lines.append(f"[{timestamp}] {tipo}: {conteudo}")
 
@@ -184,14 +195,16 @@ def extract_memories(transcript: str) -> list:
     try:
         response = call_claude_api(prompt)
 
-        # Extrair JSON da resposta
-        # Às vezes vem com ```json ... ```
+        # Extrair JSON da resposta (às vezes vem com ```json ... ```)
         json_match = re.search(r'\[[\s\S]*\]', response)
         if json_match:
             return json.loads(json_match.group())
         return []
+    except json.JSONDecodeError as e:
+        print(f"Erro ao parsear JSON: {e}", file=sys.stderr)
+        return []
     except Exception as e:
-        print(f"Erro ao extrair memórias: {e}", file=sys.stderr)
+        print(f"Erro ao extrair memórias: {type(e).__name__}: {e}", file=sys.stderr)
         return []
 
 
@@ -243,16 +256,32 @@ def process_conversation(conversa: dict) -> int:
     print(f"Processando: {session_id[:12]}... ({conversa['total_mensagens']} msgs)")
 
     # Buscar mensagens
-    messages = get_conversation_messages(conversa_id)
+    try:
+        messages = get_conversation_messages(conversa_id)
+    except Exception as e:
+        print(f"  Erro ao buscar mensagens: {e}", file=sys.stderr)
+        mark_conversation_processed(conversa_id, 0, "erro", f"Buscar msgs: {e}")
+        return 0
+
     if not messages:
         mark_conversation_processed(conversa_id, 0, "erro", "Sem mensagens")
         return 0
 
     # Formatar transcript
-    transcript = format_transcript(messages)
+    try:
+        transcript = format_transcript(messages)
+    except Exception as e:
+        print(f"  Erro ao formatar transcript: {e}", file=sys.stderr)
+        mark_conversation_processed(conversa_id, 0, "erro", f"Formatar: {e}")
+        return 0
 
     # Extrair memórias
-    memories = extract_memories(transcript)
+    try:
+        memories = extract_memories(transcript)
+    except Exception as e:
+        print(f"  Erro ao extrair memórias: {e}", file=sys.stderr)
+        mark_conversation_processed(conversa_id, 0, "erro", f"Extrair: {e}")
+        return 0
 
     # Salvar memórias
     saved_count = 0

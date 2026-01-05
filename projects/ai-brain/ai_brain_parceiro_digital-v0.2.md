@@ -2,7 +2,7 @@
 
 **Data:** 04/01/2026 (v0.2)
 **Status:** Em concepção - arquitetura definida
-**Changelog v0.2:** Enriquecido com insights do JFDI System (Alex Hillman) - sistema similar em produção desde Dezembro 2024
+**Changelog v0.2:** Enriquecido com insights do JFDI System (Alex Hillman) - sistema similar em produção desde Dezembro 2025
 
 ---
 
@@ -17,7 +17,7 @@ O AI Brain é um parceiro que trabalha junto comigo pra otimizar e aproveitar me
 
 ### Validação externa: JFDI System (Alex Hillman)
 
-Alex Hillman, fundador do Indie Hall (coworking em Philadelphia), construiu algo muito similar chamado **JFDI System**. Em ~3 semanas de desenvolvimento ativo (Outubro-Dezembro 2024), ele criou um sistema que:
+Alex Hillman, fundador do Indie Hall (coworking em Philadelphia), construiu algo muito similar chamado **JFDI System**. Em ~3 semanas de desenvolvimento ativo (Outubro-Dezembro 2025), ele criou um sistema que:
 
 > "Has already had a materially positive impact on my life, my productivity, my happiness. Most importantly, my executive function where open loops really are a challenge for me."
 
@@ -235,7 +235,7 @@ Esta é uma das partes mais sofisticadas do sistema do Hillman. Ele evoluiu em t
 **Estrutura:**
 ```
 /audits/
-  /2024-12-13/
+  /2025-12-13/
     overview-activity.md
     person-researcher-activity.md
     newsletter-activity.md
@@ -737,8 +737,8 @@ Em vez de fine-tuning (que limitaria ao modelo pequeno), implementamos como **ca
 │                                                             │
 │  <memorias_relevantes>                                      │
 │  # Memórias recuperadas (Memory Lane)                       │
-│  [Decisão 2024-12-28] Preferência por Haiku para...        │
-│  [Correção 2024-12-30] Não usar framework X porque...      │
+│  [Decisão 2025-12-28] Preferência por Haiku para...        │
+│  [Correção 2025-12-30] Não usar framework X porque...      │
 │  [Padrão identificado] Ale trabalha melhor de manhã...     │
 │  </memorias_relevantes>                                     │
 │                                                             │

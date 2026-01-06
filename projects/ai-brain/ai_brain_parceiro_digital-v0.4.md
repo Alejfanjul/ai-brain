@@ -918,6 +918,30 @@ Com o uso, veremos o que mais precisamos. O importante é ter a estrutura base p
 
 ---
 
+## Histórico de Conversas
+
+> Registro de conversas importantes que moldaram decisões do projeto.
+
+### 2026-01-06: Context Engineering do Manus
+
+**Contexto:** Discussão sobre artigo "Context Engineering for AI Agents" do Manus e newsletter do Nate sobre aquisição pela Meta ($2B).
+
+**Decisões:**
+- AI Brain é **fundação** (memória + contexto inteligente) para futuros sistemas agentic
+- Modelo atual: parceria conversacional (eu + sistema trabalhando juntos)
+- Princípios do Manus aplicáveis ao AI Brain:
+  - File system como memória (já fazemos com `sources/` e `projects/`)
+  - Recitação de objetivos (Fase 3 vai implementar via hooks de retrieval)
+  - Manter erros visíveis (memórias tipo "correção" e "aprendizado")
+
+**Insight principal:** O que o Manus construiu que vale $2B não é o modelo, é o "harness" - toda a engenharia de contexto ao redor. O AI Brain está construindo exatamente essa fundação.
+
+**Referências:**
+- `sources/2026-01-06-manus-context-engineering-for-ai-agents-lessons-from-bui.md`
+- `sources/2026-01-06-nate-meta-bought-manus-for-2b-to-acquire-an-agentic-har.md`
+
+---
+
 ## Conexao com marca pessoal
 
 Documentar publicamente a construcao deste sistema:

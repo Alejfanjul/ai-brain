@@ -22,7 +22,7 @@ Implementar sistema completo de memória para o AI Brain, similar ao Memory Lane
 | Fase | Status | Data |
 |------|--------|------|
 | Fase 1: Sync Periódico + Extração | ✅ Concluída | 2026-01-05 |
-| Fase 2: Embeddings e pgvector | 📋 Pendente | - |
+| Fase 2: Embeddings e pgvector | ✅ Concluída | 2026-01-06 |
 | Fase 3: Hooks de Retrieval | 📋 Pendente | - |
 | Fase 4: Surprise Triggers | 📋 Pendente | - |
 | Fase 5: Feedback Loop | 📋 Pendente | - |
@@ -32,6 +32,12 @@ Implementar sistema completo de memória para o AI Brain, similar ao Memory Lane
 - **22 memórias extraídas** das conversas existentes
 - Tipos: 8 workflows, 6 decisões, 6 insights, 1 correção, 1 padrão
 - Cron jobs configurados e funcionando
+
+### Resultados da Fase 2
+- **40 memórias com embeddings** (768 dimensões via nomic-embed-text)
+- Script `generate_embeddings.py` criado e funcionando
+- Ollama instalado e configurado localmente
+- Índice IVFFlat pendente (criar via Supabase Dashboard)
 
 ---
 
@@ -84,15 +90,27 @@ Implementar sistema completo de memória para o AI Brain, similar ao Memory Lane
 6. ✅ Executar schema v4 no Supabase
 7. ✅ Configurar ANTHROPIC_API_KEY no .env
 
-### 📋 Fase 2: Embeddings e pgvector (PENDENTE)
+### ✅ Fase 2: Embeddings e pgvector (CONCLUÍDA)
 
-**Arquivos a criar:**
-- `~/ai-brain/scripts/generate_embeddings.py`
+**Arquivos criados:**
+- ✅ `~/ai-brain/scripts/generate_embeddings.py` - geração via Ollama
 
-**Tarefas:**
-1. Habilitar pgvector no Supabase
-2. Criar script que gera embeddings via Ollama
-3. Integrar embeddings no pipeline de extração
+**Tarefas concluídas:**
+1. ✅ Habilitar pgvector no Supabase (já estava no schema v4)
+2. ✅ Instalar Ollama e modelo nomic-embed-text
+3. ✅ Criar script que gera embeddings via Ollama
+4. ✅ Processar 40 memórias existentes
+5. 📋 Criar índice IVFFlat (pendente - rodar no Supabase Dashboard)
+
+**SQL para criar índice (rodar no Supabase Dashboard > SQL Editor):**
+```sql
+CREATE INDEX IF NOT EXISTS idx_memorias_embedding ON memorias
+    USING ivfflat (embedding vector_cosine_ops) WITH (lists = 100);
+```
+
+**Contexto da conversa 2026-01-06:**
+Durante a implementação, discutimos o artigo "Context Engineering for AI Agents" do Manus.
+Decisão: AI Brain é a fundação (memória + contexto) para futuros sistemas agentic.
 
 ### 📋 Fase 3: Hooks de Retrieval (PENDENTE)
 

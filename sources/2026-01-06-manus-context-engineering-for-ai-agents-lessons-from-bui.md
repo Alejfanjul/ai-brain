@@ -2,7 +2,7 @@
 
 ## Fonte
 - **Tipo:** artigo
-- **Autor:** manus.im
+- **Autor:** Manus
 - **URL:** https://manus.im/blog/Context-Engineering-for-AI-Agents-Lessons-from-Building-Manus
 - **Data original:** 2026-01-06
 - **Data captura:** 2026-01-06

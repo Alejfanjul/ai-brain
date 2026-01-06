@@ -36,6 +36,24 @@ Ao finalizar uma conversa produtiva:
 | /capture course | python3 scripts/capture_course.py |
 | /capture manual | Usar template templates/CAPTURE-MANUAL.md |
 
+## Memory Lane (Sistema de Memória)
+
+| Comando | Descrição |
+|---------|-----------|
+| python3 scripts/extract_memories.py | Extrair memórias das conversas |
+| python3 scripts/generate_embeddings.py | Gerar embeddings via Ollama |
+
+### Ollama (Embeddings locais)
+
+| Comando | Descrição |
+|---------|-----------|
+| sudo systemctl start ollama | Iniciar Ollama |
+| sudo systemctl stop ollama | Parar Ollama |
+| sudo systemctl status ollama | Ver status |
+| sudo systemctl enable ollama | Habilitar no boot |
+| curl localhost:11434/api/tags | Verificar se está rodando |
+| ollama list | Ver modelos instalados |
+
 ## Criar novo projeto
 
 ```bash

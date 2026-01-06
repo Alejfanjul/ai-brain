@@ -454,8 +454,9 @@ Baseado na evolucao do JFDI System e nas decisoes desta conversa.
 
 **Objetivo:** Sistema de memória semântica com extração automática e retrieval inteligente.
 
-**Status atual:** Fase 1 de 6 concluída (sync periódico + extração básica)
-- 22 memórias extraídas das conversas
+**Status atual:** Fase 2 de 6 concluída (embeddings via Ollama)
+- 40 memórias extraídas com embeddings (768 dimensões)
+- Ollama configurado como serviço systemd
 - Cron jobs configurados e funcionando
 
 **Inclui:**
@@ -464,7 +465,72 @@ Baseado na evolucao do JFDI System e nas decisoes desta conversa.
 - Retrieval inteligente no contexto
 - **Auto-atualização de planos** (sistema atualiza seus próprios arquivos de planejamento)
 
-**Próximos passos:** Ver plano detalhado para Fases 2-6.
+**Próximos passos:** Fase 3 - Hooks de Retrieval (injetar memórias automaticamente).
+
+#### O Sistema Hoje (resumo visual)
+
+```
+┌────────────────────────────────────────────────────────────┐
+│  🧠 AI BRAIN - COMO FUNCIONA HOJE                          │
+│                                                            │
+│   VOCÊ CONVERSA                                            │
+│        │                                                   │
+│        ▼                                                   │
+│   ┌─────────────┐                                         │
+│   │ Claude Code │  ← Você trabalha aqui                   │
+│   │  (terminal) │                                         │
+│   └──────┬──────┘                                         │
+│          │                                                 │
+│          │ (tudo é gravado automaticamente)               │
+│          ▼                                                 │
+│   ┌─────────────────────────────────────────┐             │
+│   │         📚 SUPABASE (a biblioteca)       │             │
+│   │                                          │             │
+│   │   📖 conversas     → 109 sessões salvas │             │
+│   │   💬 mensagens     → 1000+ mensagens    │             │
+│   │   💡 memorias      → 40 memórias        │             │
+│   │   🧲 embeddings    → 40 vetores 768-dim │             │
+│   │                                          │             │
+│   └─────────────────────────────────────────┘             │
+│                                                            │
+│   A CADA 15 MIN (cron job):                               │
+│   ┌──────────────────────┐                                │
+│   │ 🤖 Claude Haiku lê   │                                │
+│   │    conversas e       │                                │
+│   │    extrai "memórias" │                                │
+│   │    (decisões,        │                                │
+│   │     insights,        │                                │
+│   │     padrões...)      │                                │
+│   └──────────────────────┘                                │
+│                                                            │
+│   QUANDO RODAR generate_embeddings.py:                    │
+│   ┌──────────────────────┐                                │
+│   │ 🧲 Ollama transforma │                                │
+│   │    cada memória em   │                                │
+│   │    um "vetor" (768   │                                │
+│   │    números) para     │                                │
+│   │    busca semântica   │                                │
+│   └──────────────────────┘                                │
+│                                                            │
+└────────────────────────────────────────────────────────────┘
+```
+
+**Analogia: O Bibliotecário**
+
+| Componente | Analogia |
+|------------|----------|
+| **Supabase** | 📚 A biblioteca onde tudo é guardado |
+| **Conversas** | 📖 Livros de registro de cada sessão |
+| **Memórias** | 💡 Fichas resumo com os pontos importantes |
+| **Embeddings** | 🧲 Imãs que agrupam fichas por similaridade |
+| **Ollama** | 🏭 A máquina local que fabrica os imãs |
+
+**Estatísticas por tipo de memória:**
+- 🔄 workflow: 13 (como fazer X → Y → Z)
+- 🎯 decisao: 11 (escolhemos usar X)
+- 💡 insight: 10 (descobri que X funciona assim)
+- 🔧 correcao: 5 (erro corrigido)
+- 📋 padrao: 1 (sempre fazemos X)
 
 ---
 

@@ -27,14 +27,14 @@ Ao finalizar uma conversa produtiva:
 
 ## Comandos de Captura
 
-| Comando | Script |
-|---------|--------|
-| /capture youtube <url> | python3 scripts/capture_youtube.py |
-| /capture playlist <url> | python3 scripts/capture_playlist.py |
-| /capture article <url> | python3 scripts/capture_article.py |
-| /capture epub <file> | python3 scripts/capture_epub.py |
-| /capture course | python3 scripts/capture_course.py |
-| /capture manual | Usar template templates/CAPTURE-MANUAL.md |
+| Tipo | Comando |
+|------|---------|
+| YouTube | `python3 scripts/capture_youtube.py <url>` |
+| Playlist | `python3 scripts/capture_playlist.py <url>` |
+| Artigo | `python3 scripts/capture_article.py <url>` |
+| EPUB | `python3 scripts/capture_epub.py <arquivo>` |
+| Curso | `python3 scripts/capture_course.py` |
+| Manual | Usar template `templates/CAPTURE-MANUAL.md` |
 
 ## Memory Lane (Sistema de Memória)
 

@@ -1,19 +1,21 @@
 # Plano: Memory Lane System (baseado no JFDI do Hillman)
 
-> **Contexto:** Este plano implementa o **Marco 3: Memória e Síntese** do documento [`ai_brain_parceiro_digital-v0.4.md`](./ai_brain_parceiro_digital-v0.4.md).
+> **Contexto:** Este plano implementa o **Marco 3: Memória e Síntese** do documento [`ai_brain_parceiro_digital-v0.5.md`](./ai_brain_parceiro_digital-v0.5.md).
 >
 > Marcos anteriores já foram concluídos:
 > - ✅ Marco 1: Audit Trail (hooks + Supabase)
 > - ✅ Marco 2: Persistência de Conversas (81 sessões, 1000+ mensagens salvas)
 
 ## Objetivo
-Implementar sistema completo de memória para o AI Brain, similar ao Memory Lane do Alex Hillman.
+Implementar sistema de memória semântica que **cruza memórias das conversas com conteúdos capturados (sources)**, permitindo relacionar planos de projetos com ideias de autores como Nate, Hillman, Seth Godin, etc.
 
 ## Decisões do usuário
-- **Embeddings:** Ollama (local, gratuito)
+- **Embeddings:** Ollama (local, gratuito) - modelo nomic-embed-text (768 dim)
 - **Frequência:** 5 min sync sessões, 15 min extração memórias
-- **Interface:** Backend primeiro (sem UI)
+- **Interface:** Scripts Python primeiro (validar antes de automatizar)
 - **Scheduler:** Cron (simples)
+- **Chunks:** ~600 palavras com 15% overlap
+- **Metadados:** Extrair autor/data do nome do arquivo
 
 ---
 
@@ -22,11 +24,13 @@ Implementar sistema completo de memória para o AI Brain, similar ao Memory Lane
 | Fase | Status | Data |
 |------|--------|------|
 | Fase 1: Sync Periódico + Extração | ✅ Concluída | 2026-01-05 |
-| Fase 2: Embeddings e pgvector | ✅ Concluída | 2026-01-06 |
-| Fase 3: Hooks de Retrieval | 📋 Pendente | - |
-| Fase 4: Surprise Triggers | 📋 Pendente | - |
-| Fase 5: Feedback Loop | 📋 Pendente | - |
-| Fase 6: Auto-Atualização de Planos | 📋 Pendente | - |
+| Fase 2: Embeddings das memórias | ✅ Concluída | 2026-01-06 |
+| Fase 2.5: Embeddings dos sources | 📋 Pendente | - |
+| Fase 3: Script de busca unificada | 📋 Pendente | - |
+| Fase 4: Hooks de Retrieval | 📋 Pendente | - |
+| Fase 5: Surprise Triggers | 📋 Pendente | - |
+| Fase 6: Feedback Loop | 📋 Pendente | - |
+| Fase 7: Auto-Atualização de Planos | 📋 Pendente | - |
 
 ### Resultados da Fase 1
 - **22 memórias extraídas** das conversas existentes
@@ -90,7 +94,7 @@ Implementar sistema completo de memória para o AI Brain, similar ao Memory Lane
 6. ✅ Executar schema v4 no Supabase
 7. ✅ Configurar ANTHROPIC_API_KEY no .env
 
-### ✅ Fase 2: Embeddings e pgvector (CONCLUÍDA)
+### ✅ Fase 2: Embeddings das memórias (CONCLUÍDA)
 
 **Arquivos criados:**
 - ✅ `~/ai-brain/scripts/generate_embeddings.py` - geração via Ollama
@@ -112,18 +116,80 @@ CREATE INDEX IF NOT EXISTS idx_memorias_embedding ON memorias
 Durante a implementação, discutimos o artigo "Context Engineering for AI Agents" do Manus.
 Decisão: AI Brain é a fundação (memória + contexto) para futuros sistemas agentic.
 
-### 📋 Fase 3: Hooks de Retrieval (PENDENTE)
+### 📋 Fase 2.5: Embeddings dos sources (PENDENTE) ← PRÓXIMO PASSO
+
+> **Decisão 2026-01-08:** Priorizar embeddings dos sources para permitir cruzamento entre memórias (conversas) e conteúdos capturados (transcripts, artigos). Isso permite responder perguntas como "como nosso plano se relaciona com as ideias do Nate?"
+
+**Nova tabela no Supabase:**
+```sql
+CREATE TABLE source_chunks (
+    id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+    source_file TEXT,        -- ex: "2026-01-06-nate-..."
+    autor TEXT,              -- ex: "nate", "hillman"
+    chunk_index INTEGER,     -- posição no arquivo
+    content TEXT,            -- o texto do chunk
+    embedding VECTOR(768),
+    criado_em TIMESTAMP DEFAULT NOW()
+);
+
+CREATE INDEX idx_source_chunks_embedding ON source_chunks
+    USING ivfflat (embedding vector_cosine_ops) WITH (lists = 100);
+```
+
+**Arquivos a criar:**
+- `~/ai-brain/scripts/embed_sources.py` - processa arquivos em sources/
+
+**Tarefas:**
+1. Criar tabela source_chunks no Supabase
+2. Criar script embed_sources.py:
+   - Lê cada arquivo em `sources/`
+   - Extrai metadados (autor, data) do nome do arquivo
+   - Quebra em chunks de ~600 palavras com 15% overlap
+   - Gera embedding via Ollama
+   - Salva no Supabase
+3. Processar os 68+ arquivos existentes
+
+**Configurações definidas:**
+- Tamanho chunk: ~600 palavras
+- Overlap: 15% (~90 palavras)
+- Extração de autor: automática do nome do arquivo
+
+### 📋 Fase 3: Script de busca unificada (PENDENTE)
+
+> **Decisão 2026-01-08:** Fazer busca manual via script primeiro, antes de automatizar com hooks. Permite validar a qualidade da busca semântica.
+
+**Arquivos a criar:**
+- `~/ai-brain/scripts/search.py` - busca unificada
+
+**Tarefas:**
+1. Criar script que:
+   - Recebe query como argumento
+   - Gera embedding da query via Ollama
+   - Busca em `memorias` (conversas)
+   - Busca em `source_chunks` (conteúdos)
+   - Retorna resultados combinados com score
+2. Permitir filtros opcionais (autor, tipo, data)
+
+**Exemplo de uso:**
+```bash
+python3 scripts/search.py "como implementar agentes ia"
+python3 scripts/search.py "ideias do nate sobre automação" --autor nate
+```
+
+### 📋 Fase 4: Hooks de Retrieval (PENDENTE)
 
 **Arquivos a criar:**
 - `~/.claude/hooks/memory_retrieval_hook.py`
 - `~/.claude/hooks/file_memory_hook.py`
 
 **Tarefas:**
-1. Hook user_prompt_submit → busca memórias → injeta contexto
+1. Hook user_prompt_submit → busca memórias/sources → injeta contexto
 2. Hook tool_use (Edit/Write/Read) → memórias de arquivo
 3. Algoritmo de retrieval (entidades + semântico + filtros)
 
-### 📋 Fase 4: Surprise Triggers (PENDENTE)
+**Pré-requisito:** Fase 3 concluída e validada
+
+### 📋 Fase 5: Surprise Triggers (PENDENTE)
 
 **Tarefas:**
 1. Detectar recovery patterns (erro → sucesso)
@@ -132,14 +198,14 @@ Decisão: AI Brain é a fundação (memória + contexto) para futuros sistemas a
 4. Detectar reações negativas ("nunca faça isso")
 5. Boost no surprise_score das memórias
 
-### 📋 Fase 5: Feedback Loop (PENDENTE)
+### 📋 Fase 6: Feedback Loop (PENDENTE)
 
 **Tarefas:**
 1. Registrar quais memórias foram surfaceadas
 2. Coletar feedback (útil/não útil)
 3. Re-ranking baseado em feedback (+/-5% por voto)
 
-### 📋 Fase 6: Auto-Atualização de Planos (PENDENTE)
+### 📋 Fase 7: Auto-Atualização de Planos (PENDENTE)
 
 **Objetivo:** Sistema analisa conversas e atualiza automaticamente arquivos de planejamento.
 

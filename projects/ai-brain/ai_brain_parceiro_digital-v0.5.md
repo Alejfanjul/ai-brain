@@ -1,7 +1,14 @@
 # AI Brain - Parceiro Digital Pessoal
 
-**Data:** 05/01/2026 (v0.4)
+**Data:** 08/01/2026 (v0.5)
 **Status:** Em desenvolvimento - Marco 3 em progresso
+
+**Changelog v0.5:**
+- **Novo foco:** Embeddings dos sources (transcripts, artigos) para cruzar com memórias
+- **Nova abordagem:** Scripts manuais primeiro, automatização depois (validar antes)
+- Fase 2.5 adicionada ao plano (embeddings dos sources)
+- Fase 3 reformulada: script de busca unificada (antes era hooks)
+- Decisões técnicas: chunks de 600 palavras, 15% overlap, extração automática de autor
 
 **Changelog v0.4:**
 - Reorganização: "Fases" → "Marcos" para evitar confusão com planos detalhados
@@ -452,20 +459,23 @@ Baseado na evolucao do JFDI System e nas decisoes desta conversa.
 
 > **Plano detalhado:** [`memory_lane_plan.md`](./memory_lane_plan.md)
 
-**Objetivo:** Sistema de memória semântica com extração automática e retrieval inteligente.
+**Objetivo:** Sistema de memória semântica que cruza memórias das conversas com conteúdos capturados (sources), permitindo relacionar planos de projetos com ideias de autores como Nate, Hillman, Seth Godin, etc.
 
-**Status atual:** Fase 2 de 6 concluída (embeddings via Ollama)
+**Status atual:** Fase 2 de 7 concluída (embeddings das memórias via Ollama)
 - 40 memórias extraídas com embeddings (768 dimensões)
 - Ollama configurado como serviço systemd
 - Cron jobs configurados e funcionando
 
-**Inclui:**
-- Extração de memórias das conversas
-- Embeddings e busca semântica
-- Retrieval inteligente no contexto
-- **Auto-atualização de planos** (sistema atualiza seus próprios arquivos de planejamento)
+**Fases:**
+1. ✅ Sync periódico + extração de memórias
+2. ✅ Embeddings das memórias (conversas)
+3. 📋 **Embeddings dos sources** (transcripts, artigos) ← PRÓXIMO
+4. 📋 Script de busca unificada (memórias + sources)
+5. 📋 Hooks de retrieval (automação)
+6. 📋 Surprise triggers + Feedback loop
+7. 📋 Auto-atualização de planos
 
-**Próximos passos:** Fase 3 - Hooks de Retrieval (injetar memórias automaticamente).
+**Próximos passos:** Fase 2.5 - Embeddings dos sources (~68 arquivos em `sources/`).
 
 #### O Sistema Hoje (resumo visual)
 
@@ -958,7 +968,7 @@ Com o uso, veremos o que mais precisamos. O importante é ter a estrutura base p
 
 ## Próximos Passos
 
-> Status atualizado em: 05/01/2026
+> Status atualizado em: 08/01/2026
 
 ### ✅ Concluído (Marcos 1 e 2)
 - ~~Criar conta Supabase~~ ✅
@@ -970,9 +980,11 @@ Com o uso, veremos o que mais precisamos. O importante é ter a estrutura base p
 ### 🔄 Em Progresso (Marco 3: Memória)
 > Detalhes: [`memory_lane_plan.md`](./memory_lane_plan.md)
 
-- ✅ Sync periódico + extração básica (22 memórias extraídas)
-- 📋 Embeddings via Ollama + pgvector
-- 📋 Hooks de retrieval (injetar memórias no contexto)
+- ✅ Sync periódico + extração básica (40 memórias extraídas)
+- ✅ Embeddings das memórias via Ollama + pgvector
+- 📋 **Embeddings dos sources** (68+ arquivos em sources/) ← PRÓXIMO
+- 📋 Script de busca unificada (cruzar memórias + sources)
+- 📋 Hooks de retrieval (injetar contexto automaticamente)
 - 📋 Surprise triggers (detectar correções, entusiasmo)
 - 📋 Feedback loop (memórias úteis vs não úteis)
 - 📋 Auto-atualização de planos (sistema mantém documentação atualizada)
@@ -987,6 +999,34 @@ Com o uso, veremos o que mais precisamos. O importante é ter a estrutura base p
 ## Histórico de Conversas
 
 > Registro de conversas importantes que moldaram decisões do projeto.
+
+### 2026-01-08: Embeddings dos Sources + Simplificação
+
+**Contexto:** Reflexão sobre o propósito original do projeto e simplificação da abordagem.
+
+**Insight do Ale:**
+> "Estou complicando demais as coisas para o começo. Este projeto nasceu com o objetivo de criar planos de projetos pessoais/trabalho e que a IA conseguisse relacionar com os transcripts e conteúdos deste repo."
+
+**Decisões:**
+1. **Priorizar embeddings dos sources** (não só das memórias de conversa)
+   - Permite cruzar planos com ideias de Nate, Hillman, etc.
+   - Exemplo de uso: "como nosso plano se relaciona com as ideias do Nate?"
+
+2. **Scripts manuais primeiro, automatização depois**
+   - Validar a busca semântica antes de criar hooks
+   - Abordagem incremental reduz risco
+
+3. **Configurações técnicas definidas:**
+   - Chunks de ~600 palavras
+   - 15% overlap entre chunks
+   - Extração automática de autor/data do nome do arquivo
+
+**Mudança no roadmap:**
+- Nova Fase 2.5: Embeddings dos sources
+- Fase 3 reformulada: Script de busca unificada (antes era hooks)
+- Hooks movidos para Fase 4
+
+---
 
 ### 2026-01-06: Context Engineering do Manus
 

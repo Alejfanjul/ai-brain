@@ -25,7 +25,7 @@ Implementar sistema de memória semântica que **cruza memórias das conversas c
 |------|--------|------|
 | Fase 1: Sync Periódico + Extração | ✅ Concluída | 2026-01-05 |
 | Fase 2: Embeddings das memórias | ✅ Concluída | 2026-01-06 |
-| Fase 2.5: Embeddings dos sources | 📋 Pendente | - |
+| Fase 2.5: Embeddings dos sources | 🔄 Em progresso | 2026-01-08 |
 | Fase 3: Script de busca unificada | 📋 Pendente | - |
 | Fase 4: Hooks de Retrieval | 📋 Pendente | - |
 | Fase 5: Surprise Triggers | 📋 Pendente | - |
@@ -116,7 +116,7 @@ CREATE INDEX IF NOT EXISTS idx_memorias_embedding ON memorias
 Durante a implementação, discutimos o artigo "Context Engineering for AI Agents" do Manus.
 Decisão: AI Brain é a fundação (memória + contexto) para futuros sistemas agentic.
 
-### 📋 Fase 2.5: Embeddings dos sources (PENDENTE) ← PRÓXIMO PASSO
+### 🔄 Fase 2.5: Embeddings dos sources (EM PROGRESSO)
 
 > **Decisão 2026-01-08:** Priorizar embeddings dos sources para permitir cruzamento entre memórias (conversas) e conteúdos capturados (transcripts, artigos). Isso permite responder perguntas como "como nosso plano se relaciona com as ideias do Nate?"
 
@@ -153,6 +153,13 @@ CREATE INDEX idx_source_chunks_embedding ON source_chunks
 - Tamanho chunk: ~600 palavras
 - Overlap: 15% (~90 palavras)
 - Extração de autor: automática do nome do arquivo
+
+**Progresso (2026-01-08):**
+- ✅ Tabela `source_chunks` criada no Supabase
+- ✅ Script `embed_sources.py` criado e funcionando
+- 🔄 **218/910 chunks** processados (~24%)
+- ⏸️ Pausado para continuar em máquina com GPU (RTX 5060)
+- Ver instruções em `CLAUDE.md` seção "Continuar processamento na máquina com RTX"
 
 ### 📋 Fase 3: Script de busca unificada (PENDENTE)
 

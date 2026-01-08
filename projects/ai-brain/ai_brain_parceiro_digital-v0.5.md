@@ -475,7 +475,7 @@ Baseado na evolucao do JFDI System e nas decisoes desta conversa.
 6. 📋 Surprise triggers + Feedback loop
 7. 📋 Auto-atualização de planos
 
-**Próximos passos:** Fase 2.5 - Embeddings dos sources (~68 arquivos em `sources/`).
+**Próximos passos:** Continuar Fase 2.5 em máquina com GPU (218/910 chunks processados).
 
 #### O Sistema Hoje (resumo visual)
 
@@ -982,7 +982,7 @@ Com o uso, veremos o que mais precisamos. O importante é ter a estrutura base p
 
 - ✅ Sync periódico + extração básica (40 memórias extraídas)
 - ✅ Embeddings das memórias via Ollama + pgvector
-- 📋 **Embeddings dos sources** (68+ arquivos em sources/) ← PRÓXIMO
+- 🔄 **Embeddings dos sources** (218/910 chunks, continuar em GPU) ← EM PROGRESSO
 - 📋 Script de busca unificada (cruzar memórias + sources)
 - 📋 Hooks de retrieval (injetar contexto automaticamente)
 - 📋 Surprise triggers (detectar correções, entusiasmo)

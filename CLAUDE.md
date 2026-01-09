@@ -2,15 +2,16 @@
 
 Este é um hub central de conhecimento e projetos pessoais.
 
-## Estrutura
+## Estrutura do Repositório
 
 ```
 ai-brain/
-├── sources/           ← Conhecimento capturado
+├── sources/           ← Conhecimento capturado (transcripts, artigos)
 ├── projects/          ← Projetos em andamento
 ├── templates/         ← Templates
-├── scripts/           ← Scripts de captura
-└── CONTEXT.md         ← Guia de autores
+├── scripts/           ← Scripts de captura e processamento
+├── CONTEXT.md         ← Guia de autores
+└── CLAUDE.md          ← Este arquivo
 ```
 
 ## Como trabalhar
@@ -22,8 +23,50 @@ Ao iniciar uma conversa:
 4. Adaptar abordagem conforme o estágio
 
 Ao finalizar uma conversa produtiva:
-1. Atualizar o `README.md` do projeto se houve decisões
-2. Adicionar entrada no Histórico com data e mudança
+1. Atualizar os documentos do projeto conforme a seção "Como atualizar documentação"
+2. Se houve decisão importante, adicionar entrada no CHANGELOG.md
+
+---
+
+## Estrutura Padrão de Projetos
+
+Todo projeto deve seguir esta estrutura:
+
+```
+projeto/
+├── README.md      ← Visão + estado atual (o que é, por que existe)
+├── ROADMAP.md     ← Marcos e fases (onde estamos, para onde vamos)
+├── SETUP.md       ← Configs técnicas, SQLs, comandos
+├── REFERENCES.md  ← Material de consulta e inspiração
+└── CHANGELOG.md   ← Histórico de decisões importantes
+```
+
+### Propósito de cada arquivo
+
+| Arquivo | Analogia | Atualização |
+|---------|----------|-------------|
+| **README.md** | Estrela Polar - "por que estamos fazendo isso?" | Manual |
+| **ROADMAP.md** | Mapa da Viagem - "você está aqui" | Semi-auto |
+| **SETUP.md** | Manual de Instruções | Quando configs mudam |
+| **REFERENCES.md** | Biblioteca | Quando há novo material |
+| **CHANGELOG.md** | Diário de Bordo | A cada decisão importante |
+
+### Como atualizar documentação
+
+**Após conversa com decisões importantes:**
+1. Adicionar entrada no `CHANGELOG.md` com data, contexto e decisões
+2. Atualizar status no `ROADMAP.md` se fase mudou
+3. Atualizar `README.md` se visão/capacidades mudaram
+
+**Após mudança técnica:**
+1. Atualizar `SETUP.md` com novos comandos/configs
+2. Adicionar entrada no `CHANGELOG.md`
+
+**Após descobrir material útil:**
+1. Adicionar em `REFERENCES.md` com quotes relevantes
+2. Linkar para source local se disponível
+
+**Princípio:** Documentação deve refletir realidade. Se algo mudou no código/sistema, os docs precisam acompanhar.
 
 ## Comandos de Captura
 
@@ -42,62 +85,23 @@ Ao finalizar uma conversa produtiva:
 |---------|-----------|
 | python3 scripts/extract_memories.py | Extrair memórias das conversas |
 | python3 scripts/generate_embeddings.py | Gerar embeddings das memórias |
-| python3 scripts/embed_sources.py | Gerar embeddings dos sources (transcripts) |
-| python3 scripts/embed_sources.py --dry-run | Ver quantos chunks seriam processados |
+| python3 scripts/embed_sources.py | Gerar embeddings dos sources |
+| python3 scripts/embed_sources.py --dry-run | Ver quantos chunks faltam |
 
-### Status atual (2026-01-08)
+### Status atual (2026-01-09)
 
 - **218/910 chunks** processados dos sources
-- Continuar processamento na máquina com GPU (muito mais rápido)
+- Continuar em máquina com GPU (~2-5 min para o resto)
 
-### Ollama (Embeddings locais)
+### Ollama (comandos rápidos)
 
-| Comando | Descrição |
-|---------|-----------|
-| sudo systemctl start ollama | Iniciar Ollama |
-| sudo systemctl stop ollama | Parar Ollama |
-| sudo systemctl status ollama | Ver status |
-| curl localhost:11434/api/tags | Verificar se está rodando |
-| ollama list | Ver modelos instalados |
-
-### Continuar processamento na máquina com RTX
-
-**1. Verificar se Ollama está usando GPU:**
 ```bash
-# Ver se CUDA está disponível
-nvidia-smi
-
-# Iniciar Ollama e verificar logs
-sudo systemctl start ollama
-journalctl -u ollama -f
-# Deve mostrar "using CUDA" ou "GPU detected"
+sudo systemctl start ollama    # Iniciar
+sudo systemctl status ollama   # Ver status
+ollama list                    # Ver modelos
 ```
 
-**2. Verificar modelo instalado:**
-```bash
-ollama list
-# Se não tiver nomic-embed-text:
-ollama pull nomic-embed-text
-```
-
-**3. Atualizar repo e rodar:**
-```bash
-cd ~/ai-brain
-git pull
-python3 scripts/embed_sources.py
-```
-
-**Tempo estimado com GPU:** ~2-5 minutos para os ~700 chunks restantes
-
-**4. Após terminar, criar script de busca (Fase 3):**
-```bash
-# Verificar total de chunks
-python3 -c "
-from scripts.embed_sources import supabase_request
-result = supabase_request('source_chunks?select=id&limit=10000')
-print(f'Total chunks: {len(result)}')
-"
-```
+> **Mais detalhes:** Ver `projects/ai-brain/SETUP.md`
 
 ## Criar novo projeto
 

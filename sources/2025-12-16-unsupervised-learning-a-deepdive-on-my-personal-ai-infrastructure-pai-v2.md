@@ -197,3 +197,85 @@ Mapping character traits to voice parameters (ElevenLabs)
 **Q: Where should someone start?**
 > A: Start with a mapping of the things you actually do in life and work. The things you want to get better at, the things you don't know how to do yet but you've always wished that you could do. Start there with the human side of things, and then think about the actual tasks that you want to be able to do within them. And then break that into skills, workflows, and tools. And use a system like PAI to put it all together.
 
+---
+
+### Slides Adicionais
+
+#### Agenda da Apresentação
+![Quick Flow Agenda](images/2025-12-16-pai-deepdive/43-quick-flow-agenda.png)
+
+1. Why build Kai?
+2. Before you start
+3. Design principles
+4. A Deep-dive on a real Skill
+5. A quick demo
+6. How you can get started on your own
+7. An FAQ
+8. Discussion and Q&A
+
+#### What and Why is Kai?
+![What Why Kai](images/2025-12-16-pai-deepdive/44-what-why-kai.png)
+
+**Motivações:**
+1. Just **get better** / AI augmentation
+2. I think we're heading for a *post-corporate* world
+3. This is where large-scale job markets go away
+4. I want to be ready for that, and help get others ready
+5. I think the solution to that is to **get really good at being human**
+6. That means figuring out who you are, what you're good at, and what you *want* to be good at
+7. *And then using AI to magnify your capabilities*
+
+#### AIMM - AI Maturity Model (5 Níveis)
+![AIMM Model Levels](images/2025-12-16-pai-deepdive/45-aimm-model-levels.png)
+
+| Level | Nome | Período | Descrição |
+|-------|------|---------|-----------|
+| 0 | Natural | → 2022 | The human does their work completely on their own, with no AI assistance |
+| 1 | Chatbots | 2023 → 2025 | The human asks questions and gets useful answers back from an AI chatbot-like system |
+| 2 | Agentic | 2025-2027? | Agentic platforms magnify people's effectiveness by learning the tasks, context, and tooling |
+| 3 | Workflows | 2027? | Most work is decomposed into automatable work tasks and pipelines that can be consistently executed by AI |
+| 4 | Managed | 2030? | AI captures current and desired state, and continuously makes adjustments |
+
+*Human-centered work (0-2) → AI-centered work (3-4)*
+
+#### Understanding Self
+![Understanding Self](images/2025-12-16-pai-deepdive/46-understanding-self.png)
+
+**Perguntas fundamentais antes de construir:**
+1. What do I value?
+2. What are the things I wish I could do more of?
+3. What am I wasting tons of time on that I could be spending being creative?
+4. How do I **maximize my time on desired activities** and minimize time on overhead?
+
+#### Sistema de Princípios Kai/PAI (Lista Completa)
+![System Principles List](images/2025-12-16-pai-deepdive/47-system-principles-list.png)
+
+**Coluna 1:**
+- Clear Thinking + Prompting is king
+- Scaffolding > Model
+- As Deterministic as Possible
+- Code Before Prompts
+- Spec / Test / Evals First
+- UNIX Philosophy (modular tooling)
+- ENG / SRE Principles ++
+
+**Coluna 2:**
+- CLI as Interface
+- Goal → Code → CLI → Prompts → Agents
+- Meta / Self Update System
+- Custom Skill Management: Skill routing, Workflows, Tools
+- Custom History System
+- Custom Agent Personalities / Voices
+
+#### Messy Thinking vs Clear Thinking
+![Messy vs Clear Thinking](images/2025-12-16-pai-deepdive/48-messy-vs-clear-thinking.png)
+
+| Messy Thinking | Clear Thinking |
+|----------------|----------------|
+| *"Chaos breeds confusion"* | *"Clarity enables excellence"* |
+| Messy Path | Clear Path |
+| Unstructured Input | Structured Ideation |
+| "random idea? maybe add this. forgot something. make it look ok. too much info. what about..." | **Objective:** Define Clear Goals. **Constraints:** Specify Limitations. **Requirements:** List Key Features. **Context:** Provide Background. **Output Format:** Define Expectations. |
+| Vague Prompt | Precise Prompt |
+| **Disappointing Output** | **Excellent Result** |
+

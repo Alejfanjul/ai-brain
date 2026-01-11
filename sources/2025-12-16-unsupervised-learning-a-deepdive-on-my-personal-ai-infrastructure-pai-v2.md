@@ -1,9 +1,10 @@
 # A Deepdive on my Personal AI Infrastructure (PAI v2.0, December 2025)
 
 ## Fonte
-- **Tipo:** video
-- **Autor:** Unsupervised Learning
-- **URL:** https://www.youtube.com/watch?v=Le0DLrn7ta0
+- **Tipo:** video + blog
+- **Autor:** Daniel Miessler / Unsupervised Learning
+- **URL Video:** https://www.youtube.com/watch?v=Le0DLrn7ta0
+- **URL Blog:** https://danielmiessler.com/blog/personal-ai-infrastructure
 - **Duração:** 48 min
 - **Data original:** 2025-12-16
 - **Data captura:** 2026-01-11
@@ -14,7 +15,47 @@ Kind: captions Language: en So today we're going to cover basically two things. 
 
 ## Minhas Anotações
 
-### Princípios Fundamentais
+### Resumo do Blog (versão escrita)
+
+#### Filosofia Fundamental
+
+**The Central Question:** "What are we actually doing with all these AI tools?"
+**Mission:** Upgrade humans and organizations using AI
+
+#### The Two Loops: Foundational Algorithm
+
+**Outer Loop:** Current State → Desired State
+
+**Inner Loop (7 fases):**
+1. OBSERVE - Gather context
+2. THINK - Generate hypotheses
+3. PLAN - Design approach
+4. BUILD - Define success criteria
+5. EXECUTE - Run the plan
+6. VERIFY - Check results
+7. LEARN - Extract insights
+
+#### 15 System Principles
+
+1. **Foundational Algorithm** - Current to Desired State via iteration
+2. **Clear Thinking + Prompting** - Quality prompts require understanding problems first
+3. **Scaffolding > Model** - Infrastructure matters more than raw intelligence
+4. **Deterministic Design** - Consistency over randomness
+5. **Code Before Prompts** - Use code for deterministic tasks
+6. **Spec/Test/Evals First** - Measure before building
+7. **UNIX Philosophy** - Modular, composable tools
+8. **ENG/SRE Principles** - Production-grade reliability
+9. **CLI as Interface** - Command-line tools enable composition
+10. **Goal → Code → CLI → Prompts → Agents** - Decision hierarchy
+11. **Meta/Self-Update System** - System improves itself
+12. **Custom Skill Management** - Domain expertise encoding
+13. **Custom History System** - Automatic documentation
+14. **Custom Agent Personalities** - Specialized voices and approaches
+15. **Science as Cognitive Loop** - Hypothesis-experiment-measure-iterate
+
+---
+
+### Princípios Fundamentais (Visual)
 
 #### 1. Clarity Pipeline
 ![Clarity Pipeline](images/2025-12-16-pai-deepdive/01-clarity-pipeline.png)

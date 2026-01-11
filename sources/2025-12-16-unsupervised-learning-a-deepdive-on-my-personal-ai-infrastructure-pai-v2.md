@@ -14,3 +14,145 @@ Kind: captions Language: en So today we're going to cover basically two things. 
 
 ## Minhas Anotações
 
+### Princípios Fundamentais
+
+#### 1. Clarity Pipeline
+![Clarity Pipeline](images/2025-12-16-pai-deepdive/01-clarity-pipeline.png)
+
+**Clear Thinking → Clear Writing → Clear Prompting → High AI Efficacy**
+- Each stage refines clarity
+- Sequential value-add
+- Compounding precision
+
+#### 2. Scaffolding > Model
+![Scaffolding Iceberg](images/2025-12-16-pai-deepdive/03-scaffolding-iceberg.png)
+
+> "Structure does the work" - O modelo é só a ponta do iceberg. O scaffolding (skills, hooks, context, workflows) é onde o valor real está.
+
+#### 3. Deterministic AI Architecture
+![Deterministic AI](images/2025-12-16-pai-deepdive/05-deterministic-ai-architecture.png)
+
+**Code as Factory, Intelligence as Manager**
+- Manager orchestrates, machines execute
+- Machines produce fast and reliable output
+
+#### 4. Code Before Prompts (80/20)
+![Code Before Prompts](images/2025-12-16-pai-deepdive/07-code-before-prompts-80-20.png)
+
+> "Prompts wrap code, not replace it"
+- 80% deterministic code
+- 20% prompts para orquestração
+
+### Estrutura do Sistema
+
+#### ~/.claude Directory
+![Terminal Structure](images/2025-12-16-pai-deepdive/02-terminal-claude-structure.png)
+
+#### Skills (65+)
+![Skills List](images/2025-12-16-pai-deepdive/04-skills-list-65.png)
+
+Skills incluem: Art, Research, RedTeam, Content, Development, OSINT, Blogging, etc.
+
+#### Estrutura de um Skill
+![Skills Art Tools](images/2025-12-16-pai-deepdive/06-skills-art-tools.png)
+
+```
+skills/Art/
+├── SKILL.md      ← Routing e descrição
+├── workflows/    ← Procedimentos específicos
+└── tools/        ← Código determinístico (.ts)
+```
+
+#### SKILL.md Structure
+![SKILL.md](images/2025-12-16-pai-deepdive/09-skill-md-structure.png)
+
+### Metodologia
+
+#### SPEC / TEST / EVALS First
+![Spec Test Evals](images/2025-12-16-pai-deepdive/08-spec-test-evals-first.png)
+
+**Chaos vs Order:**
+- Chaos: Code → Debug → Rewrite → More Code (endless cycle)
+- Order: SPEC → TEST → IMPLEMENT → EVAL
+
+#### Composability vs Monoliths
+![Composability](images/2025-12-16-pai-deepdive/10-composability-vs-monoliths.png)
+
+**UNIX Philosophy:** Flexibility through small, focused components
+- Modular Tools: READ → FILTER → TRANSFORM → PROCESS → OUTPUT
+
+#### Modular Skill Composition
+![Skill Composition](images/2025-12-16-pai-deepdive/11-modular-skill-composition.png)
+
+RedTeam + FirstPrinciples: Composition over duplication
+
+#### Modular Skill Architecture
+![Skill Architecture](images/2025-12-16-pai-deepdive/12-modular-skill-architecture.png)
+
+Lifelog → Extract Ideas → Blogging Skill / Research Skill
+
+### Sistemas do PAI
+
+#### Commands
+![Commands](images/2025-12-16-pai-deepdive/13-claude-commands.png)
+
+#### Kai Running
+![Kai Running](images/2025-12-16-pai-deepdive/14-kai-running-workflow.png)
+
+**Status line:** "Wielding: 65 Skills • 196 Workflows • 0/11 MCPs • 246 Patterns"
+
+#### ENG/SRE Principles
+![ENG SRE](images/2025-12-16-pai-deepdive/16-eng-sre-principles.png)
+
+**Build → Test → Deploy → Monitor**
+- Production-grade or nothing
+
+#### CLI as Interface
+![CLI Interface](images/2025-12-16-pai-deepdive/18-cli-as-interface.png)
+
+GUI Chaos vs CLI Elegance
+
+### Self-Update System
+
+#### Meta Self-Update
+![Self Update](images/2025-12-16-pai-deepdive/23-meta-self-update.png)
+
+**Kai v1.0 → Kai v2.0:** "The system that improves itself"
+
+### Routing & Context
+
+#### USE WHEN Pattern Matching
+![Pattern Matching](images/2025-12-16-pai-deepdive/28-use-when-pattern-matching.png)
+
+- Scans skill descriptions
+- Finds best match
+- Routes to winning skill
+
+### Agents
+
+#### Agent Collaboration Ecosystem
+![Agent Ecosystem](images/2025-12-16-pai-deepdive/31-agent-collaboration-ecosystem.png)
+
+**Agents:** Engineer, Architect, Researcher, Analyst, QA Tester
+
+#### Voice System - Psychology to Prosody
+![Psychology Prosody](images/2025-12-16-pai-deepdive/32-psychology-to-prosody.png)
+
+Mapping character traits to voice parameters (ElevenLabs)
+
+### Mission Control
+
+#### Architecture
+![Mission Control](images/2025-12-16-pai-deepdive/35-mission-control-architecture.png)
+
+**KAI Infrastructure:**
+- Clear Language → Scaffolding Model → Deterministic
+- TDD → UNIX → SRE → CLI
+- Pipeline → Meta → Skills → History → Personality
+
+### FAQ
+![FAQ](images/2025-12-16-pai-deepdive/42-faq.png)
+
+**Q: Where should someone start?**
+> A: Start with a mapping of the things you actually do in life and work. The things you want to get better at, the things you don't know how to do yet but you've always wished that you could do. Start there with the human side of things, and then think about the actual tasks that you want to be able to do within them. And then break that into skills, workflows, and tools. And use a system like PAI to put it all together.
+

@@ -14,3 +14,62 @@ Kind: captions Language: en Hey, what's up? So, I've got a model for thinking ab
 
 ## Minhas Anotações
 
+### AIMM - AI Maturity Model (5 Níveis)
+
+| Nível | Nome | Período | Descrição |
+|-------|------|---------|-----------|
+| 0 | Natural | → 2022 | Humano faz trabalho completamente sozinho, sem IA |
+| 1 | Chatbots | 2023 → 2025 | Humano pergunta e recebe respostas úteis de chatbot |
+| 2 | Agentic | 2025-2027? | Plataformas agênticas magnificam efetividade aprendendo tarefas, contexto e tooling |
+| 3 | Workflows | 2027? | Trabalho decomposto em tarefas automatizáveis e pipelines executados por IA |
+| 4 | Managed | 2030? | IA captura estado atual e desejado, fazendo ajustes continuamente |
+
+**Divisão fundamental:**
+- Níveis 0-2: **Human-centered work**
+- Níveis 3-4: **AI-centered work**
+
+### Level 3: AI Pipelines
+
+Exemplo "BadSpot" (análise de manchas na pele):
+```
+Image → is_new_spot?
+         ├─ Yes → analyze_mole → is_dangerous?
+         │                        ├─ Yes → Issue
+         │                        └─ No → write_report
+         └─ No → was_dangerous_before?
+                  ├─ Yes → (re-analyze)
+                  └─ No → No Issue
+```
+
+**Insight chave:** "Those blue parts (AI/brain icons) are why we humans have jobs. This is what companies are working to document and replace."
+
+### Level 4: Current State → Desired State
+
+O algoritmo fundamental:
+1. Current state?
+2. Desired state?
+3. How to transition?
+
+> "AI's Ultimate Use Case: Transition from Current to Desired State. The best way to think of AI is a system that can take us from where we are to where we want to be."
+
+### Urgência: Get to Level 2 ASAP
+
+**Recomendação:** Chegar ao nível 2 (Agentic) o mais rápido possível.
+
+**Perigo:** Seus atacantes/competidores estão na mesma trajetória.
+- Se você está no nível 1 e eles no nível 3, o gap é perigoso
+- "Our only choice is to win"
+
+### PAI - Personal AI Infrastructure
+
+Plataforma open-source do Daniel (github.com/danielmiessler/PAI):
+- Ponto de partida para personalização
+- Inclui skills, agents, commands
+- Constantemente atualizado
+
+**Usos:**
+- Help you make art
+- Run your business
+- Manage a family, a community, a team, a company
+- Become a better X...
+

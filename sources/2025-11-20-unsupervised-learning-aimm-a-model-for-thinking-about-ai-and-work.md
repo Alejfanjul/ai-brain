@@ -16,6 +16,8 @@ Kind: captions Language: en Hey, what's up? So, I've got a model for thinking ab
 
 ### AIMM - AI Maturity Model (5 Níveis)
 
+![AIMM 5 Levels Overview](images/2025-11-20-aimm-model/01-aimm-5-levels-overview.png)
+
 | Nível | Nome | Período | Descrição |
 |-------|------|---------|-----------|
 | 0 | Natural | → 2022 | Humano faz trabalho completamente sozinho, sem IA |
@@ -30,6 +32,8 @@ Kind: captions Language: en Hey, what's up? So, I've got a model for thinking ab
 
 ### Level 3: AI Pipelines
 
+![Level 3 Workflows BadSpot](images/2025-11-20-aimm-model/02-level3-workflows-badspot.png)
+
 Exemplo "BadSpot" (análise de manchas na pele):
 ```
 Image → is_new_spot?
@@ -43,7 +47,11 @@ Image → is_new_spot?
 
 **Insight chave:** "Those blue parts (AI/brain icons) are why we humans have jobs. This is what companies are working to document and replace."
 
+![Level 3 AI Pipelines Examples](images/2025-11-20-aimm-model/03-level3-ai-pipelines-examples.png)
+
 ### Level 4: Current State → Desired State
+
+![Level 4 Current Desired State](images/2025-11-20-aimm-model/04-level4-current-desired-state.png)
 
 O algoritmo fundamental:
 1. Current state?
@@ -54,7 +62,11 @@ O algoritmo fundamental:
 
 ### Urgência: Get to Level 2 ASAP
 
+![Get to Level 2 ASAP](images/2025-11-20-aimm-model/05-get-to-level2-asap.png)
+
 **Recomendação:** Chegar ao nível 2 (Agentic) o mais rápido possível.
+
+![Attackers Same Trajectory](images/2025-11-20-aimm-model/08-attackers-same-trajectory.png)
 
 **Perigo:** Seus atacantes/competidores estão na mesma trajetória.
 - Se você está no nível 1 e eles no nível 3, o gap é perigoso
@@ -62,10 +74,14 @@ O algoritmo fundamental:
 
 ### PAI - Personal AI Infrastructure
 
+![PAI Open Source Platform](images/2025-11-20-aimm-model/06-pai-open-source-platform.png)
+
 Plataforma open-source do Daniel (github.com/danielmiessler/PAI):
 - Ponto de partida para personalização
 - Inclui skills, agents, commands
 - Constantemente atualizado
+
+![PAI Use Cases](images/2025-11-20-aimm-model/07-pai-use-cases.png)
 
 **Usos:**
 - Help you make art

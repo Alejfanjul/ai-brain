@@ -29,10 +29,10 @@ xml version='1.0' encoding='utf-8'?
 
 xml version='1.0' encoding='utf-8'?
 
-Copyright © 2020 by Sivers Inc  
-All rights reserved  
-  
-Editor: Catherine Oliver  
+Copyright © 2020 by Sivers Inc
+All rights reserved
+
+Editor: Catherine Oliver
 Producer: Saeah Lee Wood
 
 Hell Yeah or No
@@ -49,7 +49,7 @@ Hell Yeah or No
 | 978-1-98-857599-5 | m4b |
 
 ![Hit Media logo](hitmedia.jpg "Hit Media logo")
-  
+
 Hit Media
 
 ---
@@ -62,7 +62,7 @@ xml version='1.0' encoding='utf-8'?
 
 # OPENING
 
-1. [About this book](hy1.xhtml)
+1. About this book
 
 ---
 
@@ -97,19 +97,19 @@ xml version='1.0' encoding='utf-8'?
 
 # UPDATING IDENTITY
 
-2. [What if you didn’t need money or attention?](full.xhtml)
-3. [You don’t have to be local](local.xhtml)
-4. [Actions, not words, reveal our real values](arv.xhtml)
-5. [Keep earning your title, or it expires](expire.xhtml)
-6. [Why are you doing?](why.xhtml)
-7. [Some will always say you’re wrong](wrong.xhtml)
-8. [Imitate. We are imperfect mirrors.](mirror.xhtml)
-9. [Loving what I used to hate](hate.xhtml)
-10. [The public you is not you](publicu.xhtml)
-11. [Character predicts your future](character.xhtml)
-12. [Fish don’t know they’re in water](fish.xhtml)
-13. [Are you present-focused or future-focused?](time.xhtml)
-14. [Small actions change your self-identity](actid.xhtml)
+2. What if you didn’t need money or attention?
+3. You don’t have to be local
+4. Actions, not words, reveal our real values
+5. Keep earning your title, or it expires
+6. Why are you doing?
+7. Some will always say you’re wrong
+8. Imitate. We are imperfect mirrors.
+9. Loving what I used to hate
+10. The public you is not you
+11. Character predicts your future
+12. Fish don’t know they’re in water
+13. Are you present-focused or future-focused?
+14. Small actions change your self-identity
 
 ---
 
@@ -343,7 +343,7 @@ Sometimes your best strategy is counter-intuitive.
 If you have a high paying job, but realize that charitable giving is what matters most to you, then the best strategy is not to quit your job to go hang mosquito nets in Africa, but actually to keep your job and make as much money as you can, while funding organizations in Africa that hang thousands of mosquito nets.
 (Unless your goal is just to look charitable. Then admit that to yourself, too.)
 
-But whatever you choose, brace yourself, because people are always going to tell you that you’re [wrong](wrong.xhtml).
+But whatever you choose, brace yourself, because people are always going to tell you that you’re wrong.
 
 That’s why you need to know why you’re doing what you’re doing.
 Know it in advance.
@@ -366,7 +366,7 @@ Famous online, but anonymous in their neighborhood.
 Generous with time, but stingy with money.
 Introvert when working, but extrovert when not.
 
-You have to [know your preferences well](why.xhtml) because no matter what you do, someone will tell you you’re wrong.
+You have to know your preferences well because no matter what you do, someone will tell you you’re wrong.
 
 If you’re not into money, many people will say you’re foolish.
 If you’re not into charity, many people will say you’re greedy.
@@ -695,15 +695,15 @@ xml version='1.0' encoding='utf-8'?
 
 # SAYING NO
 
-15. [If you’re not feeling “hell yeah!” then say no](hyn.xhtml)
-16. [Saying no to everything else](no2.xhtml)
-17. [Art is useless, and so am I](useless.xhtml)
-18. [I’m a very slow thinker](slow.xhtml)
-19. [Tilting my mirror (motivation is delicate)](tilt.xhtml)
-20. [Quitting something you love](quit.xhtml)
-21. [How will this game end?](game.xhtml)
-22. [Solitary socialite](soso.xhtml)
-23. [Getting out of a bad state of mind](bad.xhtml)
+15. If you’re not feeling “hell yeah!” then say no
+16. Saying no to everything else
+17. Art is useless, and so am I
+18. I’m a very slow thinker
+19. Tilting my mirror (motivation is delicate)
+20. Quitting something you love
+21. How will this game end?
+22. Solitary socialite
+23. Getting out of a bad state of mind
 
 ---
 
@@ -827,12 +827,12 @@ I’m a disappointing person to try to debate or attack.
 I just have nothing to say in the moment, except maybe, “Good point.”
 Then a few days later, after thinking about it a lot, I have a response.
 
-This probably makes me look [stupid](ss.xhtml) in the moment, but I don’t mind.
+This probably makes me look stupid in the moment, but I don’t mind.
 I’m not trying to win any debates.
 
 In fact, I’ll tell you a secret.
 When someone wants to interview me for their show, I ask them to send me some questions a week in advance.
-I spend hours writing down answers from different perspectives, before choosing the most [interesting](counter.xhtml) one.
+I spend hours writing down answers from different perspectives, before choosing the most interesting one.
 Then when we’re in a live conversation, I try to make my answers sound spontaneous.
 
 People say that your first reaction is the most honest, but I disagree.
@@ -845,7 +845,7 @@ You don’t need to answer.
 You can say, “I don’t know,” and take your time to answer after thinking.
 Things happen.
 Someone expects you to respond.
-But you can say, “[We’ll see](horses.xhtml).”
+But you can say, “We’ll see.”
 
 And maybe, through example, you can show them that they can do the same.
 
@@ -1042,7 +1042,7 @@ Observe now. Act later.**
 When I’m feeling cloudy, my decisions and actions will be cloudy too.
 So I wait a few days before acting on anything.
 I watch the emotions pass by like a thunderstorm.
-And the longer I wait, the [smarter I get](walkways.xhtml).
+And the longer I wait, the smarter I get.
 
 **3.
 Raise standards.
@@ -1108,18 +1108,18 @@ xml version='1.0' encoding='utf-8'?
 
 # MAKING THINGS HAPPEN
 
-24. [There’s no speed limit](kimo.xhtml)
-25. [Relax for the same result](relax.xhtml)
-26. [Disconnect](dc.xhtml)
-27. [Unlikely places and untangled goals](unun.xhtml)
-28. [When you’re extremely unmotivated](unmo.xhtml)
-29. [Think like a bronze medalist, not silver](bronze.xhtml)
-30. [Imagining lots of tedious steps? Or one fun step?](steps.xhtml)
-31. [Procrastination hack: change “and” to “or”](andor.xhtml)
-32. [There are always more than two options](options.xhtml)
-33. [Beware of advice](advice.xhtml)
-34. [Switch strategies](switch.xhtml)
-35. [Don’t be a donkey](donkey.xhtml)
+24. There’s no speed limit
+25. Relax for the same result
+26. Disconnect
+27. Unlikely places and untangled goals
+28. When you’re extremely unmotivated
+29. Think like a bronze medalist, not silver
+30. Imagining lots of tedious steps? Or one fun step?
+31. Procrastination hack: change “and” to “or”
+32. There are always more than two options
+33. Beware of advice
+34. Switch strategies
+35. Don’t be a donkey
 
 ---
 
@@ -1590,7 +1590,7 @@ That advice has nothing to do with what’s best for you — it’s just the opi
 **Creative sparks:**
 You ask, “What should I do, option A or B?”
 He replies, “Zebra!”
-He’s treating the situation as an invitation to brainstorm, giving a crazy suggestion just to open up [more options](options.xhtml).
+He’s treating the situation as an invitation to brainstorm, giving a crazy suggestion just to open up more options.
 Like an [Oscar Wilde quip](https://duckduckgo.com/?q=oscar+wilde+quotes), it was meant to be mostly entertaining, maybe useful, and probably not correct.
 
 The problem is taking any one person’s advice too seriously.
@@ -1685,14 +1685,14 @@ xml version='1.0' encoding='utf-8'?
 
 # CHANGING PERSPECTIVE
 
-36. [I assume I’m below average](below-average.xhtml)
-37. [Everything is my fault](my-fault.xhtml)
-38. [I love being wrong](lw.xhtml)
-39. [Singing the counter-melody](counter.xhtml)
-40. [What are the odds of that?](odds.xhtml)
-41. [two three four ONE, two three four ONE](fela.xhtml)
-42. [232 sand dollars](232.xhtml)
-43. [My favorite fable](horses.xhtml)
+36. I assume I’m below average
+37. Everything is my fault
+38. I love being wrong
+39. Singing the counter-melody
+40. What are the odds of that?
+41. two three four ONE, two three four ONE
+42. 232 sand dollars
+43. My favorite fable
 
 ---
 
@@ -1718,11 +1718,11 @@ Now I just assume I’m below average.
 It serves me well.
 I listen more.
 I ask a lot of questions.
-I’ve stopped thinking [others are stupid](ss.xhtml).
+I’ve stopped thinking others are stupid.
 I assume most people are smarter than me.
 
 **To assume you’re below average is to admit you’re still learning.**
-You focus on what you need to improve, not your [past accomplishments](expire.xhtml).
+You focus on what you need to improve, not your past accomplishments.
 
 Many people are so worried about looking good that they never do anything great.
 Many people are so worried about doing something great that they never do anything at all.
@@ -1841,7 +1841,7 @@ Let’s call that the melody.
 I may love that melody, too, but I don’t want to just duplicate it.
 So I try to think of a good counter-melody.
 
-I do it to [compensate](compensate.xhtml) for something I think is missing in the common message.
+I do it to compensate for something I think is missing in the common message.
 **My public writing is a counterpoint meant to complement the popular point.**
 
 Of course I don’t think the stuff I say is the only way to go.
@@ -1946,7 +1946,7 @@ xml version='1.0' encoding='utf-8'?
 
 ## 232 sand dollars
 
-When I was twenty-two, I lived alone on the Oregon coast for a year, just [practicing](15-years.xhtml), [recording](https://sive.rs/music), [dreaming](https://sive.rs/sammy-cahn), and going for long runs on the beach.
+When I was twenty-two, I lived alone on the Oregon coast for a year, just practicing, [recording](https://sive.rs/music), [dreaming](https://sive.rs/sammy-cahn), and going for long runs on the beach.
 
 I had been coming to this beach since I was a baby, and had spent hundreds of hours walking every bit of it.
 As a kid, the golden jackpot was to find an unbroken [sand dollar](https://en.wikipedia.org/wiki/Sand_dollar) shell.
@@ -2013,15 +2013,15 @@ xml version='1.0' encoding='utf-8'?
 
 # WHAT’S WORTH DOING?
 
-44. [Obvious to you. Amazing to others.](obvious.xhtml)
-45. [Happy, Smart, and Useful](hsu.xhtml)
-46. [How to do what you love and make good money](balance.xhtml)
-47. [What do you hate not doing?](hatenot.xhtml)
-48. [You don’t need confidence, just contribution.](contrib.xhtml)
-49. [Let pedestrians define the walkways](walkways.xhtml)
-50. [Don’t start a business until people are asking you to](asking.xhtml)
-51. [Parenting : Who is it really for?](pa.xhtml)
-52. [OK Milt, I’ll start writing again](milt.xhtml)
+44. Obvious to you. Amazing to others.
+45. Happy, Smart, and Useful
+46. How to do what you love and make good money
+47. What do you hate not doing?
+48. You don’t need confidence, just contribution.
+49. Let pedestrians define the walkways
+50. Don’t start a business until people are asking you to
+51. Parenting : Who is it really for?
+52. OK Milt, I’ll start writing again
 
 ---
 
@@ -2260,15 +2260,15 @@ Eventually, some new thoughts helped:
   If I don’t use what I learn, then it was pointless!
   How horrible to waste those hundreds of hours I spent learning, and not turn it into action.
   Like throwing good food in the trash, it’s morally wrong.
-* **[This isn’t about me.](you-not-them.xhtml)**
+* **This isn’t about me.**
   How I feel in this moment doesn’t matter — it will pass.
   Nobody’s judging me because nobody’s thinking of me.
   They’re just looking for ways to improve their own lives.
-  [The public me is not the real me](publicu.xhtml) anyway, so if they judge my public persona, that’s fine.
+  The public me is not the real me anyway, so if they judge my public persona, that’s fine.
 * **The work is the point, and my work is unique.**
   If I can do something that people find useful, then I should.
   It doesn’t matter if it’s a masterpiece or not, as long as I enjoy it.
-  I’ve got my own weird angle on things that’s [a useful counter-melody](counter.xhtml) in the big orchestra of life.
+  I’ve got my own weird angle on things that’s a useful counter-melody in the big orchestra of life.
 
 I’m glad my old confidence is gone because it thought I was right, and maybe even great, but not anymore.
 
@@ -2348,7 +2348,7 @@ Provide a one-on-one personal service.
 Then you get another paying customer.
 **Prove a real demand.**
 
-Then, [as late as possible](walkways.xhtml), you officially start your business.
+Then, as late as possible, you officially start your business.
 
 ---
 
@@ -2478,15 +2478,15 @@ xml version='1.0' encoding='utf-8'?
 
 # FIXING FAULTY THINKING
 
-53. [Unlearning](unlearning.xhtml)
-54. [Subtract](subtract.xhtml)
-55. [Smart people don’t think others are stupid](ss.xhtml)
-56. [The mirror: It’s about you, not them.](you-not-them.xhtml)
-57. [Assume men and women are the same](mw.xhtml)
-58. [Moving for good](mfg.xhtml)
-59. [Learning the lesson, not the example.](metaphor.xhtml)
-60. [Overcompensate to compensate](compensate.xhtml)
-61. [Projecting meaning](meaning.xhtml)
+53. Unlearning
+54. Subtract
+55. Smart people don’t think others are stupid
+56. The mirror: It’s about you, not them.
+57. Assume men and women are the same
+58. Moving for good
+59. Learning the lesson, not the example.
+60. Overcompensate to compensate
+61. Projecting meaning
 
 ---
 
@@ -2532,7 +2532,7 @@ We want to see the world clearly and know what’s what.
 But once we’re past the first stage of wisdom, the next stage involves adapting to new changes.
 
 We don’t get wise just by adding and adding.
-We also need to [subtract](subtract.xhtml).
+We also need to subtract.
 
 ---
 
@@ -2651,7 +2651,7 @@ But actually both men and women are equally indirect.
 
 But the differences *among* men, and the differences *among* women, are much bigger than the differences *between* men and women.
 
-So instead, [to compensate for your tendency to exaggerate those differences](compensate.xhtml), just assume that men and women are the same.
+So instead, to compensate for your tendency to exaggerate those differences, just assume that men and women are the same.
 
 They’re not the same, but if you follow this rule, your thinking will be closer to correct than not.
 
@@ -2683,7 +2683,7 @@ Pick a place that’s most unlike what you know, and go.
 This keeps you in a learning mindset.
 Previously mindless habits, like buying groceries, now keep your mind open, alert, and noticing new things.
 New arrivals in a culture often notice what the locals don’t.
-([Fish don’t know they’re in water.](fish.xhtml))
+(Fish don’t know they’re in water.)
 
 Don’t think of yourself as visiting.
 Say that you’ve moved here, and mean it.
@@ -2785,7 +2785,7 @@ So really this is what you needed to do to balance — to compensate for that cu
 Once you’re balanced, the new perspective will sink in and become your new normal.
 
 ![](compensate-b2.jpg)
-  
+
 ![](compensate-b3.jpg)
 
 ---
@@ -2876,12 +2876,12 @@ xml version='1.0' encoding='utf-8'?
 
 # SAYING YES
 
-62. [After fifteen years of practice](15-years.xhtml)
-63. [Goals shape the present, not the future.](goals.xhtml)
-64. [Seeking inspiration?](io.xhtml)
-65. [Possible futures](futures.xhtml)
-66. [If you think you haven’t found your passion…](passion.xhtml)
-67. [Whatever scares you, go do it](scares.xhtml)
+62. After fifteen years of practice
+63. Goals shape the present, not the future.
+64. Seeking inspiration?
+65. Possible futures
+66. If you think you haven’t found your passion…
+67. Whatever scares you, go do it
 
 ---
 
@@ -3181,4 +3181,3 @@ xml version='1.0' encoding='utf-8'?
 **[sive.rs/h](https://sive.rs/h)**
 
 ## Minhas Anotações
-

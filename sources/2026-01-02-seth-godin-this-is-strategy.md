@@ -19,7 +19,7 @@ xml version='1.0' encoding='utf-8'?
 
 xml version='1.0' encoding='utf-8'?
 
-[About the Publisher](ThisIsStrategy_TOF.xhtml#T-ATP)
+About the Publisher
 
 Australia
 
@@ -87,7 +87,7 @@ xml version='1.0' encoding='utf-8'?
 
 xml version='1.0' encoding='utf-8'?
 
-[Bookstores Matter](ThisIsStrategy_TOF.xhtml#T-BKM)
+Bookstores Matter
 
 If you purchased this book at a bookstore, thank you.
 
@@ -103,7 +103,7 @@ Visit seths.blog/bookstoresmatter for all the details.
 
 xml version='1.0' encoding='utf-8'?
 
-[Copyright](ThisIsStrategy_TOF.xhtml#T-CPY)
+Copyright
 
 THIS IS STRATEGY. Copyright © 2024 by Do You Zoom, Inc. All rights reserved under International and Pan-American Copyright Conventions. By payment of the required fees, you have been granted the nonexclusive, nontransferable right to access and read the text of this e-book on-screen. No part of this text may be reproduced, transmitted, downloaded, decompiled, reverse-engineered, or stored in or introduced into any information storage and retrieval system, in any form or by any means, whether electronic or mechanical, now known or hereinafter invented, without the express written permission of HarperCollins e-books.
 
@@ -135,7 +135,7 @@ xml version='1.0' encoding='utf-8'?
 
 xml version='1.0' encoding='utf-8'?
 
-[Dedication](ThisIsStrategy_TOF.xhtml#T-DED)
+Dedication
 
 Traction is progress.
 
@@ -155,7 +155,7 @@ Better is possible.
 
 xml version='1.0' encoding='utf-8'?
 
-[Introduction](ThisIsStrategy_TOF.xhtml#T-INTR)
+Introduction
 
 Charles Wilson has a problem. He’s one of the great pianists of his generation, inspiring people as he performs around the world. As the sole artist, composer, impresario, fan manager, COO and entrepreneur behind the persona of BLKBOK, he has too many options and not enough time. Being dedicated and skilled isn’t enough–he needs to figure out how to increase his impact, build a sustainable career and not burn out along the way.
 
@@ -213,7 +213,7 @@ The system is always changing. It’s up to us to change it for the better.
 
 xml version='1.0' encoding='utf-8'?
 
-[Some Other Books by Seth Godin](ThisIsStrategy_TOF.xhtml#T-OBK)
+Some Other Books by Seth Godin
 
 This Is Marketing
 
@@ -237,7 +237,7 @@ The Smiley Dictionary
 
 xml version='1.0' encoding='utf-8'?
 
-[1. Strategy is a Philosophy of Becoming](ThisIsStrategy_TOF.xhtml#T-STG001)
+1. Strategy is a Philosophy of Becoming
 
 Who will we become,
 
@@ -261,7 +261,7 @@ Toward better.
 
 xml version='1.0' encoding='utf-8'?
 
-[2. Four Threads, Woven Together](ThisIsStrategy_TOF.xhtml#T-STG002)
+2. Four Threads, Woven Together
 
 Time, games, empathy and systems. They’re everywhere we look, and easy to ignore.
 
@@ -283,7 +283,7 @@ Each builds on the next in a never-ending braid.
 
 xml version='1.0' encoding='utf-8'?
 
-[3. What Do People Want?](ThisIsStrategy_TOF.xhtml#T-STG003)
+3. What Do People Want?
 
 Once our basic needs for food, shelter and health are met, most people dance with three conflicting desires:
 
@@ -311,7 +311,7 @@ If you want to understand why someone makes a choice, look for what people actua
 
 xml version='1.0' encoding='utf-8'?
 
-[4. The Non-Strategy of “Take What You Can Get”](ThisIsStrategy_TOF.xhtml#T-STG004)
+4. The Non-Strategy of “Take What You Can Get”
 
 “You can pick anyone. I’m anyone.”
 
@@ -333,7 +333,7 @@ I can’t tell you what your strategy should be, but I know that you need one.
 
 xml version='1.0' encoding='utf-8'?
 
-[5. Awaiting Instructions](ThisIsStrategy_TOF.xhtml#T-STG005)
+5. Awaiting Instructions
 
 “What happens next?” is a different question from, “What will I do now?”
 
@@ -355,7 +355,7 @@ Don’t surrender your agency and revert to the numbing day-to-day grind of comp
 
 xml version='1.0' encoding='utf-8'?
 
-[6. The Elegant Path is the Most Useful Way Forward](ThisIsStrategy_TOF.xhtml#T-STG006)
+6. The Elegant Path is the Most Useful Way Forward
 
 My neighbor is a barefoot runner. He glides without apparent effort. He’s certainly not trying harder than anyone else out there on the track, but he’s going faster, with less discomfort. Ten miles later and he’s still fresh.
 
@@ -377,7 +377,7 @@ Each node in the system we engage with will make a choice about how to allocate 
 
 xml version='1.0' encoding='utf-8'?
 
-[7. Not All Elegant Strategies are the Same](ThisIsStrategy_TOF.xhtml#T-STG007)
+7. Not All Elegant Strategies are the Same
 
 But many of them fall into similar buckets. Systems respond to strategies, and elegant strategies give us leverage.
 
@@ -395,7 +395,7 @@ Three things to focus on:
 
 xml version='1.0' encoding='utf-8'?
 
-[8. Systems are Unseen and Persistent](ThisIsStrategy_TOF.xhtml#T-STG008)
+8. Systems are Unseen and Persistent
 
 Strategy builds systems, but it depends on them as well.
 
@@ -411,7 +411,7 @@ It’s difficult to strategize and make a difference if you don’t understand t
 
 xml version='1.0' encoding='utf-8'?
 
-[9. We Live in the Solar System](ThisIsStrategy_TOF.xhtml#T-STG009)
+9. We Live in the Solar System
 
 It may be worth taking a moment to think about a system where there is clearly no one in charge.
 
@@ -429,7 +429,7 @@ If parts of the system are unseen, that doesn’t mean they don’t exist. As th
 
 xml version='1.0' encoding='utf-8'?
 
-[10. Systems Deliver Value](ThisIsStrategy_TOF.xhtml#T-STG010)
+10. Systems Deliver Value
 
 How did our culture evolve to have systems at the center of so much of what we do? There are three reasons:
 
@@ -447,7 +447,7 @@ The power and leverage that systems create can also cause them to create undesir
 
 xml version='1.0' encoding='utf-8'?
 
-[11. The Buildings or the Roads?](ThisIsStrategy_TOF.xhtml#T-STG011)
+11. The Buildings or the Roads?
 
 Stewart Brand points out that if you look at a map of Boston from 1924 and compare it to one from 2024, almost every building has changed over the last century. And yet few of the major roadways have.
 
@@ -463,7 +463,7 @@ Buildings (and people) get replaced all the time. Roadways (and the rules of sys
 
 xml version='1.0' encoding='utf-8'?
 
-[12. The Unseen Assistant (And the Mysterious Vandal)](ThisIsStrategy_TOF.xhtml#T-STG012)
+12. The Unseen Assistant (And the Mysterious Vandal)
 
 Better waves make better surfers.
 
@@ -485,7 +485,7 @@ While it’s easy to point the finger at the selfish car mechanics, the truth is
 
 xml version='1.0' encoding='utf-8'?
 
-[13. Can You See the River?](ThisIsStrategy_TOF.xhtml#T-STG013)
+13. Can You See the River?
 
 A river is more than water. There’s water in a lake, too.
 
@@ -503,7 +503,7 @@ A small channel quickly becomes a torrent, and then the river itself.
 
 xml version='1.0' encoding='utf-8'?
 
-[14. The Collective](ThisIsStrategy_TOF.xhtml#T-STG014)
+14. The Collective
 
 Why do birds fly in formation? What makes a bird join in? It turns out that the lead bird doesn’t stay in the lead the entire time. The flock rotates. The collective evolved to find an efficient system for travel.
 
@@ -525,7 +525,7 @@ But systems define our lives.
 
 xml version='1.0' encoding='utf-8'?
 
-[15. Successful Systems](ThisIsStrategy_TOF.xhtml#T-STG015)
+15. Successful Systems
 
 There are roles and rules, inputs and outputs, and rewards and punishments.
 
@@ -547,7 +547,7 @@ Systems within systems. Turtles all the way down.
 
 xml version='1.0' encoding='utf-8'?
 
-[16. Real Life Isn’t Lego](ThisIsStrategy_TOF.xhtml#T-STG016)
+16. Real Life Isn’t Lego
 
 Part of the appeal of LEGO for kids is that the pieces fit or they don’t. A building goes together, comes apart, and can be put back together as it was.
 
@@ -567,7 +567,7 @@ You can’t step in the same river twice, because your footprint the first time 
 
 xml version='1.0' encoding='utf-8'?
 
-[17. Two Myths About Systems](ThisIsStrategy_TOF.xhtml#T-STG017)
+17. Two Myths About Systems
 
 •  You have unlimited power
 
@@ -595,7 +595,7 @@ It’s unlikely anything we build is going to be built from scratch. But with ti
 
 xml version='1.0' encoding='utf-8'?
 
-[18. Built, Natural, and Complex Systems](ThisIsStrategy_TOF.xhtml#T-STG018)
+18. Built, Natural, and Complex Systems
 
 An airplane is a built system in which a designer and a contracting company create plans, sub-assemblies, and manuals, creating something they believe they have control over.
 
@@ -615,7 +615,7 @@ There doesn’t have to be a plan for there to be outputs. In fact, that’s wha
 
 xml version='1.0' encoding='utf-8'?
 
-[19. What Makes a System?](ThisIsStrategy_TOF.xhtml#T-STG019)
+19. What Makes a System?
 
 Human-built systems have elements in common. Generally, you’ll find:
 
@@ -665,7 +665,7 @@ Each decision is the sum total of all the expectations, feedback loops, and invi
 
 xml version='1.0' encoding='utf-8'?
 
-[20. The Persistence of Systems](ThisIsStrategy_TOF.xhtml#T-STG020)
+20. The Persistence of Systems
 
 We’ve lived with them so long they have become invisible, but systems are everywhere. Systems shift our perceptions and our actions, and they don’t always offer us what we want or need. So why do they stick around?
 
@@ -687,7 +687,7 @@ It’s a lot to undo. A more resilient and leveraged path is to work with system
 
 xml version='1.0' encoding='utf-8'?
 
-[21. From Fine China to Underwater Headphones](ThisIsStrategy_TOF.xhtml#T-STG021)
+21. From Fine China to Underwater Headphones
 
 Cultural systems evolve, layer by layer.
 
@@ -717,7 +717,7 @@ Which explains how I can buy a pair of Shokz underwater MP3 headphones online an
 
 xml version='1.0' encoding='utf-8'?
 
-[22. Duncan Hines (And Nina Zagat)](ThisIsStrategy_TOF.xhtml#T-STG022)
+22. Duncan Hines (And Nina Zagat)
 
 Duncan Hines was a traveling print salesman, operating in the midwest of the United States a hundred years ago.
 
@@ -751,7 +751,7 @@ Information changes systems.
 
 xml version='1.0' encoding='utf-8'?
 
-[23. All Dogs are Mixed Breed Dogs](ThisIsStrategy_TOF.xhtml#T-STG023)
+23. All Dogs are Mixed Breed Dogs
 
 The only thing that makes a purebred so valuable is that an association labeled it.
 
@@ -767,7 +767,7 @@ There are almost a hundred million dogs in the United States, and every one of t
 
 xml version='1.0' encoding='utf-8'?
 
-[24. U.S. News Changed College](ThisIsStrategy_TOF.xhtml#T-STG024)
+24. U.S. News Changed College
 
 U.S. News & World Report was a struggling weekly magazine, in third place behind Time and Newsweek.
 
@@ -799,7 +799,7 @@ By narrating, labeling, and publishing a hierarchy, an outsider changed a system
 
 xml version='1.0' encoding='utf-8'?
 
-[25. Where’s the Meter?](ThisIsStrategy_TOF.xhtml#T-STG025)
+25. Where’s the Meter?
 
 Donella Meadows shared a story she heard from a researcher in Denmark. In 1973, they examined a suburban neighborhood of Amsterdam, where all the houses were very similar.
 
@@ -813,7 +813,7 @@ All other things being equal (and they were), the houses with visible meters use
 
 xml version='1.0' encoding='utf-8'?
 
-[26. Seeing (and Changing) the Chocolate System](ThisIsStrategy_TOF.xhtml#T-STG026)
+26. Seeing (and Changing) the Chocolate System
 
 The farmers who grow chocolate are some of the lowest-paid workers anywhere. In Ghana and the Ivory Coast, two of the largest producers of chocolate, a commodity system grinds people down, pushing them into endless hard work, and not rewarding them for the taste, innovation, or quality of the chocolate they produce.
 
@@ -851,7 +851,7 @@ Our job is to find a plan and then create the conditions for our project to spre
 
 xml version='1.0' encoding='utf-8'?
 
-[27. Serious Games](ThisIsStrategy_TOF.xhtml#T-STG027)
+27. Serious Games
 
 Getting your insulin dosage right is a game. Getting the farm bill passed in Congress is a game. Finding a job is a game as well.
 
@@ -871,7 +871,7 @@ Serious games are all around us, whether we choose to play them or not.
 
 xml version='1.0' encoding='utf-8'?
 
-[28. There are Games in Every Strategy](ThisIsStrategy_TOF.xhtml#T-STG028)
+28. There are Games in Every Strategy
 
 A game has the following elements: players, rules, scarcity, choices, feedback loops, and outcomes.
 
@@ -917,7 +917,7 @@ Here are a few things about games that are generally true:
 
 xml version='1.0' encoding='utf-8'?
 
-[29. We are All Time Travelers](ThisIsStrategy_TOF.xhtml#T-STG029)
+29. We are All Time Travelers
 
 And we are all farmers.
 
@@ -935,7 +935,7 @@ If you could have tomorrow over again, would you do it differently?
 
 xml version='1.0' encoding='utf-8'?
 
-[30. Seeing Time](ThisIsStrategy_TOF.xhtml#T-STG030)
+30. Seeing Time
 
 Time is simply nature’s way of making sure everything doesn’t happen all at once.
 
@@ -963,7 +963,7 @@ Strategy is the hard work of choosing what to do today to improve our tomorrow.
 
 xml version='1.0' encoding='utf-8'?
 
-[31. There is a Method](ThisIsStrategy_TOF.xhtml#T-STG031)
+31. There is a Method
 
 Either we make the system or the system makes us.
 
@@ -1015,7 +1015,7 @@ Get the strategy right and the jobs we do will be more fulfilling and easier to 
 
 xml version='1.0' encoding='utf-8'?
 
-[32. The Heartbreak of an Intuitive Strategy](ThisIsStrategy_TOF.xhtml#T-STG032)
+32. The Heartbreak of an Intuitive Strategy
 
 It’s easy to fall in love with a dream. It might be the dream of opening a little bookstore, or of being a social media influencer. Perhaps it’s a series of promotions at work, or the chance to organize a community to take action.
 
@@ -1043,7 +1043,7 @@ Falling in love with an outcome often prevents us from doing the work we’re ca
 
 xml version='1.0' encoding='utf-8'?
 
-[33. Hiding from a Useful Strategy](ThisIsStrategy_TOF.xhtml#T-STG033)
+33. Hiding from a Useful Strategy
 
 Once we clarify, simplify and commit, the useful strategy creates its own challenges.
 
@@ -1061,7 +1061,7 @@ As Michael Porter has pointed out, a strategy isn’t a goal. And a strategy isn
 
 xml version='1.0' encoding='utf-8'?
 
-[34. Low-Hanging Fruit Isn’t](ThisIsStrategy_TOF.xhtml#T-STG034)
+34. Low-Hanging Fruit Isn’t
 
 It’s all been picked.
 
@@ -1075,7 +1075,7 @@ The best employers don’t recruit at the placement office, and the most worthwh
 
 xml version='1.0' encoding='utf-8'?
 
-[35. Rome Was Built in a Day](ThisIsStrategy_TOF.xhtml#T-STG035)
+35. Rome Was Built in a Day
 
 Of course it wasn’t finished in a day. It still isn’t.
 
@@ -1095,7 +1095,7 @@ Better, not done.
 
 xml version='1.0' encoding='utf-8'?
 
-[36. One Telephone is Worthless](ThisIsStrategy_TOF.xhtml#T-STG036)
+36. One Telephone is Worthless
 
 Alexander Graham Bell didn’t invent the telephone.
 
@@ -1121,7 +1121,7 @@ Few people reading this are working to build something as universal and game-cha
 
 xml version='1.0' encoding='utf-8'?
 
-[37. The Desert Island Mythologies](ThisIsStrategy_TOF.xhtml#T-STG037)
+37. The Desert Island Mythologies
 
 There are two people on the island. Only you and me. And every interaction we have is right here, right now.
 
@@ -1143,7 +1143,7 @@ It’s a network. A network of community systems connected across time.
 
 xml version='1.0' encoding='utf-8'?
 
-[38. Cities are Contagious](ThisIsStrategy_TOF.xhtml#T-STG038)
+38. Cities are Contagious
 
 Without people who have moved in from somewhere else, the city would only be as dense as the countryside.
 
@@ -1161,7 +1161,7 @@ Change happens over time, but hastiness undermines an effective strategy.
 
 xml version='1.0' encoding='utf-8'?
 
-[39. Analyzing the Last Move](ThisIsStrategy_TOF.xhtml#T-STG039)
+39. Analyzing the Last Move
 
 When the deal falls apart, the team loses the game, or a partnership hits the rocks, it’s easy to focus our energy on the most recent event.
 
@@ -1177,7 +1177,7 @@ Creating the conditions for success is a very different project than finding a h
 
 xml version='1.0' encoding='utf-8'?
 
-[40. Strategy and Tactics](ThisIsStrategy_TOF.xhtml#T-STG040)
+40. Strategy and Tactics
 
 In 1968, the Sunday Times of London offered a cash reward to the first person who could singlehandedly sail around the world. They promised adventure, fame, and a trophy as well.
 
@@ -1201,7 +1201,7 @@ Robin Knox-Johnston won that race around the world. His philosophy about boat ma
 
 xml version='1.0' encoding='utf-8'?
 
-[41. Toward a Strategic Practice](ThisIsStrategy_TOF.xhtml#T-STG041)
+41. Toward a Strategic Practice
 
 We manage to fill our days with activity, but how can we show up to make a difference?
 
@@ -1233,7 +1233,7 @@ We can choose where we provide leverage, or we can put as much time as we like i
 
 xml version='1.0' encoding='utf-8'?
 
-[42. Project Work is Different](ThisIsStrategy_TOF.xhtml#T-STG042)
+42. Project Work is Different
 
 When you do a job, you do your job. Your boss decides.
 
@@ -1249,7 +1249,7 @@ Strategy is a compass that helps us to take action when we’re uncertain, to bu
 
 xml version='1.0' encoding='utf-8'?
 
-[43. You Might Need a Strategy To](ThisIsStrategy_TOF.xhtml#T-STG043)
+43. You Might Need a Strategy To
 
 •  Get into the college of your choice
 
@@ -1277,7 +1277,7 @@ xml version='1.0' encoding='utf-8'?
 
 xml version='1.0' encoding='utf-8'?
 
-[44. Slithering, With Patience](ThisIsStrategy_TOF.xhtml#T-STG044)
+44. Slithering, With Patience
 
 Justin Kobylka is the most successful breeder of ball pythons in the world.
 
@@ -1307,7 +1307,7 @@ His pioneering work, his spotless facility, and most of all his reputation keeps
 
 xml version='1.0' encoding='utf-8'?
 
-[45. Plants Make People Happy](ThisIsStrategy_TOF.xhtml#T-STG045)
+45. Plants Make People Happy
 
 While still in her 20s, Eliza Blank quit her marketing job and opened the Sill, an online seller of house plants.
 
@@ -1325,7 +1325,7 @@ Her blueprint can’t be the blueprint for the next competitor because the world
 
 xml version='1.0' encoding='utf-8'?
 
-[46. Seatbelts Save Lives](ThisIsStrategy_TOF.xhtml#T-STG046)
+46. Seatbelts Save Lives
 
 Of course they do. It’s obvious and easy to demonstrate. As a public health intervention, there are few that are cheaper, easier, and more effective.
 
@@ -1353,7 +1353,7 @@ Seat belts have saved more than 400,000 lives in the US since then.
 
 xml version='1.0' encoding='utf-8'?
 
-[47. Airbnb Was Lost](ThisIsStrategy_TOF.xhtml#T-STG047)
+47. Airbnb Was Lost
 
 They got found in Austin, Texas.
 
@@ -1377,7 +1377,7 @@ And then the system they were part of did the rest of the work.
 
 xml version='1.0' encoding='utf-8'?
 
-[48. Twenty-Seven Egg Dishes](ThisIsStrategy_TOF.xhtml#T-STG048)
+48. Twenty-Seven Egg Dishes
 
 Beryl Shereshewsky has nearly a million subscribers to her YouTube channel. It’s not unusual for one of her videos to get more than 1,000 comments, all of them useful and generous.
 
@@ -1397,7 +1397,7 @@ This would have made no sense in the era of Julia Child when TV produced authori
 
 xml version='1.0' encoding='utf-8'?
 
-[49. Esther Changed the World](ThisIsStrategy_TOF.xhtml#T-STG049)
+49. Esther Changed the World
 
 In 1983, Esther Dyson began editing a small newsletter: the real kind, on blue paper, sent with a stamp, to paying subscribers. By 1987, it came out every month, and cost $700 a year to subscribe. Subscribers to RELease 1.0 were also invited to an annual conference she hosted.
 
@@ -1415,7 +1415,7 @@ She made millions of dollars from the newsletter and far more from her investmen
 
 xml version='1.0' encoding='utf-8'?
 
-[50. Shine a Light](ThisIsStrategy_TOF.xhtml#T-STG050)
+50. Shine a Light
 
 The Innocence Project has already freed 250 victims of unjust prosecution. That number should be 100 times greater, but it’s also an astonishing act of generosity, insight, and dedication.
 
@@ -1431,7 +1431,7 @@ The ultimate goal is to have enough impact so that each conviction becomes a big
 
 xml version='1.0' encoding='utf-8'?
 
-[51. Big Problems Demand Small Solutions](ThisIsStrategy_TOF.xhtml#T-STG051)
+51. Big Problems Demand Small Solutions
 
 Big problems get big because systems amplify problems and make them sticky.
 
@@ -1451,7 +1451,7 @@ Every one of the elegant strategies mentioned above taps into the systems that e
 
 xml version='1.0' encoding='utf-8'?
 
-[52. “Getting the Word Out” (Also Known as “Selfish Shouting”)](ThisIsStrategy_TOF.xhtml#T-STG052)
+52. “Getting the Word Out” (Also Known as “Selfish Shouting”)
 
 This is the mantra of the self-absorbed, short-term, hype-hustling promoter calling themselves a marketer. They say a good idea needs endless promotion because people deserve to hear about it.
 
@@ -1481,7 +1481,7 @@ Effective marketing isn’t about hype or hustle or even about getting the word 
 
 xml version='1.0' encoding='utf-8'?
 
-[53. Use, Be Used, or Change It](ThisIsStrategy_TOF.xhtml#T-STG053)
+53. Use, Be Used, or Change It
 
 The system is here. Our strategy exists to help us make a change happen. We can do that by seeing the system and then using it to push our work forward… or we can see the system and subvert it by exploiting its feedback loops to make it work differently.
 
@@ -1505,7 +1505,7 @@ Every strategy depends on being conscious of the change we seek to make and the 
 
 xml version='1.0' encoding='utf-8'?
 
-[54. Freedom is Possible](ThisIsStrategy_TOF.xhtml#T-STG054)
+54. Freedom is Possible
 
 And yet many of us don’t feel that way. Perhaps it’s because the systems around us are optimized around obedience. Perhaps it’s because freedom is frightening.
 
@@ -1521,7 +1521,7 @@ In fact, we each have more power than we often admit.
 
 xml version='1.0' encoding='utf-8'?
 
-[55. Getting Clear About the Business Model](ThisIsStrategy_TOF.xhtml#T-STG055)
+55. Getting Clear About the Business Model
 
 When we get compensated for creating value in a way that enables us to do it again, we’ve found a business model.
 
@@ -1549,7 +1549,7 @@ While it doesn’t work the first day, it needs to work eventually. Time is the 
 
 xml version='1.0' encoding='utf-8'?
 
-[56. And It Flies](ThisIsStrategy_TOF.xhtml#T-STG056)
+56. And It Flies
 
 Time flies like an arrow. If I break an egg and scramble it, it can’t be unscrambled and put back in the shell. A student learns a new skill, an organization builds a community, a company builds an asset. We move forward relentlessly.
 
@@ -1567,7 +1567,7 @@ Then she looked at Lisa and said, “and at your age, your job is to live a life
 
 xml version='1.0' encoding='utf-8'?
 
-[57. Passion and Our Business Model](ThisIsStrategy_TOF.xhtml#T-STG057)
+57. Passion and Our Business Model
 
 Pundits tell us to do what we’re passionate about and the work will take care of itself.
 
@@ -1589,7 +1589,7 @@ A healthy career and a useful project will have countless moments where we’re 
 
 xml version='1.0' encoding='utf-8'?
 
-[58. The Circle of Us and the Circle of Now](ThisIsStrategy_TOF.xhtml#T-STG058)
+58. The Circle of Us and the Circle of Now
 
 A toddler wants what they want. Right now. Or a tantrum ensues.
 
@@ -1621,7 +1621,7 @@ The difficult part around long-term change is simple: that sort of effort is not
 
 xml version='1.0' encoding='utf-8'?
 
-[59. Selling Selfish](ThisIsStrategy_TOF.xhtml#T-STG059)
+59. Selling Selfish
 
 This is easy. It’s hardly selling to give individuals something that they want, right here, right now, without regard for the long-term or the impact on others.
 
@@ -1637,7 +1637,7 @@ Our strategy is to use systems, alter systems, and build systems that expand our
 
 xml version='1.0' encoding='utf-8'?
 
-[60. Next Guest, Best Guest](ThisIsStrategy_TOF.xhtml#T-STG060)
+60. Next Guest, Best Guest
 
 A simple way to see time is to think about launching a podcast.
 
@@ -1671,7 +1671,7 @@ Hope is not a plan.
 
 xml version='1.0' encoding='utf-8'?
 
-[61. Seeing Strategy Clearly](ThisIsStrategy_TOF.xhtml#T-STG061)
+61. Seeing Strategy Clearly
 
 Strategy is a flexible plan that guides us as we seek to create a change. It helps us make decisions over time while working within a system.
 
@@ -1693,7 +1693,7 @@ Successful people figure out how to trade their time and their effort for the ch
 
 xml version='1.0' encoding='utf-8'?
 
-[62. A Blueprint is an Assertion](ThisIsStrategy_TOF.xhtml#T-STG062)
+62. A Blueprint is an Assertion
 
 The builder creates a two-dimensional representation of a three-dimensional building. Unrolling the plans, she says, “This is what we will build.”
 
@@ -1711,7 +1711,7 @@ We need to talk about our strategy. We need to write it down.
 
 xml version='1.0' encoding='utf-8'?
 
-[63. Sharing Your Strategy: The Modern Business Plan](ThisIsStrategy_TOF.xhtml#T-STG063)
+63. Sharing Your Strategy: The Modern Business Plan
 
 It’s not clear to me why business plans are the way they are, but they’re often misused to obfuscate, bore, and show an ability to comply with expectations. If I want the real truth about a business and where it’s going, I’d divide the modern business plan into six sections:
 
@@ -1757,7 +1757,7 @@ Your local venture capitalist might not like this format, but I’m betting it w
 
 xml version='1.0' encoding='utf-8'?
 
-[64. Intuition is Strategy Without Narrative](ThisIsStrategy_TOF.xhtml#T-STG064)
+64. Intuition is Strategy Without Narrative
 
 Successful hunches might have been enough in the past. But for the work that lies ahead, for the changes we seek to make, we need to talk about it.
 
@@ -1775,7 +1775,7 @@ Working on the right things is the way forward. And writing them down is one way
 
 xml version='1.0' encoding='utf-8'?
 
-[65. The Thing About Effort](ThisIsStrategy_TOF.xhtml#T-STG065)
+65. The Thing About Effort
 
 “Try harder.”
 
@@ -1793,7 +1793,7 @@ Surfing is better when we see and understand the waves.
 
 xml version='1.0' encoding='utf-8'?
 
-[66. Resilience and Leverage](ThisIsStrategy_TOF.xhtml#T-STG066)
+66. Resilience and Leverage
 
 The fastest way forward might not be the most reliable.
 
@@ -1821,7 +1821,7 @@ Inevitably, the project will change in response to those that use it. But withou
 
 xml version='1.0' encoding='utf-8'?
 
-[67. It Barely Works](ThisIsStrategy_TOF.xhtml#T-STG067)
+67. It Barely Works
 
 This is the story of every new software innovation. In fact it’s the story of almost everything engineers have ever created.
 
@@ -1851,7 +1851,7 @@ Strategies are the tailwind that transform a project that is barely there into o
 
 xml version='1.0' encoding='utf-8'?
 
-[68. The Minimum Viable Audience](ThisIsStrategy_TOF.xhtml#T-STG068)
+68. The Minimum Viable Audience
 
 This has nothing to do with shipping junk. It’s not an excuse for rushing, either.
 
@@ -1871,7 +1871,7 @@ Of course we begin with the minimum. That’s a choice and an advantage, but it 
 
 xml version='1.0' encoding='utf-8'?
 
-[69. And Then What Happens?](ThisIsStrategy_TOF.xhtml#T-STG069)
+69. And Then What Happens?
 
 The blueprint goes first. It’s an assertion not just about the end, but about the steps to get there. And then reality arrives.
 
@@ -1895,7 +1895,7 @@ This expands our circle of now.
 
 xml version='1.0' encoding='utf-8'?
 
-[70. To Kill All the Whales](ThisIsStrategy_TOF.xhtml#T-STG070)
+70. To Kill All the Whales
 
 Organizing millions of humans in a conspiracy to kill as many whales as possible wasn’t very difficult.
 
@@ -1917,7 +1917,7 @@ There are countless conspiracies. They’re not a secret. We simply need to see 
 
 xml version='1.0' encoding='utf-8'?
 
-[71. Not All Needs Have a Market (Yet)](ThisIsStrategy_TOF.xhtml#T-STG071)
+71. Not All Needs Have a Market (Yet)
 
 A market is a category. A market is a place with competition. In a market, people have habits and budgets and social pressure to engage. And in a market, people make choices.
 
@@ -1935,7 +1935,7 @@ If you’re in market-creation mode, it helps to call it that and be prepared fo
 
 xml version='1.0' encoding='utf-8'?
 
-[72. Seeing the Windmill](ThisIsStrategy_TOF.xhtml#T-STG072)
+72. Seeing the Windmill
 
 If you’ve ever played miniature golf, you know that the best obstacle is the windmill. You need to get your ball past the windmill and into the hole while the blades slowly turn.
 
@@ -1959,7 +1959,7 @@ Facing this, we often revert to playing putt-putt with a windmill. But we can do
 
 xml version='1.0' encoding='utf-8'?
 
-[73. Without a Strategy](ThisIsStrategy_TOF.xhtml#T-STG073)
+73. Without a Strategy
 
 The meme says, “We do this not because it is easy…but because we thought it would be easy.”
 
@@ -1981,7 +1981,7 @@ The blueprint is a firm foundation for forward motion. It sustains us when we hi
 
 xml version='1.0' encoding='utf-8'?
 
-[74. Some Reasons We Avoid Having a Strategy](ThisIsStrategy_TOF.xhtml#T-STG074)
+74. Some Reasons We Avoid Having a Strategy
 
 •  We’re not able to see the system
 
@@ -2011,7 +2011,7 @@ It’s tempting to daydream about the future, but we’re not sure we’re ready
 
 xml version='1.0' encoding='utf-8'?
 
-[75. A Framework for a Strategy](ThisIsStrategy_TOF.xhtml#T-STG075)
+75. A Framework for a Strategy
 
 •  Awareness of the system and the rules. Any change we seek to make involves scarcity, the status quo, networks, and what came before. Most of all, it involves awareness of time and the distance from today until tomorrow.
 
@@ -2031,7 +2031,7 @@ xml version='1.0' encoding='utf-8'?
 
 xml version='1.0' encoding='utf-8'?
 
-[76. Creating the Conditions for Change](ThisIsStrategy_TOF.xhtml#T-STG076)
+76. Creating the Conditions for Change
 
 People don’t do things because you want them to. They change because they want to.
 
@@ -2061,7 +2061,7 @@ Our strategy sets us up for success when it’s based in the reality of the syst
 
 xml version='1.0' encoding='utf-8'?
 
-[77. Twelve Slogans](ThisIsStrategy_TOF.xhtml#T-STG077)
+77. Twelve Slogans
 
 What do we talk about when we talk about strategy? Consider these building blocks:
 
@@ -2095,7 +2095,7 @@ What do we talk about when we talk about strategy? Consider these building block
 
 xml version='1.0' encoding='utf-8'?
 
-[78. Unseen Systems and Unintended Consequences](ThisIsStrategy_TOF.xhtml#T-STG078)
+78. Unseen Systems and Unintended Consequences
 
 Unseen systems conceal and undermine our agency. They fool us into believing we have fewer choices than we do.
 
@@ -2127,7 +2127,7 @@ Effort is often part of our work, but effort by itself is not a strategy.
 
 xml version='1.0' encoding='utf-8'?
 
-[79. We are Not Plankton](ThisIsStrategy_TOF.xhtml#T-STG079)
+79. We are Not Plankton
 
 In Russian, they call them Офисный планктон—office plankton. Low-level workers who simply follow instructions. It’s a perfect image, and more widespread than ever. Many CEOs are office plankton as well, floating along and simply following the crowd.
 
@@ -2147,7 +2147,7 @@ Resilient and long-lasting change travels horizontally, not vertically. It’s c
 
 xml version='1.0' encoding='utf-8'?
 
-[80. Strategic Marketing](ThisIsStrategy_TOF.xhtml#T-STG080)
+80. Strategic Marketing
 
 Marketing is the art of building a product or service that tells a story. A true story—one that resonates and changes the person who experiences it.
 
@@ -2163,7 +2163,7 @@ When we see the world as a web, and our work as helping the people in the web co
 
 xml version='1.0' encoding='utf-8'?
 
-[81. No Time to Waste](ThisIsStrategy_TOF.xhtml#T-STG081)
+81. No Time to Waste
 
 Of course there isn’t.
 
@@ -2181,7 +2181,7 @@ We can’t waste time because it’s not ours to waste. It’s simply the way we
 
 xml version='1.0' encoding='utf-8'?
 
-[82. Strategy and Aimlessness](ThisIsStrategy_TOF.xhtml#T-STG082)
+82. Strategy and Aimlessness
 
 Can we find joy without a strategy? Do we need to optimize every interaction or schedule every moment? Do we need an appointment to smell the flowers or a watch to track our exertion when we’re out for a walk?
 
@@ -2197,7 +2197,7 @@ The successful blueprint aligns the change you seek to make with the life you se
 
 xml version='1.0' encoding='utf-8'?
 
-[83. Should Might Be a Trap](ThisIsStrategy_TOF.xhtml#T-STG083)
+83. Should Might Be a Trap
 
 •  Do the things you need to do to get what you need in the long run.
 
@@ -2211,7 +2211,7 @@ xml version='1.0' encoding='utf-8'?
 
 xml version='1.0' encoding='utf-8'?
 
-[84. Where is the Blueprint?](ThisIsStrategy_TOF.xhtml#T-STG084)
+84. Where is the Blueprint?
 
 “Whenever a building is constructed, you usually have an architect who draws a blueprint, and that blueprint serves as the pattern, as the guide, and a building is not well erected without a good, solid blueprint.
 
@@ -2231,7 +2231,7 @@ The Rev. M.L. King Jr., to a group of students in 1967
 
 xml version='1.0' encoding='utf-8'?
 
-[85. Sooner or Later](ThisIsStrategy_TOF.xhtml#T-STG085)
+85. Sooner or Later
 
 There are no charging stations anywhere near Smoke Lake in Algonquin Park, Canada. That means that you’ll need to charge your car before you get there, or you’ll end up stranded.
 
@@ -2257,7 +2257,7 @@ We’re all living in a marshmallow test, every day. Seeing where the delays exi
 
 xml version='1.0' encoding='utf-8'?
 
-[86. Strategy is the Partner of Freedom](ThisIsStrategy_TOF.xhtml#T-STG086)
+86. Strategy is the Partner of Freedom
 
 •  The freedom to create, to write, to invent, and to share widely.
 
@@ -2285,7 +2285,7 @@ This is something we must work on right now, and tomorrow, and every single day 
 
 xml version='1.0' encoding='utf-8'?
 
-[87. The Lottery is Not a Strategy](ThisIsStrategy_TOF.xhtml#T-STG087)
+87. The Lottery is Not a Strategy
 
 Someone is going to win the Megamillions lottery.
 
@@ -2307,7 +2307,7 @@ The lottery, on the other hand, is ultimately a shiny and seductive dead end, be
 
 xml version='1.0' encoding='utf-8'?
 
-[88. Nostalgia for the Future](ThisIsStrategy_TOF.xhtml#T-STG088)
+88. Nostalgia for the Future
 
 A strategy is the most reliable way to get to a future we’d like to live in.
 
@@ -2335,7 +2335,7 @@ We can choose to get on the bus. To go build that future we’re yearning for.
 
 xml version='1.0' encoding='utf-8'?
 
-[89. Doing Our Job or Doing Our Work?](ThisIsStrategy_TOF.xhtml#T-STG089)
+89. Doing Our Job or Doing Our Work?
 
 When we’re doing our job, there’s a checklist. Instructions. Deniability. Sooner or later we have to do our jobs, but it probably pays to focus on our work.
 
@@ -2355,7 +2355,7 @@ The work is to figure out which job we actually want.
 
 xml version='1.0' encoding='utf-8'?
 
-[90. Tension First and Above All](ThisIsStrategy_TOF.xhtml#T-STG090)
+90. Tension First and Above All
 
 We talk about tension as if it’s a bad thing. But the only way to launch a rubber band across the room is to pull it backwards, creating tension. Tension permits the water spider to walk across a puddle without drowning. And tension keeps us focused on the world around us.
 
@@ -2387,7 +2387,7 @@ But the same sort of tension exists at a very minor scale. The tension of changi
 
 xml version='1.0' encoding='utf-8'?
 
-[91. The Fastest Cyclist in the World](ThisIsStrategy_TOF.xhtml#T-STG091)
+91. The Fastest Cyclist in the World
 
 In 1933, Francis Faure smashed the record for the farthest distance traveled in one hour on a bicycle. It had stood for twenty years, but Faure beat it easily.
 
@@ -2423,7 +2423,7 @@ If Mochet had hired a world-champion cyclist to be his influencer, the entire st
 
 xml version='1.0' encoding='utf-8'?
 
-[92. When Did Apple Become Apple?](ThisIsStrategy_TOF.xhtml#T-STG092)
+92. When Did Apple Become Apple?
 
 The world’s most valuable company had its roots in a garage, where Steve Wozniak created the first widely available and well-priced home computer.
 
@@ -2453,7 +2453,7 @@ The iPhone is here because there was an ecosystem and a strategy to take it forw
 
 xml version='1.0' encoding='utf-8'?
 
-[93. When Did Netflix Become Netflix?](ThisIsStrategy_TOF.xhtml#T-STG093)
+93. When Did Netflix Become Netflix?
 
 Netflix began as a DVD rental company. Ubiquitous red envelopes and a huge selection were the hallmarks of their early success.
 
@@ -2471,7 +2471,7 @@ Our next move is often something that decreases the value of our previously hard
 
 xml version='1.0' encoding='utf-8'?
 
-[94. When Did David Bowie Become David Bowie?](ThisIsStrategy_TOF.xhtml#T-STG094)
+94. When Did David Bowie Become David Bowie?
 
 If you listen to the original recordings of rock stars like Sly Stone, Janis Joplin and Lou Reed, you’ll hear that they started out doing their best to sound exactly like everyone else.
 
@@ -2485,7 +2485,7 @@ The big step between musician and rock star is the decision to sound like yourse
 
 xml version='1.0' encoding='utf-8'?
 
-[95. What’s Your Strategy?](ThisIsStrategy_TOF.xhtml#T-STG095)
+95. What’s Your Strategy?
 
 For our parents, a strategy was reserved for MBAs at big companies or the diplomats who ran countries. Alcoa and Kodak had a strategy; so did Winston Churchill. Maybe Muhammad Ali had a strategy for his next fight, but for the typical human, that wasn’t part of our job.
 
@@ -2503,7 +2503,7 @@ Tomorrow keeps arriving. Perhaps we can choose a strategy to make it better.
 
 xml version='1.0' encoding='utf-8'?
 
-[96. What Does It Mean to Be a Strategic Thinker?](ThisIsStrategy_TOF.xhtml#T-STG096)
+96. What Does It Mean to Be a Strategic Thinker?
 
 It means that you see the system.
 
@@ -2521,7 +2521,7 @@ The operating plan and tactics that accompany our strategy are focused on these 
 
 xml version='1.0' encoding='utf-8'?
 
-[97. Tactics are Not Strategies](ThisIsStrategy_TOF.xhtml#T-STG097)
+97. Tactics are Not Strategies
 
 Tactics are how we win short-term games. Tactics are flexible, disposable, and sometimes secret.
 
@@ -2541,7 +2541,7 @@ If your strategy is flawed, all the successful tactics you engage in won’t hel
 
 xml version='1.0' encoding='utf-8'?
 
-[98. What’s a Feedback Loop?](ThisIsStrategy_TOF.xhtml#T-STG098)
+98. What’s a Feedback Loop?
 
 If the wedding DJ holds the microphone too close to the speakers, a horrible screech occurs. That’s because the sound goes through the mic, gets amplified, and then goes out the speaker, and then back again, over and over.
 
@@ -2565,7 +2565,7 @@ If you see a feedback loop, you’re seeing a system at work.
 
 xml version='1.0' encoding='utf-8'?
 
-[99. Time Isn’t Free](ThisIsStrategy_TOF.xhtml#T-STG099)
+99. Time Isn’t Free
 
 Every choice comes with a cost. When we spend an hour reading a book, it’s an hour we didn’t spend listening to speed metal. When we take on one client, we’ve chosen not to pursue a different option.
 
@@ -2585,7 +2585,7 @@ The choices we make today to make tomorrow better are our strategy.
 
 xml version='1.0' encoding='utf-8'?
 
-[100. Avoiding Hindsight Bias](ThisIsStrategy_TOF.xhtml#T-STG100)
+100. Avoiding Hindsight Bias
 
 Most business theories fall into an easy trap: They find a few successful examples and then explain how their theory explains their success.
 
@@ -2605,7 +2605,7 @@ All we can do is look for the right conditions, not expect a guarantee.
 
 xml version='1.0' encoding='utf-8'?
 
-[101. Not the Parts, the System](ThisIsStrategy_TOF.xhtml#T-STG101)
+101. Not the Parts, the System
 
 When more than one person (or in the case of things like cars, one part) is working with others to create something in coordination, it’s a system.
 
@@ -2619,7 +2619,7 @@ If you seek to be part of a system, it helps to understand how your actions will
 
 xml version='1.0' encoding='utf-8'?
 
-[102. Thinking About “Status”](ThisIsStrategy_TOF.xhtml#T-STG102)
+102. Thinking About “Status”
 
 It’s mentioned more than fifty times in this book, and it’s a critical component of systems and strategy. But we often confuse it with an easily measured metric that is sometimes (but not always) a measure of status: money.
 
@@ -2639,7 +2639,7 @@ And then there’s status for people who appear to shun easily measured proxies 
 
 xml version='1.0' encoding='utf-8'?
 
-[103. Seeing Status in Hollywood](ThisIsStrategy_TOF.xhtml#T-STG103)
+103. Seeing Status in Hollywood
 
 Among the top 500 grossing Hollywood movies of all time, My Big Fat Greek Wedding is the most profitable in return on investment.
 
@@ -2663,7 +2663,7 @@ What the system makes is probably what the system values. And vice versa.
 
 xml version='1.0' encoding='utf-8'?
 
-[104. The Output of Systems](ThisIsStrategy_TOF.xhtml#T-STG104)
+104. The Output of Systems
 
 Systems produce what they produce, not what the organizers or participants might have been hoping for.
 
@@ -2681,7 +2681,7 @@ It’s uncommon for surprising system outputs to be a deliberate conspiracy. Bec
 
 xml version='1.0' encoding='utf-8'?
 
-[105. Our Intent is Altered by the System We’re Part of](ThisIsStrategy_TOF.xhtml#T-STG105)
+105. Our Intent is Altered by the System We’re Part of
 
 The Dartmouth Atlas study of health care has shown that when the number of hospital beds available increases, the number of patients admitted to the hospital increases. The same is true for medical devices and tests.
 
@@ -2699,7 +2699,7 @@ As long as culture is delivering the resilient and useful results we seek, there
 
 xml version='1.0' encoding='utf-8'?
 
-[106. The Birth of Afya](ThisIsStrategy_TOF.xhtml#T-STG106)
+106. The Birth of Afya
 
 In 2007, Danielle Butin was traveling in Tanzania. A trained occupational therapist, she had been working as a healthcare executive in the burgeoning industry of elder care.
 
@@ -2731,7 +2731,7 @@ There are countless good causes. But Butin’s strategy involved seeing how diff
 
 xml version='1.0' encoding='utf-8'?
 
-[107. Perpetuating the Scam](ThisIsStrategy_TOF.xhtml#T-STG107)
+107. Perpetuating the Scam
 
 A system rarely serves everyone involved, and yet they’re difficult to change. For example: People entering the workforce aren’t served well by the existing system, and neither are the organizations that seek to hire them.
 
@@ -2751,7 +2751,7 @@ Creating tomorrow by repeating yesterday is not a useful way forward.
 
 xml version='1.0' encoding='utf-8'?
 
-[108. Toxic Systems](ThisIsStrategy_TOF.xhtml#T-STG108)
+108. Toxic Systems
 
 Systems don’t start out to be selfish, but resilient ones often end up that way.
 
@@ -2771,7 +2771,7 @@ Toxic systems don’t go away on their own. Community action and peer support gi
 
 xml version='1.0' encoding='utf-8'?
 
-[109. The Urgency of “No”](ThisIsStrategy_TOF.xhtml#T-STG109)
+109. The Urgency of “No”
 
 If scarcity is one of the elements of a game, we benefit from embracing the fact that we can’t have everything, do everything, or offer everything.
 
@@ -2793,7 +2793,7 @@ If we’re competing with everyone, in every venue, it’s no wonder we’re not
 
 xml version='1.0' encoding='utf-8'?
 
-[110. On Being Judged](ThisIsStrategy_TOF.xhtml#T-STG110)
+110. On Being Judged
 
 How do you decide who has the power to judge you?
 
@@ -2811,7 +2811,7 @@ A foundation of our blueprint is acknowledging which judges we are prepared to c
 
 xml version='1.0' encoding='utf-8'?
 
-[111. Choose Your Customers and Choose Your Future](ThisIsStrategy_TOF.xhtml#T-STG111)
+111. Choose Your Customers and Choose Your Future
 
 Every project has customers. It might be the patients your non-profit serves, or your donors. It might be the person who walks into the coffee shop to deal with you when you’re working as a clerk, or it might be your boss.
 
@@ -2891,7 +2891,7 @@ It’s much more productive to find people who already want to go where you’d 
 
 xml version='1.0' encoding='utf-8'?
 
-[112. Choose Your Competition and Choose Your Future](ThisIsStrategy_TOF.xhtml#T-STG112)
+112. Choose Your Competition and Choose Your Future
 
 It’s not surprising that Lance Armstrong cheated. During his career, at the highest levels of bike racing, it was impossible to win without doping.
 
@@ -2907,7 +2907,7 @@ And if you choose a competition where the most successful path is short-term thi
 
 xml version='1.0' encoding='utf-8'?
 
-[113. Choose the Source of Validation and Choose Your Future](ThisIsStrategy_TOF.xhtml#T-STG113)
+113. Choose the Source of Validation and Choose Your Future
 
 Who are you seeking to please?
 
@@ -2929,7 +2929,7 @@ When we match where we seek validation to the work we hope to do and the rewards
 
 xml version='1.0' encoding='utf-8'?
 
-[114. Choose Your Distribution and Choose Your Future](ThisIsStrategy_TOF.xhtml#T-STG114)
+114. Choose Your Distribution and Choose Your Future
 
 Distribution is the act of bringing the thing you make to the people who want it. Distribution is harder to visualize, but ultimately is just as important as the other choices you make.
 
@@ -2953,7 +2953,7 @@ It’s not simply trading one middleman for another. When the system of distribu
 
 xml version='1.0' encoding='utf-8'?
 
-[115. News, Ideas, and Distribution Changes](ThisIsStrategy_TOF.xhtml#T-STG115)
+115. News, Ideas, and Distribution Changes
 
 Books were distributed in largely the same way for 400 years. Authors, printers, bookstores, and readers.
 
@@ -2975,7 +2975,7 @@ Pick your distribution, pick your future.
 
 xml version='1.0' encoding='utf-8'?
 
-[116. “Everyone” is Elusive](ThisIsStrategy_TOF.xhtml#T-STG116)
+116. “Everyone” is Elusive
 
 We can’t have an impact on everyone. None of us can.
 
@@ -2993,7 +2993,7 @@ There’s a way out: The people who need you, the someone who will benefit—if 
 
 xml version='1.0' encoding='utf-8'?
 
-[117. What Do You Want?](ThisIsStrategy_TOF.xhtml#T-STG117)
+117. What Do You Want?
 
 “What do you want?” is a tough question to answer. “What’s your strategy?” is one reason.
 
@@ -3009,7 +3009,7 @@ A strategy is a response to this quandary.
 
 xml version='1.0' encoding='utf-8'?
 
-[118. What Does It Want?](ThisIsStrategy_TOF.xhtml#T-STG118)
+118. What Does It Want?
 
 A useful way to understand an evolved organism or system is to ask what it wants.
 
@@ -3059,7 +3059,7 @@ Choosing to engage with things that want what we want is a powerful choice.
 
 xml version='1.0' encoding='utf-8'?
 
-[119. The Runaway Conditions](ThisIsStrategy_TOF.xhtml#T-STG119)
+119. The Runaway Conditions
 
 Sometimes a feedback loop turns insatiable. And insatiable feedback loops, enabled and reinforced by the society we live in, almost always lead to unexpected side effects.
 
@@ -3085,7 +3085,7 @@ The unfettered race for “more” among some people is the wildcard.
 
 xml version='1.0' encoding='utf-8'?
 
-[120. Things That Scale](ThisIsStrategy_TOF.xhtml#T-STG120)
+120. Things That Scale
 
 No matter how much the marketplace economy creates, invents, and sells, there remains an insatiable desire for some wants, things we can never get enough of.
 
@@ -3111,7 +3111,7 @@ Status, safety, affiliation, and curiosity are universal and always interacting,
 
 xml version='1.0' encoding='utf-8'?
 
-[121. Working for the System](ThisIsStrategy_TOF.xhtml#T-STG121)
+121. Working for the System
 
 A chicken is merely an egg’s way of making another egg.
 
@@ -3129,7 +3129,7 @@ Systems create culture, and culture is the way a system quietly persists, creati
 
 xml version='1.0' encoding='utf-8'?
 
-[122. Who is in Charge?](ThisIsStrategy_TOF.xhtml#T-STG122)
+122. Who is in Charge?
 
 A concerned parent of a 12-year-old confided to me that they were worried about the upcoming thirteenth birthday festivities, particularly the intense peer pressure to invite 100 kids and spend tens of thousands of dollars.
 
@@ -3157,7 +3157,7 @@ But in most systems, most of the time, the best we can hope for is to use the sy
 
 xml version='1.0' encoding='utf-8'?
 
-[123. Snapshots and Movies](ThisIsStrategy_TOF.xhtml#T-STG123)
+123. Snapshots and Movies
 
 Time isn’t something we can see directly. It’s simply the change in snapshots over time.
 
@@ -3173,7 +3173,7 @@ Now is important, but it’s insufficient. Now plus tomorrow and the tomorrow af
 
 xml version='1.0' encoding='utf-8'?
 
-[124. The Day I Met Derek Sivers](ThisIsStrategy_TOF.xhtml#T-STG124)
+124. The Day I Met Derek Sivers
 
 On June 10, 2009, I posted a riff about Guy #3, the person who starts a movement.
 
@@ -3205,7 +3205,7 @@ But not all at once. That’s the point.
 
 xml version='1.0' encoding='utf-8'?
 
-[125. The Emperor Penguins, Crowds and Fear](ThisIsStrategy_TOF.xhtml#T-STG125)
+125. The Emperor Penguins, Crowds and Fear
 
 At six months old, an emperor penguin in Antarctica is ready to enter the water. Of course the water is freezing cold, but they’re penguins. Most of them do it by sliding off an ice floe, probably a leap of a foot or two.
 
@@ -3235,7 +3235,7 @@ When in doubt, look for the fear. It’s probably the cause of whatever surprisi
 
 xml version='1.0' encoding='utf-8'?
 
-[126. If You Want to Start a Fire](ThisIsStrategy_TOF.xhtml#T-STG126)
+126. If You Want to Start a Fire
 
 Perhaps you learned how to build a campfire as a kid.
 
@@ -3251,7 +3251,7 @@ Our strategy fails every time the size of the logs exceeds our supply of kindlin
 
 xml version='1.0' encoding='utf-8'?
 
-[127. The Five Steps to Widespread Change](ThisIsStrategy_TOF.xhtml#T-STG127)
+127. The Five Steps to Widespread Change
 
 It begins with a nucleus. This core group shares a desire. Perhaps they’re frustrated, left out, seeking something better or something new. They are not typical.
 
@@ -3275,7 +3275,7 @@ The infrastructure doesn’t come first. In fact, it gets built much later, afte
 
 xml version='1.0' encoding='utf-8'?
 
-[128. Sand Hill Road](ThisIsStrategy_TOF.xhtml#T-STG128)
+128. Sand Hill Road
 
 Let’s say you wanted to put into place a plan to get billions of people around the world to spend almost all of their time online, changing the structure of our culture and enriching a tiny group of backers and entrepreneurs.
 
@@ -3293,7 +3293,7 @@ Now, there are thousands of VCs, all based on the model that was built and polis
 
 xml version='1.0' encoding='utf-8'?
 
-[129. 100 is a Fine Way to Start](ThisIsStrategy_TOF.xhtml#T-STG129)
+129. 100 is a Fine Way to Start
 
 Here’s an example of how a system that’s ready to shift can embrace a change.
 
@@ -3325,7 +3325,7 @@ This wasn’t a substantial breakthrough that transformed the system of kinderga
 
 xml version='1.0' encoding='utf-8'?
 
-[130. Failing to Change the Donation Dynamic](ThisIsStrategy_TOF.xhtml#T-STG130)
+130. Failing to Change the Donation Dynamic
 
 My story about kidney donation sounds similar to the challenge of improving kindergarten, but it has a different, less positive conclusion.
 
@@ -3361,7 +3361,7 @@ Good ideas are required, but they’re rarely sufficient.
 
 xml version='1.0' encoding='utf-8'?
 
-[131. Shun the Non-Believers](ThisIsStrategy_TOF.xhtml#T-STG131)
+131. Shun the Non-Believers
 
 As an idea moves through a community, some of the early adopters who join in early are aligned on mission and eager to help it succeed.
 
@@ -3385,7 +3385,7 @@ The hard work isn’t to appeal to everyone. The hard work is to get out the vot
 
 xml version='1.0' encoding='utf-8'?
 
-[132. Understanding Adopters](ThisIsStrategy_TOF.xhtml#T-STG132)
+132. Understanding Adopters
 
 Can you imagine a bell curve? It’s the standard hump in the middle that we see in statistics all the time.
 
@@ -3433,7 +3433,7 @@ Your idea might be rejected because it’s not better. But it’s probably going
 
 xml version='1.0' encoding='utf-8'?
 
-[133. Time is the Overlooked Axis](ThisIsStrategy_TOF.xhtml#T-STG133)
+133. Time is the Overlooked Axis
 
 Does sticking with a diet help you lose weight?
 
@@ -3459,7 +3459,7 @@ A strategy requires us to travel through time—to get from today to tomorrow an
 
 xml version='1.0' encoding='utf-8'?
 
-[134. Getting Comfortable With a Series of Snapshots](ThisIsStrategy_TOF.xhtml#T-STG134)
+134. Getting Comfortable With a Series of Snapshots
 
 And then what happens?
 
@@ -3481,7 +3481,7 @@ Every one of these steps are points along the adoption curve. Something happens 
 
 xml version='1.0' encoding='utf-8'?
 
-[135. Embrace the Gulf of Disapproval](ThisIsStrategy_TOF.xhtml#T-STG135)
+135. Embrace the Gulf of Disapproval
 
 ![](../Images/STG135_Gulf-Disapproval-NEW.png)
 
@@ -3505,7 +3505,7 @@ When the gulf of disapproval comes, don’t track the non-believers. Count the t
 
 xml version='1.0' encoding='utf-8'?
 
-[136. Deterministic Nonperiodic Flow Proves the Point](ThisIsStrategy_TOF.xhtml#T-STG136)
+136. Deterministic Nonperiodic Flow Proves the Point
 
 Edward Lorenz wrote a scientific paper in 1963, publishing it in a respected scientific journal for meteorologists. The chart below chronicles how many other papers referred to his through the years.
 
@@ -3533,7 +3533,7 @@ Ideas that spread, win. And traction is underrated.
 
 xml version='1.0' encoding='utf-8'?
 
-[137. Chasing the Hype Cycle](ThisIsStrategy_TOF.xhtml#T-STG137)
+137. Chasing the Hype Cycle
 
 In 1995, Jackie Fenn developed the Gartner Hype Cycle. It’s not a cycle at all, but instead highlights, as Rogers’ curve did, how an idea spreads through our culture.
 
@@ -3559,7 +3559,7 @@ The useful strategy takes this into account. It’s easier to ride a wave once y
 
 xml version='1.0' encoding='utf-8'?
 
-[138. Seeing the Chasm](ThisIsStrategy_TOF.xhtml#T-STG138)
+138. Seeing the Chasm
 
 ![](../Images/STG138_Gartner-Hype-Cycle.jpg)
 
@@ -3595,7 +3595,7 @@ Systems problems demand systems solutions, and we cross the chasm when we create
 
 xml version='1.0' encoding='utf-8'?
 
-[139. The Need for Scaffolding](ThisIsStrategy_TOF.xhtml#T-STG139)
+139. The Need for Scaffolding
 
 You and I could climb Mt. Everest. Not the whole thing, but we might do a fine job at the beginning.
 
@@ -3629,7 +3629,7 @@ If you seek to make systems change and you haven’t built the scaffolding for o
 
 xml version='1.0' encoding='utf-8'?
 
-[140. Scaffolding and Marketing](ThisIsStrategy_TOF.xhtml#T-STG140)
+140. Scaffolding and Marketing
 
 This gives us the chance to re-imagine our task as marketers. It’s not about getting the word out. It’s not about hustle or hype or promotion or hoopla.
 
@@ -3647,7 +3647,7 @@ A brand isn’t a logo. It’s an invitation and a promise, an expectation about
 
 xml version='1.0' encoding='utf-8'?
 
-[141. The Catch-22 of Leveraged Systems](ThisIsStrategy_TOF.xhtml#T-STG141)
+141. The Catch-22 of Leveraged Systems
 
 “The system will adopt you once you’re successful.
 
@@ -3671,7 +3671,7 @@ Author adrienne maree brown encourages us to move at the speed of trust. Critica
 
 xml version='1.0' encoding='utf-8'?
 
-[142. Treating Different People Differently](ThisIsStrategy_TOF.xhtml#T-STG142)
+142. Treating Different People Differently
 
 A new idea needs more scaffolding than a proven one. The innovators will be people who like to go first, and they often seek to feel smart by figuring it out on their own. Pioneers, out in the desert with nothing but a pocket knife and a soldering iron, heroically making it work.
 
@@ -3693,7 +3693,7 @@ And some projects, regardless of scaffolding, never reach most people. In fact, 
 
 xml version='1.0' encoding='utf-8'?
 
-[143. Shifting to the Masses](ThisIsStrategy_TOF.xhtml#T-STG143)
+143. Shifting to the Masses
 
 The shift from early adopters to the masses is such an essential yet overlooked concept that it’s worth pausing for a moment to see it all around us. As a project spreads through a community, it develops into a complete solution, with convenience, reliability, and utility driving forward motion.
 
@@ -3719,7 +3719,7 @@ The masses are a choice, one you can commit to or plan on avoiding.
 
 xml version='1.0' encoding='utf-8'?
 
-[144. Misunderstanding Quality](ThisIsStrategy_TOF.xhtml#T-STG144)
+144. Misunderstanding Quality
 
 The common colloquial understanding of “quality” is some combination of perfection and luxury. With this view, a Rolls Royce is a higher-quality car than a Toyota Camry.
 
@@ -3751,7 +3751,7 @@ Perhaps your definition of better doesn’t matter. We can use someone else’s 
 
 xml version='1.0' encoding='utf-8'?
 
-[145. The Challenge in Finding Useful Criticism](ThisIsStrategy_TOF.xhtml#T-STG145)
+145. The Challenge in Finding Useful Criticism
 
 Prototypes are rarely applauded by amateurs.
 
@@ -3773,7 +3773,7 @@ We’re not asking if you like it. We’re asking, “For the kind of person we 
 
 xml version='1.0' encoding='utf-8'?
 
-[146. Being Clear About “Better”](ThisIsStrategy_TOF.xhtml#T-STG146)
+146. Being Clear About “Better”
 
 It seems pedantic to have a discussion about “better,” but it’s actually at the heart of your strategy.
 
@@ -3789,7 +3789,7 @@ When we lack the empathy to imagine someone else’s “better”, we’re on th
 
 xml version='1.0' encoding='utf-8'?
 
-[147. What We Ask Ourselves When It’s Our Turn on the Curve](ThisIsStrategy_TOF.xhtml#T-STG147)
+147. What We Ask Ourselves When It’s Our Turn on the Curve
 
 We each have a choice. As customers or citizens, workers or purchasing agents, we stand wherever we like on the adoption curve over time.
 
@@ -3851,7 +3851,7 @@ Scaffolding
 
 xml version='1.0' encoding='utf-8'?
 
-[148. Short-Term and Long-Term Games](ThisIsStrategy_TOF.xhtml#T-STG148)
+148. Short-Term and Long-Term Games
 
 Our interactions with other people and the systems they are part of can be seen as games. A short-term game is a discrete interaction with an outcome. Some examples:
 
@@ -3889,7 +3889,7 @@ A successful strategy lines up games with intent, seeking out the sorts of inter
 
 xml version='1.0' encoding='utf-8'?
 
-[149. Infinite or Finite?](ThisIsStrategy_TOF.xhtml#T-STG149)
+149. Infinite or Finite?
 
 There are infinite and finite games.
 
@@ -3915,7 +3915,7 @@ Every strategy includes a game. We need to choose and understand the game we’r
 
 xml version='1.0' encoding='utf-8'?
 
-[150. Scarcity or Abundance?](ThisIsStrategy_TOF.xhtml#T-STG150)
+150. Scarcity or Abundance?
 
 If you want to win the gold medal in bobsledding, you’ll need to beat every other team. This is a scarcity game where the winner takes all. No medals for fourth place.
 
@@ -3947,7 +3947,7 @@ It’s easy to get confused about which sort of game we’re in, since scarcity 
 
 xml version='1.0' encoding='utf-8'?
 
-[151. Dominance or Affiliation?](ThisIsStrategy_TOF.xhtml#T-STG151)
+151. Dominance or Affiliation?
 
 There are games that are won by dominance and those that are won by affiliation.
 
@@ -3969,7 +3969,7 @@ If you’re not ready to play a game based on dominance, don’t start.
 
 xml version='1.0' encoding='utf-8'?
 
-[152. Paying It Forward Vs. Paying It Back](ThisIsStrategy_TOF.xhtml#T-STG152)
+152. Paying It Forward Vs. Paying It Back
 
 Paying it back is trading favors. Reciprocity is a natural human instinct, amplified by culture. If someone does a nice thing for you, you are inclined to do a nice thing in return.
 
@@ -3989,7 +3989,7 @@ The miser, on the other hand, is sufficiently insecure that he won’t even open
 
 xml version='1.0' encoding='utf-8'?
 
-[153. Maintenance, Substitution, or Possibility?](ThisIsStrategy_TOF.xhtml#T-STG153)
+153. Maintenance, Substitution, or Possibility?
 
 The maintenance game preserves the status quo. It’s the fourth Dune sequel. It’s just enough customer service to a contractor’s HVAC clients that they don’t go looking for another vendor. It’s keeping the classic dishes on the menu so you don’t alienate the regulars.
 
@@ -4005,7 +4005,7 @@ And possibility? This is the game of betting on the future. It’s often a more 
 
 xml version='1.0' encoding='utf-8'?
 
-[154. Games of Skill, Luck and Privilege](ThisIsStrategy_TOF.xhtml#T-STG154)
+154. Games of Skill, Luck and Privilege
 
 Some games are won because systems, strategy and circumstances favor one player over the others. Other games are simply based on luck.
 
@@ -4021,7 +4021,7 @@ It seems obvious, but it’s not: If you’re interested in developing your own 
 
 xml version='1.0' encoding='utf-8'?
 
-[155. Games With Divergent Objectives](ThisIsStrategy_TOF.xhtml#T-STG155)
+155. Games With Divergent Objectives
 
 In the common understanding of games, things like organized sports and other competitions, it’s assumed that all the players want the same thing.
 
@@ -4041,7 +4041,7 @@ We’ll need to seek out these games before we start imagining the win-win solut
 
 xml version='1.0' encoding='utf-8'?
 
-[156. Mutual Enrollment and Complex Games](ThisIsStrategy_TOF.xhtml#T-STG156)
+156. Mutual Enrollment and Complex Games
 
 Chessboxing works because the players agree on the rules (the rules are ridiculous—you can look them up). Once you’re in the ring, you can implement a reliable strategy that alternates between trading rooks and trading punches. I’m suggesting that you probably shouldn’t chessbox as a matter of principle, but you should definitely not chessbox with someone who isn’t signed up to do so.
 
@@ -4061,7 +4061,7 @@ Without mutual enrollment, it falls apart. The quicksand shows up when you skip 
 
 xml version='1.0' encoding='utf-8'?
 
-[157. Don’t Bet on Games You Can’t Win](ThisIsStrategy_TOF.xhtml#T-STG157)
+157. Don’t Bet on Games You Can’t Win
 
 There’s a specific sort of micro-game that has a different strategy than the broader systems games we’re discussing here, but it’s worth a moment to focus on.
 
@@ -4085,7 +4085,7 @@ We can save oppositional games for the pickleball court. They don’t work well 
 
 xml version='1.0' encoding='utf-8'?
 
-[158. All of Our Strategies are All of Our Strategies](ThisIsStrategy_TOF.xhtml#T-STG158)
+158. All of Our Strategies are All of Our Strategies
 
 In a finite game, when the players are all playing with the same intention, selfish behavior is expected. But there’s a difference between short-term selfish and long-term maximization.
 
@@ -4107,7 +4107,7 @@ All resilient strategies are based on expanding our circles of us and of now.
 
 xml version='1.0' encoding='utf-8'?
 
-[159. Grabbing the Last Doughnut](ThisIsStrategy_TOF.xhtml#T-STG159)
+159. Grabbing the Last Doughnut
 
 When there is competition, strategy is often offered a seat at the table.
 
@@ -4133,7 +4133,7 @@ What doesn’t work? Insisting. Trying harder. Being just like the leader, but n
 
 xml version='1.0' encoding='utf-8'?
 
-[160. Systems Thrive, and Then They Don’t](ThisIsStrategy_TOF.xhtml#T-STG160)
+160. Systems Thrive, and Then They Don’t
 
 In 1973, Leigh Van Valen demonstrated that species go extinct as a result of changes in their environment, not because they are ancient or out of steam.
 
@@ -4159,7 +4159,7 @@ Your current success might have been hard-earned. But the future doesn’t care 
 
 xml version='1.0' encoding='utf-8'?
 
-[161. To Get to New York](ThisIsStrategy_TOF.xhtml#T-STG161)
+161. To Get to New York
 
 The airline system is a miracle. No one is in charge of it, and it manages to deliver millions of people to where they’re going, worldwide, all day, every day.
 
@@ -4185,7 +4185,7 @@ When we work on the system, we have a chance to make things better.
 
 xml version='1.0' encoding='utf-8'?
 
-[162. If It Fits, You Can Ship It](ThisIsStrategy_TOF.xhtml#T-STG162)
+162. If It Fits, You Can Ship It
 
 Standards enable systems to connect.
 
@@ -4219,7 +4219,7 @@ Sometimes, it’s satisfying to rail at an unfair system at the place where the 
 
 xml version='1.0' encoding='utf-8'?
 
-[163. Feeding the System](ThisIsStrategy_TOF.xhtml#T-STG163)
+163. Feeding the System
 
 A friend asked about his niece’s career path. She’s spending hours every day on TikTok, developing videos and hoping to build a following.
 
@@ -4239,7 +4239,7 @@ It’s a strategy with predictable outcomes. A reliable job might be what you’
 
 xml version='1.0' encoding='utf-8'?
 
-[164. Scarcity and the Drivers of a System](ThisIsStrategy_TOF.xhtml#T-STG164)
+164. Scarcity and the Drivers of a System
 
 When a retail business is doing well, the store keeps 20% of the margin and the landlord gets 80%.
 
@@ -4265,7 +4265,7 @@ The lesson is simple: Avoid projects where the system is organized to take all t
 
 xml version='1.0' encoding='utf-8'?
 
-[165. Scale and Magic](ThisIsStrategy_TOF.xhtml#T-STG165)
+165. Scale and Magic
 
 The smallest organizations have an advantage when they create projects. With nothing to lose and few people to please, it’s possible to create moments of magic. Small projects from small teams can leap forward with the confidence of knowing that they don’t have far to fall.
 
@@ -4285,7 +4285,7 @@ Projects where the scale is the magic have a network effect. The more people who
 
 xml version='1.0' encoding='utf-8'?
 
-[166. How NPR Lost to the Podcast](ThisIsStrategy_TOF.xhtml#T-STG166)
+166. How NPR Lost to the Podcast
 
 After the fact, it seems obvious: In 2012, public radio in the US had everything it needed to transform the delivery of audio information. A decade later, the internet hosted more than 2 million different podcasts, with listenership approaching 18 billion hours in 2023. NPR ended up with a tiny share of this ability to shift the culture and generate revenue as well.
 
@@ -4315,7 +4315,7 @@ When new technology changes the rules, old systems rarely thrive.
 
 xml version='1.0' encoding='utf-8'?
 
-[167. Self-Interest is Self-Evident](ThisIsStrategy_TOF.xhtml#T-STG167)
+167. Self-Interest is Self-Evident
 
 Each person in a system will always act in their self-interest.
 
@@ -4359,7 +4359,7 @@ If you want to predict how a system will respond to an input, begin by describin
 
 xml version='1.0' encoding='utf-8'?
 
-[168. It’s Easy to Avoid the Most Important Part of Our Job](ThisIsStrategy_TOF.xhtml#T-STG168)
+168. It’s Easy to Avoid the Most Important Part of Our Job
 
 We make decisions. All day, all the time.
 
@@ -4379,7 +4379,7 @@ Not because it’s important to us, but because it’s important to them.
 
 xml version='1.0' encoding='utf-8'?
 
-[169. It’s Voluntary](ThisIsStrategy_TOF.xhtml#T-STG169)
+169. It’s Voluntary
 
 The people around us make choices. Each person is part of many systems, and while the systems exert influence, there are still choices to be made.
 
@@ -4393,7 +4393,7 @@ The empathy of a useful strategy sees and respects the agency of everyone else.
 
 xml version='1.0' encoding='utf-8'?
 
-[170. “I Will If You Will”](ThisIsStrategy_TOF.xhtml#T-STG170)
+170. “I Will If You Will”
 
 We rarely say this out loud, but often use it as a way to make decisions.
 
@@ -4415,7 +4415,7 @@ We create value when we establish the conditions for status and affiliation to b
 
 xml version='1.0' encoding='utf-8'?
 
-[171. Bringing Strategy to Marketing](ThisIsStrategy_TOF.xhtml#T-STG171)
+171. Bringing Strategy to Marketing
 
 There are three steps:
 
@@ -4437,7 +4437,7 @@ Once this group finds affiliation and status from engaging with our work, we cre
 
 xml version='1.0' encoding='utf-8'?
 
-[172. Living in a Van](ThisIsStrategy_TOF.xhtml#T-STG172)
+172. Living in a Van
 
 Years ago, I produced several albums for a fledgling record label I had started.
 
@@ -4457,7 +4457,7 @@ Starting over at zero because it’s the easiest node is a trap, and yet talente
 
 xml version='1.0' encoding='utf-8'?
 
-[173. Acorns Sometimes Become Oak Trees](ThisIsStrategy_TOF.xhtml#T-STG173)
+173. Acorns Sometimes Become Oak Trees
 
 After years of research, in 1993 Apple Computer launched a groundbreaking product called the Newton. It was a huge success, selling more than 100,000 units in its first weeks. But in just a few months, Newton turned into the most public flop in the company’s history.
 
@@ -4477,7 +4477,7 @@ The future unfolds after the launch. When we embrace time and systems, the launc
 
 xml version='1.0' encoding='utf-8'?
 
-[174. Systems Have Multiple Objectives](ThisIsStrategy_TOF.xhtml#T-STG174)
+174. Systems Have Multiple Objectives
 
 What makes good airline food?
 
@@ -4505,7 +4505,7 @@ There isn’t a single solution. There are many solutions, and none of them are 
 
 xml version='1.0' encoding='utf-8'?
 
-[175. One Way to Solve the Problem is to Change the System](ThisIsStrategy_TOF.xhtml#T-STG175)
+175. One Way to Solve the Problem is to Change the System
 
 When JetBlue planned its launch as a comfortable but discount airline, their CMO, Amy Curtis-McIntyre, looked at the competing priorities and entrenched systems in the provisioning and service of food on airlines and reconsidered.
 
@@ -4527,7 +4527,7 @@ When you have the leverage, you can change the system.
 
 xml version='1.0' encoding='utf-8'?
 
-[176. Interoperability](ThisIsStrategy_TOF.xhtml#T-STG176)
+176. Interoperability
 
 My dentist can’t change the way he practices. Even if he wanted to, he’s part of a system that won’t make it easy.
 
@@ -4545,7 +4545,7 @@ We are so entrenched in our professional systems that we don’t even notice tha
 
 xml version='1.0' encoding='utf-8'?
 
-[177. What Does the System Respond To?](ThisIsStrategy_TOF.xhtml#T-STG177)
+177. What Does the System Respond To?
 
 Systems are all different, but they often behave in similar ways. If we know what people are looking for, it’s easier to find it.
 
@@ -4571,7 +4571,7 @@ Here are a few, many of which are rooted in Western commercial culture.
 
 xml version='1.0' encoding='utf-8'?
 
-[178. The Paradox of Substitutes and Uniqueness](ThisIsStrategy_TOF.xhtml#T-STG178)
+178. The Paradox of Substitutes and Uniqueness
 
 The best projects are often unique with no easy substitutes, There’s no real price pressure because you’re not offering a commodity. If you want this, here it is, and no one else has it.
 
@@ -4589,7 +4589,7 @@ But creators should recognize that when there are easy substitutes, there is lit
 
 xml version='1.0' encoding='utf-8'?
 
-[179. Commodities](ThisIsStrategy_TOF.xhtml#T-STG179)
+179. Commodities
 
 We only sell a commodity when we act like we do.
 
@@ -4605,7 +4605,7 @@ The successful insurgent creates tension as a response—the tension of FOMO and
 
 xml version='1.0' encoding='utf-8'?
 
-[180. Understanding Genre](ThisIsStrategy_TOF.xhtml#T-STG180)
+180. Understanding Genre
 
 Genre doesn’t mean “generic”. Almost the opposite, actually.
 
@@ -4625,7 +4625,7 @@ One way we change the system is by subverting genre. That new thing might look l
 
 xml version='1.0' encoding='utf-8'?
 
-[181. Medium Vs. Message](ThisIsStrategy_TOF.xhtml#T-STG181)
+181. Medium Vs. Message
 
 A friend asked me to review her investor deck. This is typically a ten-page PowerPoint, sent to potential investors in advance of a meeting.
 
@@ -4645,7 +4645,7 @@ That’s a lot to ask of a ten-page PowerPoint. Except not really. Because of al
 
 xml version='1.0' encoding='utf-8'?
 
-[182. Thoughts on Pricing](ThisIsStrategy_TOF.xhtml#T-STG182)
+182. Thoughts on Pricing
 
 Price is a story, price is a signal, and price is a symptom of your strategy.
 
@@ -4691,7 +4691,7 @@ Money is a story, and price is a way of telling that story.
 
 xml version='1.0' encoding='utf-8'?
 
-[183. Strategies Require Empathy](ThisIsStrategy_TOF.xhtml#T-STG183)
+183. Strategies Require Empathy
 
 Not sympathy. You don’t have to agree with how any node in a system will choose to act.
 
@@ -4713,7 +4713,7 @@ It’s easier to help someone get to where they’re going than it is to persuad
 
 xml version='1.0' encoding='utf-8'?
 
-[184. Dorothy and Her Crew](ThisIsStrategy_TOF.xhtml#T-STG184)
+184. Dorothy and Her Crew
 
 How did Dorothy persuade the Lion, Tin Man, and Scarecrow to join her on the trip to see the Wizard? Did she make a case about how much she missed home?
 
@@ -4729,7 +4729,7 @@ The Wizard was simply a stepping-stone on the way to where they were hoping to g
 
 xml version='1.0' encoding='utf-8'?
 
-[185. Everyone is Always Right](ThisIsStrategy_TOF.xhtml#T-STG185)
+185. Everyone is Always Right
 
 The system creates the conditions for our actions. And anyone who consistently takes an action is doing it because based on who they are, what they see, what they believe, and the feedback loop they’re in, this is exactly the right thing to do.
 
@@ -4745,7 +4745,7 @@ But we cannot easily persuade someone that they are wrong.
 
 xml version='1.0' encoding='utf-8'?
 
-[186. All Persistent Systems Engage With Feedback Loops](ThisIsStrategy_TOF.xhtml#T-STG186)
+186. All Persistent Systems Engage With Feedback Loops
 
 Sometimes these loops maintain and stabilize a system, and occasionally they work in the other direction, spiraling away from the center and ultimately destroying it.
 
@@ -4781,7 +4781,7 @@ Either we’re working the system or the system is working us.
 
 xml version='1.0' encoding='utf-8'?
 
-[187. The Wildcard in Every Feedback Loop is the Delay](ThisIsStrategy_TOF.xhtml#T-STG187)
+187. The Wildcard in Every Feedback Loop is the Delay
 
 We avoid putting a hand on a hot stove. That’s largely because the pain feedback comes almost instantly. On the other hand, hundreds of millions of people smoke cigarettes. The response from their lungs can take decades, and the delay in feedback means that people may, in short-term apparent self-interest, voluntarily do something that harms them.
 
@@ -4797,7 +4797,7 @@ A first step, then, is to seek to shorten the delay, to look for early signals t
 
 xml version='1.0' encoding='utf-8'?
 
-[188. Systems + Games + Feedback Loops](ThisIsStrategy_TOF.xhtml#T-STG188)
+188. Systems + Games + Feedback Loops
 
 When we combine systems, game theory, and feedback loops, we can begin to see how our actions influence behaviors over time.
 
@@ -4841,7 +4841,7 @@ Here are some of the precepts of strategic impact.
 
 xml version='1.0' encoding='utf-8'?
 
-[189. Embracing Constraints](ThisIsStrategy_TOF.xhtml#T-STG189)
+189. Embracing Constraints
 
 Gabe Anderson blogged about the bigger hoop analogy.
 
@@ -4855,7 +4855,7 @@ All games have constraints. We can deny them or we can work with them.
 
 xml version='1.0' encoding='utf-8'?
 
-[190. Who Benefits?](ThisIsStrategy_TOF.xhtml#T-STG190)
+190. Who Benefits?
 
 Systems evolve over time, and no system is perfect, but every resilient system persists because the momentum it creates makes it easier to stick with it than to walk away.
 
@@ -4869,7 +4869,7 @@ People adhere to a cultural system as long as the perceived safety and comfort i
 
 xml version='1.0' encoding='utf-8'?
 
-[191. Six System Traps](ThisIsStrategy_TOF.xhtml#T-STG191)
+191. Six System Traps
 
 Systems don’t exist to please us. They may have been created for that purpose, but over time, persistent systems persist simply because they’re good at sticking around. This sticky behavior can cause us real harm because we don’t always understand where the leverage points are for making change happen.
 
@@ -4893,7 +4893,7 @@ Donella Meadows outlined several systems traps that help us see how they persist
 
 xml version='1.0' encoding='utf-8'?
 
-[192. The Moses Manipulations](ThisIsStrategy_TOF.xhtml#T-STG192)
+192. The Moses Manipulations
 
 Robert Moses called himself a master builder. He created the conditions for the construction of an astonishing array of roads, parks, bridges, power plants, and more. The entire fabric of New York City was rebuilt during his 50-year reign.
 
@@ -4923,7 +4923,7 @@ Here are some of the Moses manipulations that take advantage of human nature and
 
 xml version='1.0' encoding='utf-8'?
 
-[193. Resilient Systems Stick Around](ThisIsStrategy_TOF.xhtml#T-STG193)
+193. Resilient Systems Stick Around
 
 The systems that persist have survived technological, cultural, and organizational shifts. They’re good at it.
 
@@ -4945,7 +4945,7 @@ We can influence it, but it’s unlikely we can simply replace it.
 
 xml version='1.0' encoding='utf-8'?
 
-[194. Trying to Turn Me Into an Addict](ThisIsStrategy_TOF.xhtml#T-STG194)
+194. Trying to Turn Me Into an Addict
 
 A few years ago, I found myself in the burn unit with a serious infection. It was a top-tier facility with a terrific staff.
 
@@ -4967,7 +4967,7 @@ No one at the hospital wanted me to take a medicine I didn’t want or need. But
 
 xml version='1.0' encoding='utf-8'?
 
-[195. The Challenge of False Proxies](ThisIsStrategy_TOF.xhtml#T-STG195)
+195. The Challenge of False Proxies
 
 If you change what gets measured, you’ll change what gets done.
 
@@ -5011,7 +5011,7 @@ I’m sure you can think of ten more.
 
 xml version='1.0' encoding='utf-8'?
 
-[196. We See Systems When They are Forced to Change](ThisIsStrategy_TOF.xhtml#T-STG196)
+196. We See Systems When They are Forced to Change
 
 For most of my lifetime, the system of book publishing and the culture change it causes has been relatively stable.
 
@@ -5053,7 +5053,7 @@ It’s easiest to see a system when it stops functioning as it did.
 
 xml version='1.0' encoding='utf-8'?
 
-[197. May I See the Org Chart?](ThisIsStrategy_TOF.xhtml#T-STG197)
+197. May I See the Org Chart?
 
 I didn’t know enough to ask.
 
@@ -5075,7 +5075,7 @@ Each person on the chart was there to do a job, each might have meant well, but 
 
 xml version='1.0' encoding='utf-8'?
 
-[198. The Agent of Change](ThisIsStrategy_TOF.xhtml#T-STG198)
+198. The Agent of Change
 
 Systems change. They are dynamic.
 
@@ -5099,7 +5099,7 @@ Solar lanterns are an agent of change for the ecosystem of small villages in Ind
 
 xml version='1.0' encoding='utf-8'?
 
-[199. Looking for the Agent of Change](ThisIsStrategy_TOF.xhtml#T-STG199)
+199. Looking for the Agent of Change
 
 The agent of change often takes the form of:
 
@@ -5161,7 +5161,7 @@ These are either threats or opportunities. The smart strategy is to bet on chang
 
 xml version='1.0' encoding='utf-8'?
 
-[200. The Telegraph and the Skyscraper](ThisIsStrategy_TOF.xhtml#T-STG200)
+200. The Telegraph and the Skyscraper
 
 In order for cities to develop sufficient density, they needed skyscrapers. Before high-rise office buildings, all we had were sprawling villages.
 
@@ -5179,7 +5179,7 @@ If you look for a change agent, you can find one.
 
 xml version='1.0' encoding='utf-8'?
 
-[201. Cheese Bullies](ThisIsStrategy_TOF.xhtml#T-STG201)
+201. Cheese Bullies
 
 Oliver Zahn runs an insurgent tech company named Climax that uses science to make breathtakingly good cheese using only plants. It works with chefs to produce products that are delicious without apology.
 
@@ -5221,7 +5221,7 @@ The irony is that the very status and affiliation that allow them to bully insur
 
 xml version='1.0' encoding='utf-8'?
 
-[202. A Brief History of Jaywalking](ThisIsStrategy_TOF.xhtml#T-STG202)
+202. A Brief History of Jaywalking
 
 Who gets the right of way and the benefit of the doubt? For millennia, the answer was easy: humans on foot.
 
@@ -5247,7 +5247,7 @@ Cars offered power, status, convenience, and network effects. Pedestrians never 
 
 xml version='1.0' encoding='utf-8'?
 
-[203. What Will I Tell the Others?](ThisIsStrategy_TOF.xhtml#T-STG203)
+203. What Will I Tell the Others?
 
 That’s the second question. The first question is, “Why will I tell the others?”
 
@@ -5275,7 +5275,7 @@ When we offer utility, status, or affiliation to our users, they’re more likel
 
 xml version='1.0' encoding='utf-8'?
 
-[204. Who Says Yes?](ThisIsStrategy_TOF.xhtml#T-STG204)
+204. Who Says Yes?
 
 Working in the system means we need each person to say “yes.” Someone says yes because it’s their job to do so. They say yes because it gives them status, or pleases their boss.
 
@@ -5291,7 +5291,7 @@ Working on the system means turning someone who wants to say no into someone who
 
 xml version='1.0' encoding='utf-8'?
 
-[205. If You Want to Use the System](ThisIsStrategy_TOF.xhtml#T-STG205)
+205. If You Want to Use the System
 
 …you’ll need to see it.
 
@@ -5309,7 +5309,7 @@ The forces on the system exist long before the system itself changes.
 
 xml version='1.0' encoding='utf-8'?
 
-[206. The Person in Front of You is Part of a System](ThisIsStrategy_TOF.xhtml#T-STG206)
+206. The Person in Front of You is Part of a System
 
 But they aren’t the system.
 
@@ -5331,7 +5331,7 @@ We make two errors, again and again:
 
 xml version='1.0' encoding='utf-8'?
 
-[207. Some of the Ways That Systems Operate](ThisIsStrategy_TOF.xhtml#T-STG207)
+207. Some of the Ways That Systems Operate
 
 People within a system make voluntary choices about how they treat others who seek to engage with their system.
 
@@ -5365,7 +5365,7 @@ An elegant strategy doesn’t decry these tendencies. It simply adjusts to them.
 
 xml version='1.0' encoding='utf-8'?
 
-[208. Types of Elegant Strategies](ThisIsStrategy_TOF.xhtml#T-STG208)
+208. Types of Elegant Strategies
 
 Low cost and low price: This is the most common one to chase, but rarely achieved. Walmart didn’t reinvent retail simply by lowering their prices. They also lowered their costs, and they did it so persistently and consistently that no one could catch up for decades, even when the playbook was obvious.
 
@@ -5433,7 +5433,7 @@ FedEx bet everything that they’d be able to transform the system with a centra
 
 xml version='1.0' encoding='utf-8'?
 
-[209. Bringing Change to a System](ThisIsStrategy_TOF.xhtml#T-STG209)
+209. Bringing Change to a System
 
 Several things determine how an existing system will respond to a change agent.
 
@@ -5475,7 +5475,7 @@ This analysis isn’t reserved for large-scale systems. The same insight can be 
 
 xml version='1.0' encoding='utf-8'?
 
-[210. Luck Doesn’t Even Out in the Long Run](ThisIsStrategy_TOF.xhtml#T-STG210)
+210. Luck Doesn’t Even Out in the Long Run
 
 Philosopher Dan Dennett was wrong. He claimed that luck evens out. Alas, if you start a metaphorical marathon behind the leaders, you’re unlikely to catch up through luck. In the words of Neil Levy, “We cannot undo the effects of luck with more luck.”
 
@@ -5499,7 +5499,7 @@ There are often ways forward if we’re willing to look for them.
 
 xml version='1.0' encoding='utf-8'?
 
-[211. Leverage and the Exaggeration of Strategies](ThisIsStrategy_TOF.xhtml#T-STG211)
+211. Leverage and the Exaggeration of Strategies
 
 Leverage in business works like this: Something is working, and you borrow some money to help it work louder, faster, or at more scale.
 
@@ -5525,7 +5525,7 @@ In other words: Every successful organization will fail unless it becomes someth
 
 xml version='1.0' encoding='utf-8'?
 
-[212. Intent and Side Effects](ThisIsStrategy_TOF.xhtml#T-STG212)
+212. Intent and Side Effects
 
 When a system is created, the intent is usually a good one.
 
@@ -5543,7 +5543,7 @@ A strategy cannot ignore the side effects. Because side effects are part of the 
 
 xml version='1.0' encoding='utf-8'?
 
-[213. Turbulence and Systems Transformation](ThisIsStrategy_TOF.xhtml#T-STG213)
+213. Turbulence and Systems Transformation
 
 A system in a steady state is exactly that—steady. While there are always ripples of change at various nodes in the system, the overall situation remains fairly predictable.
 
@@ -5565,7 +5565,7 @@ The Hollywood system lasted a century, until the change agent of online media an
 
 xml version='1.0' encoding='utf-8'?
 
-[214. Gatekeepers](ThisIsStrategy_TOF.xhtml#T-STG214)
+214. Gatekeepers
 
 The goal of an editor is to keep things normal.
 
@@ -5603,7 +5603,7 @@ Without traditional gatekeepers, the cycle speeds up.
 
 xml version='1.0' encoding='utf-8'?
 
-[215. Kinds of Tension](ThisIsStrategy_TOF.xhtml#T-STG215)
+215. Kinds of Tension
 
 A system in a steady state is organized to keep tension as low as possible. Maintenance of the status quo offers reassurance and freedom from fear.
 
@@ -5663,7 +5663,7 @@ And the reason it’s so difficult to talk about this: the fear of fear.
 
 xml version='1.0' encoding='utf-8'?
 
-[216. “What Will I Tell the Others?”](ThisIsStrategy_TOF.xhtml#T-STG216)
+216. “What Will I Tell the Others?”
 
 That’s at the heart of engaging with a node in the system. Someone in a system can’t do something brave and powerful and new without telling their boss and their peers.
 
@@ -5681,7 +5681,7 @@ No single node changes an entire system. We’re seeking systems within systems,
 
 xml version='1.0' encoding='utf-8'?
 
-[217. Two Tesla Parables: Ludicrous and the Clown Car](ThisIsStrategy_TOF.xhtml#T-STG217)
+217. Two Tesla Parables: Ludicrous and the Clown Car
 
 The Model S is a case study of the useful application of tension.
 
@@ -5713,7 +5713,7 @@ The smallest viable audience is most useful, but only when serving them is a see
 
 xml version='1.0' encoding='utf-8'?
 
-[218. Competitive Advantage](ThisIsStrategy_TOF.xhtml#T-STG218)
+218. Competitive Advantage
 
 Most discussions of strategy begin and end with an understanding of competitive advantage.
 
@@ -5757,7 +5757,7 @@ If it’s what the system wants, you can charge a fair price. It has a network e
 
 xml version='1.0' encoding='utf-8'?
 
-[219. Metcalfe’s Law is Waiting for You](ThisIsStrategy_TOF.xhtml#T-STG219)
+219. Metcalfe’s Law is Waiting for You
 
 Trust leads to trust. Influence creates influence. The network effect is the dynamic of our time, and most of us don’t even notice it.
 
@@ -5781,7 +5781,7 @@ The network effect powers every cultural change or business project.
 
 xml version='1.0' encoding='utf-8'?
 
-[220. The First Rule…](ThisIsStrategy_TOF.xhtml#T-STG220)
+220. The First Rule…
 
 It’s not only the fax machine, or Fight Club, or Alcoholics Anonymous. The network effect powers any system that deserves it.
 
@@ -5799,7 +5799,7 @@ If you don’t begin with a network effect as a significant benefit for users, i
 
 xml version='1.0' encoding='utf-8'?
 
-[221. Do Vs. Want](ThisIsStrategy_TOF.xhtml#T-STG221)
+221. Do Vs. Want
 
 What people do might not be aligned with what they want.
 
@@ -5823,7 +5823,7 @@ And what they want is status and affiliation. Some combination of joy, honor, an
 
 xml version='1.0' encoding='utf-8'?
 
-[222. Exchanging the System is Tempting](ThisIsStrategy_TOF.xhtml#T-STG222)
+222. Exchanging the System is Tempting
 
 But unlikely. Revolutions cause trauma. It’s possible to abruptly change a system—whether it’s the economic structure of Russia turning into the USSR, or the dynamics of a failing public school replacing all the metrics and behaviors with urgency.
 
@@ -5841,7 +5841,7 @@ We don’t change the system as much as we change the outputs the system creates
 
 xml version='1.0' encoding='utf-8'?
 
-[223. Revolutions are Rare](ThisIsStrategy_TOF.xhtml#T-STG223)
+223. Revolutions are Rare
 
 Change almost always involves a pivot. The change agent isn’t changing what the nodes in the system want—they’re changing how they get it.
 
@@ -5867,7 +5867,7 @@ And then, in the face of coordinated community action, they discovered that they
 
 xml version='1.0' encoding='utf-8'?
 
-[224. The Game Belongs to the Children Who Play It](ThisIsStrategy_TOF.xhtml#T-STG224)
+224. The Game Belongs to the Children Who Play It
 
 The writer Simon Harling wants us to pay attention to the order in which things unfold. The unstated priorities that are baked into the system cause us to alter how we approach it and the work we do.
 
@@ -5909,7 +5909,7 @@ It’s easier to help someone find what they want than it is to change what they
 
 xml version='1.0' encoding='utf-8'?
 
-[225. The Two Unseen Desires](ThisIsStrategy_TOF.xhtml#T-STG225)
+225. The Two Unseen Desires
 
 We’re never on our own. We’re surrounded by the forces created by cultural, environmental, and technical systems, and these systems have a lot to do with our ability to make change happen.
 
@@ -5963,7 +5963,7 @@ When technology or external forces act as an agent of change, substitution is on
 
 xml version='1.0' encoding='utf-8'?
 
-[226. The Thing About Cheaper](ThisIsStrategy_TOF.xhtml#T-STG226)
+226. The Thing About Cheaper
 
 Sometimes, people will pick the cheaper option.
 
@@ -5981,7 +5981,7 @@ Things are affected by systemic forces. Social adhesion and substitution aversio
 
 xml version='1.0' encoding='utf-8'?
 
-[227. Compounding Our Tribal Instincts](ThisIsStrategy_TOF.xhtml#T-STG227)
+227. Compounding Our Tribal Instincts
 
 The evolution of social adhesion isn’t an accident. When we lived in groups of a hundred people, surrounded by an unfamiliar and often dangerous world, belonging to the group was a critical survival mechanism.
 
@@ -6017,7 +6017,7 @@ Once the foundations for these systems are created, we build commerce around the
 
 xml version='1.0' encoding='utf-8'?
 
-[228. Substitutes and the Race to the Bottom](ThisIsStrategy_TOF.xhtml#T-STG228)
+228. Substitutes and the Race to the Bottom
 
 Substitutes are efficient. They give us options, take power away from suppliers, and create resilience in the system.
 
@@ -6045,7 +6045,7 @@ The only honest answer is “yes”. This means that the hard work is creating a
 
 xml version='1.0' encoding='utf-8'?
 
-[229. Seeking the Invisible Hand](ThisIsStrategy_TOF.xhtml#T-STG229)
+229. Seeking the Invisible Hand
 
 Systems worth examining have an element of the invisible to them.
 
@@ -6077,7 +6077,7 @@ Most systems that are complex enough to be interesting are held together with te
 
 xml version='1.0' encoding='utf-8'?
 
-[230. Examples of Systems Living in Tension](ThisIsStrategy_TOF.xhtml#T-STG230)
+230. Examples of Systems Living in Tension
 
 The fine art world includes painters, collectors, investors, gallerists, forgers, auction houses, art shows, museum curators, cultural media, artisans, hangers-on and charlatans. They have different and sometimes conflicting agendas. Some fight to maintain the status quo, others push for change.
 
@@ -6099,7 +6099,7 @@ We most easily see a system when the system bends under stress.
 
 xml version='1.0' encoding='utf-8'?
 
-[231. Which Hat?](ThisIsStrategy_TOF.xhtml#T-STG231)
+231. Which Hat?
 
 It might be helpful to imagine that we can choose a persona for our project and our work. Each is appropriate in some circumstances—the trap lies in wearing one of these hats and then hoping for the result that comes from a different one.
 
@@ -6127,7 +6127,7 @@ The optimizer works within a system to improve processes and outputs according t
 
 xml version='1.0' encoding='utf-8'?
 
-[232. The Weather Report is a Prediction](ThisIsStrategy_TOF.xhtml#T-STG232)
+232. The Weather Report is a Prediction
 
 It’s helpful to understand what the future will be like when we get there. But we’re terrible at understanding predictions.
 
@@ -6155,7 +6155,7 @@ If we are going to choose our future, it helps to have a hint about what to expe
 
 xml version='1.0' encoding='utf-8'?
 
-[233. This Might Not Work](ThisIsStrategy_TOF.xhtml#T-STG233)
+233. This Might Not Work
 
 The future is unknown. Any project we take on, any change we seek to make, might not work.
 
@@ -6183,7 +6183,7 @@ Visualize the cards and you can make smarter choices about which moments, which 
 
 xml version='1.0' encoding='utf-8'?
 
-[234. Back to the Rhino](ThisIsStrategy_TOF.xhtml#T-STG234)
+234. Back to the Rhino
 
 When Dürer made his woodcut of the rhino in 1515, he hadn’t seen it in person, or even a reliable first-hand drawing (there were, of course, no cameras). Instead, he made assertions about what he was hearing, piecing together elements of rhino-ness, and would up creating a pastiche of what a rhino might be.
 
@@ -6199,7 +6199,7 @@ We may have to walk away from our drawing tomorrow, no matter how hard it was to
 
 xml version='1.0' encoding='utf-8'?
 
-[235. Who Controls the Dice?](ThisIsStrategy_TOF.xhtml#T-STG235)
+235. Who Controls the Dice?
 
 Adam Mastraonni describes the pre-scientific history of man as one in which people were sure that Zeus (or perhaps his daughter, Dike) controlled random events. When people roll the dice, Zeus is controlling the outcome. When a snake bites someone, that’s divine retribution. If it rains on your wedding day, that’s a sign.
 
@@ -6215,7 +6215,7 @@ No one is controlling the dice, but if we’re smart, we can choose a set of dic
 
 xml version='1.0' encoding='utf-8'?
 
-[236. Who is Waiting for You at the Airport?](ThisIsStrategy_TOF.xhtml#T-STG236)
+236. Who is Waiting for You at the Airport?
 
 We can’t predict the future, but we can get a good sense about what to expect. One way to think about this is to imagine that you’re flying to a new city for a conference.
 
@@ -6233,7 +6233,7 @@ This probabilistic analysis doesn’t say anything at all about you, your skill,
 
 xml version='1.0' encoding='utf-8'?
 
-[237. Understanding Statistics and Polls](ThisIsStrategy_TOF.xhtml#T-STG237)
+237. Understanding Statistics and Polls
 
 If someone says that there’s a 90% chance a short person will greet you based on this information, they’re giving you a probability. If a tall person shows up, that probability wasn’t wrong. It was merely a statement of how many people were in the random hopper and which were tall and which were short.
 
@@ -6251,7 +6251,7 @@ Strategy involves the hard work of looking at probabilities and building likely 
 
 xml version='1.0' encoding='utf-8'?
 
-[238. Best Practices and the Status Quo](ThisIsStrategy_TOF.xhtml#T-STG238)
+238. Best Practices and the Status Quo
 
 When the world is at rest, a precise instruction manual is a useful tool. Engineers rely on best practices, as does a student eager for an A.
 
@@ -6275,7 +6275,7 @@ But now, best practices are not nearly as useful as they used to be. They can gi
 
 xml version='1.0' encoding='utf-8'?
 
-[239. Analogies and the Problem With “Almost”](ThisIsStrategy_TOF.xhtml#T-STG239)
+239. Analogies and the Problem With “Almost”
 
 When the world is changing and we seek to change it, best practices fail. The alternative is to learn by analogy.
 
@@ -6303,7 +6303,7 @@ And once we understand a system, we can work within it and we can change it.
 
 xml version='1.0' encoding='utf-8'?
 
-[240. Cheerleaders and Coaches](ThisIsStrategy_TOF.xhtml#T-STG240)
+240. Cheerleaders and Coaches
 
 Who sits at your table? Who has permission to offer you criticism?
 
@@ -6329,7 +6329,7 @@ Today we can train an AI to ask us these hard questions and help us see the path
 
 xml version='1.0' encoding='utf-8'?
 
-[241. Collapsing to the Center](ThisIsStrategy_TOF.xhtml#T-STG241)
+241. Collapsing to the Center
 
 Marty Neumeier points out that many brands get boring over time. Systems and feedback loops relentlessly push us to center. It’s easier to manage 100 doctors in a healthcare practice if they consistently act in similar ways.
 
@@ -6351,7 +6351,7 @@ We need organizations and people in the center, and I don’t think we’re in a
 
 xml version='1.0' encoding='utf-8'?
 
-[242. Understanding the 2 x 2 Positioning Grid](ThisIsStrategy_TOF.xhtml#T-STG242)
+242. Understanding the 2 x 2 Positioning Grid
 
 ![](../Images/STG242_xyPositioning.png)
 
@@ -6385,7 +6385,7 @@ A small college without a football team but with plenty of interaction with prof
 
 xml version='1.0' encoding='utf-8'?
 
-[243. The Blank of Blank](ThisIsStrategy_TOF.xhtml#T-STG243)
+243. The Blank of Blank
 
 One way to find a successful positioning strategy is to steal one. Go ahead and borrow it.
 
@@ -6403,7 +6403,7 @@ Successful positions work because they have empathy for people, not because they
 
 xml version='1.0' encoding='utf-8'?
 
-[244. Moving to the Middle (or Not)](ThisIsStrategy_TOF.xhtml#T-STG244)
+244. Moving to the Middle (or Not)
 
 Positions change as the market does.
 
@@ -6431,7 +6431,7 @@ Nike went from performance shoes for highly competitive athletes to velour track
 
 xml version='1.0' encoding='utf-8'?
 
-[245. Going to Places the Competition Can’t Go or Won’t Go](ThisIsStrategy_TOF.xhtml#T-STG245)
+245. Going to Places the Competition Can’t Go or Won’t Go
 
 In many competitive markets, leaders have evolved to serve the widest audience they can. This means that even if they might want to respond to a competitive positioning threat, they may choose not to.
 
@@ -6451,7 +6451,7 @@ Your successful competition stands for something. When you choose to stand for s
 
 xml version='1.0' encoding='utf-8'?
 
-[246. Where is Everyone?](ThisIsStrategy_TOF.xhtml#T-STG246)
+246. Where is Everyone?
 
 The marketing manager of the new restaurant was earnest, focused, and excited. I asked her, “Who is this place for?”
 
@@ -6477,7 +6477,7 @@ You don’t need too many doublings before the place is packed full every night.
 
 xml version='1.0' encoding='utf-8'?
 
-[247. Getting the Word Out](ThisIsStrategy_TOF.xhtml#T-STG247)
+247. Getting the Word Out
 
 When someone shares their marketing frustrations with me, the conversation almost always begins the same way: “How do I get the word out?”
 
@@ -6503,7 +6503,7 @@ People with answers to these questions rarely end up with a marketing problem.
 
 xml version='1.0' encoding='utf-8'?
 
-[248. Scaling Better](ThisIsStrategy_TOF.xhtml#T-STG248)
+248. Scaling Better
 
 The easy version of scale is more. More employees, more revenue, more links, more press, more followers, more status. For some, this is a kind of better.
 
@@ -6523,7 +6523,7 @@ Can you talk about what sort of better matters to you and the people you serve?
 
 xml version='1.0' encoding='utf-8'?
 
-[249. Half a Boat Isn’t Much Help](ThisIsStrategy_TOF.xhtml#T-STG249)
+249. Half a Boat Isn’t Much Help
 
 Don’t run out of money, and don’t run out of time.
 
@@ -6557,7 +6557,7 @@ Repeat.
 
 xml version='1.0' encoding='utf-8'?
 
-[250. Thrashing at the Start](ThisIsStrategy_TOF.xhtml#T-STG250)
+250. Thrashing at the Start
 
 Steve McConnell shares the most important lesson about project management: Changing course and exploring your options are far cheaper at the start than they are at the end.
 
@@ -6577,7 +6577,7 @@ And so a new project begins. Thrash again. At the beginning. Repeat.
 
 xml version='1.0' encoding='utf-8'?
 
-[251. The Last Minute](ThisIsStrategy_TOF.xhtml#T-STG251)
+251. The Last Minute
 
 We experience a few kinds of minutes each day:
 
@@ -6611,7 +6611,7 @@ We can learn to see time and to manage it.
 
 xml version='1.0' encoding='utf-8'?
 
-[252. Every “Yes” Requires Many “No”s](ThisIsStrategy_TOF.xhtml#T-STG252)
+252. Every “Yes” Requires Many “No”s
 
 Opportunity cost is real.
 
@@ -6639,7 +6639,7 @@ This time, effort, or money you’re spending—what could it have gone to inste
 
 xml version='1.0' encoding='utf-8'?
 
-[253. Empathy for the Retailer](ThisIsStrategy_TOF.xhtml#T-STG253)
+253. Empathy for the Retailer
 
 If they’re going to stock your company’s new item, that means that they have to take something else off the shelf.
 
@@ -6657,7 +6657,7 @@ The system probably isn’t open to changing how it sees opportunity cost, so yo
 
 xml version='1.0' encoding='utf-8'?
 
-[254. Bringing Intention to Projects](ThisIsStrategy_TOF.xhtml#T-STG254)
+254. Bringing Intention to Projects
 
 Projects are not simply tasks. All projects:
 
@@ -6689,7 +6689,7 @@ Why is this uncomfortable? We’ve created a cultural bias against talking about
 
 xml version='1.0' encoding='utf-8'?
 
-[255. Successful Projects](ThisIsStrategy_TOF.xhtml#T-STG255)
+255. Successful Projects
 
 •  They aren’t static because they move through time and time moves through them.
 
@@ -6719,7 +6719,7 @@ Don’t run out of time, don’t run out of money. Hard decisions now ensure eas
 
 xml version='1.0' encoding='utf-8'?
 
-[256. The Three Project Traps](ThisIsStrategy_TOF.xhtml#T-STG256)
+256. The Three Project Traps
 
 •  Communication
 
@@ -6735,7 +6735,7 @@ On the path from here to there, it’s inevitable that things won’t go as we e
 
 xml version='1.0' encoding='utf-8'?
 
-[257. Communication With Intent](ThisIsStrategy_TOF.xhtml#T-STG257)
+257. Communication With Intent
 
 The larger the team, the more we need to lean into the process of communication. It begins by being clear about our roles, our purpose, the change we seek to make, and the people we’re seeking to serve.
 
@@ -6753,7 +6753,7 @@ Projects require strategy, but our strategy is directly related to our ability t
 
 xml version='1.0' encoding='utf-8'?
 
-[258. Risks Aren’t to Be Avoided](ThisIsStrategy_TOF.xhtml#T-STG258)
+258. Risks Aren’t to Be Avoided
 
 The future is an unknown place, and no project is risk-free.
 
@@ -6769,7 +6769,7 @@ Risk is the price we pay to make a difference.
 
 xml version='1.0' encoding='utf-8'?
 
-[259. Constraints are a Gift](ThisIsStrategy_TOF.xhtml#T-STG259)
+259. Constraints are a Gift
 
 “If only” is a soothing refrain. If only the constraints were lifted, and the things that are scarce were abundant. If only the barriers were lifted and there was more time or fewer obstacles.
 
@@ -6789,7 +6789,7 @@ The most interesting strategies happen at the edges, and the edges exist because
 
 xml version='1.0' encoding='utf-8'?
 
-[260. What Do You Make?](ThisIsStrategy_TOF.xhtml#T-STG260)
+260. What Do You Make?
 
 •  A living
 
@@ -6823,7 +6823,7 @@ Does the way you spend time and money and effort support your answer?
 
 xml version='1.0' encoding='utf-8'?
 
-[261. Problems are Opportunities](ThisIsStrategy_TOF.xhtml#T-STG261)
+261. Problems are Opportunities
 
 When a decision is called for, there must be a problem to solve. If there are no problems, there’s no need for projects and no room for growth.
 
@@ -6867,7 +6867,7 @@ Avoiding getting stung by a wasp tomorrow is a problem. We have choices to make,
 
 xml version='1.0' encoding='utf-8'?
 
-[262. The Simple Hierarchy of Decision Effort](ThisIsStrategy_TOF.xhtml#T-STG262)
+262. The Simple Hierarchy of Decision Effort
 
 Our project may require others to decide. The people we seek to serve usually prefer the easier path—and that includes spending less effort on decision-making.
 
@@ -6899,7 +6899,7 @@ No decision needed is the easiest decision of all.
 
 xml version='1.0' encoding='utf-8'?
 
-[263. Optionality and Undo](ThisIsStrategy_TOF.xhtml#T-STG263)
+263. Optionality and Undo
 
 As we dance with the future, we make decisions and investments that intersect with the unknown.
 
@@ -6931,7 +6931,7 @@ These all make sense, but how often do we consciously seek out optionality?
 
 xml version='1.0' encoding='utf-8'?
 
-[264. Great Choice, Didn’t Work](ThisIsStrategy_TOF.xhtml#T-STG264)
+264. Great Choice, Didn’t Work
 
 Annie Duke and Rohan Rajiv have taught me a lot about decision-making.
 
@@ -6959,7 +6959,7 @@ Instead of concealing or diminishing these outcomes, we should examine them and 
 
 xml version='1.0' encoding='utf-8'?
 
-[265. Hidden Decisions Get Moldy](ThisIsStrategy_TOF.xhtml#T-STG265)
+265. Hidden Decisions Get Moldy
 
 Smart strategy thrives on explanation and discussion.
 
@@ -6989,7 +6989,7 @@ The tension and stress of talking about a decision before we make it is real. Ye
 
 xml version='1.0' encoding='utf-8'?
 
-[266. Compared to What?](ThisIsStrategy_TOF.xhtml#T-STG266)
+266. Compared to What?
 
 If someone else had the same information you had, could they have made a better decision?
 
@@ -7017,7 +7017,7 @@ It’s tempting (and lazy) to blame bad decisions for bad outcomes. But they mig
 
 xml version='1.0' encoding='utf-8'?
 
-[267. A Quarter of a Million Dollars](ThisIsStrategy_TOF.xhtml#T-STG267)
+267. A Quarter of a Million Dollars
 
 Vanderbilt University is 150 years old. It’s ranked as one of the top 100 universities in the United States and tuition is more than $65,000 a year. Counting room and board and other expenses, it easily costs a student and their family $350,000 over the course of a degree.
 
@@ -7037,7 +7037,7 @@ If the short-term status of the more famous and luxurious school is worth what i
 
 xml version='1.0' encoding='utf-8'?
 
-[268. Thinking About Money](ThisIsStrategy_TOF.xhtml#T-STG268)
+268. Thinking About Money
 
 Many marketers work overtime to confuse us about money. They take advantage of our misunderstanding of the time value of money, our aversion to reading the fine print, our childish need for instant gratification, and most of all our conflicted emotional connection to money.
 
@@ -7081,7 +7081,7 @@ In the long run, doing work that’s important leads to more happiness than doin
 
 xml version='1.0' encoding='utf-8'?
 
-[269. No Regrets and the Kinds of Games We Play](ThisIsStrategy_TOF.xhtml#T-STG269)
+269. No Regrets and the Kinds of Games We Play
 
 The Nash Equilibrium describes the best strategy for a two-player finite game. This is the series of steps that each player should take if they want to maximize their chances of winning given that they have all the information and there are no external forces or luck. Tic Tac Toe has a Nash Equlibrium.
 
@@ -7113,7 +7113,7 @@ What’s your betting approach?
 
 xml version='1.0' encoding='utf-8'?
 
-[270. Why is It Hard to Talk About Decisions?](ThisIsStrategy_TOF.xhtml#T-STG270)
+270. Why is It Hard to Talk About Decisions?
 
 Unstated instincts, feelings, and desires feel more amorphous and carry less responsibility than the ones we write down and defend.
 
@@ -7145,7 +7145,7 @@ When we develop a strategy, we embrace the decisions that led to it (and that wi
 
 xml version='1.0' encoding='utf-8'?
 
-[271. Bad Luck Paralysis](ThisIsStrategy_TOF.xhtml#T-STG271)
+271. Bad Luck Paralysis
 
 The misunderstanding of decision-making in terms of outcomes can cause us to get stuck.
 
@@ -7171,7 +7171,7 @@ Good decisions are worth making, even if they don’t always lead to good outcom
 
 xml version='1.0' encoding='utf-8'?
 
-[272. Survivors are Noteworthy](ThisIsStrategy_TOF.xhtml#T-STG272)
+272. Survivors are Noteworthy
 
 Go to a conference of multilevel marketing distributors, NFT creators, or even stock market pickers, and you’ll come to the conclusion that these are reliable ways to make a living. After all, everyone in that room is doing pretty well.
 
@@ -7195,7 +7195,7 @@ The utility of a strategy is not measured by how many people used it successfull
 
 xml version='1.0' encoding='utf-8'?
 
-[273. The Regression Toward the Mean](ThisIsStrategy_TOF.xhtml#T-STG273)
+273. The Regression Toward the Mean
 
 Flip a fair coin ten times, and there’s a slim chance you’ll get ten heads in a row.
 
@@ -7217,7 +7217,7 @@ When we make decisions, we have to ignore random noise that we call luck, but pa
 
 xml version='1.0' encoding='utf-8'?
 
-[274. Better Decisions and Better Outcomes](ThisIsStrategy_TOF.xhtml#T-STG274)
+274. Better Decisions and Better Outcomes
 
 If others are regularly outperforming your strategy, there could be four reasons:
 
@@ -7235,7 +7235,7 @@ If others are regularly outperforming your strategy, there could be four reasons
 
 xml version='1.0' encoding='utf-8'?
 
-[275. Not Making a Decision is the Easy Path](ThisIsStrategy_TOF.xhtml#T-STG275)
+275. Not Making a Decision is the Easy Path
 
 Decisions are difficult. There’s fear, effort, and risk involved.
 
@@ -7265,7 +7265,7 @@ We seek to help people achieve their goals, but we do it by changing the way the
 
 xml version='1.0' encoding='utf-8'?
 
-[276. Assets are Tools](ThisIsStrategy_TOF.xhtml#T-STG276)
+276. Assets are Tools
 
 What do you own?
 
@@ -7317,7 +7317,7 @@ Every day, we expend time, and we expend effort. Do you end up with more valuabl
 
 xml version='1.0' encoding='utf-8'?
 
-[277. Assets Over Time](ThisIsStrategy_TOF.xhtml#T-STG277)
+277. Assets Over Time
 
 In 1957, The Rev. Fulton J. Sheen was one of the most famous and trusted men in the United States. His TV slot on Sunday nights was an incredibly valuable asset, and he was able to reach 30 million people every week. For context, there is no show on television today that has that reach.
 
@@ -7335,7 +7335,7 @@ What do you own?
 
 xml version='1.0' encoding='utf-8'?
 
-[278. What Sort of Hammer Should You Buy?](ThisIsStrategy_TOF.xhtml#T-STG278)
+278. What Sort of Hammer Should You Buy?
 
 Professionals obtain assets with intent.
 
@@ -7355,7 +7355,7 @@ The goal is to find assets that increase in value over time, and are resilient e
 
 xml version='1.0' encoding='utf-8'?
 
-[279. Community Action](ThisIsStrategy_TOF.xhtml#T-STG279)
+279. Community Action
 
 The only way to solve a systems problem is with a systems solution.
 
@@ -7377,7 +7377,7 @@ If culture is the way a system protects itself, community action is the way we p
 
 xml version='1.0' encoding='utf-8'?
 
-[280. The Man Who Poisoned Us All](ThisIsStrategy_TOF.xhtml#T-STG280)
+280. The Man Who Poisoned Us All
 
 Thomas Midgely, Jr. invented leaded gasoline. While putting lead in gas made old-fashioned car engines run more smoothly and saved car companies money, it also put lead into the air. The vapors are so dangerous that Midgely himself took an entire year off of work simply to breathe clean air and get the lead out of his system.
 
@@ -7401,7 +7401,7 @@ Actual defenders of the free market understand that the market rests on a founda
 
 xml version='1.0' encoding='utf-8'?
 
-[281. The Enduring Myth of Widespread Self-Control](ThisIsStrategy_TOF.xhtml#T-STG281)
+281. The Enduring Myth of Widespread Self-Control
 
 “If you don’t want to smoke, don’t smoke.”
 
@@ -7435,7 +7435,7 @@ We might not need more self-control. Perhaps we need community action.
 
 xml version='1.0' encoding='utf-8'?
 
-[282. Bringing a Strategic Approach to the Most Urgent System Change of Our Lifetimes](ThisIsStrategy_TOF.xhtml#T-STG282)
+282. Bringing a Strategic Approach to the Most Urgent System Change of Our Lifetimes
 
 Once we begin to see the systems that we live with, the paths to create change become much more clear.
 
@@ -7477,7 +7477,7 @@ And unlike the solution to the ozone hole, the solution to the larger climate pr
 
 xml version='1.0' encoding='utf-8'?
 
-[283. Helping the Market Fix What the Market Broke](ThisIsStrategy_TOF.xhtml#T-STG283)
+283. Helping the Market Fix What the Market Broke
 
 We can now see that systems problems demand systems solutions.
 
@@ -7521,7 +7521,7 @@ We can’t shrink our way to greatness. But we can make better decisions with be
 
 xml version='1.0' encoding='utf-8'?
 
-[284. Harnessing the Insatiable](ThisIsStrategy_TOF.xhtml#T-STG284)
+284. Harnessing the Insatiable
 
 The power of the carbon surcharge and dividend is that it plugs into the feedback loops and system dynamics that already exist.
 
@@ -7541,7 +7541,7 @@ If you want to cause system change, find the insatiable desires and connect to t
 
 xml version='1.0' encoding='utf-8'?
 
-[285. The Action We Take](ThisIsStrategy_TOF.xhtml#T-STG285)
+285. The Action We Take
 
 It won’t matter if you install a heat pump or if you stop using a gas-powered leaf blower.
 
@@ -7575,7 +7575,7 @@ Tell the others.
 
 xml version='1.0' encoding='utf-8'?
 
-[286. Indoctrination is Real](ThisIsStrategy_TOF.xhtml#T-STG286)
+286. Indoctrination is Real
 
 It begins in the delivery room and the nursery.
 
@@ -7603,7 +7603,7 @@ We can do better than that.
 
 xml version='1.0' encoding='utf-8'?
 
-[287. The Journey, Not an Event](ThisIsStrategy_TOF.xhtml#T-STG287)
+287. The Journey, Not an Event
 
 “I like to leave room for accidents or chaos. Making a seamless record, where every note and syllable is in place and every bass drum is identical, is no trick. Any idiot with the patience and the budget to allow such foolishness can do it. I prefer to work on records that aspire to greater things, like originality, personality and enthusiasm.
 
@@ -7627,7 +7627,7 @@ The game continues, with many players, and it’s always new (but it rhymes).
 
 xml version='1.0' encoding='utf-8'?
 
-[288. Constant Pressure and Chiseling](ThisIsStrategy_TOF.xhtml#T-STG288)
+288. Constant Pressure and Chiseling
 
 Labor organizer Saul Alinsky described his most useful systems insight: “... the development of operations that will maintain a constant pressure upon the opposition. It is this unceasing pressure that results in the reactions from the opposition that are essential for the success of the campaign.”
 
@@ -7655,7 +7655,7 @@ The smart way to address a crisis might not be to dive into addressing the crisi
 
 xml version='1.0' encoding='utf-8'?
 
-[289. Coordination Failure](ThisIsStrategy_TOF.xhtml#T-STG289)
+289. Coordination Failure
 
 An overlooked element of game theory is coordination failure.
 
@@ -7687,7 +7687,7 @@ Who has a better chance of making an impact?
 
 xml version='1.0' encoding='utf-8'?
 
-[290. Asynchronicity is a Superpower](ThisIsStrategy_TOF.xhtml#T-STG290)
+290. Asynchronicity is a Superpower
 
 Cultures that develop literacy advance faster and further than illiterate ones.
 
@@ -7717,7 +7717,7 @@ Organizations that struggle with strategy also seem to have a lot of meetings.
 
 xml version='1.0' encoding='utf-8'?
 
-[291. Ignoring Sunk Costs: A Simple But Uncomfortable Idea](ThisIsStrategy_TOF.xhtml#T-STG291)
+291. Ignoring Sunk Costs: A Simple But Uncomfortable Idea
 
 When making a new decision, we must ignore what we acquired yesterday.
 
@@ -7745,7 +7745,7 @@ All effort comes with an opportunity cost, and sometimes that effort turns into 
 
 xml version='1.0' encoding='utf-8'?
 
-[292. What Does “Wrong” Mean?](ThisIsStrategy_TOF.xhtml#T-STG292)
+292. What Does “Wrong” Mean?
 
 The wrong direction, the wrong answer, the wrong project. What does wrong mean?
 
@@ -7771,7 +7771,7 @@ Defending the decision you made to go to law school simply throws more good days
 
 xml version='1.0' encoding='utf-8'?
 
-[293. Tomorrow is Another Opportunity](ThisIsStrategy_TOF.xhtml#T-STG293)
+293. Tomorrow is Another Opportunity
 
 There are thirty people over there who are waiting for you to help connect them, lead them, or make things better. But if you’re still defending the stuck project over here, the one you put so much into, you won’t be able to show up for them.
 
@@ -7789,7 +7789,7 @@ What happened yesterday already happened. It’s a gift and an asset from your p
 
 xml version='1.0' encoding='utf-8'?
 
-[294. Ignore Sunk Clowns](ThisIsStrategy_TOF.xhtml#T-STG294)
+294. Ignore Sunk Clowns
 
 Yes, there was supposed to be a clown at your birthday party. No, he didn’t show up. That’s a bummer.
 
@@ -7817,7 +7817,7 @@ Okay, now what?
 
 xml version='1.0' encoding='utf-8'?
 
-[295. What to Wear on Wednesday?](ThisIsStrategy_TOF.xhtml#T-STG295)
+295. What to Wear on Wednesday?
 
 In 1979, it was rare to talk about homosexuality. Millions were trapped in the closet, and homophobia was taken for granted.
 
@@ -7853,7 +7853,7 @@ Tension comes with change the same way shadows come with sunlight.
 
 xml version='1.0' encoding='utf-8'?
 
-[296. People Like Us](ThisIsStrategy_TOF.xhtml#T-STG296)
+296. People Like Us
 
 In the State of New York, if a school board budget fails to get a majority of yes votes, the board gets one more try to have it approved by the voters. If it fails a second time, the school is subject to significant cuts that end up impacting students in a negative way.
 
@@ -7885,7 +7885,7 @@ People like us can make a difference.
 
 xml version='1.0' encoding='utf-8'?
 
-[297. Questions That Lead to Strategies](ThisIsStrategy_TOF.xhtml#T-STG297)
+297. Questions That Lead to Strategies
 
 Here are questions worth asking about your project and your strategy:
 
@@ -8007,7 +8007,7 @@ Go make a ruckus.
 
 xml version='1.0' encoding='utf-8'?
 
-[298. Acknowledgments](ThisIsStrategy_TOF.xhtml#T-STG298)
+298. Acknowledgments
 
 A few books re-focused my attention on time and systems. I’m indebted to James Gleick for his tireless research and brilliant writing. Chaos and Time Travel are endless sources of wonder. I can also recommend Thinking in Systems by Donella Meadows and the wide range of writings from Russell Ackoff. I wish I had been able to share a stage with both of them.
 
@@ -8059,619 +8059,618 @@ xml version='1.0' encoding='utf-8'?
 
 Table of the Riffs
 
-[Cover](ThisIsStrategy_Cover.xhtml#CVR)
+Cover
 
-[Title Page](ThisIsStrategy_Titlepage.xhtml#TTL)
+Title Page
 
-[Dedication](ThisIsStrategy_Dedication.xhtml#DED)
+Dedication
 
-[Introduction](ThisIsStrategy_Introduction.xhtml#INTR)
+Introduction
 
-[1.        Strategy is a Philosophy of Becoming](ThisIsStrategy_STG001.xhtml#STG001)
+1.        Strategy is a Philosophy of Becoming
 
-[2.        Four Threads, Woven Together](ThisIsStrategy_STG002.xhtml#STG002)
+2.        Four Threads, Woven Together
 
-[3.        What Do People Want?](ThisIsStrategy_STG003.xhtml#STG003)
+3.        What Do People Want?
 
-[4.        The Non-Strategy of “Take What You Can Get”](ThisIsStrategy_STG004.xhtml#STG004)
+4.        The Non-Strategy of “Take What You Can Get”
 
-[5.        Awaiting Instructions](ThisIsStrategy_STG005.xhtml#STG005)
+5.        Awaiting Instructions
 
-[6.        The Elegant Path is the Most Useful Way Forward](ThisIsStrategy_STG006.xhtml#STG006)
+6.        The Elegant Path is the Most Useful Way Forward
 
-[7.        Not All Elegant Strategies are the Same](ThisIsStrategy_STG007.xhtml#STG007)
+7.        Not All Elegant Strategies are the Same
 
-[8.        Systems are Unseen and Persistent](ThisIsStrategy_STG008.xhtml#STG008)
+8.        Systems are Unseen and Persistent
 
-[9.        We Live in the Solar System](ThisIsStrategy_STG009.xhtml#STG009)
+9.        We Live in the Solar System
 
-[10.      Systems Deliver Value](ThisIsStrategy_STG010.xhtml#STG010)
+10.      Systems Deliver Value
 
-[11.      The Buildings or the Roads?](ThisIsStrategy_STG011.xhtml#STG011)
+11.      The Buildings or the Roads?
 
-[12.      The Unseen Assistant (and the Mysterious Vandal)](ThisIsStrategy_STG012.xhtml#STG012)
+12.      The Unseen Assistant (and the Mysterious Vandal)
 
-[13.      Can You See the River?](ThisIsStrategy_STG013.xhtml#STG013)
+13.      Can You See the River?
 
-[14.      The Collective](ThisIsStrategy_STG014.xhtml#STG014)
+14.      The Collective
 
-[15.      Successful Systems](ThisIsStrategy_STG015.xhtml#STG015)
+15.      Successful Systems
 
-[16.      Real Life Isn’t Lego](ThisIsStrategy_STG016.xhtml#STG016)
+16.      Real Life Isn’t Lego
 
-[17.      Two Myths About Systems](ThisIsStrategy_STG017.xhtml#STG017)
+17.      Two Myths About Systems
 
-[18.      Built, Natural, and Complex Systems](ThisIsStrategy_STG018.xhtml#STG018)
+18.      Built, Natural, and Complex Systems
 
-[19.      What Makes a System?](ThisIsStrategy_STG019.xhtml#STG019)
+19.      What Makes a System?
 
-[20.      The Persistence of Systems](ThisIsStrategy_STG020.xhtml#STG020)
+20.      The Persistence of Systems
 
-[21.      From Fine China to Underwater Headphones](ThisIsStrategy_STG021.xhtml#STG021)
+21.      From Fine China to Underwater Headphones
 
-[22.      Duncan Hines (and Nina Zagat)](ThisIsStrategy_STG022.xhtml#STG022)
+22.      Duncan Hines (and Nina Zagat)
 
-[23.      All Dogs are Mixed Breed Dogs](ThisIsStrategy_STG023.xhtml#STG023)
+23.      All Dogs are Mixed Breed Dogs
 
-[24.      U.S. News Changed College](ThisIsStrategy_STG024.xhtml#STG024)
+24.      U.S. News Changed College
 
-[25.      Where’s the Meter?](ThisIsStrategy_STG025.xhtml#STG025)
+25.      Where’s the Meter?
 
-[26.      Seeing (and Changing) the Chocolate System](ThisIsStrategy_STG026.xhtml#STG026)
+26.      Seeing (and Changing) the Chocolate System
 
-[27.      Serious Games](ThisIsStrategy_STG027.xhtml#STG027)
+27.      Serious Games
 
-[28.      There are Games in Every Strategy](ThisIsStrategy_STG028.xhtml#STG028)
+28.      There are Games in Every Strategy
 
-[29.      We are All Time Travelers](ThisIsStrategy_STG029.xhtml#STG029)
+29.      We are All Time Travelers
 
-[30.      Seeing Time](ThisIsStrategy_STG030.xhtml#STG030)
+30.      Seeing Time
 
-[31.      There is a Method](ThisIsStrategy_STG031.xhtml#STG031)
+31.      There is a Method
 
-[32.      The Heartbreak of an Intuitive Strategy](ThisIsStrategy_STG032.xhtml#STG032)
+32.      The Heartbreak of an Intuitive Strategy
 
-[33.      Hiding from a Useful Strategy](ThisIsStrategy_STG033.xhtml#STG033)
+33.      Hiding from a Useful Strategy
 
-[34.      Low-Hanging Fruit Isn’t](ThisIsStrategy_STG034.xhtml#STG034)
+34.      Low-Hanging Fruit Isn’t
 
-[35.      Rome Was Built in a Day](ThisIsStrategy_STG035.xhtml#STG035)
+35.      Rome Was Built in a Day
 
-[36.      One Telephone is Worthless](ThisIsStrategy_STG036.xhtml#STG036)
+36.      One Telephone is Worthless
 
-[37.      The Desert Island Mythologies](ThisIsStrategy_STG037.xhtml#STG037)
+37.      The Desert Island Mythologies
 
-[38.      Cities are Contagious](ThisIsStrategy_STG038.xhtml#STG038)
+38.      Cities are Contagious
 
-[39.      Analyzing the Last Move](ThisIsStrategy_STG039.xhtml#STG039)
+39.      Analyzing the Last Move
 
-[40.      Strategy and Tactics](ThisIsStrategy_STG040.xhtml#STG040)
+40.      Strategy and Tactics
 
-[41.      Toward a Strategic Practice](ThisIsStrategy_STG041.xhtml#STG041)
+41.      Toward a Strategic Practice
 
-[42.      Project Work is Different](ThisIsStrategy_STG042.xhtml#STG042)
+42.      Project Work is Different
 
-[43.      You Might Need a Strategy To](ThisIsStrategy_STG043.xhtml#STG043)
+43.      You Might Need a Strategy To
 
-[44.      Slithering, With Patience](ThisIsStrategy_STG044.xhtml#STG044)
+44.      Slithering, With Patience
 
-[45.      Plants Make People Happy](ThisIsStrategy_STG045.xhtml#STG045)
+45.      Plants Make People Happy
 
-[46.      Seat Belts Save Lives](ThisIsStrategy_STG046.xhtml#STG046)
+46.      Seat Belts Save Lives
 
-[47.      Airbnb was Lost](ThisIsStrategy_STG047.xhtml#STG047)
+47.      Airbnb was Lost
 
-[48.      Twenty-Seven Egg Dishes](ThisIsStrategy_STG048.xhtml#STG048)
+48.      Twenty-Seven Egg Dishes
 
-[49.      Esther Changed the World](ThisIsStrategy_STG049.xhtml#STG049)
+49.      Esther Changed the World
 
-[50.      Shine a Light](ThisIsStrategy_STG050.xhtml#STG050)
+50.      Shine a Light
 
-[51.      Big Problems Demand Small Solutions](ThisIsStrategy_STG051.xhtml#STG051)
+51.      Big Problems Demand Small Solutions
 
-[52.      “Getting the Word Out” (Also Known as “Selfish Shouting”)](ThisIsStrategy_STG052.xhtml#STG052)
+52.      “Getting the Word Out” (Also Known as “Selfish Shouting”)
 
-[53.      Use, Be Used, or Change It](ThisIsStrategy_STG053.xhtml#STG053)
+53.      Use, Be Used, or Change It
 
-[54.      Freedom is Possible](ThisIsStrategy_STG054.xhtml#STG054)
+54.      Freedom is Possible
 
-[55.      Getting Clear About the Business Model](ThisIsStrategy_STG055.xhtml#STG055)
+55.      Getting Clear About the Business Model
 
-[56.      And It Flies](ThisIsStrategy_STG056.xhtml#STG056)
+56.      And It Flies
 
-[57.      Passion and Our Business Model](ThisIsStrategy_STG057.xhtml#STG057)
+57.      Passion and Our Business Model
 
-[58.      The Circle of Us and the Circle of Now](ThisIsStrategy_STG058.xhtml#STG058)
+58.      The Circle of Us and the Circle of Now
 
-[59.      Selling Selfish](ThisIsStrategy_STG059.xhtml#STG059)
+59.      Selling Selfish
 
-[60.      Next Guest, Best Guest](ThisIsStrategy_STG060.xhtml#STG060)
+60.      Next Guest, Best Guest
 
-[61.      Seeing Strategy Clearly](ThisIsStrategy_STG061.xhtml#STG061)
+61.      Seeing Strategy Clearly
 
-[62.      A Blueprint is an Assertion](ThisIsStrategy_STG062.xhtml#STG062)
+62.      A Blueprint is an Assertion
 
-[63.      Sharing Your Strategy: The Modern Business Plan](ThisIsStrategy_STG063.xhtml#STG063)
+63.      Sharing Your Strategy: The Modern Business Plan
 
-[64.      Intuition is Strategy Without Narrative](ThisIsStrategy_STG064.xhtml#STG064)
+64.      Intuition is Strategy Without Narrative
 
-[65.      The Thing About Effort](ThisIsStrategy_STG065.xhtml#STG065)
+65.      The Thing About Effort
 
-[66.      Resilience and Leverage](ThisIsStrategy_STG066.xhtml#STG066)
+66.      Resilience and Leverage
 
-[67.      It Barely Works](ThisIsStrategy_STG067.xhtml#STG067)
+67.      It Barely Works
 
-[68.      The Minimum Viable Audience](ThisIsStrategy_STG068.xhtml#STG068)
+68.      The Minimum Viable Audience
 
-[69.      And Then What Happens?](ThisIsStrategy_STG069.xhtml#STG069)
+69.      And Then What Happens?
 
-[70.      To Kill All the Whales](ThisIsStrategy_STG070.xhtml#STG070)
+70.      To Kill All the Whales
 
-[71.      Not All Needs Have a Market (Yet).](ThisIsStrategy_STG071.xhtml#STG071)
+71.      Not All Needs Have a Market (Yet).
 
-[72.      Seeing the Windmill](ThisIsStrategy_STG072.xhtml#STG072)
+72.      Seeing the Windmill
 
-[73.      Without a Strategy](ThisIsStrategy_STG073.xhtml#STG073)
+73.      Without a Strategy
 
-[74.      Some Reasons We Avoid Having a Strategy](ThisIsStrategy_STG074.xhtml#STG074)
+74.      Some Reasons We Avoid Having a Strategy
 
-[75.      A Framework for a Strategy](ThisIsStrategy_STG075.xhtml#STG075)
+75.      A Framework for a Strategy
 
-[76.      Creating the Conditions for Change](ThisIsStrategy_STG076.xhtml#STG076)
+76.      Creating the Conditions for Change
 
-[77.      Twelve Slogans](ThisIsStrategy_STG077.xhtml#STG077)
+77.      Twelve Slogans
 
-[78.      Unseen Systems and Unintended Consequences](ThisIsStrategy_STG078.xhtml#STG078)
+78.      Unseen Systems and Unintended Consequences
 
-[79.      We are Not Plankton](ThisIsStrategy_STG079.xhtml#STG079)
+79.      We are Not Plankton
 
-[80.      Strategic Marketing](ThisIsStrategy_STG080.xhtml#STG080)
+80.      Strategic Marketing
 
-[81.      No Time to Waste](ThisIsStrategy_STG081.xhtml#STG081)
+81.      No Time to Waste
 
-[82.      Strategy and Aimlessness](ThisIsStrategy_STG082.xhtml#STG082)
+82.      Strategy and Aimlessness
 
-[83.      “Should” Might Be a Trap](ThisIsStrategy_STG083.xhtml#STG083)
+83.      “Should” Might Be a Trap
 
-[84.      Where is the Blueprint?](ThisIsStrategy_STG084.xhtml#STG084)
+84.      Where is the Blueprint?
 
-[85.      Sooner or Later](ThisIsStrategy_STG085.xhtml#STG085)
+85.      Sooner or Later
 
-[86.      Strategy is the Partner of Freedom](ThisIsStrategy_STG086.xhtml#STG086)
+86.      Strategy is the Partner of Freedom
 
-[87.      The Lottery is Not a Strategy](ThisIsStrategy_STG087.xhtml#STG087)
+87.      The Lottery is Not a Strategy
 
-[88.      Nostalgia for the Future](ThisIsStrategy_STG088.xhtml#STG088)
+88.      Nostalgia for the Future
 
-[89.      Doing Our Job or Doing Our Work?](ThisIsStrategy_STG089.xhtml#STG089)
+89.      Doing Our Job or Doing Our Work?
 
-[90.      Tension First and Above All](ThisIsStrategy_STG090.xhtml#STG090)
+90.      Tension First and Above All
 
-[91.      The Fastest Cyclist in the World](ThisIsStrategy_STG091.xhtml#STG091)
+91.      The Fastest Cyclist in the World
 
-[92.      When Did Apple Become Apple?](ThisIsStrategy_STG092.xhtml#STG092)
+92.      When Did Apple Become Apple?
 
-[93.      When Did Netflix Become Netflix?](ThisIsStrategy_STG093.xhtml#STG093)
+93.      When Did Netflix Become Netflix?
 
-[94.      When Did David Bowie Become David Bowie?](ThisIsStrategy_STG094.xhtml#STG094)
+94.      When Did David Bowie Become David Bowie?
 
-[95.      What’s Your Strategy?](ThisIsStrategy_STG095.xhtml#STG095)
+95.      What’s Your Strategy?
 
-[96.      What Does It Mean to Be a Strategic Thinker?](ThisIsStrategy_STG096.xhtml#STG096)
+96.      What Does It Mean to Be a Strategic Thinker?
 
-[97.      Tactics are Not Strategies](ThisIsStrategy_STG097.xhtml#STG097)
+97.      Tactics are Not Strategies
 
-[98.      What’s a Feedback Loop?](ThisIsStrategy_STG098.xhtml#STG098)
+98.      What’s a Feedback Loop?
 
-[99.      Time Isn’t Free](ThisIsStrategy_STG099.xhtml#STG099)
+99.      Time Isn’t Free
 
-[100.    Avoiding Hindsight Bias](ThisIsStrategy_STG100.xhtml#STG100)
+100.    Avoiding Hindsight Bias
 
-[101.    Not the Parts, the System](ThisIsStrategy_STG101.xhtml#STG101)
+101.    Not the Parts, the System
 
-[102.    Thinking About ‘Status’](ThisIsStrategy_STG102.xhtml#STG102)
+102.    Thinking About ‘Status’
 
-[103.    Seeing Status in Hollywood](ThisIsStrategy_STG103.xhtml#STG103)
+103.    Seeing Status in Hollywood
 
-[104.    The Output of Systems](ThisIsStrategy_STG104.xhtml#STG104)
+104.    The Output of Systems
 
-[105.    Our Intent is Altered by the System We’re Part of](ThisIsStrategy_STG105.xhtml#STG105)
+105.    Our Intent is Altered by the System We’re Part of
 
-[106.    The Birth of Afya](ThisIsStrategy_STG106.xhtml#STG106)
+106.    The Birth of Afya
 
-[107.    Perpetuating the Scam](ThisIsStrategy_STG107.xhtml#STG107)
+107.    Perpetuating the Scam
 
-[108.    Toxic Systems](ThisIsStrategy_STG108.xhtml#STG108)
+108.    Toxic Systems
 
-[109.    The Urgency of “No”](ThisIsStrategy_STG109.xhtml#STG109)
+109.    The Urgency of “No”
 
-[110.    On Being Judged](ThisIsStrategy_STG110.xhtml#STG110)
+110.    On Being Judged
 
-[111.    Choose Your Customers and Choose Your Future.](ThisIsStrategy_STG111.xhtml#STG111)
+111.    Choose Your Customers and Choose Your Future.
 
-[112.    Choose Your Competition and Choose Your Future](ThisIsStrategy_STG112.xhtml#STG112)
+112.    Choose Your Competition and Choose Your Future
 
-[113.    Choose the Source of Validation and Choose Your Future](ThisIsStrategy_STG113.xhtml#STG113)
+113.    Choose the Source of Validation and Choose Your Future
 
-[114.    Choose Your Distribution and Choose Your Future](ThisIsStrategy_STG114.xhtml#STG114)
+114.    Choose Your Distribution and Choose Your Future
 
-[115.    News, Ideas, and Distribution Changes](ThisIsStrategy_STG115.xhtml#STG115)
+115.    News, Ideas, and Distribution Changes
 
-[116.    “Everyone” is Elusive](ThisIsStrategy_STG116.xhtml#STG116)
+116.    “Everyone” is Elusive
 
-[117.    What Do You Want?](ThisIsStrategy_STG117.xhtml#STG117)
+117.    What Do You Want?
 
-[118.    What Does It Want?](ThisIsStrategy_STG118.xhtml#STG118)
+118.    What Does It Want?
 
-[119.    The Runaway Conditions](ThisIsStrategy_STG119.xhtml#STG119)
+119.    The Runaway Conditions
 
-[120.    Things That Scale](ThisIsStrategy_STG120.xhtml#STG120)
+120.    Things That Scale
 
-[121.    Working for the System](ThisIsStrategy_STG121.xhtml#STG121)
+121.    Working for the System
 
-[122.    Who is in Charge?](ThisIsStrategy_STG122.xhtml#STG122)
+122.    Who is in Charge?
 
-[123.    Snapshots and Movies](ThisIsStrategy_STG123.xhtml#STG123)
+123.    Snapshots and Movies
 
-[124.    The Day I Met Derek Sivers](ThisIsStrategy_STG124.xhtml#STG124)
+124.    The Day I Met Derek Sivers
 
-[125.    The Emperor Penguins, Crowds and Fear](ThisIsStrategy_STG125.xhtml#STG125)
+125.    The Emperor Penguins, Crowds and Fear
 
-[126.    If You Want to Start a Fire](ThisIsStrategy_STG126.xhtml#STG126)
+126.    If You Want to Start a Fire
 
-[127.    The Five Steps to Widespread Change](ThisIsStrategy_STG127.xhtml#STG127)
+127.    The Five Steps to Widespread Change
 
-[128.    Sand Hill Road](ThisIsStrategy_STG128.xhtml#STG128)
+128.    Sand Hill Road
 
-[129.    100 is a Fine Way to Start](ThisIsStrategy_STG129.xhtml#STG129)
+129.    100 is a Fine Way to Start
 
-[130.    Failing to Change the Donation Dynamic](ThisIsStrategy_STG130.xhtml#STG130)
+130.    Failing to Change the Donation Dynamic
 
-[131.    Shun the Non-Believers](ThisIsStrategy_STG131.xhtml#STG131)
+131.    Shun the Non-Believers
 
-[132.    Understanding Adopters](ThisIsStrategy_STG132A.xhtml#STG132)
+132.    Understanding Adopters
 
-[133.    Time is the Overlooked Axis](ThisIsStrategy_STG133.xhtml#STG133)
+133.    Time is the Overlooked Axis
 
-[134.    Getting Comfortable With a Series of Snapshots](ThisIsStrategy_STG134.xhtml#STG134)
+134.    Getting Comfortable With a Series of Snapshots
 
-[135.    Embrace the Gulf of Disapproval](ThisIsStrategy_STG135.xhtml#STG135)
+135.    Embrace the Gulf of Disapproval
 
-[136.    Deterministic Nonperiodic Flow Proves the Point](ThisIsStrategy_STG136.xhtml#STG136)
+136.    Deterministic Nonperiodic Flow Proves the Point
 
-[137.    Chasing the Hype Cycle](ThisIsStrategy_STG137.xhtml#STG137)
+137.    Chasing the Hype Cycle
 
-[138.    Seeing the Chasm](ThisIsStrategy_STG138.xhtml#STG138)
+138.    Seeing the Chasm
 
-[139.    The Need for Scaffolding](ThisIsStrategy_STG139.xhtml#STG139)
+139.    The Need for Scaffolding
 
-[140.    Scaffolding and Marketing](ThisIsStrategy_STG140.xhtml#STG140)
+140.    Scaffolding and Marketing
 
-[141.    The Catch-22 of Leveraged Systems](ThisIsStrategy_STG141.xhtml#STG141)
+141.    The Catch-22 of Leveraged Systems
 
-[142.    Treating Different People Differently](ThisIsStrategy_STG142.xhtml#STG142)
+142.    Treating Different People Differently
 
-[143.    Shifting to the Masses](ThisIsStrategy_STG143.xhtml#STG143)
+143.    Shifting to the Masses
 
-[144.    Misunderstanding Quality](ThisIsStrategy_STG144.xhtml#STG144)
+144.    Misunderstanding Quality
 
-[145.    The Challenge in Finding Useful Criticism](ThisIsStrategy_STG145.xhtml#STG145)
+145.    The Challenge in Finding Useful Criticism
 
-[146.    Being Clear About “Better”](ThisIsStrategy_STG146.xhtml#STG146)
+146.    Being Clear About “Better”
 
-[147.    What We Ask Ourselves When It’s Our Turn on the Curve](ThisIsStrategy_STG147.xhtml#STG147)
+147.    What We Ask Ourselves When It’s Our Turn on the Curve
 
-[148.    Short-Term and Long-Term Games](ThisIsStrategy_STG148.xhtml#STG148)
+148.    Short-Term and Long-Term Games
 
-[149.    Infinite or Finite?](ThisIsStrategy_STG149.xhtml#STG149)
+149.    Infinite or Finite?
 
-[150.    Scarcity or Abundance?](ThisIsStrategy_STG150.xhtml#STG150)
+150.    Scarcity or Abundance?
 
-[151.    Dominance or Affiliation?](ThisIsStrategy_STG151.xhtml#STG151)
+151.    Dominance or Affiliation?
 
-[152.    Paying It Forward Vs. Paying It Back](ThisIsStrategy_STG152.xhtml#STG152)
+152.    Paying It Forward Vs. Paying It Back
 
-[153.    Maintenance, Substitution, or Possibility?](ThisIsStrategy_STG153.xhtml#STG153)
+153.    Maintenance, Substitution, or Possibility?
 
-[154.    Games of Skill, Luck and Privilege](ThisIsStrategy_STG154.xhtml#STG154)
+154.    Games of Skill, Luck and Privilege
 
-[155.    Games With Divergent Objectives](ThisIsStrategy_STG155.xhtml#STG155)
+155.    Games With Divergent Objectives
 
-[156.    Mutual Enrollment and Complex Games](ThisIsStrategy_STG156.xhtml#STG156)
+156.    Mutual Enrollment and Complex Games
 
-[157.    Don’t Bet on Games You Can’t Win](ThisIsStrategy_STG157.xhtml#STG157)
+157.    Don’t Bet on Games You Can’t Win
 
-[158.    All of Our Strategies are All of Our Strategies](ThisIsStrategy_STG158.xhtml#STG158)
+158.    All of Our Strategies are All of Our Strategies
 
-[159.    Grabbing the Last Doughnut](ThisIsStrategy_STG159.xhtml#STG159)
+159.    Grabbing the Last Doughnut
 
-[160.    Systems Thrive, and Then They Don’t](ThisIsStrategy_STG160.xhtml#STG160)
+160.    Systems Thrive, and Then They Don’t
 
-[161.    To Get to New York](ThisIsStrategy_STG161.xhtml#STG161)
+161.    To Get to New York
 
-[162.    If It Fits, You Can Ship It](ThisIsStrategy_STG162.xhtml#STG162)
+162.    If It Fits, You Can Ship It
 
-[163.    Feeding the System](ThisIsStrategy_STG163.xhtml#STG163)
+163.    Feeding the System
 
-[164.    Scarcity and the Drivers of a System](ThisIsStrategy_STG164.xhtml#STG164)
+164.    Scarcity and the Drivers of a System
 
-[165.    Scale and Magic](ThisIsStrategy_STG165.xhtml#STG165)
+165.    Scale and Magic
 
-[166.    How NPR Lost to the Podcast](ThisIsStrategy_STG166.xhtml#STG166)
+166.    How NPR Lost to the Podcast
 
-[167.    Self-Interest is Self-Evident](ThisIsStrategy_STG167.xhtml#STG167)
+167.    Self-Interest is Self-Evident
 
-[168.    It’s Easy to Avoid the Most Important Part of Our Job](ThisIsStrategy_STG168.xhtml#STG168)
+168.    It’s Easy to Avoid the Most Important Part of Our Job
 
-[169.    It’s Voluntary](ThisIsStrategy_STG169.xhtml#STG169)
+169.    It’s Voluntary
 
-[170.    “I Will If You Will”](ThisIsStrategy_STG170.xhtml#STG170)
+170.    “I Will If You Will”
 
-[171.    Bringing Strategy to Marketing](ThisIsStrategy_STG171.xhtml#STG171)
+171.    Bringing Strategy to Marketing
 
-[172.    Living in a Van](ThisIsStrategy_STG172.xhtml#STG172)
+172.    Living in a Van
 
-[173.    Acorns Sometimes Become Oak Trees](ThisIsStrategy_STG173.xhtml#STG173)
+173.    Acorns Sometimes Become Oak Trees
 
-[174.    Systems Have Multiple Objectives](ThisIsStrategy_STG174.xhtml#STG174)
+174.    Systems Have Multiple Objectives
 
-[175.    One Way to Solve the Problem is to Change the System](ThisIsStrategy_STG175.xhtml#STG175)
+175.    One Way to Solve the Problem is to Change the System
 
-[176.    Interoperability](ThisIsStrategy_STG176.xhtml#STG176)
+176.    Interoperability
 
-[177.    What Does the System Respond To?](ThisIsStrategy_STG177.xhtml#STG177)
+177.    What Does the System Respond To?
 
-[178.    The Paradox of Substitutes and Uniqueness](ThisIsStrategy_STG178.xhtml#STG178)
+178.    The Paradox of Substitutes and Uniqueness
 
-[179.    Commodities](ThisIsStrategy_STG179.xhtml#STG179)
+179.    Commodities
 
-[180.    Understanding Genre](ThisIsStrategy_STG180.xhtml#STG180)
+180.    Understanding Genre
 
-[181.    Medium Vs. Message](ThisIsStrategy_STG181.xhtml#STG181)
+181.    Medium Vs. Message
 
-[182.    Thoughts on Pricing](ThisIsStrategy_STG182.xhtml#STG182)
+182.    Thoughts on Pricing
 
-[183.    Strategies Require Empathy](ThisIsStrategy_STG183.xhtml#STG183)
+183.    Strategies Require Empathy
 
-[184.    Dorothy and Her Crew](ThisIsStrategy_STG184.xhtml#STG184)
+184.    Dorothy and Her Crew
 
-[185.    Everyone is Always Right](ThisIsStrategy_STG185.xhtml#STG185)
+185.    Everyone is Always Right
 
-[186.    All Persistent Systems Rely on Feedback Loops](ThisIsStrategy_STG186.xhtml#STG186)
+186.    All Persistent Systems Rely on Feedback Loops
 
-[187.    The Wildcard in Every Feedback Loop is the Delay](ThisIsStrategy_STG187.xhtml#STG187)
+187.    The Wildcard in Every Feedback Loop is the Delay
 
-[188.    Systems + Games + Feedback Loops](ThisIsStrategy_STG188.xhtml#STG188)
+188.    Systems + Games + Feedback Loops
 
-[189.    Embracing Constraints](ThisIsStrategy_STG189.xhtml#STG189)
+189.    Embracing Constraints
 
-[190.    Who Benefits?](ThisIsStrategy_STG190.xhtml#STG190)
+190.    Who Benefits?
 
-[191.    Six System Traps](ThisIsStrategy_STG191.xhtml#STG191)
+191.    Six System Traps
 
-[192.    The Moses Manipulations](ThisIsStrategy_STG192.xhtml#STG192)
+192.    The Moses Manipulations
 
-[193.    Resilient Systems Stick Around](ThisIsStrategy_STG193.xhtml#STG193)
+193.    Resilient Systems Stick Around
 
-[194.    Trying to Turn Me Into an Addict](ThisIsStrategy_STG194.xhtml#STG194)
+194.    Trying to Turn Me Into an Addict
 
-[195.    The Challenge of False Proxies](ThisIsStrategy_STG195.xhtml#STG195)
+195.    The Challenge of False Proxies
 
-[196.    We See Systems When They are Forced to Change](ThisIsStrategy_STG196.xhtml#STG196)
+196.    We See Systems When They are Forced to Change
 
-[197.    May I See the Org Chart?](ThisIsStrategy_STG197.xhtml#STG197)
+197.    May I See the Org Chart?
 
-[198.    The Agent of Change](ThisIsStrategy_STG198.xhtml#STG198)
+198.    The Agent of Change
 
-[199.    Looking for the Agent of Change](ThisIsStrategy_STG199.xhtml#STG199)
+199.    Looking for the Agent of Change
 
-[200.    The Telegraph and the Skyscraper](ThisIsStrategy_STG200.xhtml#STG200)
+200.    The Telegraph and the Skyscraper
 
-[201.    Cheese Bullies](ThisIsStrategy_STG201.xhtml#STG201)
+201.    Cheese Bullies
 
-[202.    A Brief History of Jaywalking](ThisIsStrategy_STG202.xhtml#STG202)
+202.    A Brief History of Jaywalking
 
-[203.    What Will I Tell the Others?](ThisIsStrategy_STG203.xhtml#STG203)
+203.    What Will I Tell the Others?
 
-[204.    Who Says Yes?](ThisIsStrategy_STG204.xhtml#STG204)
+204.    Who Says Yes?
 
-[205.    If You Want to Use the System](ThisIsStrategy_STG205.xhtml#STG205)
+205.    If You Want to Use the System
 
-[206.    The Person in Front of You is Part of a System](ThisIsStrategy_STG206.xhtml#STG206)
+206.    The Person in Front of You is Part of a System
 
-[207.    Some of the Ways That Systems Operate](ThisIsStrategy_STG207.xhtml#STG207)
+207.    Some of the Ways That Systems Operate
 
-[208.    Types of Elegant Strategies](ThisIsStrategy_STG208.xhtml#STG208)
+208.    Types of Elegant Strategies
 
-[209.    Bringing Change to a System](ThisIsStrategy_STG209.xhtml#STG209)
+209.    Bringing Change to a System
 
-[210.    Luck Doesn’t Even Out in the Long Run](ThisIsStrategy_STG210.xhtml#STG210)
+210.    Luck Doesn’t Even Out in the Long Run
 
-[211.    Leverage and the Exaggeration of Strategies](ThisIsStrategy_STG211.xhtml#STG211)
+211.    Leverage and the Exaggeration of Strategies
 
-[212.    Intent and Side Effects](ThisIsStrategy_STG212.xhtml#STG212)
+212.    Intent and Side Effects
 
-[213.    Turbulence and Systems Transformation](ThisIsStrategy_STG213.xhtml#STG213)
+213.    Turbulence and Systems Transformation
 
-[214.    Gatekeepers](ThisIsStrategy_STG214.xhtml#STG214)
+214.    Gatekeepers
 
-[215.    Kinds of Tension](ThisIsStrategy_STG215.xhtml#STG215)
+215.    Kinds of Tension
 
-[216.    “What Will I Tell the Others?”](ThisIsStrategy_STG216.xhtml#STG216)
+216.    “What Will I Tell the Others?”
 
-[217.    Two Tesla Parables: Ludicrous and the Clown Car](ThisIsStrategy_STG217.xhtml#STG217)
+217.    Two Tesla Parables: Ludicrous and the Clown Car
 
-[218.    Competitive Advantage](ThisIsStrategy_STG218.xhtml#STG218)
+218.    Competitive Advantage
 
-[219.    Metcalfe’s Law is Waiting for You](ThisIsStrategy_STG219.xhtml#STG219)
+219.    Metcalfe’s Law is Waiting for You
 
-[220.    The First Rule…](ThisIsStrategy_STG220.xhtml#STG220)
+220.    The First Rule…
 
-[221.    Do Vs. Want](ThisIsStrategy_STG221.xhtml#STG221)
+221.    Do Vs. Want
 
-[222.    Exchanging the System is Tempting](ThisIsStrategy_STG222.xhtml#STG222)
+222.    Exchanging the System is Tempting
 
-[223.    Revolutions are Rare](ThisIsStrategy_STG223.xhtml#STG223)
+223.    Revolutions are Rare
 
-[224.    The Game Belongs to the Children Who Play It](ThisIsStrategy_STG224.xhtml#STG224)
+224.    The Game Belongs to the Children Who Play It
 
-[225.    The Two Unseen Desires](ThisIsStrategy_STG225.xhtml#STG225)
+225.    The Two Unseen Desires
 
-[226.    The Thing About Cheaper](ThisIsStrategy_STG226.xhtml#STG226)
+226.    The Thing About Cheaper
 
-[227.    Compounding Our Tribal Instincts](ThisIsStrategy_STG227.xhtml#STG227)
+227.    Compounding Our Tribal Instincts
 
-[228.    Substitutes and the Race to the Bottom](ThisIsStrategy_STG228.xhtml#STG228)
+228.    Substitutes and the Race to the Bottom
 
-[229.    Seeking the Invisible Hand](ThisIsStrategy_STG229.xhtml#STG229)
+229.    Seeking the Invisible Hand
 
-[230.    Examples of Systems Living in Tension](ThisIsStrategy_STG230.xhtml#STG230)
+230.    Examples of Systems Living in Tension
 
-[231.    Which Hat?](ThisIsStrategy_STG231.xhtml#STG231)
+231.    Which Hat?
 
-[232.    The Weather Report is a Prediction](ThisIsStrategy_STG232.xhtml#STG232)
+232.    The Weather Report is a Prediction
 
-[233.    This Might Not Work](ThisIsStrategy_STG233.xhtml#STG233)
+233.    This Might Not Work
 
-[234.    Back to the Rhino](ThisIsStrategy_STG234.xhtml#STG234)
+234.    Back to the Rhino
 
-[235.    Who Controls the Dice?](ThisIsStrategy_STG235.xhtml#STG235)
+235.    Who Controls the Dice?
 
-[236.    Who is Waiting for You at the Airport?](ThisIsStrategy_STG236.xhtml#STG236)
+236.    Who is Waiting for You at the Airport?
 
-[237.    Understanding Statistics and Polls](ThisIsStrategy_STG237.xhtml#STG237)
+237.    Understanding Statistics and Polls
 
-[238.    Best Practices and the Status Quo](ThisIsStrategy_STG238.xhtml#STG238)
+238.    Best Practices and the Status Quo
 
-[239.    Analogies and the Problem With “Almost”](ThisIsStrategy_STG239.xhtml#STG239)
+239.    Analogies and the Problem With “Almost”
 
-[240.    Cheerleaders and Coaches](ThisIsStrategy_STG240.xhtml#STG240)
+240.    Cheerleaders and Coaches
 
-[241.    Collapsing to the Center](ThisIsStrategy_STG241.xhtml#STG241)
+241.    Collapsing to the Center
 
-[242.    Understanding the 2 x 2 Positioning Grid](ThisIsStrategy_STG242.xhtml#STG242)
+242.    Understanding the 2 x 2 Positioning Grid
 
-[243.    The Blank of Blank](ThisIsStrategy_STG243.xhtml#STG243)
+243.    The Blank of Blank
 
-[244.    Moving to the Middle (or Not)](ThisIsStrategy_STG244.xhtml#STG244)
+244.    Moving to the Middle (or Not)
 
-[245.    Going to Places the Competition Can’t Go or Won’t Go](ThisIsStrategy_STG245.xhtml#STG245)
+245.    Going to Places the Competition Can’t Go or Won’t Go
 
-[246.    Where is Everyone?](ThisIsStrategy_STG246.xhtml#STG246)
+246.    Where is Everyone?
 
-[247.    Getting the Word Out](ThisIsStrategy_STG247.xhtml#STG247)
+247.    Getting the Word Out
 
-[248.    Scaling Better](ThisIsStrategy_STG248.xhtml#STG248)
+248.    Scaling Better
 
-[249.    Half a Boat Isn’t Much Help](ThisIsStrategy_STG249.xhtml#STG249)
+249.    Half a Boat Isn’t Much Help
 
-[250.    Thrashing at the Start](ThisIsStrategy_STG250.xhtml#STG250)
+250.    Thrashing at the Start
 
-[251.    The Last Minute](ThisIsStrategy_STG251.xhtml#STG251)
+251.    The Last Minute
 
-[252.    Every Yes Requires Many No’s](ThisIsStrategy_STG252.xhtml#STG252)
+252.    Every Yes Requires Many No’s
 
-[253.    Empathy for the Retailer](ThisIsStrategy_STG253.xhtml#STG253)
+253.    Empathy for the Retailer
 
-[254.    Bringing Intention to Projects](ThisIsStrategy_STG254.xhtml#STG254)
+254.    Bringing Intention to Projects
 
-[255.    Successful Projects](ThisIsStrategy_STG255.xhtml#STG255)
+255.    Successful Projects
 
-[256.    The Three Project Traps](ThisIsStrategy_STG256.xhtml#STG256)
+256.    The Three Project Traps
 
-[257.    Communication With Intent](ThisIsStrategy_STG257.xhtml#STG257)
+257.    Communication With Intent
 
-[258.    Risks Aren’t to Be Avoided](ThisIsStrategy_STG258.xhtml#STG258)
+258.    Risks Aren’t to Be Avoided
 
-[259.    Constraints are a Gift](ThisIsStrategy_STG259.xhtml#STG259)
+259.    Constraints are a Gift
 
-[260.    What Do You Make?](ThisIsStrategy_STG260.xhtml#STG260)
+260.    What Do You Make?
 
-[261.    Problems are Opportunities](ThisIsStrategy_STG261.xhtml#STG261)
+261.    Problems are Opportunities
 
-[262.    The Simple Hierarchy of Decision Effort](ThisIsStrategy_STG262.xhtml#STG262)
+262.    The Simple Hierarchy of Decision Effort
 
-[263.    Optionality and Undo](ThisIsStrategy_STG263.xhtml#STG263)
+263.    Optionality and Undo
 
-[264.    Great Choice, Didn’t Work](ThisIsStrategy_STG264.xhtml#STG264)
+264.    Great Choice, Didn’t Work
 
-[265.    Hidden Decisions Get Moldy](ThisIsStrategy_STG265.xhtml#STG265)
+265.    Hidden Decisions Get Moldy
 
-[266.    Compared to What?](ThisIsStrategy_STG266.xhtml#STG266)
+266.    Compared to What?
 
-[267.    A Quarter of a Million Dollars](ThisIsStrategy_STG267.xhtml#STG267)
+267.    A Quarter of a Million Dollars
 
-[268.    Thinking About Money](ThisIsStrategy_STG268.xhtml#STG268)
+268.    Thinking About Money
 
-[269.    No Regrets and the Kinds of Games We Play](ThisIsStrategy_STG269.xhtml#STG269)
+269.    No Regrets and the Kinds of Games We Play
 
-[270.    Why is It Hard to Talk About Decisions?](ThisIsStrategy_STG270.xhtml#STG270)
+270.    Why is It Hard to Talk About Decisions?
 
-[271.    Bad Luck Paralysis](ThisIsStrategy_STG271.xhtml#STG271)
+271.    Bad Luck Paralysis
 
-[272.    Survivors are Noteworthy](ThisIsStrategy_STG272.xhtml#STG272)
+272.    Survivors are Noteworthy
 
-[273.    The Regression Toward the Mean](ThisIsStrategy_STG273.xhtml#STG273)
+273.    The Regression Toward the Mean
 
-[274.    Better Decisions and Better Outcomes](ThisIsStrategy_STG274.xhtml#STG274)
+274.    Better Decisions and Better Outcomes
 
-[275.    Not Making a Decision is the Easy Path](ThisIsStrategy_STG275.xhtml#STG275)
+275.    Not Making a Decision is the Easy Path
 
-[276.    Assets are Tools](ThisIsStrategy_STG276.xhtml#STG276)
+276.    Assets are Tools
 
-[277.    Assets Over Time](ThisIsStrategy_STG277.xhtml#STG277)
+277.    Assets Over Time
 
-[278.    What Sort of Hammer Should You Buy?](ThisIsStrategy_STG278.xhtml#STG278)
+278.    What Sort of Hammer Should You Buy?
 
-[279.    Community Action](ThisIsStrategy_STG279.xhtml#STG279)
+279.    Community Action
 
-[280.    The Man Who Poisoned Us All](ThisIsStrategy_STG280.xhtml#STG280)
+280.    The Man Who Poisoned Us All
 
-[281.    The Enduring Myth of Widespread Self-Control](ThisIsStrategy_STG281.xhtml#STG281)
+281.    The Enduring Myth of Widespread Self-Control
 
-[282.    Bringing a Strategic Approach to the Most Urgent System Change of Our Lifetimes](ThisIsStrategy_STG282.xhtml#STG282)
+282.    Bringing a Strategic Approach to the Most Urgent System Change of Our Lifetimes
 
-[283.    Helping the Market Fix What the Market Broke](ThisIsStrategy_STG283.xhtml#STG283)
+283.    Helping the Market Fix What the Market Broke
 
-[284.    Harnessing the Insatiable](ThisIsStrategy_STG284.xhtml#STG284)
+284.    Harnessing the Insatiable
 
-[285.    The Action We Take](ThisIsStrategy_STG285.xhtml#STG285)
+285.    The Action We Take
 
-[286.    Indoctrination is Real](ThisIsStrategy_STG286.xhtml#STG286)
+286.    Indoctrination is Real
 
-[287.    The Journey, Not an Event](ThisIsStrategy_STG287.xhtml#STG287)
+287.    The Journey, Not an Event
 
-[288.    Constant Pressure and Chiseling](ThisIsStrategy_STG288.xhtml#STG288)
+288.    Constant Pressure and Chiseling
 
-[289.    Coordination Failure](ThisIsStrategy_STG289.xhtml#STG289)
+289.    Coordination Failure
 
-[290.    Asynchronicity is a Superpower](ThisIsStrategy_STG290.xhtml#STG290)
+290.    Asynchronicity is a Superpower
 
-[291.    Ignoring Sunk Costs: A Simple But Uncomfortable Idea](ThisIsStrategy_STG291.xhtml#STG291)
+291.    Ignoring Sunk Costs: A Simple But Uncomfortable Idea
 
-[292.    What Does “Wrong” Mean?](ThisIsStrategy_STG292.xhtml#STG292)
+292.    What Does “Wrong” Mean?
 
-[293.    Tomorrow is Another Opportunity](ThisIsStrategy_STG293.xhtml#STG293)
+293.    Tomorrow is Another Opportunity
 
-[294.    Ignore Sunk Clowns](ThisIsStrategy_STG294.xhtml#STG294)
+294.    Ignore Sunk Clowns
 
-[295.    What to Wear on Wednesday?](ThisIsStrategy_STG295.xhtml#STG295)
+295.    What to Wear on Wednesday?
 
-[296.    People Like Us](ThisIsStrategy_STG296.xhtml#STG296)
+296.    People Like Us
 
-[297.    Questions That Lead to Strategies](ThisIsStrategy_STG297.xhtml#STG297)
+297.    Questions That Lead to Strategies
 
-[298.    Acknowledgments](ThisIsStrategy_STG298A.xhtml#STG298)
+298.    Acknowledgments
 
-[Some Other Books by Seth Godin](ThisIsStrategy_OtherBooks.xhtml#OBK)
+Some Other Books by Seth Godin
 
-[Bookstores Matter](ThisIsStrategy_BookstoresMatter.xhtml#BKM)
+Bookstores Matter
 
-[Copyright](ThisIsStrategy_Copyright.xhtml#CPY)
+Copyright
 
-[About the Publisher](ThisIsStrategy_ATP.xhtml#ATP)
+About the Publisher
 
 [*OceanofPDF.com*](https://oceanofpdf.com)
 
 ## Minhas Anotações
-

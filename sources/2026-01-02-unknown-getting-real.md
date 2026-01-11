@@ -29,37 +29,37 @@ xml version='1.0' encoding='utf-8'?
 
 **Introduction**
 
-[**Chapter 1: What is Getting Real**](index_split_043.html#page_8)
+**Chapter 1: What is Getting Real**
 
-[**Chapter 2: About Basecamp**](index_split_045.html#page_11)
+**Chapter 2: About Basecamp**
 
-[**Chapter 3: Caveats, disclaimers, and other preemptive strikes**](index_split_045.html#page_12)
+**Chapter 3: Caveats, disclaimers, and other preemptive strikes**
 
 **The Starting Line**
 
-[**Chapter 4: Build Less**](index_split_046.html#page_15)
+**Chapter 4: Build Less**
 
-[**Chapter 5: What's Your Problem?**](index_split_047.html#page_16)
+**Chapter 5: What's Your Problem?**
 
-[**Chapter 6: Fund Yourself**](index_split_048.html#page_18)
+**Chapter 6: Fund Yourself**
 
-[**Chapter 7: Fix Time and Budget, Flex Scope**](index_split_049.html#page_20)
+**Chapter 7: Fix Time and Budget, Flex Scope**
 
-[**Chapter 8: Have an Enemy**](index_split_050.html#page_22)
+**Chapter 8: Have an Enemy**
 
-[**Chapter 9: It Shouldn't be a Chore**](index_split_051.html#page_24)
+**Chapter 9: It Shouldn't be a Chore**
 
 **Stay Lean**
 
-[**Chapter 10: Less Mass**](index_split_052.html#page_25)
+**Chapter 10: Less Mass**
 
-[**Chapter 11: Lower Your Cost of Change**](index_split_053.html#page_27)
+**Chapter 11: Lower Your Cost of Change**
 
-[**Chapter 12: The Three Musketeers**](index_split_054.html#page_29)
+**Chapter 12: The Three Musketeers**
 
-[**Chapter 13: Embrace Constraints**](index_split_056.html#page_31)
+**Chapter 13: Embrace Constraints**
 
-[**Chapter 14: Be Yourself**](index_split_057.html#page_33)
+**Chapter 14: Be Yourself**
 
 **Priorities**
 
@@ -67,25 +67,25 @@ xml version='1.0' encoding='utf-8'?
 
 xml version='1.0' encoding='utf-8'?
 
-## [**Chapter 15: What’s the Big Idea?**](index_split_058.html#page_35)
+## **Chapter 15: What’s the Big Idea?**
 
-### [**Chapter 16: Ignore Details Early On**](index_split_059.html#page_37)
-
----
-
-xml version='1.0' encoding='utf-8'?
-
-## [**Chapter 17: It’s a Problem When It’s a Problem**](index_split_060.html#page_39)
-
-### [**Chapter 18: Hire the Right Customers**](index_split_061.html#page_40)
+### **Chapter 16: Ignore Details Early On**
 
 ---
 
 xml version='1.0' encoding='utf-8'?
 
-## [**Chapter 19: Scale Later**](index_split_062.html#page_41)
+## **Chapter 17: It’s a Problem When It’s a Problem**
 
-### [**Chapter 20: Make Opinionated Software**](index_split_062.html#page_42)
+### **Chapter 18: Hire the Right Customers**
+
+---
+
+xml version='1.0' encoding='utf-8'?
+
+## **Chapter 19: Scale Later**
+
+### **Chapter 20: Make Opinionated Software**
 
 **Feature Selection**
 
@@ -93,33 +93,33 @@ xml version='1.0' encoding='utf-8'?
 
 xml version='1.0' encoding='utf-8'?
 
-## [**Chapter 21: Half, Not Half-Assed**](index_split_063.html#page_43)
+## **Chapter 21: Half, Not Half-Assed**
 
-### [**Chapter 22: It Just Doesn’t Matter**](index_split_064.html#page_44)
-
----
-
-xml version='1.0' encoding='utf-8'?
-
-## [**Chapter 23: Start With No**](index_split_065.html#page_45)
-
-### [**Chapter 24: Hidden Costs**](index_split_065.html#page_46)
+### **Chapter 22: It Just Doesn’t Matter**
 
 ---
 
 xml version='1.0' encoding='utf-8'?
 
-## [**Chapter 25: Can You Handle It?**](index_split_066.html#page_47)
+## **Chapter 23: Start With No**
 
-### [**Chapter 26: Human Solutions**](index_split_067.html#page_48)
+### **Chapter 24: Hidden Costs**
 
 ---
 
 xml version='1.0' encoding='utf-8'?
 
-## [**Chapter 27: Forget Feature Requests**](index_split_068.html#page_49)
+## **Chapter 25: Can You Handle It?**
 
-### [**Chapter 28: Hold the Mayo**](index_split_068.html#page_50)
+### **Chapter 26: Human Solutions**
+
+---
+
+xml version='1.0' encoding='utf-8'?
+
+## **Chapter 27: Forget Feature Requests**
+
+### **Chapter 28: Hold the Mayo**
 
 **Process**
 
@@ -127,31 +127,31 @@ xml version='1.0' encoding='utf-8'?
 
 xml version='1.0' encoding='utf-8'?
 
-## [**Chapter 29: Race to Running Software**](index_split_069.html#page_51)
+## **Chapter 29: Race to Running Software**
 
-### [**Chapter 30: Rinse and Repeat**](index_split_070.html#page_53)
-
----
-
-xml version='1.0' encoding='utf-8'?
-
-## [**Chapter 31: From Idea to Implementation**](index_split_071.html#page_55)
-
-### [**Chapter 32: Avoid Preferences**](index_split_072.html#page_57)
+### **Chapter 30: Rinse and Repeat**
 
 ---
 
 xml version='1.0' encoding='utf-8'?
 
-## [**Chapter 33: “Done!”**](index_split_073.html#page_59)
+## **Chapter 31: From Idea to Implementation**
 
-### [**Chapter 34: Test in the Wild**](index_split_074.html#page_61)
+### **Chapter 32: Avoid Preferences**
 
 ---
 
 xml version='1.0' encoding='utf-8'?
 
-## [**Chapter 35: Shrink Your Time**](index_split_076.html#page_63)
+## **Chapter 33: “Done!”**
+
+### **Chapter 34: Test in the Wild**
+
+---
+
+xml version='1.0' encoding='utf-8'?
+
+## **Chapter 35: Shrink Your Time**
 
 **The Organization**
 
@@ -159,17 +159,17 @@ xml version='1.0' encoding='utf-8'?
 
 xml version='1.0' encoding='utf-8'?
 
-## [**Chapter 36: Unity**](index_split_077.html#page_65)
+## **Chapter 36: Unity**
 
-### [**Chapter 37: Alone Time**](index_split_078.html#page_66)
+### **Chapter 37: Alone Time**
 
 ---
 
 xml version='1.0' encoding='utf-8'?
 
-## [**Chapter 38: Meetings Are Toxic**](index_split_079.html#page_68)
+## **Chapter 38: Meetings Are Toxic**
 
-### [**Chapter 39: Seek and Celebrate Small Victories**](index_split_080.html#page_70)
+### **Chapter 39: Seek and Celebrate Small Victories**
 
 **Staffing**
 
@@ -177,25 +177,25 @@ xml version='1.0' encoding='utf-8'?
 
 xml version='1.0' encoding='utf-8'?
 
-## [**Chapter 40: Hire Less and Hire Later**](index_split_081.html#page_71)
+## **Chapter 40: Hire Less and Hire Later**
 
-### [**Chapter 41: Kick the Tires**](index_split_081.html#page_72)
-
----
-
-xml version='1.0' encoding='utf-8'?
-
-## [**Chapter 42: Actions, Not Words**](index_split_082.html#page_73)
-
-### [**Chapter 43: Get Well Rounded Individuals**](index_split_083.html#page_75)
+### **Chapter 41: Kick the Tires**
 
 ---
 
 xml version='1.0' encoding='utf-8'?
 
-## [**Chapter 44: You Can’t Fake Enthusiasm**](index_split_084.html#page_76)
+## **Chapter 42: Actions, Not Words**
 
-### [**Chapter 45: Wordsmiths**](index_split_085.html#page_77)
+### **Chapter 43: Get Well Rounded Individuals**
+
+---
+
+xml version='1.0' encoding='utf-8'?
+
+## **Chapter 44: You Can’t Fake Enthusiasm**
+
+### **Chapter 45: Wordsmiths**
 
 **Interface Design**
 
@@ -203,33 +203,33 @@ xml version='1.0' encoding='utf-8'?
 
 xml version='1.0' encoding='utf-8'?
 
-## [**Chapter 46: Interface First**](index_split_086.html#page_78)
+## **Chapter 46: Interface First**
 
-### [**Chapter 47: Epicenter Design**](index_split_087.html#page_80)
-
----
-
-xml version='1.0' encoding='utf-8'?
-
-## [**Chapter 48: Three State Solution**](index_split_088.html#page_81)
-
-### [**Chapter 49: The Blank Slate**](index_split_089.html#page_82)
+### **Chapter 47: Epicenter Design**
 
 ---
 
 xml version='1.0' encoding='utf-8'?
 
-## [**Chapter 50: Get Defensive**](index_split_090.html#page_84)
+## **Chapter 48: Three State Solution**
 
-### [**Chapter 51: Context Over Consistency**](index_split_091.html#page_85)
+### **Chapter 49: The Blank Slate**
 
 ---
 
 xml version='1.0' encoding='utf-8'?
 
-## [**Chapter 52: Copywriting is Interface Design**](index_split_092.html#page_86)
+## **Chapter 50: Get Defensive**
 
-### [**Chapter 53: One Interface**](index_split_093.html#page_87)
+### **Chapter 51: Context Over Consistency**
+
+---
+
+xml version='1.0' encoding='utf-8'?
+
+## **Chapter 52: Copywriting is Interface Design**
+
+### **Chapter 53: One Interface**
 
 **Code**
 
@@ -237,23 +237,23 @@ xml version='1.0' encoding='utf-8'?
 
 xml version='1.0' encoding='utf-8'?
 
-## [**Chapter 54: Less Software**](index_split_094.html#page_88)
+## **Chapter 54: Less Software**
 
-### [**Chapter 55: Optimize for Happiness**](index_split_095.html#page_90)
-
----
-
-xml version='1.0' encoding='utf-8'?
-
-## [**Chapter 56: Code Speaks**](index_split_096.html#page_91)
-
-### [**Chapter 57: Manage Debt**](index_split_097.html#page_92)
+### **Chapter 55: Optimize for Happiness**
 
 ---
 
 xml version='1.0' encoding='utf-8'?
 
-## [**Chapter 58: Open Doors**](index_split_098.html#page_93)
+## **Chapter 56: Code Speaks**
+
+### **Chapter 57: Manage Debt**
+
+---
+
+xml version='1.0' encoding='utf-8'?
+
+## **Chapter 58: Open Doors**
 
 **Words**
 
@@ -261,23 +261,23 @@ xml version='1.0' encoding='utf-8'?
 
 xml version='1.0' encoding='utf-8'?
 
-## [**Chapter 59: There’s Nothing Functional about a Functional Spec**](index_split_099.html#page_95)
+## **Chapter 59: There’s Nothing Functional about a Functional Spec**
 
-### [**Chapter 60: Don’t Do Dead Documents**](index_split_100.html#page_98)
-
----
-
-xml version='1.0' encoding='utf-8'?
-
-## [**Chapter 61: Tell Me a Quick Story**](index_split_101.html#page_99)
-
-### [**Chapter 62: Use Real Words**](index_split_102.html#page_100)
+### **Chapter 60: Don’t Do Dead Documents**
 
 ---
 
 xml version='1.0' encoding='utf-8'?
 
-## [**Chapter 63: Personify Your Product**](index_split_102.html#page_101)
+## **Chapter 61: Tell Me a Quick Story**
+
+### **Chapter 62: Use Real Words**
+
+---
+
+xml version='1.0' encoding='utf-8'?
+
+## **Chapter 63: Personify Your Product**
 
 **Pricing and Signup**
 
@@ -285,17 +285,17 @@ xml version='1.0' encoding='utf-8'?
 
 xml version='1.0' encoding='utf-8'?
 
-## [**Chapter 64: Free Samples**](index_split_103.html#page_102)
+## **Chapter 64: Free Samples**
 
-### [**Chapter 65: Easy On, Easy Off**](index_split_103.html#page_103)
+### **Chapter 65: Easy On, Easy Off**
 
 ---
 
 xml version='1.0' encoding='utf-8'?
 
-## [**Chapter 66: Silly Rabbit, Tricks are for Kids**](index_split_103.html#page_104)
+## **Chapter 66: Silly Rabbit, Tricks are for Kids**
 
-### [**Chapter 67: A Softer bullet**](index_split_104.html#page_105)
+### **Chapter 67: A Softer bullet**
 
 **Promotion**
 
@@ -303,39 +303,39 @@ xml version='1.0' encoding='utf-8'?
 
 xml version='1.0' encoding='utf-8'?
 
-## [**Chapter 68: Hollywood Launch**](index_split_105.html#page_106)
+## **Chapter 68: Hollywood Launch**
 
-### [**Chapter 69: A Powerful Promo Site**](index_split_105.html#page_108)
-
----
-
-xml version='1.0' encoding='utf-8'?
-
-## [**Chapter 70: Ride the Blog Wave**](index_split_106.html#page_109)
-
-### [**Chapter 71: Solicit Early**](index_split_107.html#page_110)
+### **Chapter 69: A Powerful Promo Site**
 
 ---
 
 xml version='1.0' encoding='utf-8'?
 
-## [**Chapter 72: Promote Through Education**](index_split_108.html#page_111)
+## **Chapter 70: Ride the Blog Wave**
 
-### [**Chapter 73: Feature Food**](index_split_109.html#page_113)
-
----
-
-xml version='1.0' encoding='utf-8'?
-
-## [**Chapter 74: Track Your Logs**](index_split_110.html#page_114)
-
-### [**Chapter 75: Inline Upsell**](index_split_111.html#page_115)
+### **Chapter 71: Solicit Early**
 
 ---
 
 xml version='1.0' encoding='utf-8'?
 
-## [**Chapter 76: Name Hook**](index_split_112.html#page_116)
+## **Chapter 72: Promote Through Education**
+
+### **Chapter 73: Feature Food**
+
+---
+
+xml version='1.0' encoding='utf-8'?
+
+## **Chapter 74: Track Your Logs**
+
+### **Chapter 75: Inline Upsell**
+
+---
+
+xml version='1.0' encoding='utf-8'?
+
+## **Chapter 76: Name Hook**
 
 **Support**
 
@@ -343,25 +343,25 @@ xml version='1.0' encoding='utf-8'?
 
 xml version='1.0' encoding='utf-8'?
 
-## [**Chapter 77: Feel The Pain**](index_split_113.html#page_117)
+## **Chapter 77: Feel The Pain**
 
-### [**Chapter 78: Zero Training**](index_split_114.html#page_119)
-
----
-
-xml version='1.0' encoding='utf-8'?
-
-## [**Chapter 79: Answer Quick**](index_split_115.html#page_120)
-
-### [**Chapter 80: Tough Love**](index_split_116.html#page_122)
+### **Chapter 78: Zero Training**
 
 ---
 
 xml version='1.0' encoding='utf-8'?
 
-## [**Chapter 81: In Fine Forum**](index_split_117.html#page_123)
+## **Chapter 79: Answer Quick**
 
-### [**Chapter 82: Publicize Your Screwups**](index_split_118.html#page_124)
+### **Chapter 80: Tough Love**
+
+---
+
+xml version='1.0' encoding='utf-8'?
+
+## **Chapter 81: In Fine Forum**
+
+### **Chapter 82: Publicize Your Screwups**
 
 **Post-Launch**
 
@@ -369,33 +369,33 @@ xml version='1.0' encoding='utf-8'?
 
 xml version='1.0' encoding='utf-8'?
 
-## [**Chapter 83: One Month Tuneup**](index_split_119.html#page_125)
+## **Chapter 83: One Month Tuneup**
 
-### [**Chapter 84: Keep the Posts Coming**](index_split_120.html#page_126)
-
----
-
-xml version='1.0' encoding='utf-8'?
-
-## [**Chapter 85: Better, Not Beta**](index_split_121.html#page_128)
-
-### [**Chapter 86: All Bugs Are Not Created Equal**](index_split_122.html#page_129)
+### **Chapter 84: Keep the Posts Coming**
 
 ---
 
 xml version='1.0' encoding='utf-8'?
 
-## [**Chapter 87: Ride Out the Storm**](index_split_123.html#page_130)
+## **Chapter 85: Better, Not Beta**
 
-### [**Chapter 88: Keep Up With the Joneses**](index_split_124.html#page_131)
+### **Chapter 86: All Bugs Are Not Created Equal**
 
 ---
 
 xml version='1.0' encoding='utf-8'?
 
-## [**Chapter 89: Beware the Bloat Monster**](index_split_125.html#page_132)
+## **Chapter 87: Ride Out the Storm**
 
-### [**Chapter 90: Go With The Flow**](index_split_126.html#page_133)
+### **Chapter 88: Keep Up With the Joneses**
+
+---
+
+xml version='1.0' encoding='utf-8'?
+
+## **Chapter 89: Beware the Bloat Monster**
+
+### **Chapter 90: Go With The Flow**
 
 **Conclusion**
 
@@ -403,7 +403,7 @@ xml version='1.0' encoding='utf-8'?
 
 xml version='1.0' encoding='utf-8'?
 
-## [**Chapter 91: Start Your Engines**](index_split_127.html#page_134)
+## **Chapter 91: Start Your Engines**
 
 ---
 
@@ -3830,4 +3830,3 @@ Also, stay up to date with the latest offerings from Basecamp by visiting [Signa
 **Thanks for reading and good luck!**
 
 ## Minhas Anotações
-

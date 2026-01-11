@@ -262,17 +262,17 @@ The king, presented with a bowl of soup, took a sip, then pushed it away with a 
 Then their vision returned.
 
 An adventurer said, “The king doesn’t like the soup?”
-  
+
 The guard boomed, “NO!”
-  
+
 “He thinks it’s too salty?”
-  
+
 “NO!”
-  
+
 Then one said, “He said the words: ‘It’s too salty.’”
-  
+
 “TRUE!”
-  
+
 That one person was allowed to cross the bridge.
 
 Then, blocking again, “No one can cross until you tell me what’s true!”
@@ -283,17 +283,17 @@ She’s pushing, pounding, and trying everything, but nothing is working.
 Then their vision returned.
 
 “She’s trapped in a box and can’t get out?”
-  
+
 “NO!”
-  
+
 “She’s trying everything, but nothing is working?”
-  
+
 “NO!”
-  
+
 Then one said, “She’s pushing and pounding the box?”
-  
+
 “TRUE!”
-  
+
 That one person was allowed to cross the bridge.
 
 Then, blocking again, “No one can cross until …”
@@ -314,13 +314,13 @@ xml version='1.0' encoding='utf-8'?
 Kids make up rules for games.
 
 “Got you!”
-  
+
 “No, I was still touching the base, remember?”
-  
+
 “Well I’ve got the talisman in my pocket so that doesn’t count.”
-  
+
 “Fine, but from now on you can only use that once per game.”
-  
+
 “OK, but no tag-backs for five seconds.”
 
 Instead of playing by the rules, they’re playing *with* the rules — playing with the game itself.
@@ -900,9 +900,9 @@ Each belief gives them a new situation, and lets them adopt a new role like prot
 Grown-ups have their own version of make believe:
 
 “Everything happens for a reason.”
-  
+
 “Those people are evil.”
-  
+
 “I would be creatively prolific if I could quit my job.”
 
 None of these statements are true.
@@ -991,7 +991,7 @@ xml version='1.0' encoding='utf-8'?
 # Your first thought is an obstacle
 
 Here’s a common optical illusion:
-  
+
 ![2lines.png](2lines.png)
 
 Two horizontal lines, the same length.
@@ -1825,11 +1825,11 @@ The silver medalist was so angry at herself for not being just a little bit fast
 The bronze medalist was so happy with herself, just milliseconds away from winning nothing.
 
 The former student was disheartened that she was failing at everything, so she went back to visit her old teacher.
-When she told him her troubles, the old man said, “Guess my secret number from 1 to 100.”  
-“50?”  
-“Higher.”  
-“75?”  
-“Lower.”  
+When she told him her troubles, the old man said, “Guess my secret number from 1 to 100.”
+“50?”
+“Higher.”
+“75?”
+“Lower.”
 With each try she smiled more, until she correctly guessed the number.
 Then she thanked him for the reminder that every wrong guess is not a failure, but just one step closer to success.
 
@@ -1994,13 +1994,13 @@ Once you find a viewpoint you want to adopt, a great tool to internalize it is a
 Whether you write, type, or just talk, the point is to fill your mind with this new perspective.
 
 **Strengthen it** by stacking up the reasons why you chose it.
-  
+
 “Here’s how this will help me: \_\_\_\_”
-  
+
 “Here’s how this will help others: \_\_\_\_”
 
 **Clarify it** by defining it so simply that it’s easy to remember.
-  
+
 “Here’s how I’d explain it to a stranger in ten seconds: \_\_\_\_”
 
 **Plan it** with a specific list of actions.
@@ -2203,7 +2203,7 @@ I have so much more to say on this subject, but this book is done now because I 
 So the conversation continues on the website:
 
 ![QR-sive.rs-u.png](QR-sive.rs-u.png)
-  
+
 **[sive.rs/u](https://sive.rs/u)**
 
 There you will find more thoughts and stories around “Useful Not True”.
@@ -2212,21 +2212,21 @@ I reply to every one.
 Go to:
 
 ![QR-sive.rs-contact.png](QR-sive.rs-contact.png)
-  
+
 **[sive.rs/contact](https://sive.rs/contact)**
 
 To share my books with others, get them directly from me with quantity discounts, at:
 
 ![QR-sivers.com.png](QR-sivers.com.png)
-  
+
 **[sivers.com](https://sivers.com/)**
 
 I hope you found this book useful, not true.
 
 —— Derek Sivers
-  
+
 New Zealand
-  
+
 June 2024 (Saturday, winter)
 
 ---
@@ -2237,168 +2237,167 @@ xml version='1.0' encoding='utf-8'?
 
 ![QR-NihilismNE.png](QR-NihilismNE.png)
 **Nothing and Everything** by Val N. Tine
-  
+
 [sive.rs/book/NihilismNE](https://sive.rs/book/NihilismNE)
 
 ![QR-AwakenGiant.png](QR-AwakenGiant.png)
 **Awaken the Giant Within** by Tony Robbins
-  
+
 [sive.rs/book/AwakenGiant](https://sive.rs/book/AwakenGiant)
 
 ![QR-UsefulDelusions.png](QR-UsefulDelusions.png)
 **Useful Delusions** by Shankar Vedantam
-  
+
 [sive.rs/book/UsefulDelusions](https://sive.rs/book/UsefulDelusions)
 
 ![QR-ThinkingInBets.png](QR-ThinkingInBets.png)
 **Thinking in Bets** by Annie Duke
-  
+
 [sive.rs/book/ThinkingInBets](https://sive.rs/book/ThinkingInBets)
 
 ![QR-NegotiateAnything.png](QR-NegotiateAnything.png)
 **You Can Negotiate Anything** by Herb Cohen
-  
+
 [sive.rs/book/NegotiateAnything](https://sive.rs/book/NegotiateAnything)
 
 ![QR-Disliked.png](QR-Disliked.png)
 **The Courage to Be Disliked** by Ichiro Kishimi and Fumitake Koga
-  
+
 [sive.rs/book/Disliked](https://sive.rs/book/Disliked)
 
 ![QR-AgainstBelief.png](QR-AgainstBelief.png)
 **The Religious Case Against Belief** by James P. Carse
-  
+
 [sive.rs/book/AgainstBelief](https://sive.rs/book/AgainstBelief)
 
 ![QR-ReligionHowEvolved.png](QR-ReligionHowEvolved.png)
 **How Religion Evolved** by Robin Dunbar
-  
+
 [sive.rs/book/ReligionHowEvolved](https://sive.rs/book/ReligionHowEvolved)
 
 ![QR-RighteousMind.png](QR-RighteousMind.png)
 **The Righteous Mind** by Jonathan Haidt
-  
+
 [sive.rs/book/RighteousMind](https://sive.rs/book/RighteousMind)
 
 ![QR-Sapiens.png](QR-Sapiens.png)
 **Sapiens** by Yuval Noah Harari
-  
+
 [sive.rs/book/Sapiens](https://sive.rs/book/Sapiens)
 
 ![QR-CowsPigsWarsWitches.png](QR-CowsPigsWarsWitches.png)
 **Cows, Pigs, Wars, and Witches** by Marvin Harris
-  
+
 [sive.rs/book/CowsPigsWarsWitches](https://sive.rs/book/CowsPigsWarsWitches)
 
 ![QR-BiggestBluff.png](QR-BiggestBluff.png)
 **The Biggest Bluff** by Maria Konnikova
-  
+
 [sive.rs/book/BiggestBluff](https://sive.rs/book/BiggestBluff)
 
 ![QR-HowWeDecide.png](QR-HowWeDecide.png)
 **How We Decide** by Jonah Lehrer
-  
+
 [sive.rs/book/HowWeDecide](https://sive.rs/book/HowWeDecide)
 
 ![QR-Switch.png](QR-Switch.png)
 **Switch** by Chip Heath and Dan Heath
-  
+
 [sive.rs/book/Switch](https://sive.rs/book/Switch)
 
 ![QR-HappinessHypothesis.png](QR-HappinessHypothesis.png)
 **The Happiness Hypothesis** by Jonathan Haidt
-  
+
 [sive.rs/book/HappinessHypothesis](https://sive.rs/book/HappinessHypothesis)
 
 ![QR-PragWJames.png](QR-PragWJames.png)
 **Pragmatism** by William James
-  
+
 [sive.rs/book/PragWJames](https://sive.rs/book/PragWJames)
 
 ![QR-Pragmatism.png](QR-Pragmatism.png)
 **Pragmatism an Introduction** by Michael Bacon
-  
+
 [sive.rs/book/Pragmatism](https://sive.rs/book/Pragmatism)
 
 ![QR-PragmatismIntro.png](QR-PragmatismIntro.png)
 **Introducing Pragmatism** by Cornelis de Waal
-  
+
 [sive.rs/book/PragmatismIntro](https://sive.rs/book/PragmatismIntro)
 
 ![QR-PragmatismWayOfLife.png](QR-PragmatismWayOfLife.png)
 **Pragmatism as a Way of Life** by Ruth Anna and Hilary Putnam
-  
+
 [sive.rs/book/PragmatismWayOfLife](https://sive.rs/book/PragmatismWayOfLife)
 
 ![QR-WilliamJames.png](QR-WilliamJames.png)
 **Delphi Complete Works of William James** by William James
-  
+
 [sive.rs/book/WilliamJames](https://sive.rs/book/WilliamJames)
 
 ![QR-PhilosophyCI.png](QR-PhilosophyCI.png)
 **Philosophy: a Complete Introduction** by Sharon Kaye
-  
+
 [sive.rs/book/PhilosophyCI](https://sive.rs/book/PhilosophyCI)
 
 ![QR-CBDummies.png](QR-CBDummies.png)
 **Cognitive Behavioral Therapy for Dummies** by Rob Willson and Rhena Branch
-  
+
 [sive.rs/book/CBDummies](https://sive.rs/book/CBDummies)
 
 ![QR-CBTphilo.png](QR-CBTphilo.png)
 **The Philosophy of Cognitive-Behavioural Therapy** by Donald Robertson
-  
+
 [sive.rs/book/CBTphilo](https://sive.rs/book/CBTphilo)
 
 ![QR-AlterEgoEffect.png](QR-AlterEgoEffect.png)
 **The Alter Ego Effect** by Todd Herman
-  
+
 [sive.rs/book/AlterEgoEffect](https://sive.rs/book/AlterEgoEffect)
 
 ![QR-HowToLive.png](QR-HowToLive.png)
 **How to Live** by Sarah Bakewell
-  
+
 [sive.rs/book/HowToLive](https://sive.rs/book/HowToLive)
 
 ![QR-NotSoSmart.png](QR-NotSoSmart.png)
 **You Are Not So Smart** by David McRaney
-  
+
 [sive.rs/book/NotSoSmart](https://sive.rs/book/NotSoSmart)
 
 ![QR-Overachievement.png](QR-Overachievement.png)
 **Overachievement** by John Eliot
-  
+
 [sive.rs/book/Overachievement](https://sive.rs/book/Overachievement)
 
 ![QR-Scepticism.png](QR-Scepticism.png)
 **Scepticism: A Very Short Introduction** by Duncan Pritchard
-  
+
 [sive.rs/book/Scepticism](https://sive.rs/book/Scepticism)
 
 ![QR-BeingLogical.png](QR-BeingLogical.png)
 **Being Logical: A Guide to Good Thinking** by D.Q. McInerny
-  
+
 [sive.rs/book/BeingLogical](https://sive.rs/book/BeingLogical)
 
 ![QR-EverythingObvious.png](QR-EverythingObvious.png)
 **Everything Is Obvious** by Duncan Watts
-  
+
 [sive.rs/book/EverythingObvious](https://sive.rs/book/EverythingObvious)
 
 ![QR-UsefulBelief.png](QR-UsefulBelief.png)
 **Useful Belief** by Chris Helder
-  
+
 [sive.rs/book/UsefulBelief](https://sive.rs/book/UsefulBelief)
 
 ![QR-DreamingInChinese.png](QR-DreamingInChinese.png)
 **Dreaming in Chinese** by Deborah Fallows
-  
+
 [sive.rs/book/DreamingInChinese](https://sive.rs/book/DreamingInChinese)
 
 ![QR-LovingWhatIs.png](QR-LovingWhatIs.png)
 **Loving What Is** by Byron Katie
-  
+
 [sive.rs/book/LovingWhatIs](https://sive.rs/book/LovingWhatIs)
 
 ## Minhas Anotações
-

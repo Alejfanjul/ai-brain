@@ -14,6 +14,10 @@ from ebooklib import epub
 from bs4 import BeautifulSoup
 from markdownify import markdownify as md
 
+# Importa módulo de limpeza
+sys.path.insert(0, str(Path(__file__).parent))
+from content_cleaner import clean_content
+
 SOURCES_DIR = Path("sources")
 
 def slugify(text):
@@ -52,6 +56,9 @@ def extract_chapters(book):
 
             # Limpa excesso de quebras de linha
             markdown_content = re.sub(r'\n{3,}', '\n\n', markdown_content)
+
+            # Limpa links internos de EPUB e outros elementos sem valor semântico
+            markdown_content = clean_content(markdown_content)
 
             if markdown_content.strip():
                 chapters.append({

@@ -13,6 +13,11 @@ from bs4 import BeautifulSoup
 from markdownify import markdownify as md
 from urllib.parse import urlparse
 
+# Importa módulo de limpeza
+import sys
+sys.path.insert(0, str(Path(__file__).parent))
+from content_cleaner import clean_content
+
 SOURCES_DIR = Path("sources")
 
 
@@ -86,6 +91,9 @@ def extract_content(url):
 
         # Limpa linhas em branco excessivas
         markdown = re.sub(r'\n{3,}', '\n\n', markdown)
+
+        # Limpa URLs de tracking e outros elementos sem valor semântico
+        markdown = clean_content(markdown)
 
         return {
             'title': title or 'Sem título',

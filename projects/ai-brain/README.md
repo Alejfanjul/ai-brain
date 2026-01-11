@@ -70,7 +70,7 @@ Este AI Brain pessoal é protótipo da interface que funcionários de hotel usar
 │   │   conversas    → 109+ sessões           │              │
 │   │   mensagens    → 1000+ mensagens        │              │
 │   │   memorias     → 40 memórias            │              │
-│   │   source_chunks→ 218/910 processados    │              │
+│   │   source_chunks→ 969 chunks (100%)       │              │
 │   │                                         │              │
 │   └─────────────────────────────────────────┘              │
 │                                                            │

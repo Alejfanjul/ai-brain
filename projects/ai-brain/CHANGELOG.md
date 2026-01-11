@@ -4,6 +4,17 @@ Histórico de decisões e mudanças importantes do projeto.
 
 ---
 
+## 2026-01-10: Fase 3.3 concluída - Embeddings dos sources
+
+**Resultado:**
+- 969 chunks processados (100%)
+- Ollama rodando com GPU (RTX 5060)
+- Todos os 61 arquivos em `sources/` indexados
+
+**Próximo passo:** Fase 3.4 - Script de busca unificada (`search.py`)
+
+---
+
 ## 2026-01-09: Reestruturação da documentação
 
 **Contexto:** Documentação estava fragmentada em dois arquivos (`ai_brain_parceiro_digital-v0.5.md` e `memory_lane_plan.md`) com informações redundantes.
@@ -35,7 +46,7 @@ Histórico de decisões e mudanças importantes do projeto.
    - 15% overlap entre chunks
    - Extração automática de autor/data do nome do arquivo
 
-**Progresso:** 218/910 chunks processados. Pausado para continuar em máquina com GPU.
+**Progresso:** Iniciado com 218 chunks. Concluído em 2026-01-10 com 969 chunks.
 
 ---
 

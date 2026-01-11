@@ -88,10 +88,10 @@ projeto/
 | python3 scripts/embed_sources.py | Gerar embeddings dos sources |
 | python3 scripts/embed_sources.py --dry-run | Ver quantos chunks faltam |
 
-### Status atual (2026-01-09)
+### Status atual (2026-01-10)
 
-- **218/910 chunks** processados dos sources
-- Continuar em máquina com GPU (~2-5 min para o resto)
+- **969 chunks** processados dos sources (100% ✅)
+- Próximo: Script de busca unificada (Fase 3.4)
 
 ### Ollama (comandos rápidos)
 

@@ -45,8 +45,8 @@
 |------|-----------|--------|
 | 3.1 | Sync + Extração de memórias | ✅ Concluído |
 | 3.2 | Embeddings das memórias | ✅ Concluído |
-| 3.3 | Embeddings dos sources | 🔄 Em progresso |
-| 3.4 | Script de busca unificada | 📋 Pendente |
+| 3.3 | Embeddings dos sources | ✅ Concluído |
+| 3.4 | Script de busca unificada | 🔄 Em progresso |
 | 3.5 | Daily Digest | 📋 Pendente |
 | 3.6 | Hooks de retrieval | 📋 Pendente |
 | 3.7 | Bouncer + Fix Button | 📋 Pendente |
@@ -65,17 +65,15 @@
 - Ollama + nomic-embed-text configurado
 - pgvector habilitado no Supabase
 
-### Fase 3.3: Embeddings dos sources 🔄 EM PROGRESSO
+### Fase 3.3: Embeddings dos sources ✅
 
 **Objetivo:** Processar todos os arquivos em `sources/` para busca semântica.
 
-**Progresso:**
+**Resultado:**
 - ✅ Tabela `source_chunks` criada
 - ✅ Script `embed_sources.py` funcionando
-- 🔄 **218/910 chunks processados** (~24%)
-- ⏸️ Pausado - continuar em máquina com GPU
-
-**Próximo passo:** Rodar `python3 scripts/embed_sources.py` na máquina com RTX.
+- ✅ **969 chunks processados** (100%)
+- ✅ Ollama com GPU (RTX 5060) - processamento rápido
 
 **Configs:**
 - Chunks de ~600 palavras

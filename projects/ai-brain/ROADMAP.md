@@ -1,6 +1,6 @@
 # AI Brain - Roadmap
 
-> Última atualização: 2026-01-09
+> Última atualização: 2026-01-12
 
 ## Visão geral dos Marcos
 
@@ -56,7 +56,7 @@
 **Resultado:**
 - 40 memórias extraídas das conversas
 - Tipos: workflow (13), decisão (11), insight (10), correção (5), padrão (1)
-- Cron jobs rodando a cada 5/15 min
+- Cron job a cada 15 min (extract_memories + generate_embeddings)
 
 ### Fase 3.2: Embeddings das memórias ✅
 

@@ -76,10 +76,11 @@ Este AI Brain pessoal é protótipo da interface que funcionários de hotel usar
 │                                                            │
 │   CRON JOBS (automático):                                  │
 │   ┌──────────────────────────────────────┐                 │
-│   │ */5 min  → sync_sessions.py          │                 │
 │   │ */15 min → extract_memories.py       │                 │
+│   │            + generate_embeddings.py  │                 │
 │   │            (Claude Haiku extrai      │                 │
-│   │             decisões, insights...)   │                 │
+│   │             decisões, insights e     │                 │
+│   │             gera embeddings)         │                 │
 │   └──────────────────────────────────────┘                 │
 │                                                            │
 │   EMBEDDINGS (busca semântica):                            │

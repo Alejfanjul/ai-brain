@@ -81,16 +81,27 @@ projeto/
 
 ## Memory Lane (Sistema de Memória)
 
+**Automático (cron a cada 15 min):**
+- `extract_memories.py` → extrai memórias de conversas novas
+- `generate_embeddings.py` → gera embeddings das memórias
+
+**Manual:**
+
 | Comando | Descrição |
 |---------|-----------|
-| python3 scripts/extract_memories.py | Extrair memórias das conversas |
-| python3 scripts/generate_embeddings.py | Gerar embeddings das memórias |
 | python3 scripts/embed_sources.py | Gerar embeddings dos sources |
 | python3 scripts/embed_sources.py --dry-run | Ver quantos chunks faltam |
 
-### Status atual (2026-01-10)
+**Verificar logs:**
+```bash
+tail -f /tmp/ml_extract.log      # Extração
+tail -f /tmp/ml_embeddings.log   # Embeddings
+```
+
+### Status atual (2026-01-12)
 
 - **969 chunks** processados dos sources (100% ✅)
+- **Cron configurado** e funcionando
 - Próximo: Script de busca unificada (Fase 3.4)
 
 ### Ollama (comandos rápidos)

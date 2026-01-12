@@ -4,6 +4,25 @@ Histórico de decisões e mudanças importantes do projeto.
 
 ---
 
+## 2026-01-12: Cron jobs configurados
+
+**Contexto:** O cron para automação do Memory Lane estava documentado mas nunca foi configurado.
+
+**Ações:**
+1. Configurado crontab com job a cada 15 minutos
+2. Encadeado `extract_memories.py` + `generate_embeddings.py`
+3. Removido referência ao `sync_sessions.py` (nunca existiu)
+4. Atualizada documentação (SETUP.md, README.md)
+
+**Testar:**
+```bash
+# Ver logs após 15 minutos
+tail -f /tmp/ml_extract.log
+tail -f /tmp/ml_embeddings.log
+```
+
+---
+
 ## 2026-01-10: Fase 3.3 concluída - Embeddings dos sources
 
 **Resultado:**

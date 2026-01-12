@@ -54,17 +54,27 @@ journalctl -u ollama -f
 ```crontab
 # Memory Lane System - AI Brain
 
-# Session sync - cada 5 minutos
-*/5 * * * * python3 ~/.claude/hooks/sync_sessions.py --cron >> /tmp/ml_sync.log 2>&1
+# Extração de memórias + embeddings - cada 15 minutos
+*/15 * * * * cd ~/ai-brain && python3 scripts/extract_memories.py >> /tmp/ml_extract.log 2>&1 && python3 scripts/generate_embeddings.py >> /tmp/ml_embeddings.log 2>&1
+```
 
-# Extração de memórias - cada 15 minutos
-*/15 * * * * python3 ~/ai-brain/scripts/extract_memories.py >> /tmp/ml_extract.log 2>&1
+### Configurar cron
+
+```bash
+crontab -e
+# Adicionar a linha acima
+```
+
+### Verificar se está configurado
+
+```bash
+crontab -l
 ```
 
 ### Logs
 
-- Sync: `/tmp/ml_sync.log`
 - Extração: `/tmp/ml_extract.log`
+- Embeddings: `/tmp/ml_embeddings.log`
 
 ---
 
@@ -140,7 +150,6 @@ CREATE EXTENSION IF NOT EXISTS vector;
 | `scripts/extract_memories.py` | Extrai memórias das conversas via Haiku | `python3 scripts/extract_memories.py` |
 | `scripts/generate_embeddings.py` | Gera embeddings das memórias | `python3 scripts/generate_embeddings.py` |
 | `scripts/embed_sources.py` | Gera embeddings dos sources | `python3 scripts/embed_sources.py` |
-| `~/.claude/hooks/sync_sessions.py` | Sincroniza sessões com Supabase | `python3 ~/.claude/hooks/sync_sessions.py --cron` |
 
 ### Verificar progresso dos embeddings
 

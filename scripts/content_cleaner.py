@@ -38,9 +38,21 @@ def clean_content(text: str) -> str:
         flags=re.IGNORECASE
     )
 
-    # 2. Remove links de tracking do Substack
+    # 2. Remove links de tracking do Substack (redirect e app-link com tokens)
     text = re.sub(
         r'\[([^\]]*)\]\(https?://[^\)]*substack\.com/redirect/[^\)]*\)',
+        r'\1',
+        text,
+        flags=re.IGNORECASE
+    )
+    text = re.sub(
+        r'\[([^\]]*)\]\(https?://[^\)]*substack\.com/app-link/[^\)]*\)',
+        r'\1',
+        text,
+        flags=re.IGNORECASE
+    )
+    text = re.sub(
+        r'\[([^\]]*)\]\(https?://open\.substack\.com/[^\)]*\)',
         r'\1',
         text,
         flags=re.IGNORECASE
@@ -94,13 +106,51 @@ def clean_content(text: str) -> str:
         flags=re.IGNORECASE
     )
 
-    # 9. Remove linhas que são apenas "---" repetidos (separadores EPUB)
+    # 8b. Remove imagens de tracking do Substack (eotrx.substackcdn.com, email.mg1.substack.com)
+    text = re.sub(
+        r'!\[[^\]]*\]\(https?://[^\)]*(?:eotrx\.substackcdn\.com|email\.mg\d*\.substack\.com)[^\)]*\)',
+        '',
+        text,
+        flags=re.IGNORECASE
+    )
+
+    # 9. Remove caracteres invisíveis de formatação de email (zero-width, soft hyphens, etc)
+    text = re.sub(r'[͏­\u200b\u200c\u200d\ufeff]+', '', text)
+
+    # 9b. Remove linhas que são só espaços invisíveis
+    text = re.sub(r'\n\s*\n\s*\n', '\n\n', text)
+
+    # 10. Remove tabelas de layout de email (linhas com muitos | --- | vazios)
+    text = re.sub(r'(\|\s*\|\s*)+\|?', '', text)
+    text = re.sub(r'(\|\s*---\s*)+\|?', '', text)
+    text = re.sub(r'\n\s*\|\s*\n', '\n', text)
+
+    # 11. Remove linhas que são apenas "---" repetidos (separadores EPUB)
     text = re.sub(r'\n-{3,}\n-{3,}\n', '\n---\n', text)
 
-    # 10. Remove linhas vazias excessivas
+    # 11b. Normaliza separadores múltiplos inline (--- --- ---) para um único ---
+    text = re.sub(r'(---\s*){2,}', '---', text)
+
+    # 11c. Remove elementos de UI de email (padrões específicos e seguros)
+    ui_patterns = [
+        r'\bView in browser\b',
+        r'\bREAD IN APP\b',
+        r'\bInvite Friends\b',
+        r'\bStart writing\b',
+        r'\bUnsubscribe\b',
+        r'\bSubscribed\b(?!\s+to)',  # "Subscribed" sozinho, não "Subscribed to"
+        r'©\s*\d{4}[^\.]*(?:Market Street|PMB)[^\n]*',  # Rodapés com endereço
+    ]
+    for pattern in ui_patterns:
+        text = re.sub(pattern, '', text, flags=re.IGNORECASE)
+
+    # 11d. Remove blocos de ações sociais (Like/Comment/Restack juntos)
+    text = re.sub(r'\bLike\s*---\s*Comment\s*---\s*Restack\b', '', text, flags=re.IGNORECASE)
+
+    # 12. Remove linhas vazias excessivas
     text = re.sub(r'\n{4,}', '\n\n\n', text)
 
-    # 11. Remove espaços em branco no início/fim de linhas
+    # 13. Remove espaços em branco no início/fim de linhas
     lines = text.split('\n')
     lines = [line.rstrip() for line in lines]
     text = '\n'.join(lines)

@@ -15,6 +15,7 @@ from google.oauth2.credentials import Credentials
 from googleapiclient.discovery import build
 from bs4 import BeautifulSoup
 from markdownify import markdownify as md
+from content_cleaner import clean_content
 
 # Configuração
 SCOPES = ['https://www.googleapis.com/auth/gmail.readonly']
@@ -305,8 +306,9 @@ def process_emails(service, days_back=2):
         except:
             date_str = datetime.now().strftime('%Y-%m-%d')
 
-        # Converte para markdown
+        # Converte para markdown e limpa
         markdown_content = html_to_markdown(html_content)
+        markdown_content = clean_content(markdown_content)
 
         # Extrai links do Notion
         notion_links = extract_notion_links(html_content)

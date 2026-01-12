@@ -141,6 +141,75 @@ CREATE INDEX idx_source_chunks_embedding ON source_chunks
 CREATE EXTENSION IF NOT EXISTS vector;
 ```
 
+### Funções RPC para busca vetorial
+
+```sql
+-- Rodar no Supabase Dashboard > SQL Editor
+
+-- Busca em source_chunks
+CREATE OR REPLACE FUNCTION search_sources(
+  query_embedding vector(768),
+  match_count int DEFAULT 5,
+  filter_autor text DEFAULT NULL
+)
+RETURNS TABLE (
+  id uuid,
+  source_file text,
+  autor text,
+  chunk_index int,
+  content text,
+  similarity float
+)
+LANGUAGE plpgsql
+AS $$
+BEGIN
+  RETURN QUERY
+  SELECT
+    sc.id,
+    sc.source_file,
+    sc.autor,
+    sc.chunk_index,
+    sc.content,
+    1 - (sc.embedding <=> query_embedding) as similarity
+  FROM source_chunks sc
+  WHERE (filter_autor IS NULL OR sc.autor = filter_autor)
+  ORDER BY sc.embedding <=> query_embedding
+  LIMIT match_count;
+END;
+$$;
+
+-- Busca em memorias
+CREATE OR REPLACE FUNCTION search_memories(
+  query_embedding vector(768),
+  match_count int DEFAULT 5
+)
+RETURNS TABLE (
+  id uuid,
+  tipo text,
+  titulo text,
+  resumo text,
+  contexto_original text,
+  similarity float
+)
+LANGUAGE plpgsql
+AS $$
+BEGIN
+  RETURN QUERY
+  SELECT
+    m.id,
+    m.tipo,
+    m.titulo,
+    m.resumo,
+    m.contexto_original,
+    1 - (m.embedding <=> query_embedding) as similarity
+  FROM memorias m
+  WHERE m.embedding IS NOT NULL AND m.ativo = true
+  ORDER BY m.embedding <=> query_embedding
+  LIMIT match_count;
+END;
+$$;
+```
+
 ---
 
 ## Scripts disponíveis
@@ -150,6 +219,7 @@ CREATE EXTENSION IF NOT EXISTS vector;
 | `scripts/extract_memories.py` | Extrai memórias das conversas via Haiku | `python3 scripts/extract_memories.py` |
 | `scripts/generate_embeddings.py` | Gera embeddings das memórias | `python3 scripts/generate_embeddings.py` |
 | `scripts/embed_sources.py` | Gera embeddings dos sources | `python3 scripts/embed_sources.py` |
+| `scripts/search.py` | Busca semântica em memórias e sources | `python3 scripts/search.py "query"` |
 
 ### Verificar progresso dos embeddings
 

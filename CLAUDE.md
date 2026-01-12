@@ -89,6 +89,7 @@ projeto/
 
 | Comando | Descrição |
 |---------|-----------|
+| python3 scripts/search.py "query" | Busca semântica em memórias e sources |
 | python3 scripts/embed_sources.py | Gerar embeddings dos sources |
 | python3 scripts/embed_sources.py --dry-run | Ver quantos chunks faltam |
 
@@ -101,8 +102,9 @@ tail -f /tmp/ml_embeddings.log   # Embeddings
 ### Status atual (2026-01-12)
 
 - **969 chunks** processados dos sources (100% ✅)
-- **Cron configurado** e funcionando
-- Próximo: Script de busca unificada (Fase 3.4)
+- **80 memórias** com embeddings
+- **Busca semântica** funcionando (Fase 3.4 ✅)
+- Próximo: Daily Digest (Fase 3.5)
 
 ### Ollama (comandos rápidos)
 

@@ -34,7 +34,7 @@ Este AI Brain pessoal é protótipo da interface que funcionários de hotel usar
 - [x] Identificar tipo (decisão, insight, padrão, etc.)
 - [x] Salvar com embeddings para busca semântica
 - [ ] Conectar com informações relacionadas automaticamente
-- [ ] Cruzar conversas com conteúdos capturados (sources)
+- [x] Cruzar conversas com conteúdos capturados (sources)
 
 ### Proatividade
 - [ ] Daily digest - o que importa hoje
@@ -69,7 +69,7 @@ Este AI Brain pessoal é protótipo da interface que funcionários de hotel usar
 │   │                                         │              │
 │   │   conversas    → 109+ sessões           │              │
 │   │   mensagens    → 1000+ mensagens        │              │
-│   │   memorias     → 40 memórias            │              │
+│   │   memorias     → 80+ memórias           │              │
 │   │   source_chunks→ 969 chunks (100%)       │              │
 │   │                                         │              │
 │   └─────────────────────────────────────────┘              │
@@ -88,6 +88,13 @@ Este AI Brain pessoal é protótipo da interface que funcionários de hotel usar
 │   │ Ollama (local) → nomic-embed-text    │                 │
 │   │ 768 dimensões por chunk              │                 │
 │   │ pgvector no Supabase                 │                 │
+│   └──────────────────────────────────────┘                 │
+│                                                            │
+│   BUSCA UNIFICADA (Fase 3.4):                              │
+│   ┌──────────────────────────────────────┐                 │
+│   │ python3 scripts/search.py "query"    │                 │
+│   │ → Cruza memórias + sources           │                 │
+│   │ → Filtros: --autor, --limit          │                 │
 │   └──────────────────────────────────────┘                 │
 │                                                            │
 └────────────────────────────────────────────────────────────┘

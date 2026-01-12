@@ -4,6 +4,32 @@ Histórico de decisões e mudanças importantes do projeto.
 
 ---
 
+## 2026-01-12: Fase 3.4 concluída - Busca semântica unificada
+
+**Contexto:** Próximo passo do Memory Lane era criar script de busca que cruza memórias com sources.
+
+**Entregáveis:**
+1. `scripts/search.py` - busca semântica via linha de comando
+2. Funções RPC no Supabase (`search_sources`, `search_memories`)
+3. Documentação atualizada (SETUP.md, ROADMAP.md, CLAUDE.md)
+
+**Como usar:**
+```bash
+python3 scripts/search.py "como implementar agentes ia"
+python3 scripts/search.py "building agents" --autor nate
+python3 scripts/search.py "decisões" --memories-only
+```
+
+**Flags disponíveis:**
+- `--autor <nome>` - Filtrar sources por autor
+- `--limit <n>` - Limitar resultados (default: 5)
+- `--sources-only` - Buscar apenas em source_chunks
+- `--memories-only` - Buscar apenas em memórias
+
+**Próximo passo:** Fase 3.5 - Daily Digest
+
+---
+
 ## 2026-01-12: Cron jobs configurados
 
 **Contexto:** O cron para automação do Memory Lane estava documentado mas nunca foi configurado.

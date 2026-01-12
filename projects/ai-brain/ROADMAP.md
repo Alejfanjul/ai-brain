@@ -1,6 +1,6 @@
 # AI Brain - Roadmap
 
-> Última atualização: 2026-01-12
+> Última atualização: 2026-01-12 (Fase 3.4 concluída)
 
 ## Visão geral dos Marcos
 
@@ -46,7 +46,7 @@
 | 3.1 | Sync + Extração de memórias | ✅ Concluído |
 | 3.2 | Embeddings das memórias | ✅ Concluído |
 | 3.3 | Embeddings dos sources | ✅ Concluído |
-| 3.4 | Script de busca unificada | 🔄 Em progresso |
+| 3.4 | Script de busca unificada | ✅ Concluído |
 | 3.5 | Daily Digest | 📋 Pendente |
 | 3.6 | Hooks de retrieval | 📋 Pendente |
 | 3.7 | Bouncer + Fix Button | 📋 Pendente |
@@ -80,16 +80,20 @@
 - 15% overlap entre chunks
 - Autor extraído automaticamente do nome do arquivo
 
-### Fase 3.4: Script de busca unificada 📋
+### Fase 3.4: Script de busca unificada ✅
 
 **Objetivo:** Busca manual que cruza memórias + sources.
 
-**Entregável:** `scripts/search.py`
+**Resultado:**
+- ✅ `scripts/search.py` funcionando
+- ✅ Funções RPC `search_sources` e `search_memories` no Supabase
+- ✅ Filtros: `--autor`, `--limit`, `--sources-only`, `--memories-only`
 
 ```bash
-# Uso planejado
+# Exemplos de uso
 python3 scripts/search.py "como implementar agentes ia"
-python3 scripts/search.py "ideias do nate" --autor nate
+python3 scripts/search.py "building agents" --autor nate --limit 10
+python3 scripts/search.py "decisões importantes" --memories-only
 ```
 
 ### Fase 3.5: Daily Digest 📋

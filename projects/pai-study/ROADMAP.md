@@ -1,215 +1,269 @@
 # PAI Study - Roadmap
 
-> Jornada guiada para aprender o ecossistema Daniel Miessler
+> Jornada para construir infraestrutura de IA pessoal
+
+## Filosofia Central
+
+> "Start with the human side of things. Then think about the tasks. Then break that into skills, workflows, and tools." - Daniel Miessler
+
+**A progressão natural:**
+1. **TELOS** → Entender quem você é e o que quer
+2. **FABRIC** → Resolver problemas específicos (validar o que funciona)
+3. **PAI** → Automatizar o que já funciona
+
+**Princípio chave:** Só automatize o que já validou manualmente.
+
+---
 
 ## Visão Geral
 
-| Fase | Foco | Status |
-|------|------|--------|
-| 1 | Fundamentos - Filosofia e Conceitos | 🔄 Em progresso |
-| 2 | Fabric - Prompts como Soluções | 📋 Pendente |
-| 3 | TELOS - Contexto Profundo | 📋 Pendente |
-| 4 | PAI - Arquitetura e Skills | 📋 Pendente |
-| 5 | Aplicação - Duke Beach Hotel | 📋 Pendente |
+| Fase | Foco | Entrega Concreta | Status |
+|------|------|------------------|--------|
+| 1 | TELOS - Contexto | TELOS pessoal + hotel | 📋 Pendente |
+| 2 | FABRIC - Problemas | 3-5 patterns úteis | 📋 Pendente |
+| 3 | PAI - Automação | Skills estruturados | 📋 Pendente |
+| 4 | Expansão | Daemon, Self-update | 📋 Futuro |
 
 ---
 
-## Fase 1: Fundamentos
+## Repositórios Disponíveis
 
-**Objetivo:** Entender a filosofia por trás de tudo
+| Repo | Local | O que contém |
+|------|-------|--------------|
+| PAI | `/home/marketing/pai-reference/` | Sistema completo (skills, hooks, memory) |
+| TELOS | `/home/marketing/telos-reference/` | Templates de contexto |
+| Fabric | `/home/marketing/fabric-reference/` | 234 patterns de prompts |
+| Daemon | `/home/marketing/daemon-reference/` | API pessoal broadcast |
+| Substrate | `/home/marketing/substrate-reference/` | Argumentos estruturados |
 
-### 1.1 Os 3 Problemas Mundiais (WP1-3)
+---
 
-Daniel trabalha para resolver:
-1. **WP1:** Humanos sofrem com falta de propósito e significado
-2. **WP2:** IA vai exacerbar isso (disrupção de trabalho)
-3. **WP3:** Somos treinados para ser úteis economicamente, não humanos completos
+## Fase 1: TELOS - Contexto Profundo
 
-### 1.2 Princípios Fundamentais
+**Objetivo:** Criar contexto que a IA possa usar para te ajudar melhor.
 
-| # | Princípio | O que significa |
-|---|-----------|-----------------|
-| 1 | **Clear Thinking First** | Bons prompts vêm de pensamento claro |
-| 2 | **Scaffolding > Model** | Estrutura importa mais que o modelo |
-| 3 | **Code Before Prompts** | Se pode resolver com código, não use IA |
-| 4 | **Spec / Test / Evals First** | Defina sucesso antes de construir |
-| 5 | **UNIX Philosophy** | Uma coisa bem feita, componentes compostos |
+### Por que primeiro?
 
-### 1.3 O Algoritmo (THE CENTERPIECE)
+> "Once the AI sees everything—purpose, goals, challenges, strategies, KPIs—now we can start asking questions." - Daniel
+
+Sem TELOS, a IA não sabe:
+- Quem você é
+- O que você quer alcançar
+- Quais são seus desafios
+- Como medir sucesso
+
+### Estrutura do TELOS
 
 ```
-Current State → Ideal State (via iteração verificável)
-
-7 Fases:
-1. OBSERVE - Coletar contexto
-2. THINK - Gerar hipóteses
-3. PLAN - Desenhar abordagem
-4. BUILD - Definir critérios de sucesso
-5. EXECUTE - Fazer o trabalho
-6. VERIFY - Testar contra critérios
-7. LEARN - Extrair insights, iterar
+TELOS/
+├── PROBLEMS        ← Problemas que quer resolver
+├── MISSION         ← Por que você faz o que faz
+├── GOALS           ← Metas com prazo
+├── CHALLENGES      ← Obstáculos atuais
+├── STRATEGIES      ← Como vai superar
+├── METRICS/KPIs    ← Como mede sucesso
+├── IDEAS           ← Ideias originais
+├── WISDOM          ← Sabedoria acumulada
+└── LOG             ← Diário de progresso
 ```
 
-**Key insight:** A maioria pula o VERIFY. O poder vem de definir critérios ANTES e medir DEPOIS.
+### Entregas Fase 1
+
+- [ ] **TELOS Pessoal (Ale)**
+  - Problemas que quer resolver
+  - Missão pessoal
+  - Metas para 2026
+  - Desafios atuais
+
+- [ ] **TELOS Hotel (Duke Beach)**
+  - Missão do hotel
+  - Metas (ocupação, ADR, satisfação)
+  - KPIs operacionais
+  - Desafios sazonais
+  - Perfil de hóspedes
 
 ### Leitura Fase 1
-- [ ] Ler: `sources/2024-10-15-unsupervised-learning-how-my-projects-fit-together-*.md`
-- [ ] Ler: Seção "The PAI Principles" em `/home/marketing/pai-reference/README.md`
+- [ ] `/home/marketing/telos-reference/personal_telos.md`
+- [ ] `/home/marketing/telos-reference/corporate_telos.md`
 
 ---
 
-## Fase 2: Fabric
+## Fase 2: FABRIC - Resolver Problemas
 
-**Objetivo:** Entender prompts como soluções para problemas específicos
+**Objetivo:** Usar prompts estruturados para resolver problemas específicos do dia a dia.
 
-### 2.1 Conceito
+### Por que segundo?
 
-- Cada "pattern" é uma solução para um problema humano específico
-- Exemplos: `extract_wisdom`, `analyze_personality`, `create_aphorisms`
-- Crowdsourced - comunidade contribui soluções
+Antes de automatizar, você precisa:
+1. Identificar problemas recorrentes
+2. Testar soluções manualmente
+3. Validar o que funciona
+4. Só então pensar em automação
 
-### 2.2 Estrutura de um Pattern
+### O que é um Pattern?
 
 ```
-fabric/patterns/
-└── extract_wisdom/
-    └── system.md    ← O prompt completo
+fabric/data/patterns/
+└── analyze_personality/
+    └── system.md    ← Prompt completo e testado
 ```
 
-### 2.3 Aplicação Hotel
+Cada pattern resolve **um problema específico**.
 
-Patterns que poderíamos criar:
-- `analyze_guest_feedback`
-- `create_welcome_message`
-- `summarize_daily_operations`
+### Patterns Relevantes para Explorar
 
-### Ações Fase 2
-- [ ] Clonar: `github.com/danielmiessler/fabric`
-- [ ] Explorar: 5 patterns relevantes
-- [ ] Criar: 1 pattern para o hotel
+| Pattern | Uso potencial |
+|---------|---------------|
+| `extract_wisdom` | Extrair insights de conteúdos |
+| `summarize` | Resumir documentos |
+| `analyze_personality` | Entender perfis de hóspedes |
+| `create_aphorisms` | Criar frases de impacto |
+| `improve_writing` | Melhorar comunicação |
+
+### Patterns para Criar (Hotel)
+
+| Pattern | Problema que resolve |
+|---------|---------------------|
+| `analyze_guest_feedback` | Extrair insights de reviews |
+| `summarize_daily_operations` | Resumo diário para gestão |
+| `create_welcome_message` | Mensagens personalizadas |
+| `analyze_occupancy_trends` | Padrões de ocupação |
+
+### Entregas Fase 2
+
+- [ ] Explorar 5 patterns existentes do Fabric
+- [ ] Testar patterns manualmente no dia a dia
+- [ ] Criar 1 pattern customizado para o hotel
+- [ ] Documentar o que funciona vs. não funciona
+
+### Leitura Fase 2
+- [ ] `/home/marketing/fabric-reference/README.md`
+- [ ] Explorar `/home/marketing/fabric-reference/data/patterns/`
 
 ---
 
-## Fase 3: TELOS
+## Fase 3: PAI - Automatizar
 
-**Objetivo:** Criar contexto profundo sobre o hotel
+**Objetivo:** Transformar o que funciona em automação estruturada.
 
-### 3.1 Conceito
+### Por que terceiro?
 
-TELOS = Estrutura para capturar TUDO sobre uma entidade
-- Missão, Metas, KPIs
-- Desafios, Estratégias
-- Histórico, Decisões
+> "Code Before Prompts" - Só automatize o que já validou.
 
-### 3.2 Estrutura
+Neste ponto você já tem:
+- ✅ TELOS definido (contexto)
+- ✅ Patterns testados (soluções)
+- ✅ Entendimento do que funciona
 
-```
-telos/
-├── mission.md
-├── goals.md
-├── kpis.md
-├── challenges.md
-├── strategies.md
-├── risk_register.md
-└── ...
-```
+Agora é hora de estruturar.
 
-### 3.3 Aplicação Hotel
+### Componentes do PAI
 
-Criar TELOS do Duke Beach Hotel:
-- Missão do hotel
-- Metas (ocupação, satisfação, receita)
-- KPIs operacionais
-- Desafios sazonais
-- Estratégias de diferenciação
+| Componente | O que faz |
+|------------|-----------|
+| **Skills** | Capacidades modulares com routing |
+| **Workflows** | Procedimentos dentro de cada skill |
+| **Tools** | Código determinístico (TypeScript) |
+| **Hooks** | Eventos automáticos |
+| **Memory** | Sistema de memória (hot/warm/cold) |
 
-### Ações Fase 3
-- [ ] Clonar: `github.com/danielmiessler/Telos`
-- [ ] Estudar: Template corporativo
-- [ ] Criar: TELOS do Duke Beach Hotel
-
----
-
-## Fase 4: PAI - Arquitetura
-
-**Objetivo:** Entender como montar o sistema completo
-
-### 4.1 Componentes
-
-| Componente | Função |
-|------------|--------|
-| Skills | Capacidades modulares |
-| Hooks | Eventos automáticos |
-| Memory | Sistema de memória (hot/warm/cold) |
-| Tools | Código determinístico |
-
-### 4.2 Estrutura de um Skill
+### Estrutura de um Skill
 
 ```
-skills/
-└── Art/
-    ├── SKILL.md      ← Routing e descrição
-    ├── workflows/    ← Procedimentos específicos
-    └── tools/        ← Código (.ts)
+skills/HotelOperations/
+├── SKILL.md              ← Descrição + routing (USE WHEN...)
+├── Workflows/
+│   ├── DailyChecklist.md
+│   ├── GuestCheckIn.md
+│   └── OccupancyReport.md
+└── Tools/
+    └── generate-report.ts
 ```
 
-### 4.3 Sistema de Hooks
-
-```
-~/.claude/hooks/
-├── PreToolUse     → Antes de usar ferramenta
-├── PostToolUse    → Depois de usar ferramenta
-├── SessionEnd     → Fim de sessão (captura)
-└── ...
-```
-
-### Ações Fase 4
-- [ ] Explorar: `/home/marketing/pai-reference/Packs/pai-core-install/`
-- [ ] Entender: Sistema de memória
-- [ ] Mapear: Skills que precisamos para hotel
-
----
-
-## Fase 5: Aplicação - Duke Beach Hotel
-
-**Objetivo:** Construir o sistema para o hotel
-
-### 5.1 Skills do Hotel
+### Skills para o Hotel
 
 | Skill | Função |
 |-------|--------|
+| `HotelOperations` | Operações diárias |
 | `GuestService` | Atendimento ao hóspede |
-| `Operations` | Operações diárias |
 | `Revenue` | Gestão de receita |
 | `Maintenance` | Manutenção preventiva |
 
-### 5.2 TELOS do Hotel
+### Entregas Fase 3
 
-- Missão, visão, valores
-- Metas de ocupação, ADR, RevPAR
-- Processos operacionais
-- Perfil de hóspedes
+- [ ] Estudar estrutura de skills do PAI
+- [ ] Criar primeiro skill (HotelOperations)
+- [ ] Implementar 1 workflow funcional
+- [ ] Criar 1 tool em TypeScript
 
-### 5.3 Integração
-
-- Hooks para capturar interações
-- Memória de decisões e aprendizados
-- Self-update baseado em fontes do setor
-
-### Ações Fase 5
-- [ ] Criar estrutura base
-- [ ] Implementar primeiro skill
-- [ ] Testar ciclo completo
+### Leitura Fase 3
+- [ ] `/home/marketing/pai-reference/Packs/pai-core-install/src/skills/`
+- [ ] `/home/marketing/pai-reference/Packs/pai-core-install/src/skills/CORE/SYSTEM/SKILLSYSTEM.md`
 
 ---
 
-## Decisões de Design
+## Fase 4: Expansão (Futuro)
 
-### Princípio #1: Começar simples
+**Quando:** Após ter Fases 1-3 funcionando.
+
+### 4.1 Self-Update
+
+Sistema que monitora fontes e se atualiza:
+- Novos patterns do Fabric
+- Atualizações do setor hoteleiro
+- Melhores práticas
+
+### 4.2 Daemon (API do Hotel)
+
+Broadcast do hotel para integrações:
+- Disponibilidade em tempo real
+- Integração com OTAs
+- Dados para parceiros
+
+### 4.3 Substrate
+
+Para decisões complexas:
+- Análise de investimentos
+- Debates internos estruturados
+
+---
+
+## Princípios de Design
+
+### 1. Começar simples
 > "Não construa o que não precisa ainda"
 
-### Princípio #2: Aprender fazendo
-> "Cada fase deve ter uma entrega prática"
+### 2. Validar antes de automatizar
+> "Só automatize o que já funciona manualmente"
 
-### Princípio #3: Texto é rei
+### 3. Texto é rei
 > "Tudo em markdown, versionado, legível"
+
+### 4. Iterar
+> "Fase 1 imperfeita > Fase 3 nunca começada"
+
+---
+
+## O Algoritmo (Referência)
+
+Para qualquer tarefa, a progressão:
+
+```
+Current State → Ideal State
+
+1. OBSERVE  - Coletar contexto
+2. THINK    - Gerar hipóteses
+3. PLAN     - Desenhar abordagem
+4. BUILD    - Definir critérios de sucesso
+5. EXECUTE  - Fazer o trabalho
+6. VERIFY   - Testar contra critérios
+7. LEARN    - Extrair insights, iterar
+```
+
+**Key insight:** A maioria pula VERIFY. O poder vem de definir critérios ANTES e medir DEPOIS.
+
+---
+
+## Próximo Passo
+
+**Fase 1:** Criar TELOS pessoal do Ale e TELOS do Duke Beach Hotel.

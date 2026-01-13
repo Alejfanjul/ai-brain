@@ -1,6 +1,6 @@
 # AI Brain - Roadmap
 
-> Última atualização: 2026-01-12 (Fase 3.4 concluída)
+> Última atualização: 2026-01-13 (Projeto PAI Study iniciado)
 
 ## Visão geral dos Marcos
 
@@ -163,3 +163,47 @@ python3 scripts/search.py "decisões importantes" --memories-only
 
 ### Validação externa
 Alex Hillman (JFDI System) e Nate (Second Brain 2026) construíram sistemas muito similares. Ver [REFERENCES.md](./REFERENCES.md).
+
+---
+
+## Projeto Paralelo: PAI Study
+
+**Iniciado:** 2026-01-13
+
+**Objetivo:** Aprender com o ecossistema do Daniel Miessler (PAI, TELOS, Fabric) para evoluir o ai-brain.
+
+**Descoberta chave:** O ai-brain atual é similar ao Memory Lane do PAI, mas falta:
+- **TELOS** (contexto profundo pessoal/hotel)
+- **Skills estruturados** (capacidades modulares)
+- **Self-update** (sistema que evolui sozinho)
+
+### Repositórios clonados
+
+| Repo | Local | Uso |
+|------|-------|-----|
+| PAI | `/home/marketing/pai-reference/` | Referência de arquitetura |
+| TELOS | `/home/marketing/telos-reference/` | Templates de contexto |
+| Fabric | `/home/marketing/fabric-reference/` | 234 patterns de prompts |
+| Daemon | `/home/marketing/daemon-reference/` | API broadcast (futuro) |
+| Substrate | `/home/marketing/substrate-reference/` | Argumentos estruturados (futuro) |
+
+### Progressão planejada
+
+```
+Fase 1: TELOS      → Contexto profundo (Ale + Hotel)     ← EM ANDAMENTO
+Fase 2: FABRIC     → Resolver problemas com patterns
+Fase 3: PAI        → Automatizar com skills/hooks
+Fase 4: Expansão   → Daemon, Self-update
+```
+
+### Status atual
+
+- [x] Repositórios clonados
+- [x] Guias de patterns criados
+- [x] Perfil do Ale limpo
+- [x] Plano de entrevista para TELOS
+- [ ] **Próximo:** Entrevista TELOS (Ale responde em casa, por voz)
+- [ ] Criar TELOS-ALE.md
+- [ ] Criar TELOS-HOTEL.md
+
+**Documentação:** Ver `projects/pai-study/`

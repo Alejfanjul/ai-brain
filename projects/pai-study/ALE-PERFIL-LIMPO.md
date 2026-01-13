@@ -5,10 +5,10 @@
 ## Dados Básicos
 
 - **Nome:** Alejandro (Ale)
-- **Idade:** 39 anos
+- **Idade:** 40 anos (nascido em 1985-10-11)
 - **Origem:** Argentino, Brasil desde 2 anos
 - **Local:** Maresias, SP
-- **Trabalho atual:** Recepcionista Duke Beach Hotel
+- **Trabalho atual:** Marketing / AI no Duke Beach Hotel
 - **Projeto paralelo:** AI-brain / empreendedorismo com IA
 
 ---

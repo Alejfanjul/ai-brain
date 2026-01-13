@@ -39,34 +39,71 @@ Isso é exatamente o que queremos para o Duke Beach Hotel.
    └─────────┘    └─────────┘  └─────────┘   └─────────┘
 ```
 
-## Materiais Disponíveis
+---
 
-### Capturados no ai-brain
+## Status Atual
+
+**Fase 1: TELOS - Em andamento**
+
+- [x] Repositórios clonados (PAI, TELOS, Fabric, Daemon, Substrate)
+- [x] Guias de patterns criados
+- [x] Perfil V5 limpo e estruturado
+- [x] Plano de entrevista criado
+- [ ] **Próximo:** Entrevista para criar TELOS pessoal do Ale
+- [ ] Criar TELOS do Duke Beach Hotel
+
+---
+
+## Arquivos do Projeto
+
+| Arquivo | Descrição |
+|---------|-----------|
+| `README.md` | Este arquivo - visão geral do projeto |
+| `ROADMAP.md` | Plano de 4 fases (TELOS → Fabric → PAI → Expansão) |
+| `REFERENCES.md` | Links, sources capturados, quotes importantes |
+| `FABRIC-ALL-PATTERNS.md` | Guia completo dos 234 patterns do Fabric |
+| `FABRIC-TELOS-PATTERNS.md` | Guia dos 16 patterns específicos para TELOS |
+| `ALE-PERFIL-LIMPO.md` | Perfil do Ale (versão limpa, sem marketing) |
+| `TELOS-INTERVIEW-PLAN.md` | Plano de entrevista para criar TELOS |
+
+---
+
+## Repositórios Clonados
+
+| Repo | Local | Descrição |
+|------|-------|-----------|
+| **PAI** | `/home/marketing/pai-reference/` | Sistema completo (skills, hooks, memory) |
+| **TELOS** | `/home/marketing/telos-reference/` | Templates de contexto pessoal/corporativo |
+| **Fabric** | `/home/marketing/fabric-reference/` | 234 patterns de prompts |
+| **Daemon** | `/home/marketing/daemon-reference/` | API pessoal broadcast |
+| **Substrate** | `/home/marketing/substrate-reference/` | Argumentos estruturados |
+
+---
+
+## Sources Capturados
 
 | Arquivo | Descrição |
 |---------|-----------|
 | `sources/2025-12-16-unsupervised-learning-a-deepdive-on-my-personal-ai-infrastructure-pai-v2.md` | Deep dive completo no PAI |
 | `sources/2026-01-11-danielmiessler-personal-ai-maturity-model-paimm.md` | Modelo de maturidade (9 níveis) |
-| `sources/2024-10-15-unsupervised-learning-how-my-projects-fit-together-substrate-fabric-telo.md` | Como todos os projetos se conectam |
+| `sources/2024-10-15-unsupervised-learning-how-my-projects-fit-together-substrate-fabric-telo.md` | Como todos os projetos se conectam (66 min) |
 
-### Repositórios Clonados
-
-| Local | Descrição |
-|-------|-----------|
-| `/home/marketing/pai-reference/` | PAI - Personal AI Infrastructure |
-
-### Repositórios para Explorar
-
-| Repo | Descrição | Prioridade |
-|------|-----------|------------|
-| [Fabric](https://github.com/danielmiessler/fabric) | Prompts crowdsourced para problemas específicos | Alta |
-| [Telos](https://github.com/danielmiessler/Telos) | Deep context sobre entidades (pessoas, empresas) | Alta |
-| [Daemon](https://github.com/danielmiessler/Daemon) | API pessoal broadcast | Média |
-| [Substrate](https://github.com/danielmiessler/Substrate) | Argumentos transparentes | Baixa |
+---
 
 ## Jornada de Aprendizado
 
 Ver `ROADMAP.md` para o plano detalhado.
+
+**Resumo das fases:**
+
+```
+Fase 1: TELOS      → Contexto profundo (Ale + Hotel)     ← AQUI
+Fase 2: FABRIC     → Resolver problemas com patterns
+Fase 3: PAI        → Automatizar com skills/hooks
+Fase 4: Expansão   → Daemon, Self-update
+```
+
+---
 
 ## Aplicação: Duke Beach Hotel
 
@@ -78,4 +115,9 @@ A ideia é aplicar esses conceitos para criar um sistema que:
 
 ---
 
-**Status:** Fase 1 - Fundamentos
+## Próximos Passos
+
+1. **Ale responde entrevista** (em casa, por voz) → `TELOS-INTERVIEW-PLAN.md`
+2. **Criar TELOS-ALE.md** a partir das respostas
+3. **Criar pattern** `create_telos_interview` para reutilização
+4. **Criar TELOS do hotel** usando mesmo processo

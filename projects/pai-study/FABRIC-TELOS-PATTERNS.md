@@ -22,13 +22,22 @@ cat TELOS.md | fabric -p t_find_blindspots
 
 ## Categorias dos Patterns
 
-| Categoria | Patterns | Uso |
-|-----------|----------|-----|
-| **Auto-conhecimento** | 4 patterns | Entender quem você é |
-| **Análise de Progresso** | 3 patterns | Verificar andamento |
-| **Identificar Problemas** | 4 patterns | Encontrar falhas |
-| **Planejamento** | 3 patterns | Pensar o futuro |
-| **Comunicação** | 2 patterns | Apresentar-se |
+| Categoria | Patterns | Para quê |
+|-----------|----------|----------|
+| **Auto-conhecimento** | `t_describe_life_outlook`, `t_check_dunning_kruger`, `t_analyze_challenge_handling`, `t_create_h3_career` | Entender quem você é |
+| **Progresso** | `t_check_metrics`, `t_find_neglected_goals`, `t_year_in_review` | Verificar andamento |
+| **Problemas** | `t_find_blindspots`, `t_find_negative_thinking`, `t_red_team_thinking`, `t_threat_model_plans` | Encontrar falhas |
+| **Planejamento** | `t_visualize_mission_goals_projects`, `t_give_encouragement` | Pensar o futuro |
+| **Comunicação** | `t_create_opening_sentences`, `t_extract_intro_sentences`, `t_extract_panel_topics` | Apresentar-se |
+
+### Destaques Úteis
+
+| Pattern | O que faz | Super útil para |
+|---------|-----------|-----------------|
+| `t_check_dunning_kruger` | Avalia onde você se superestima/subestima | Calibrar auto-percepção |
+| `t_find_blindspots` | Encontra falhas nos seus modelos mentais | Evitar erros |
+| `t_threat_model_plans` | Modela o que pode dar errado na vida | Planejamento |
+| `t_create_opening_sentences` | Cria frases de apresentação | Networking/Bio |
 
 ---
 

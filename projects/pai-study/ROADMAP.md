@@ -86,6 +86,46 @@ TELOS/
 - [ ] `/home/marketing/telos-reference/personal_telos.md`
 - [ ] `/home/marketing/telos-reference/corporate_telos.md`
 
+### Patterns do Fabric para Criar TELOS
+
+Usar esses patterns como apoio na construção:
+
+| Pattern | Uso para TELOS |
+|---------|----------------|
+| `extract_primary_problem` | Definir PROBLEMS |
+| `create_better_frame` | Reformular crenças limitantes |
+| `analyze_personality` | Entender perfil para ABOUT ME |
+| `extract_wisdom` | Processar conteúdos para WISDOM |
+| `create_hormozi_offer` | Definir proposta de valor (empresa) |
+
+### Patterns do Fabric para Revisar TELOS
+
+Após ter o TELOS criado, usar para manutenção:
+
+```
+Semanal:
+├── t_check_metrics         → KPIs estão melhorando?
+├── t_find_neglected_goals  → Algo foi esquecido?
+└── t_give_encouragement    → Manter motivação
+
+Mensal:
+├── t_analyze_challenge_handling → Estou trabalhando nos desafios?
+├── t_find_blindspots            → Pontos cegos?
+└── t_find_negative_thinking     → Pensamentos limitantes?
+
+Trimestral:
+├── t_red_team_thinking               → Atacar meu próprio plano
+├── t_threat_model_plans              → O que pode dar errado?
+└── t_visualize_mission_goals_projects → Está tudo alinhado?
+
+Anual:
+├── t_year_in_review      → O que realizei?
+├── t_create_h3_career    → Estou preparado para o futuro?
+└── t_describe_life_outlook → Minha perspectiva mudou?
+```
+
+> Ver guia completo: `projects/pai-study/FABRIC-TELOS-PATTERNS.md`
+
 ---
 
 ## Fase 2: FABRIC - Resolver Problemas

@@ -183,3 +183,25 @@ fabric/patterns/create_telos_interview/
 ```
 
 Assim qualquer pessoa pode usar para criar seu próprio TELOS.
+
+---
+
+## Progresso
+
+| Data | O que aconteceu | Arquivo gerado |
+|------|-----------------|----------------|
+| 2026-01-13 | Entrevista gravada (38 perguntas) | Pendente processamento |
+| 2026-01-13 | Conversa exploratória com Claude | `TELOS-CONVERSA-01.md` |
+
+### Insights da conversa (não estava no roteiro)
+
+A conversa exploratória revelou coisas que as 38 perguntas talvez não capturassem:
+- Definição pessoal de propósito
+- Visão de produto/sistema emergiu organicamente
+- Barreira identificada (episódio do café da manhã)
+- Padrão de comportamento (transformar caos em sistema)
+
+### Próximos passos
+
+- [ ] Processar áudio da entrevista gravada
+- [ ] Consolidar respostas + insights da conversa em `TELOS-ALE.md`

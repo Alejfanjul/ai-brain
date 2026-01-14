@@ -188,20 +188,28 @@ Assim qualquer pessoa pode usar para criar seu próprio TELOS.
 
 ## Progresso
 
-| Data | O que aconteceu | Arquivo gerado |
-|------|-----------------|----------------|
-| 2026-01-13 | Entrevista gravada (38 perguntas) | Pendente processamento |
-| 2026-01-13 | Conversa exploratória com Claude | `TELOS-CONVERSA-01.md` |
+| Data | Sessão | O que cobrimos | Arquivo |
+|------|--------|----------------|---------|
+| 2026-01-13 | Conversa 01 | Problemas, Missão, Desafios (parcial) | `TELOS-CONVERSA-01.md` |
 
-### Insights da conversa (não estava no roteiro)
+### O que surgiu na Conversa 01
 
-A conversa exploratória revelou coisas que as 38 perguntas talvez não capturassem:
-- Definição pessoal de propósito
+A conversa fluiu orgânica e revelou coisas que o roteiro talvez não capturasse:
+- Definição pessoal de propósito ("resolver problemas interessantes")
 - Visão de produto/sistema emergiu organicamente
-- Barreira identificada (episódio do café da manhã)
+- Barreira identificada (episódio do café da manhã → exposição reduzida)
 - Padrão de comportamento (transformar caos em sistema)
+
+### O que falta
+
+- [ ] Metas e Métricas (P7-P12)
+- [ ] Estratégias (P16-P18)
+- [ ] Autoconhecimento - erros, previsões (P19-P24)
+- [ ] Sabedoria e Identidade (P25-P30)
+- [ ] Contexto pessoal (P31-P34)
+- [ ] Atualização (P35-P38)
 
 ### Próximos passos
 
-- [ ] Processar áudio da entrevista gravada
-- [ ] Consolidar respostas + insights da conversa em `TELOS-ALE.md`
+- [ ] Continuar conversas para cobrir perguntas restantes
+- [ ] Consolidar tudo em `TELOS-ALE.md`

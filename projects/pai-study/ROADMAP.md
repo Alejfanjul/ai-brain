@@ -77,10 +77,9 @@ TELOS/
 - [x] Templates TELOS lidos e analisados
 
 **Em andamento:**
-- [x] **Entrevista TELOS do Ale** (38 perguntas, por voz em casa) - gravada em 2026-01-13
-- [x] **Conversa exploratória** - insights capturados em `TELOS-CONVERSA-01.md`
-- [ ] Processar áudio da entrevista gravada
-- [ ] Criar `TELOS-ALE.md` consolidando entrevista + conversa
+- [x] **Conversa 01** (2026-01-13) - Problemas, Missão, Desafios → `TELOS-CONVERSA-01.md`
+- [ ] **Próximas conversas** - Metas, Métricas, Estratégias, Sabedoria, Identidade
+- [ ] Criar `TELOS-ALE.md` consolidando todas as conversas
 
 **Pendente:**
 - [ ] Criar `TELOS-HOTEL.md` (Duke Beach)

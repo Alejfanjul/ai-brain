@@ -93,6 +93,19 @@ Ele reconheceu: "Sempre que olho vejo tarefa que posso melhorar."
 
 ## Status
 
-- [x] Conversa exploratória realizada
-- [ ] Processar respostas da entrevista gravada (38 perguntas)
+**Cobrimos nesta conversa:**
+- [x] Problemas (P1-P3)
+- [x] Missão (P4-P6)
+- [x] Desafios - parcial (P13-P15)
+
+**Falta cobrir em próximas conversas:**
+- [ ] Metas (P7-P9)
+- [ ] Métricas (P10-P12)
+- [ ] Estratégias (P16-P18)
+- [ ] Autoconhecimento (P19-P24)
+- [ ] Sabedoria e Identidade (P25-P30)
+- [ ] Contexto pessoal (P31-P34)
+- [ ] Atualização (P35-P38)
+
+**Depois:**
 - [ ] Criar TELOS-ALE.md consolidado

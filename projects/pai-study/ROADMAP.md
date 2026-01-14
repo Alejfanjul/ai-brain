@@ -78,10 +78,12 @@ TELOS/
 
 **Em andamento:**
 - [x] **Conversa 01** (2026-01-13) - Problemas, Missão, Desafios → `TELOS-CONVERSA-01.md`
-- [ ] **Próximas conversas** - Metas, Métricas, Estratégias, Sabedoria, Identidade
+- [x] **Conversa 02** (2026-01-14) - Camada profunda: traumas, autocobrança, sabedoria, identidade, como quer ser tratado → `TELOS-CONVERSA-02.md`
+- [ ] **Próximas conversas** - Metas concretas, Métricas de capacidade, Estratégias (após explorar mundo técnico)
 - [ ] Criar `TELOS-ALE.md` consolidando todas as conversas
 
 **Pendente:**
+- [ ] Explorar mundo técnico dos agentes (pré-requisito para definir metas/métricas)
 - [ ] Criar `TELOS-HOTEL.md` (Duke Beach)
 - [ ] Criar pattern `create_telos_interview` para reutilização
 
@@ -324,4 +326,8 @@ Current State → Ideal State
 
 ## Próximo Passo
 
-**Fase 1:** Criar TELOS pessoal do Ale e TELOS do Duke Beach Hotel.
+**Fase 1 (continuação):**
+1. Explorar mundo técnico dos agentes (possibilidades de negócio)
+2. Definir metas concretas e métricas de capacidade
+3. Consolidar conversas em `TELOS-ALE.md`
+4. Criar `TELOS-HOTEL.md` (Duke Beach)

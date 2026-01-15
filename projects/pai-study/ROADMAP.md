@@ -79,11 +79,14 @@ TELOS/
 **Em andamento:**
 - [x] **Conversa 01** (2026-01-13) - Problemas, Missão, Desafios → `TELOS-CONVERSA-01.md`
 - [x] **Conversa 02** (2026-01-14) - Camada profunda: traumas, autocobrança, sabedoria, identidade, como quer ser tratado → `TELOS-CONVERSA-02.md`
-- [ ] **Próximas conversas** - Metas concretas, Métricas de capacidade, Estratégias (após explorar mundo técnico)
+- [x] **Conversa 03** (2026-01-15) - Reflexão sobre pilares de desenvolvimento + Hotel como laboratório → `HOTEL-LAB.md`
+- [ ] **Próximas conversas** - Metas concretas, Métricas de capacidade, Estratégias
 - [ ] Criar `TELOS-ALE.md` consolidando todas as conversas
 
 **Pendente:**
-- [ ] Explorar mundo técnico dos agentes (pré-requisito para definir metas/métricas)
+- [x] Definir pilares de desenvolvimento (técnico, visão de mercado, definir/decompor problemas)
+- [x] Criar framework de observação do hotel → `HOTEL-LAB.md`
+- [ ] Preencher mapa de sistemas e tarefas do hotel
 - [ ] Criar `TELOS-HOTEL.md` (Duke Beach)
 - [ ] Criar pattern `create_telos_interview` para reutilização
 
@@ -324,10 +327,29 @@ Current State → Ideal State
 
 ---
 
+## Pilares de Desenvolvimento
+
+> Definidos na conversa 03 (2026-01-15), baseado no curso do Seth Godin.
+
+| Pilar | O que é | Como desenvolver | Status |
+|-------|---------|------------------|--------|
+| **1. Domínio técnico** | Entender as peças de lego (agentes, skills, MCP, hooks) | Exploração prática 1-2h/dia | 🔄 Em andamento |
+| **2. Visão de mercado** | Onde há dor, o que as pessoas valorizam | Hotel como laboratório + Internet como janela | 🔄 Em andamento |
+| **3. Definir/decompor problemas** | Pensamento sistêmico, arquitetura de soluções | Prática deliberada usando os outros pilares | 📋 Pendente |
+
+**Insight central (Seth Godin):**
+> "The winners have all been people who said, how do I use this new technology to **solve a different problem?**"
+
+**Documentos de apoio:**
+- `HOTEL-LAB.md` → Framework de observação para desenvolver visão de mercado
+- `sources/courses/seth-godin-thriving-in-an-ai-future/` → Curso completo
+
+---
+
 ## Próximo Passo
 
 **Fase 1 (continuação):**
-1. Explorar mundo técnico dos agentes (possibilidades de negócio)
-2. Definir metas concretas e métricas de capacidade
+1. Preencher `HOTEL-LAB.md` (sistemas, tarefas, gaps)
+2. Usar framework de observação por 1-2 semanas
 3. Consolidar conversas em `TELOS-ALE.md`
 4. Criar `TELOS-HOTEL.md` (Duke Beach)

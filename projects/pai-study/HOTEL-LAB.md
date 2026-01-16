@@ -182,7 +182,41 @@ Ao final de cada semana:
 | Oportunidade | Problema que resolve | Para quem cria valor | Status |
 |--------------|---------------------|---------------------|--------|
 | Ambiente integrado | Fragmentação de sistemas | Operação interna | Ideia |
-| | | | |
+| **Documentador de Processos** | Conhecimento tácito não documentado | Treinamento, operação | Pattern criado ✅ |
+
+### Documentador de Processos (Bot Telegram)
+
+**Problema:** Conhecimento operacional está na cabeça dos funcionários. Quando alguém sai ou é promovido, o conhecimento vai junto. Treinar novos funcionários depende de quem está disponível para ensinar.
+
+**Solução:** Bot no Telegram que entrevista funcionários por áudio para documentar processos.
+
+**Como funciona:**
+1. Funcionário envia áudio explicando um processo (ex: check-in)
+2. Whisper transcreve o áudio
+3. Claude analisa e faz perguntas para preencher gaps
+4. Conversa até ter processo completo
+5. Gera documentação em 4 formatos: SOP, Checklist, FAQ, Ficha Resumo
+
+**Stack técnico:**
+- Telegram Bot API (interface)
+- Whisper API ou local (transcrição)
+- Claude API + Pattern (entrevista e documentação)
+
+**Pattern criado:** `templates/patterns/interview_process/`
+- `system.md` - Roteiro de entrevista estilo Fabric
+- `example_conversation.md` - Simulação completa com check-in
+
+**Próximos passos:**
+- [ ] Criar bot Telegram básico
+- [ ] Integrar Whisper para transcrição
+- [ ] Testar com processo real (check-in)
+- [ ] Iterar no pattern baseado em feedback
+
+**Valor potencial:**
+- Base de conhecimento do hotel (todos os processos documentados)
+- Treinamento padronizado para novos funcionários
+- Reduz dependência de pessoas específicas
+- Material pode virar manual de operações
 
 ---
 

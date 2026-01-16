@@ -220,6 +220,77 @@ Ao final de cada semana:
 
 ---
 
+## Ideias Estratégicas (Janeiro 2026)
+
+> Ideias capturadas de conversas e reflexões. Inspiração principal: vídeo do Nate Bee Jones sobre "agentic layers".
+
+### 1. Camada Agêntica sobre Sistemas Hoteleiros
+
+**Ideia:** Criar parceria com empresa de hotelaria para desenvolver camada de agentes de IA em cima do sistema que já usam.
+
+**Como funciona:**
+- Empresa parceira fornece dados e acesso ao sistema
+- Você constrói a camada de agentes
+- Transforma em produto/serviço vendável
+
+**Insight (Nate):** Onda de negócios vai surgir criando "agentic layers" sobre sistemas existentes - porque muitas empresas são lentas demais pra fazer isso sozinhas.
+
+**Ver também:** `STACK-RESEARCH.md` para arquitetura técnica.
+
+---
+
+### 2. Parar de Esperar Permissão - Aprender a Prototipar
+
+**Problema identificado:** Demora muito pra chegar num produto porque fica esperando condições ideais ou permissão.
+
+**Insight:** Precisa aprender a criar protótipos rápidos pra validar ideias antes de investir tempo polindo algo que talvez nem funcione.
+
+**Ação:** Prototipar é uma habilidade a desenvolver. Menos planejamento, mais tentativa.
+
+---
+
+### 3. Timeline Visual (Estilo SoundCloud) da Jornada Empreendedora
+
+**Ideia:** Interface que mostra visualmente progresso em direção a um objetivo (como empreender), mesmo que o destino final ainda não esteja claro.
+
+**Inspiração:** Barra de progresso do SoundCloud, onde a "onda" sobe onde tem mais atividade/comentários.
+
+**Na sua versão:**
+- "Ondas" representam protótipos criados, aprendizados, tentativas, erros
+- Documenta o esforço e o processo, não só o resultado
+- Serve pra ver que está se movendo mesmo sem ter chegado
+
+**Status:** Ideia conceitual
+
+---
+
+### 4. Provar Valor no Duke Beach Hotel
+
+**Ciclo virtuoso:**
+
+```
+Resolver → Entregar → Provar → Ganhar liberdade → Resolver mais
+```
+
+**Foco:** Resolver problemas reais, entregar valor concreto, ganhar credibilidade e espaço pra experimentar mais.
+
+---
+
+### 5. Dinâmica com Diego - Investigação Cross-Área
+
+**Você (de baixo pra cima):**
+- Liberdade pra investigar problemas nas diferentes áreas (Cozinha, Governança, Concierge, etc.)
+- Circular, observar, perguntar
+- Resolver problemas que aliviam dores de outras áreas → ganha aliados internos
+
+**Diego (de cima pra baixo):**
+- Traz problemas da visão dele, estratégica
+- Prioriza o que é importante pro negócio
+
+**Os dois movimentos juntos criam cobertura melhor.**
+
+---
+
 ## Próximos Passos
 
 - [ ] Preencher sistemas anexados (descobrir todos que o hotel usa)

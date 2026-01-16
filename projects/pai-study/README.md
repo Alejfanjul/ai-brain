@@ -65,6 +65,7 @@ Isso é exatamente o que queremos para o Duke Beach Hotel.
 | `FABRIC-TELOS-PATTERNS.md` | Guia dos 16 patterns específicos para TELOS |
 | `ALE-PERFIL-LIMPO.md` | Perfil do Ale (versão limpa, sem marketing) |
 | `TELOS-INTERVIEW-PLAN.md` | Plano de entrevista para criar TELOS |
+| `STACK-RESEARCH.md` | Pesquisa de stack open source para hotelaria (QloApps, Apaleo, Channex) |
 
 ---
 

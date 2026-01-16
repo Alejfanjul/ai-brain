@@ -109,8 +109,9 @@ def create_capture_file(url):
     
     # Criar nome do arquivo
     today = datetime.now().strftime('%Y-%m-%d')
-    slug = slugify(info['title'])
-    filename = f"{today}-{slug}.md"
+    author_slug = slugify(info['uploader'])
+    title_slug = slugify(info['title'])
+    filename = f"{today}-{author_slug}-{title_slug}.md"
     
     # Criar conteúdo
     content = f"""# {info['title']}

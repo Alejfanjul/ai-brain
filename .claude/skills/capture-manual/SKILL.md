@@ -81,8 +81,9 @@ def create_manual_capture():
     
     # Criar nome do arquivo
     today = datetime.now().strftime('%Y-%m-%d')
-    slug = slugify(title)
-    filename = f"{today}-{slug}.md"
+    author_slug = slugify(author)
+    title_slug = slugify(title)
+    filename = f"{today}-{author_slug}-{title_slug}.md"
     
     # Criar conteúdo do arquivo
     file_content = f"""# {title}

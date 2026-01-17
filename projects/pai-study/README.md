@@ -43,13 +43,15 @@ Isso é exatamente o que queremos para o Duke Beach Hotel.
 
 ## Status Atual
 
-**Fase 1: TELOS - Em andamento**
+**Fase 1: TELOS - Em andamento (~70%)**
 
 - [x] Repositórios clonados (PAI, TELOS, Fabric, Daemon, Substrate)
 - [x] Guias de patterns criados
 - [x] Perfil V5 limpo e estruturado
 - [x] Plano de entrevista criado
-- [ ] **Próximo:** Entrevista para criar TELOS pessoal do Ale
+- [x] Conversas 01-03 realizadas (Propósito, Camada profunda, Pilares)
+- [x] **TELOS-ALE.md** consolidado (2026-01-17)
+- [ ] Próximas conversas: Metas concretas, Métricas, Estratégias
 - [ ] Criar TELOS do Duke Beach Hotel
 
 ---
@@ -61,11 +63,16 @@ Isso é exatamente o que queremos para o Duke Beach Hotel.
 | `README.md` | Este arquivo - visão geral do projeto |
 | `ROADMAP.md` | Plano de 4 fases (TELOS → Fabric → PAI → Expansão) |
 | `REFERENCES.md` | Links, sources capturados, quotes importantes |
+| `TELOS-ALE.md` | **TELOS pessoal consolidado** - identidade, missão, desafios, sabedoria |
+| `TELOS-CONVERSA-01.md` | Conversa 01: Propósito, padrão, visão |
+| `TELOS-CONVERSA-02.md` | Conversa 02: Camada profunda, sabedoria, identidade |
+| `HOTEL-LAB.md` | Framework de observação do hotel (Conversa 03) |
 | `FABRIC-ALL-PATTERNS.md` | Guia completo dos 234 patterns do Fabric |
 | `FABRIC-TELOS-PATTERNS.md` | Guia dos 16 patterns específicos para TELOS |
-| `ALE-PERFIL-LIMPO.md` | Perfil do Ale (versão limpa, sem marketing) |
+| `ALE-PERFIL-LIMPO.md` | Perfil do Ale (versão anterior, V5) |
 | `TELOS-INTERVIEW-PLAN.md` | Plano de entrevista para criar TELOS |
-| `STACK-RESEARCH.md` | Pesquisa de stack open source para hotelaria (QloApps, Apaleo, Channex) |
+| `STACK-RESEARCH.md` | Pesquisa de stack open source para hotelaria |
+| `HOTEL-ARCHITECTURE.md` | Arquitetura da plataforma hoteleira AI-Native |
 
 ---
 

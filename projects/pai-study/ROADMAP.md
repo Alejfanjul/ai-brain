@@ -80,8 +80,8 @@ TELOS/
 - [x] **Conversa 01** (2026-01-13) - Problemas, Missão, Desafios → `TELOS-CONVERSA-01.md`
 - [x] **Conversa 02** (2026-01-14) - Camada profunda: traumas, autocobrança, sabedoria, identidade, como quer ser tratado → `TELOS-CONVERSA-02.md`
 - [x] **Conversa 03** (2026-01-15) - Reflexão sobre pilares de desenvolvimento + Hotel como laboratório → `HOTEL-LAB.md`
+- [x] **TELOS-ALE.md** criado (2026-01-17) - Consolidação das conversas 01-03
 - [ ] **Próximas conversas** - Metas concretas, Métricas de capacidade, Estratégias
-- [ ] Criar `TELOS-ALE.md` consolidando todas as conversas
 
 **Pendente:**
 - [x] Definir pilares de desenvolvimento (técnico, visão de mercado, definir/decompor problemas)

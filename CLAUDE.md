@@ -76,6 +76,7 @@ projeto/
 | Playlist | `python3 scripts/capture_playlist.py <url>` |
 | Artigo | `python3 scripts/capture_article.py <url>` |
 | EPUB | `python3 scripts/capture_epub.py <arquivo>` |
+| PDF | `python3 scripts/capture_pdf.py <arquivo>` ou `/pdf` |
 | Curso | `python3 scripts/capture_course.py` |
 | Manual | Usar template `templates/CAPTURE-MANUAL.md` |
 

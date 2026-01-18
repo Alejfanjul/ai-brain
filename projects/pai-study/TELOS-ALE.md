@@ -1,6 +1,6 @@
 # TELOS - Ale
 
-> Documento vivo de contexto pessoal. Última atualização: 2026-01-17
+> Documento vivo de contexto pessoal. Última atualização: 2026-01-18
 > Consolidado das conversas 01 (13/01) e 02 (14/01).
 
 ---
@@ -100,6 +100,16 @@ Pessoas fazendo trabalho que máquinas deveriam fazer. Pessoas sem ver o impacto
 - [ ] Trazer solução que outras pessoas podem usar
 - [ ] Explorar mundo técnico dos agentes e possibilidades de negócio
 
+### Metas pessoais (em paralelo)
+
+Conectadas com a visão de 5 anos ("viajando, praticando esportes variados").
+
+- [ ] Perder 4-6kg gordura mantendo força (Wendler 5/3/1 Prep and Fat Loss)
+- [ ] Cardio em dia (corrida + metcons)
+- [ ] Reduzir maconha para uso ocasional
+
+Ver: `projects/metas-pessoais/`
+
 ---
 
 ## CHALLENGES
@@ -138,6 +148,18 @@ Quero orquestrar, não executar. Mas estou construindo do zero, sozinho.
 ### C5: Depressão
 
 Diagnosticada, acompanhada com psicólogo/psiquiatra. Vem principalmente da falta de sentido no trabalho.
+
+### C6: Uso de maconha
+
+Droga depressiva + histórico de depressão + antidepressivo = combinação que não faz sentido.
+
+**Padrão:** Dificuldade de ter em casa e não usar. Uso frequente (5 dias/semana) amplifica efeitos negativos (preguiça, sono ruim, energia baixa).
+
+**Benefícios do uso ocasional:** Relaxamento, ideias criativas, sexo. Sem efeitos negativos quando 1-2x/semana.
+
+**Meta:** Poder ter em casa e escolher não usar. Uso apenas ocasional.
+
+**Status:** Plano de redução em andamento. Ver `projects/metas-pessoais/MACONHA.md`
 
 ---
 
@@ -259,7 +281,7 @@ Camada de IA sobre sistemas existentes que:
 - Automatiza o repetitivo
 - Libera humanos para trabalho que importa
 
-Ver: `HOTEL-LAB.md`, `STACK-RESEARCH.md`, `HOTEL-ARCHITECTURE.md`
+Ver: `hotel/HOTEL-LAB.md`, `hotel/STACK-RESEARCH.md`, `hotel/HOTEL-ARCHITECTURE.md`
 
 ### Oportunidades no Duke Beach (não atacadas)
 
@@ -270,6 +292,13 @@ Ver: `HOTEL-LAB.md`, `STACK-RESEARCH.md`, `HOTEL-ARCHITECTURE.md`
 ---
 
 ## LOG
+
+### 2026-01-18
+
+- Criado projeto `metas-pessoais/` com tracking de maconha e saúde
+- Definidas metas pessoais concretas (fora do contexto profissional)
+- Adicionado C6 (Maconha) conectando com C5 (Depressão)
+- Importado contexto completo de treino da Claude Web
 
 ### 2026-01-17
 
@@ -311,7 +340,9 @@ Ver: `HOTEL-LAB.md`, `STACK-RESEARCH.md`, `HOTEL-ARCHITECTURE.md`
 
 ## REFERENCES
 
-- `TELOS-CONVERSA-01.md` - Transcrição/insights da primeira conversa
-- `TELOS-CONVERSA-02.md` - Transcrição/insights da segunda conversa
-- `HOTEL-LAB.md` - Framework de observação do hotel
-- `ALE-PERFIL-LIMPO.md` - Perfil anterior (V5)
+- `archive/TELOS-CONVERSA-01.md` - Transcrição/insights da primeira conversa
+- `archive/TELOS-CONVERSA-02.md` - Transcrição/insights da segunda conversa
+- `archive/ALE-PERFIL-LIMPO.md` - Perfil anterior (V5)
+- `hotel/HOTEL-LAB.md` - Framework de observação do hotel
+- `guides/FABRIC-TELOS-PATTERNS.md` - Patterns do FABRIC para trabalhar com TELOS
+- `projects/metas-pessoais/` - Tracking de metas pessoais (maconha, saúde/treino)

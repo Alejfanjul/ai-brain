@@ -56,23 +56,27 @@ Isso é exatamente o que queremos para o Duke Beach Hotel.
 
 ---
 
-## Arquivos do Projeto
+## Estrutura do Projeto
 
-| Arquivo | Descrição |
-|---------|-----------|
-| `README.md` | Este arquivo - visão geral do projeto |
-| `ROADMAP.md` | Plano de 4 fases (TELOS → Fabric → PAI → Expansão) |
-| `REFERENCES.md` | Links, sources capturados, quotes importantes |
-| `TELOS-ALE.md` | **TELOS pessoal consolidado** - identidade, missão, desafios, sabedoria |
-| `TELOS-CONVERSA-01.md` | Conversa 01: Propósito, padrão, visão |
-| `TELOS-CONVERSA-02.md` | Conversa 02: Camada profunda, sabedoria, identidade |
-| `HOTEL-LAB.md` | Framework de observação do hotel (Conversa 03) |
-| `FABRIC-ALL-PATTERNS.md` | Guia completo dos 234 patterns do Fabric |
-| `FABRIC-TELOS-PATTERNS.md` | Guia dos 16 patterns específicos para TELOS |
-| `ALE-PERFIL-LIMPO.md` | Perfil do Ale (versão anterior, V5) |
-| `TELOS-INTERVIEW-PLAN.md` | Plano de entrevista para criar TELOS |
-| `STACK-RESEARCH.md` | Pesquisa de stack open source para hotelaria |
-| `HOTEL-ARCHITECTURE.md` | Arquitetura da plataforma hoteleira AI-Native |
+```
+pai-study/
+├── README.md           ← Este arquivo
+├── ROADMAP.md          ← Plano de 4 fases
+├── TELOS-ALE.md        ← TELOS pessoal consolidado (documento principal)
+├── REFERENCES.md       ← Links e sources capturados
+├── guides/
+│   ├── FABRIC-ALL-PATTERNS.md      ← Guia dos 234 patterns
+│   └── FABRIC-TELOS-PATTERNS.md    ← 16 patterns para TELOS
+├── hotel/
+│   ├── HOTEL-ARCHITECTURE.md       ← Arquitetura da plataforma
+│   ├── HOTEL-LAB.md                ← Framework de observação
+│   └── STACK-RESEARCH.md           ← Pesquisa de stack
+└── archive/
+    ├── ALE-PERFIL-LIMPO.md         ← Perfil V5 (anterior)
+    ├── TELOS-CONVERSA-01.md        ← Conversa 01
+    ├── TELOS-CONVERSA-02.md        ← Conversa 02
+    └── TELOS-INTERVIEW-PLAN.md     ← Plano de entrevista (executado)
+```
 
 ---
 
@@ -125,7 +129,8 @@ A ideia é aplicar esses conceitos para criar um sistema que:
 
 ## Próximos Passos
 
-1. **Ale responde entrevista** (em casa, por voz) → `TELOS-INTERVIEW-PLAN.md`
-2. **Criar TELOS-ALE.md** a partir das respostas
-3. **Criar pattern** `create_telos_interview` para reutilização
-4. **Criar TELOS do hotel** usando mesmo processo
+1. ~~Ale responde entrevista~~ ✓
+2. ~~Criar TELOS-ALE.md~~ ✓
+3. **Criar TELOS do Duke Beach Hotel** usando mesmo processo
+4. **Iniciar Fase 2** - Usar patterns do FABRIC para resolver problemas reais
+5. **Criar gerador de Metcons** - Primeiro projeto prático (ver `projects/metas-pessoais/`)

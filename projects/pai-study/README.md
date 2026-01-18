@@ -67,16 +67,14 @@ pai-study/
 ├── guides/
 │   ├── FABRIC-ALL-PATTERNS.md      ← Guia dos 234 patterns
 │   └── FABRIC-TELOS-PATTERNS.md    ← 16 patterns para TELOS
-├── hotel/
-│   ├── HOTEL-ARCHITECTURE.md       ← Arquitetura da plataforma
-│   ├── HOTEL-LAB.md                ← Framework de observação
-│   └── STACK-RESEARCH.md           ← Pesquisa de stack
 └── archive/
     ├── ALE-PERFIL-LIMPO.md         ← Perfil V5 (anterior)
     ├── TELOS-CONVERSA-01.md        ← Conversa 01
     ├── TELOS-CONVERSA-02.md        ← Conversa 02
     └── TELOS-INTERVIEW-PLAN.md     ← Plano de entrevista (executado)
 ```
+
+**Projeto relacionado:** `projects/ai-pms/` - Sistema hoteleiro AI-Native (aplicação prática)
 
 ---
 

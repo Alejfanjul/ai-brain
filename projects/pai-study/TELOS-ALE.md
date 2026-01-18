@@ -281,7 +281,7 @@ Camada de IA sobre sistemas existentes que:
 - Automatiza o repetitivo
 - Libera humanos para trabalho que importa
 
-Ver: `hotel/HOTEL-LAB.md`, `hotel/STACK-RESEARCH.md`, `hotel/HOTEL-ARCHITECTURE.md`
+Ver: `projects/ai-pms/`
 
 ### Oportunidades no Duke Beach (não atacadas)
 
@@ -343,6 +343,6 @@ Ver: `hotel/HOTEL-LAB.md`, `hotel/STACK-RESEARCH.md`, `hotel/HOTEL-ARCHITECTURE.
 - `archive/TELOS-CONVERSA-01.md` - Transcrição/insights da primeira conversa
 - `archive/TELOS-CONVERSA-02.md` - Transcrição/insights da segunda conversa
 - `archive/ALE-PERFIL-LIMPO.md` - Perfil anterior (V5)
-- `hotel/HOTEL-LAB.md` - Framework de observação do hotel
 - `guides/FABRIC-TELOS-PATTERNS.md` - Patterns do FABRIC para trabalhar com TELOS
+- `projects/ai-pms/` - Projeto do sistema hoteleiro AI-Native
 - `projects/metas-pessoais/` - Tracking de metas pessoais (maconha, saúde/treino)

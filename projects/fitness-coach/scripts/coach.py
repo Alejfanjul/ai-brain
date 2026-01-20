@@ -274,9 +274,9 @@ def format_dashboard() -> str:
     if cardio['total_km_week']:
         lines.append(f"Total: {cardio['total_km_week']:.1f}km em {cardio['total_min_week']}min")
 
-    # Progress bar: target 3 cardio sessions per week
+    # Progress bar: target 2-3 cardio sessions per week
     cardio_total = cardio['runs_week'] + cardio['metcons_week']
-    lines.append(f"Meta semanal: {progress_bar(cardio_total, 3)} {cardio_total}/3")
+    lines.append(f"Meta semanal: {progress_bar(cardio_total, 2)} {cardio_total}/2-3")
 
     if cardio['last_cardio']:
         last = cardio['last_cardio']

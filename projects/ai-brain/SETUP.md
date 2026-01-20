@@ -220,6 +220,8 @@ $$;
 | `scripts/generate_embeddings.py` | Gera embeddings das memórias | `python3 scripts/generate_embeddings.py` |
 | `scripts/embed_sources.py` | Gera embeddings dos sources | `python3 scripts/embed_sources.py` |
 | `scripts/search.py` | Busca semântica em memórias e sources | `python3 scripts/search.py "query"` |
+| `scripts/show_goals.py` | Mostra progresso das metas pessoais | `python3 scripts/show_goals.py` |
+| `scripts/daily_digest.py` | Gera relatório diário das metas | `python3 scripts/daily_digest.py` |
 
 ### Verificar progresso dos embeddings
 
@@ -266,3 +268,63 @@ python3 scripts/embed_sources.py
 ```
 
 **Tempo estimado com GPU:** ~2-5 minutos para ~700 chunks restantes.
+
+---
+
+## Daily Digest / Goals System
+
+Sistema para visualizar progresso das metas pessoais (treino e hábitos).
+
+### Arquitetura
+
+```
+scripts/
+├── goals/                    # Módulo de metas
+│   ├── __init__.py
+│   ├── parser.py             # Parse SAUDE.md e MACONHA.md
+│   ├── progress.py           # Calcula métricas
+│   └── ascii_charts.py       # Gráficos ASCII
+├── daily_digest.py           # Gerador principal
+└── show_goals.py             # Comando CLI
+
+~/.claude/skills/DailyGoals/  # Skill para /goals
+```
+
+### Comandos
+
+```bash
+# Visão completa com ASCII art
+python3 scripts/show_goals.py
+
+# Só o foco do dia
+python3 scripts/show_goals.py --today
+
+# Só treino
+python3 scripts/show_goals.py --saude
+
+# Só redução de maconha
+python3 scripts/show_goals.py --maconha
+
+# Saída JSON
+python3 scripts/show_goals.py --json
+
+# Resumo em uma linha
+python3 scripts/daily_digest.py --short
+```
+
+### Cron (opcional)
+
+Para gerar relatório automático às 7h:
+
+```crontab
+0 7 * * * cd ~/ai-brain && python3 scripts/daily_digest.py >> /tmp/daily_digest.log 2>&1
+```
+
+### Skill PAI
+
+O skill `/goals` ou `/metas` está em `~/.claude/skills/DailyGoals/SKILL.md`.
+
+### Dados fonte
+
+- `projects/ai-brain/metas/SAUDE.md` - Dados de treino (ciclos, semanas, log)
+- `projects/ai-brain/metas/MACONHA.md` - Dados de redução (fases, streak, log)

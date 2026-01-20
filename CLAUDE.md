@@ -100,12 +100,25 @@ tail -f /tmp/ml_extract.log      # Extração
 tail -f /tmp/ml_embeddings.log   # Embeddings
 ```
 
-### Status atual (2026-01-12)
+### Status atual (2026-01-20)
 
 - **969 chunks** processados dos sources (100% ✅)
 - **80 memórias** com embeddings
 - **Busca semântica** funcionando (Fase 3.4 ✅)
-- Próximo: Daily Digest (Fase 3.5)
+- **Daily Digest** funcionando (Fase 3.5 ✅)
+
+## Metas Pessoais
+
+| Comando | Descrição |
+|---------|-----------|
+| `/goals` ou `/metas` | Mostrar progresso das metas (treino + hábitos) |
+| `python3 scripts/show_goals.py` | Visão completa com ASCII art |
+| `python3 scripts/show_goals.py --today` | Só o foco do dia |
+| `python3 scripts/show_goals.py --json` | Saída JSON |
+
+**Dados fonte:**
+- `projects/ai-brain/metas/SAUDE.md` - Treino (5/3/1)
+- `projects/ai-brain/metas/MACONHA.md` - Redução
 
 ### Ollama (comandos rápidos)
 

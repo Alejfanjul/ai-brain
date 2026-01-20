@@ -1,0 +1,7 @@
+date,weight_kg,body_fat_pct,notes
+# Formato: YYYY-MM-DD,peso,gordura,observações
+# Medir: manhã, jejum, após banheiro
+# Exemplo:
+# 2026-01-20,81.5,22.0,
+# 2026-01-21,81.3,,sem medir gordura
+2026-01-20,81.5,22.0,

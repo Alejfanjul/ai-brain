@@ -1,0 +1,13 @@
+date,type,duration_min,distance_km,description,notes
+2025-11-15,corrida,51,7.69,Corrida matinal,
+2025-11-18,corrida,31,4.54,Corrida matinal,
+2025-12-04,corrida,30,5.01,Corrida matinal,
+2025-12-05,corrida,20,3.13,Corrida matinal,
+2025-12-10,corrida,33,5.00,Corrida matinal,
+2025-12-21,corrida,43,6.03,Corrida matinal,
+2025-12-24,corrida,20,3.97,Corrida matinal,
+2026-01-06,corrida,31,5.25,Corrida matinal,
+2026-01-13,corrida,34,5.62,Corrida ao entardecer,
+2026-01-15,corrida,31,5.01,Corrida matinal,
+# Metcons: type=metcon, distance_km pode ficar vazio
+# Exemplo: 2026-01-20,metcon,15,,AMRAP burpees+kb swings,

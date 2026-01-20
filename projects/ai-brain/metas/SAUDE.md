@@ -107,7 +107,7 @@
 
 Ciclo de 4 lifts completa em ~12 dias.
 
-**Ordem dos lifts:** Deadlift → Bench → Squat → OHP
+**Ordem dos lifts:** Squat → OHP → Deadlift → Bench
 
 ---
 

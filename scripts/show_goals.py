@@ -91,7 +91,13 @@ def show_maconha(as_json: bool = False) -> None:
     hoje_status = "dia de resistir" if not maconha['hoje_permitido'] else "dia permitido"
     mark = checkmark(not maconha['hoje_permitido'])
 
+    # Weekly usage stats
+    week_start_str = maconha['week_start'].strftime('%d/%m')
+    usados = maconha['usados_semana']
+    max_dias = maconha['max_permitidos_semana']
+
     maconha_details = [
+        f"Semana ({week_start_str}): {usados}/{max_dias} dias permitidos usados",
         f"Próximo permitido: {maconha['proximo_permitido_str']}",
         f"Hoje: {maconha['hoje_dia']} - {hoje_status} {mark if not maconha['hoje_permitido'] else ''}".strip(),
     ]

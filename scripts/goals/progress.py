@@ -35,6 +35,14 @@ WEEKDAY_ABBREV = {
 }
 
 
+def get_week_start(d: date) -> date:
+    """Get the Sunday that starts the week containing date d."""
+    # weekday(): Monday=0, Sunday=6
+    # We want Sunday as start, so we go back (weekday + 1) % 7 days
+    days_since_sunday = (d.weekday() + 1) % 7
+    return d - timedelta(days=days_since_sunday)
+
+
 def calculate_saude_progress(data: Optional[dict] = None) -> dict:
     """
     Calculate training progress metrics.
@@ -204,6 +212,43 @@ def calculate_maconha_progress(data: Optional[dict] = None) -> dict:
             dia_abbrev = WEEKDAY_ABBREV[proximo_permitido.weekday()]
             proximo_str = f'{dia_abbrev} {proximo_permitido.day:02d}/{proximo_permitido.month:02d}'
 
+    # Calculate weekly usage (Sunday-based week)
+    week_start = get_week_start(hoje)
+    prev_week_start = week_start - timedelta(days=7)
+
+    # Count allowed days and usage this week
+    usados_semana = 0
+    permitidos_semana = 0
+    usados_semana_passada = 0
+    permitidos_semana_passada = 0
+
+    for entry in data['log_semanal']:
+        try:
+            day, month = entry['data'].split('/')
+            entry_date = date(hoje.year, int(month), int(day))
+        except (ValueError, KeyError):
+            continue
+
+        entry_dia = WEEKDAY_PT[entry_date.weekday()]
+        is_allowed_day = entry_dia in dias_permitidos
+
+        # This week (from Sunday to today)
+        if entry_date >= week_start and entry_date <= hoje:
+            if is_allowed_day:
+                permitidos_semana += 1
+                if entry['fumou'] is True:
+                    usados_semana += 1
+
+        # Last week
+        elif entry_date >= prev_week_start and entry_date < week_start:
+            if is_allowed_day:
+                permitidos_semana_passada += 1
+                if entry['fumou'] is True:
+                    usados_semana_passada += 1
+
+    # Max allowed days per week based on pattern (Sex-Sáb-Dom = 3)
+    max_permitidos_semana = len(dias_permitidos)
+
     return {
         'fase': fase,
         'fase_padrao': padrao,
@@ -217,6 +262,13 @@ def calculate_maconha_progress(data: Optional[dict] = None) -> dict:
         'hoje_dia': hoje_dia,
         'titulo': f'Fase {fase} ({padrao})',
         'subtitulo': f'Dia {dias_na_fase} de {dias_total_fase} | Streak: {streak} dias sem fumar',
+        # Weekly stats
+        'week_start': week_start,
+        'usados_semana': usados_semana,
+        'permitidos_semana': permitidos_semana,
+        'max_permitidos_semana': max_permitidos_semana,
+        'usados_semana_passada': usados_semana_passada,
+        'permitidos_semana_passada': permitidos_semana_passada,
     }
 
 

@@ -152,44 +152,57 @@ def calculate_weight_stats(entries: list[dict]) -> dict:
     }
 
 
+def get_week_start(d: date) -> date:
+    """Get the Sunday that starts the week containing date d."""
+    # weekday(): Monday=0, Sunday=6
+    # We want Sunday as start, so we go back (weekday + 1) % 7 days
+    days_since_sunday = (d.weekday() + 1) % 7
+    return d - timedelta(days=days_since_sunday)
+
+
 def calculate_cardio_stats(entries: list[dict]) -> dict:
     """Calculate cardio statistics."""
     hoje = date.today()
-    last_7_days = [e for e in entries if (hoje - e['date']).days <= 7]
+    week_start = get_week_start(hoje)
+
+    this_week = [e for e in entries if e['date'] >= week_start]
     last_30_days = [e for e in entries if (hoje - e['date']).days <= 30]
 
-    runs_7d = [e for e in last_7_days if e['type'] == 'corrida']
-    metcons_7d = [e for e in last_7_days if e['type'] == 'metcon']
+    runs_week = [e for e in this_week if e['type'] == 'corrida']
+    metcons_week = [e for e in this_week if e['type'] == 'metcon']
 
-    total_km_7d = sum(e['distance'] or 0 for e in runs_7d)
-    total_min_7d = sum(e['duration'] for e in last_7_days)
+    total_km_week = sum(e['distance'] or 0 for e in runs_week)
+    total_min_week = sum(e['duration'] for e in this_week)
 
     # Frequency last 30 days
     runs_30d = len([e for e in last_30_days if e['type'] == 'corrida'])
     metcons_30d = len([e for e in last_30_days if e['type'] == 'metcon'])
 
     return {
-        'runs_7d': len(runs_7d),
-        'metcons_7d': len(metcons_7d),
-        'total_km_7d': total_km_7d,
-        'total_min_7d': total_min_7d,
+        'runs_week': len(runs_week),
+        'metcons_week': len(metcons_week),
+        'total_km_week': total_km_week,
+        'total_min_week': total_min_week,
         'runs_30d': runs_30d,
         'metcons_30d': metcons_30d,
         'last_cardio': entries[-1] if entries else None,
+        'week_start': week_start,
     }
 
 
 def calculate_wendler_stats(entries: list[dict]) -> dict:
     """Calculate Wendler training statistics."""
     hoje = date.today()
-    last_7_days = [e for e in entries if (hoje - e['date']).days <= 7]
+    week_start = get_week_start(hoje)
+
+    this_week = [e for e in entries if e['date'] >= week_start]
     last_30_days = [e for e in entries if (hoje - e['date']).days <= 30]
 
     # Current cycle/week (from most recent entry)
     current = entries[-1] if entries else None
 
     # Lifts this week
-    lifts_7d = list(set(e['lift'] for e in last_7_days))
+    lifts_week = list(set(e['lift'] for e in this_week))
     lifts_30d = len(last_30_days)
 
     # Last lift
@@ -198,9 +211,10 @@ def calculate_wendler_stats(entries: list[dict]) -> dict:
     return {
         'current_cycle': current['cycle'] if current else None,
         'current_week': current['week'] if current else None,
-        'lifts_7d': lifts_7d,
+        'lifts_week': lifts_week,
         'lifts_30d': lifts_30d,
         'last_lift': last_lift,
+        'week_start': week_start,
     }
 
 
@@ -251,16 +265,17 @@ def format_dashboard() -> str:
         lines.append("→ python3 coach.py log-weight 81.5")
 
     # Cardio section
+    week_start_str = cardio['week_start'].strftime('%d/%m') if cardio.get('week_start') else ''
     lines.append('')
-    lines.append('CARDIO (últimos 7 dias)')
+    lines.append(f'CARDIO (semana de {week_start_str})')
     lines.append('─' * 36)
 
-    lines.append(f"Corridas: {cardio['runs_7d']}x | Metcons: {cardio['metcons_7d']}x")
-    if cardio['total_km_7d']:
-        lines.append(f"Total: {cardio['total_km_7d']:.1f}km em {cardio['total_min_7d']}min")
+    lines.append(f"Corridas: {cardio['runs_week']}x | Metcons: {cardio['metcons_week']}x")
+    if cardio['total_km_week']:
+        lines.append(f"Total: {cardio['total_km_week']:.1f}km em {cardio['total_min_week']}min")
 
     # Progress bar: target 3 cardio sessions per week
-    cardio_total = cardio['runs_7d'] + cardio['metcons_7d']
+    cardio_total = cardio['runs_week'] + cardio['metcons_week']
     lines.append(f"Meta semanal: {progress_bar(cardio_total, 3)} {cardio_total}/3")
 
     if cardio['last_cardio']:
@@ -269,13 +284,13 @@ def format_dashboard() -> str:
 
     # Wendler section
     lines.append('')
-    lines.append('WENDLER (últimos 7 dias)')
+    lines.append(f'WENDLER (semana de {week_start_str})')
     lines.append('─' * 36)
 
-    if wendler['lifts_7d']:
-        lifts_str = ', '.join(wendler['lifts_7d'])
+    if wendler['lifts_week']:
+        lifts_str = ', '.join(wendler['lifts_week'])
         lines.append(f"Lifts: {lifts_str}")
-        lines.append(f"Meta semanal: {progress_bar(len(wendler['lifts_7d']), 3)} {len(wendler['lifts_7d'])}/3")
+        lines.append(f"Meta semanal: {progress_bar(len(wendler['lifts_week']), 3)} {len(wendler['lifts_week'])}/3")
     else:
         lines.append("Nenhum lift esta semana")
 

@@ -41,7 +41,7 @@ python3 ~/ai-brain/scripts/show_goals.py --json
 
 ## What to Show
 
-When user asks about goals/progress, run the appropriate command and present the output.
+When user asks about goals/progress, run the appropriate command and **show the script output directly**. The ASCII progress bars are the visualization - do NOT summarize or "translate" them into plain text. A brief comment after is fine, but the bars should be visible.
 
 **Example interactions:**
 

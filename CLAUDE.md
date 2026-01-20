@@ -150,3 +150,83 @@ cp templates/PROJECT-EXPLORATION.md projects/nome-do-projeto/README.md
 - **Contexto:** Construindo empresa de uma pessoa só, baseada em IA
 - **Trabalha em:** Duke Beach Hotel (liberdade para criar soluções)
 - **Objetivo:** Sistemas que mostrem que "trabalho pode ser bacana"
+
+---
+
+## PAI (Personal AI Infrastructure)
+
+### O que é
+
+O **ai-brain** é uma implementação pessoal baseada no framework **PAI** (Personal AI Infrastructure) do Daniel Miessler.
+
+| Repo | Propósito | Local |
+|------|-----------|-------|
+| **ai-brain** | Sistema ativo do Ale | `~/ai-brain` |
+| **Personal_AI_Infrastructure** | Framework original (referência) | `~/Personal_AI_Infrastructure` |
+
+### Relação entre os dois
+
+```
+Personal_AI_Infrastructure     ai-brain
+(framework original)     →     (implementação pessoal)
+├── Conceitos                  ├── Skills customizados
+├── 15 Princípios             ├── Hooks adaptados
+├── Arquitetura base          ├── Scripts próprios
+└── Exemplos                  └── Conhecimento pessoal
+```
+
+O **ai-brain** incorporou do PAI:
+- Sistema de Skills (`.claude-config/skills/`)
+- Sistema de Hooks (`.claude-config/hooks/`)
+- 15 Princípios Fundadores
+- Arquitetura CLI-first
+- Estrutura CORE/USER
+
+### Quando usar o PAI como referência
+
+Ao construir novas features, consultar o PAI original para:
+- Ver como funcionalidades foram estruturadas
+- Buscar padrões de skills/hooks
+- Entender princípios de design
+
+```bash
+# Explorar o PAI original
+ls ~/Personal_AI_Infrastructure/
+```
+
+### 15 Princípios Fundadores (resumo)
+
+1. **Clear Thinking + Prompting is King** — qualidade do output depende do input
+2. **Scaffolding > Model** — estrutura importa mais que o modelo
+3. **As Deterministic as Possible** — mesmo input = mesmo output
+4. **Code Before Prompts** — código é mais confiável que prompts
+5. **Spec / Test / Evals First** — definir antes de implementar
+6. **UNIX Philosophy** — ferramentas pequenas, composáveis
+7. **ENG / SRE Principles** — tratar IA como infra de produção
+8. **CLI as Interface** — tudo acessível via linha de comando
+9. **Goal → Code → CLI → Prompts → Agents** — pipeline de desenvolvimento
+10. **Meta / Self Update System** — sistema que evolui sozinho
+11. **Custom Skill Management** — skills como unidade organizacional
+12. **Custom History System** — captura automática de histórico
+13. **Custom Agent Personalities** — agentes com vozes distintas
+14. **Science as Cognitive Loop** — método científico como padrão
+15. **Permission to Fail** — permissão explícita para dizer "não sei"
+
+> **Referência completa:** `.claude-config/skills/CORE/SYSTEM/PAISYSTEMARCHITECTURE.md`
+
+### Sincronização entre PCs
+
+```bash
+# Em novo PC (após clonar ai-brain):
+cd ~/ai-brain
+./scripts/setup-pai.sh
+
+# Em PC existente (após mudanças):
+cd ~/ai-brain
+git pull
+./scripts/setup-pai.sh
+```
+
+O script copia `.claude-config/` para `~/.claude/` (local da máquina).
+
+**Regra:** Skills e hooks devem sempre estar em `.claude-config/` (repo), nunca só em `~/.claude/` (local).

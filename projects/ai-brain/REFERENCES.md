@@ -182,11 +182,29 @@ Daniel Miessler construiu um ecossistema completo de projetos open source para I
 
 | Repo | URL | Local |
 |------|-----|-------|
-| PAI | github.com/danielmiessler/Personal_AI_Infrastructure | `/home/marketing/pai-reference/` |
-| TELOS | github.com/danielmiessler/Telos | `/home/marketing/telos-reference/` |
-| Fabric | github.com/danielmiessler/fabric | `/home/marketing/fabric-reference/` |
-| Daemon | github.com/danielmiessler/Daemon | `/home/marketing/daemon-reference/` |
-| Substrate | github.com/danielmiessler/Substrate | `/home/marketing/substrate-reference/` |
+| **PAI** | github.com/danielmiessler/Personal_AI_Infrastructure | `~/Personal_AI_Infrastructure` (PC trabalho) |
+| TELOS | github.com/danielmiessler/Telos | - |
+| Fabric | github.com/danielmiessler/fabric | - |
+| Daemon | github.com/danielmiessler/Daemon | - |
+| Substrate | github.com/danielmiessler/Substrate | - |
+
+### Relação ai-brain ↔ PAI
+
+O **ai-brain** é a implementação pessoal do Ale, baseada no framework PAI:
+
+```
+Personal_AI_Infrastructure     ai-brain
+(framework original)     →     (implementação pessoal)
+├── Conceitos                  ├── Skills customizados
+├── 15 Princípios             ├── Hooks adaptados
+├── Arquitetura base          ├── Scripts próprios
+└── Exemplos                  └── Conhecimento pessoal
+```
+
+**Quando consultar o PAI original:**
+- Buscar padrões para novos skills/hooks
+- Entender princípios de design
+- Ver exemplos de implementação
 
 ### Sources Capturados
 

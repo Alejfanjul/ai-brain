@@ -115,15 +115,17 @@ Ciclo de 4 lifts completa em ~12 dias.
 
 Entre séries do lift principal. 50-100 reps por categoria por treino.
 
-| Categoria | Exercícios | Reps/treino |
-|-----------|------------|-------------|
-| Push | Push-ups (90°), DB Press | 50-100 |
-| Pull | Lat Pulldown, Face Pulls, Curls | 50-100 |
-| Single Leg/Core | Ab Wheel, KB Swings, Lunges | 50-100 |
+| Categoria | Exercícios Principais | Reps/treino |
+|-----------|----------------------|-------------|
+| Push | Push-ups (90°), DB Press, Floor Press | 50-100 |
+| Pull | Lat Pulldown, Face Pulls, DB Rows, Curls | 50-100 |
+| Single Leg/Core | Ab Wheel, KB Swings, Lunges, Good Mornings | 50-100 |
 
 **Adaptações (trapézio):**
 - Chin-ups → Lat Pulldown
 - Dips → Push-ups amplitude controlada
+
+> **Referência completa:** Ver `projects/fitness-coach/ASSISTANCE.md` para lista expandida de exercícios extraída dos livros do Wendler.
 
 ---
 

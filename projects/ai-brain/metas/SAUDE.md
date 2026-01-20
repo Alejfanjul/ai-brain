@@ -204,17 +204,17 @@ Entre séries do lift principal. 50-100 reps por categoria por treino.
 | | | | | |
 | | | | | |
 
-### Próxima semana (20-26 Jan 2026)
+### Semana 20-26 Jan 2026
 
 | Data | Treino planejado | Completou? | Energia | Notas |
 |------|------------------|------------|---------|-------|
-| | Deadlift (S2) | | | |
+| 19/01 Seg | Deadlift (S2) | Não | - | Não treinou |
+| 20/01 Ter | Deadlift (S2) | Sim | - | Feriado. Acessórios: canoinha, bíceps, tríceps, seated row |
+| 21/01 Qua | Cardio (colete) | | | Planejado se não chover |
+| 22/01 Qui | Bench (S2) | | | |
 | | Cardio/Metcon | | | |
 | | OFF | | | |
-| | Bench (S2) | | | |
-| | Cardio/Metcon | | | |
-| | OFF | | | |
-| | Squat (S2 ou S3) | | | |
+| | Squat (S2) | | | |
 
 ---
 

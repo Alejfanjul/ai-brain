@@ -29,7 +29,7 @@
 | 2 | Sáb-Dom (2 dias) | 2 semanas | - |
 | 3 | Só com namorada | Contínuo | Meta final |
 
-**Início da Fase 1:** 2026-01-20 (segunda-feira)
+**Início da Fase 1:** 2026-01-20 (terça-feira)
 **Fim da Fase 1:** 2026-02-02 (domingo)
 
 ---
@@ -49,13 +49,14 @@
 
 | Data | Dia | Fumou? | Energia (1-10) | Sono | Notas |
 |------|-----|--------|----------------|------|-------|
-| 20/01 | Seg | | | | |
-| 21/01 | Ter | | | | |
-| 22/01 | Qua | | | | |
-| 23/01 | Qui | | | | Primeiro teste: quinta sem fumar |
-| 24/01 | Sex | | | | Permitido |
-| 25/01 | Sáb | | | | Permitido |
-| 26/01 | Dom | | | | Permitido |
+| 18/01 | Dom | Não | - | - | Trouxe maconha pra casa por engano, resistiu! |
+| 19/01 | Seg | Não | - | - | Não fumou |
+| 20/01 | Ter | Não | 7+ | - | Feriado - dia "ideal" pra fumar, manteve firme. Energia melhor, tristeza diminuindo |
+| 21/01 | Qua | | | | |
+| 22/01 | Qui | | | | |
+| 23/01 | Sex | | | | Permitido |
+| 24/01 | Sáb | | | | Permitido |
+| 25/01 | Dom | | | | Permitido |
 
 **Reflexão da semana:**
 - Como foi a quinta-feira?

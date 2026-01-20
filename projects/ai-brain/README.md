@@ -1,6 +1,6 @@
 # AI Brain - Parceiro Digital Pessoal
 
-**Status:** Em desenvolvimento (Marco 3 em progresso)
+**Status:** Em desenvolvimento (Marcos 3 e 5 em progresso)
 
 ## O que é
 
@@ -118,7 +118,18 @@ projects/ai-brain/
 ├── ROADMAP.md     ← Marcos e fases de implementação
 ├── SETUP.md       ← Configs técnicas, SQLs, cron
 ├── REFERENCES.md  ← Quotes e material de consulta
-└── CHANGELOG.md   ← Histórico de decisões
+├── CHANGELOG.md   ← Histórico de decisões
+├── telos/
+│   └── TELOS-ALE.md       ← Contexto profundo pessoal
+├── metas/
+│   ├── README.md          ← Visão geral das metas
+│   ├── MACONHA.md         ← Tracking: redução de maconha
+│   └── SAUDE.md           ← Tracking: 5/3/1 + cardio
+├── guides/
+│   ├── FABRIC-ALL-PATTERNS.md      ← 234 patterns disponíveis
+│   └── FABRIC-TELOS-PATTERNS.md    ← 16 patterns para TELOS
+└── archive/
+    └── (conversas e rascunhos anteriores)
 ```
 
 ## Links úteis

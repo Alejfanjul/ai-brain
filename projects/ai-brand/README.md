@@ -1,11 +1,21 @@
 # Marca Pessoal
 
-## Estágio: Exploração
+## Estágio: ⏸️ Pausado
 
-## O que me trouxe aqui
+## O que é
 Construir presença e posicionamento pessoal como parte da estratégia de criar uma empresa de uma pessoa só, altamente baseada em IA.
 
-## Perguntas abertas
+## Por que pausado (2026-01-20)
+
+Decisão consciente de focar energia em construir antes de compartilhar:
+
+1. **Falta base para compartilhar** - Ainda construindo os sistemas, não tenho "história" suficiente
+2. **Falta clareza do caminho** - Difícil mostrar o caminho sem saber exatamente onde estou indo
+3. **Energia limitada** - Prefiro investir em construção (ai-brain, ai-pms) do que em divulgação
+
+**Quando reativar:** Quando tiver algo funcionando (PAI pessoal, primeiro skill útil pro hotel) - aí sim terá história pra contar.
+
+## Perguntas para quando voltar
 - O que eu quero comunicar?
 - Para quem?
 - Por qual canal?
@@ -20,3 +30,4 @@ Construir presença e posicionamento pessoal como parte da estratégia de criar 
 | Data | O que mudou |
 |------|-------------|
 | 2026-01-02 | Projeto criado |
+| 2026-01-20 | Pausado - foco em construção primeiro |

@@ -1,6 +1,6 @@
 # AI Brain - Roadmap
 
-> Última atualização: 2026-01-13 (Projeto PAI Study iniciado)
+> Última atualização: 2026-01-20 (PAI Study unificado ao ai-brain)
 
 ## Visão geral dos Marcos
 
@@ -10,6 +10,7 @@
 | 2 | Persistência de Conversas | ✅ Concluído |
 | 3 | Memória Semântica | 🔄 Em progresso |
 | 4 | Proatividade | 📋 Futuro |
+| 5 | Contexto Profundo (TELOS) | 🔄 Em progresso |
 
 ---
 
@@ -166,44 +167,69 @@ Alex Hillman (JFDI System) e Nate (Second Brain 2026) construíram sistemas muit
 
 ---
 
-## Projeto Paralelo: PAI Study
+## Marco 5: Contexto Profundo (TELOS) 🔄
 
-**Iniciado:** 2026-01-13
+**Objetivo:** Dar contexto profundo para a IA sobre quem sou e o que quero.
 
-**Objetivo:** Aprender com o ecossistema do Daniel Miessler (PAI, TELOS, Fabric) para evoluir o ai-brain.
+> "Once the AI sees everything—purpose, goals, challenges, strategies, KPIs—now we can start asking questions." - Daniel Miessler
 
-**Descoberta chave:** O ai-brain atual é similar ao Memory Lane do PAI, mas falta:
-- **TELOS** (contexto profundo pessoal/hotel)
-- **Skills estruturados** (capacidades modulares)
-- **Self-update** (sistema que evolui sozinho)
+### Fases
 
-### Repositórios clonados
+| Fase | Descrição | Status |
+|------|-----------|--------|
+| 5.1 | TELOS pessoal (Ale) | ✅ Concluído |
+| 5.2 | TELOS hotel (Duke Beach) | 📋 Pendente |
+| 5.3 | Patterns FABRIC validados | 📋 Pendente |
+| 5.4 | Skills estruturados | 📋 Pendente |
+
+### Fase 5.1: TELOS Pessoal ✅
+
+**Resultado:**
+- ✅ Conversas 01-03 realizadas (Propósito, Camada profunda, Pilares)
+- ✅ `telos/TELOS-ALE.md` consolidado (2026-01-17)
+- ✅ Guias de patterns criados (`guides/`)
+
+**Documentos:**
+- `telos/TELOS-ALE.md` - TELOS pessoal consolidado
+- `guides/FABRIC-ALL-PATTERNS.md` - 234 patterns disponíveis
+- `guides/FABRIC-TELOS-PATTERNS.md` - 16 patterns para manutenção do TELOS
+- `archive/` - Conversas e rascunhos anteriores
+
+### Fase 5.2: TELOS Hotel 📋
+
+**Objetivo:** Criar contexto profundo do Duke Beach Hotel.
+
+**Entregável:**
+- [ ] `telos/TELOS-HOTEL.md`
+- [ ] Missão, metas, KPIs, desafios sazonais, perfil de hóspedes
+
+### Fase 5.3: Patterns FABRIC 📋
+
+**Objetivo:** Validar patterns resolvendo problemas reais.
+
+> "Só automatize o que já validou manualmente"
+
+**Entregável:**
+- [ ] 3-5 patterns testados no dia a dia
+- [ ] 1 pattern customizado para o hotel
+
+### Fase 5.4: Skills Estruturados 📋
+
+**Objetivo:** Transformar patterns validados em skills do PAI.
+
+**Entregável:**
+- [ ] Primeiro skill (ex: HotelOperations)
+- [ ] 1 workflow funcional
+- [ ] 1 tool em TypeScript
+
+---
+
+## Repositórios de Referência
 
 | Repo | Local | Uso |
 |------|-------|-----|
-| PAI | `/home/marketing/pai-reference/` | Referência de arquitetura |
+| PAI | `/home/marketing/pai-reference/` | Arquitetura de skills/hooks |
 | TELOS | `/home/marketing/telos-reference/` | Templates de contexto |
 | Fabric | `/home/marketing/fabric-reference/` | 234 patterns de prompts |
 | Daemon | `/home/marketing/daemon-reference/` | API broadcast (futuro) |
 | Substrate | `/home/marketing/substrate-reference/` | Argumentos estruturados (futuro) |
-
-### Progressão planejada
-
-```
-Fase 1: TELOS      → Contexto profundo (Ale + Hotel)     ← EM ANDAMENTO
-Fase 2: FABRIC     → Resolver problemas com patterns
-Fase 3: PAI        → Automatizar com skills/hooks
-Fase 4: Expansão   → Daemon, Self-update
-```
-
-### Status atual
-
-- [x] Repositórios clonados
-- [x] Guias de patterns criados
-- [x] Perfil do Ale limpo
-- [x] Plano de entrevista para TELOS
-- [ ] **Próximo:** Entrevista TELOS (Ale responde em casa, por voz)
-- [ ] Criar TELOS-ALE.md
-- [ ] Criar TELOS-HOTEL.md
-
-**Documentação:** Ver `projects/pai-study/`

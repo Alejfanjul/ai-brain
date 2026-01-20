@@ -171,3 +171,47 @@ Artigo sobre engenharia de contexto para agentes IA (referência do Ale em 2026-
 ### Link
 
 - Source local: `sources/2026-01-06-manus-context-engineering-for-ai-agents-lessons-from-bui.md`
+
+---
+
+## Daniel Miessler - PAI Ecosystem
+
+Daniel Miessler construiu um ecossistema completo de projetos open source para IA pessoal.
+
+### Repositórios
+
+| Repo | URL | Local |
+|------|-----|-------|
+| PAI | github.com/danielmiessler/Personal_AI_Infrastructure | `/home/marketing/pai-reference/` |
+| TELOS | github.com/danielmiessler/Telos | `/home/marketing/telos-reference/` |
+| Fabric | github.com/danielmiessler/fabric | `/home/marketing/fabric-reference/` |
+| Daemon | github.com/danielmiessler/Daemon | `/home/marketing/daemon-reference/` |
+| Substrate | github.com/danielmiessler/Substrate | `/home/marketing/substrate-reference/` |
+
+### Sources Capturados
+
+| Arquivo | Conteúdo |
+|---------|----------|
+| `sources/2025-12-16-unsupervised-learning-a-deepdive-on-my-personal-ai-infrastructure-pai-v2.md` | Vídeo 48min + blog completo sobre PAI v2 |
+| `sources/2026-01-11-danielmiessler-personal-ai-maturity-model-paimm.md` | PAIMM - 9 níveis de maturidade |
+| `sources/2024-10-15-unsupervised-learning-how-my-projects-fit-together-substrate-fabric-telo.md` | Vídeo 66min explicando como projetos se conectam |
+
+### Quotes Importantes
+
+**Sobre Scaffolding:**
+> "If I had to choose between the latest model with not very good scaffolding or excellent scaffolding with a model from 6 months ago, I would definitely pick the latter."
+
+**Sobre Code Before Prompts:**
+> "Prompts wrap code, not replace it. 80% deterministic code, 20% prompts for orchestration."
+
+**Sobre Clareza:**
+> "Clear Thinking → Clear Writing → Clear Prompting → High AI Efficacy"
+
+**Sobre TELOS:**
+> "Once the AI sees everything—purpose, goals, challenges, strategies, KPIs—now we can start asking questions. We can start taking actions. It's absolutely insane what you can do."
+
+### Links Externos
+
+- [How My Projects Fit Together](https://danielmiessler.com/blog/how-my-projects-fit-together)
+- [Personal AI Infrastructure](https://danielmiessler.com/blog/personal-ai-infrastructure)
+- [Personal AI Maturity Model](https://danielmiessler.com/blog/personal-ai-maturity-model)

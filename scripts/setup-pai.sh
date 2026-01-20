@@ -1,6 +1,9 @@
 #!/bin/bash
 # Setup PAI (Personal AI Infrastructure) from ai-brain repo
 # Run this on a new PC after cloning ai-brain
+#
+# IMPORTANT: All skills must live in .claude-config/skills/ (this repo)
+# The local ~/.claude/skills/ is just a copy. Never create skills only locally.
 
 set -e
 

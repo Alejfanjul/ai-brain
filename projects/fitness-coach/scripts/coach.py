@@ -275,7 +275,7 @@ def format_dashboard() -> str:
     if wendler['lifts_7d']:
         lifts_str = ', '.join(wendler['lifts_7d'])
         lines.append(f"Lifts: {lifts_str}")
-        lines.append(f"Meta semanal: {progress_bar(len(wendler['lifts_7d']), 4)} {len(wendler['lifts_7d'])}/4")
+        lines.append(f"Meta semanal: {progress_bar(len(wendler['lifts_7d']), 3)} {len(wendler['lifts_7d'])}/3")
     else:
         lines.append("Nenhum lift esta semana")
 

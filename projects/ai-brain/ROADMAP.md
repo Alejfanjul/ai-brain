@@ -1,6 +1,6 @@
 # AI Brain - Roadmap
 
-> Última atualização: 2026-01-20 (PAI Study unificado ao ai-brain)
+> Última atualização: 2026-01-20 (Migração para modelo file-based)
 
 ## Visão geral dos Marcos
 
@@ -8,7 +8,7 @@
 |-------|-----------|--------|
 | 1 | Audit Trail | ✅ Concluído |
 | 2 | Persistência de Conversas | ✅ Concluído |
-| 3 | Memória Semântica | 🔄 Em progresso |
+| 3 | Memória Semântica | ⚡ Migrado para file-based |
 | 4 | Proatividade | 📋 Futuro |
 | 5 | Contexto Profundo (TELOS) | 🔄 Em progresso |
 
@@ -20,8 +20,7 @@
 
 **Resultado:**
 - Hooks do Claude Code configurados
-- Toda interação salva no Supabase
-- Campo `repositorio` distingue origem (ai-brain / sistema-os)
+- Toda interação salva
 
 ---
 
@@ -30,111 +29,43 @@
 **Objetivo:** Manter histórico completo de conversas.
 
 **Resultado:**
-- 109+ sessões salvas
-- 1000+ mensagens registradas
+- Sessões salvas em MEMORY/sessions/
 - Session ID para continuar conversas
 
 ---
 
-## Marco 3: Memória Semântica 🔄
+## Marco 3: Memória Semântica ⚡ MIGRADO
 
-**Objetivo:** Sistema que cruza memórias (conversas) com conteúdos (sources), permitindo perguntas como "como nosso plano se relaciona com as ideias do Nate?"
+**Status anterior:** Sistema baseado em Supabase + embeddings + pgvector.
 
-### Fases
+**Migração (2026-01-20):** Substituído por modelo file-based (PAI-style).
 
-| Fase | Descrição | Status |
-|------|-----------|--------|
-| 3.1 | Sync + Extração de memórias | ✅ Concluído |
-| 3.2 | Embeddings das memórias | ✅ Concluído |
-| 3.3 | Embeddings dos sources | ✅ Concluído |
-| 3.4 | Script de busca unificada | ✅ Concluído |
-| 3.5 | Daily Digest | 📋 Pendente |
-| 3.6 | Hooks de retrieval | 📋 Pendente |
-| 3.7 | Bouncer + Fix Button | 📋 Pendente |
+### Por que migrar
 
-### Fase 3.1: Sync + Extração ✅
+| Antes (Supabase) | Depois (File-based) |
+|------------------|---------------------|
+| Requer scripts externos para busca | Claude lê nativamente |
+| Embeddings exigem processamento | Sem processamento |
+| Infraestrutura externa | Zero infraestrutura |
+| Cron jobs para manter atualizado | Hooks simples |
 
-**Resultado:**
-- 40 memórias extraídas das conversas
-- Tipos: workflow (13), decisão (11), insight (10), correção (5), padrão (1)
-- Cron job a cada 15 min (extract_memories + generate_embeddings)
+### Nova arquitetura
 
-### Fase 3.2: Embeddings das memórias ✅
-
-**Resultado:**
-- 40 memórias com embeddings (768 dimensões)
-- Ollama + nomic-embed-text configurado
-- pgvector habilitado no Supabase
-
-### Fase 3.3: Embeddings dos sources ✅
-
-**Objetivo:** Processar todos os arquivos em `sources/` para busca semântica.
-
-**Resultado:**
-- ✅ Tabela `source_chunks` criada
-- ✅ Script `embed_sources.py` funcionando
-- ✅ **969 chunks processados** (100%)
-- ✅ Ollama com GPU (RTX 5060) - processamento rápido
-
-**Configs:**
-- Chunks de ~600 palavras
-- 15% overlap entre chunks
-- Autor extraído automaticamente do nome do arquivo
-
-### Fase 3.4: Script de busca unificada ✅
-
-**Objetivo:** Busca manual que cruza memórias + sources.
-
-**Resultado:**
-- ✅ `scripts/search.py` funcionando
-- ✅ Funções RPC `search_sources` e `search_memories` no Supabase
-- ✅ Filtros: `--autor`, `--limit`, `--sources-only`, `--memories-only`
-
-```bash
-# Exemplos de uso
-python3 scripts/search.py "como implementar agentes ia"
-python3 scripts/search.py "building agents" --autor nate --limit 10
-python3 scripts/search.py "decisões importantes" --memories-only
+```
+MEMORY/
+├── sessions/     → Captura automática via hook
+├── decisions/    → Decisões importantes
+├── learnings/    → Aprendizados por fase (OBSERVE/THINK/PLAN/BUILD/EXECUTE/VERIFY)
+├── State/        → Estado ativo
+└── Signals/      → Padrões e falhas
 ```
 
-### Fase 3.5: Daily Digest 📋
+### Backup do sistema anterior
 
-**Objetivo:** Sistema me procurar de manhã com o que importa.
-
-> Inspirado no Nate: "Humans don't retrieve consistently. But we do respond to what shows up in front of us."
-
-**Entregável:**
-- Cron às 7h
-- Query projetos ativos + memórias recentes
-- Gera resumo via Claude
-- Envia para Slack/Telegram/email
-
-**Conteúdo do digest:**
-- Top 3 ações do dia
-- Um projeto que pode estar parado
-- Uma conexão interessante (memória ↔ source)
-
-### Fase 3.6: Hooks de retrieval 📋
-
-**Objetivo:** Injetar contexto relevante automaticamente nas conversas.
-
-**Entregável:**
-- `~/.claude/hooks/memory_retrieval_hook.py`
-- Hook `user_prompt_submit` → busca memórias/sources → injeta contexto
-
-### Fase 3.7: Bouncer + Fix Button 📋
-
-**Objetivo:** Qualidade e correção fácil.
-
-> Inspirado no Nate: "The fastest way to kill a system is to fill it with garbage."
-
-**Bouncer:**
-- Haiku retorna `confidence_score` ao extrair memória
-- Se < 0.6, não salva automaticamente - pede confirmação
-
-**Fix Button:**
-- Comando simples para corrigir classificação errada
-- Ex: `fix: essa memória é decisao, não insight`
+Arquivos do sistema Supabase/embeddings salvos em:
+```
+~/ai-brain-backup-YYYYMMDD/
+```
 
 ---
 
@@ -147,23 +78,6 @@ python3 scripts/search.py "decisões importantes" --memories-only
 - Acompanhamento de projetos (perguntar evolução)
 - Detecção de padrões → sugestão de automações
 - Weekly review automática
-
-**Pré-requisito:** Marco 3 concluído.
-
----
-
-## Decisões técnicas
-
-### Princípio fundamental
-> "Não quero me distanciar de modelos de ponta. Quero que meu app incorpore novas funcionalidades rapidamente."
-
-**Implicações:**
-- Sem frameworks intermediários (LangChain, CrewAI)
-- Claude Code CLI direto
-- Código próprio para controle total
-
-### Validação externa
-Alex Hillman (JFDI System) e Nate (Second Brain 2026) construíram sistemas muito similares. Ver [REFERENCES.md](./REFERENCES.md).
 
 ---
 
@@ -193,7 +107,6 @@ Alex Hillman (JFDI System) e Nate (Second Brain 2026) construíram sistemas muit
 - `telos/TELOS-ALE.md` - TELOS pessoal consolidado
 - `guides/FABRIC-ALL-PATTERNS.md` - 234 patterns disponíveis
 - `guides/FABRIC-TELOS-PATTERNS.md` - 16 patterns para manutenção do TELOS
-- `archive/` - Conversas e rascunhos anteriores
 
 ### Fase 5.2: TELOS Hotel 📋
 
@@ -224,12 +137,25 @@ Alex Hillman (JFDI System) e Nate (Second Brain 2026) construíram sistemas muit
 
 ---
 
-## Repositórios de Referência
+## Decisões técnicas
 
-| Repo | Local | Uso |
-|------|-------|-----|
-| PAI | `/home/marketing/pai-reference/` | Arquitetura de skills/hooks |
-| TELOS | `/home/marketing/telos-reference/` | Templates de contexto |
-| Fabric | `/home/marketing/fabric-reference/` | 234 patterns de prompts |
-| Daemon | `/home/marketing/daemon-reference/` | API broadcast (futuro) |
-| Substrate | `/home/marketing/substrate-reference/` | Argumentos estruturados (futuro) |
+### Princípio fundamental
+> "Não quero me distanciar de modelos de ponta. Quero que meu app incorpore novas funcionalidades rapidamente."
+
+**Implicações:**
+- Sem frameworks intermediários (LangChain, CrewAI)
+- Claude Code CLI direto
+- Código próprio para controle total
+- **File-based > Embeddings externos** (Claude já lê arquivos nativamente)
+
+### Validação externa
+Alex Hillman (JFDI System), Nate (Second Brain 2026) e Daniel Miessler (PAI) construíram sistemas muito similares. Ver [REFERENCES.md](./REFERENCES.md).
+
+---
+
+## Fases Futuras (pós-migração)
+
+- Hook de extração de learnings (classifica por fase automaticamente)
+- Busca local em MEMORY/ (grep-based ou fzf)
+- Cleanup automático de sessions antigas (rolling 90 dias)
+- Integração com extractwisdom do Fabric para sources/

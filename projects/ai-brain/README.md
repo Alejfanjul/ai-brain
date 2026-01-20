@@ -1,6 +1,6 @@
 # AI Brain - Parceiro Digital Pessoal
 
-**Status:** Em desenvolvimento (Marcos 3 e 5 em progresso)
+**Status:** Migração para modelo file-based (PAI-style)
 
 ## O que é
 
@@ -22,37 +22,11 @@ Sistema que trabalha **junto** comigo:
 ### Conexão estratégica
 Este AI Brain pessoal é protótipo da interface que funcionários de hotel usarão no futuro. Mesma lógica: falar naturalmente em vez de navegar menus e preencher campos.
 
-## O que o sistema precisa fazer
-
-### Entrada
-- [x] Receber texto (Claude Code terminal)
-- [ ] Receber áudio (transcrever)
-- [ ] Receber imagem / print de tela
-
-### Processamento
-- [x] Entender contexto da mensagem
-- [x] Identificar tipo (decisão, insight, padrão, etc.)
-- [x] Salvar com embeddings para busca semântica
-- [ ] Conectar com informações relacionadas automaticamente
-- [x] Cruzar conversas com conteúdos capturados (sources)
-
-### Proatividade
-- [ ] Daily digest - o que importa hoje
-- [ ] Acompanhar projetos - perguntar como está a evolução
-- [ ] Detectar padrões - sugerir automações
-- [ ] Me procurar na hora certa (não eu procurando ele)
-
-### Saída
-- [x] Responder no momento
-- [x] Gravar no local adequado (Supabase)
-- [ ] Criar lembretes
-- [ ] Avisar outras pessoas/sistemas quando necessário
-
-## Como funciona hoje
+## Arquitetura Atual (File-Based)
 
 ```
 ┌────────────────────────────────────────────────────────────┐
-│  AI BRAIN - ARQUITETURA ATUAL                              │
+│  AI BRAIN - MODELO FILE-BASED (PAI-style)                  │
 │                                                            │
 │   VOCÊ CONVERSA                                            │
 │        │                                                   │
@@ -62,40 +36,21 @@ Este AI Brain pessoal é protótipo da interface que funcionários de hotel usar
 │   │  (terminal) │                                          │
 │   └──────┬──────┘                                          │
 │          │                                                 │
-│          │ (hooks gravam automaticamente)                  │
+│          │ (hooks capturam automaticamente)                │
 │          ▼                                                 │
 │   ┌─────────────────────────────────────────┐              │
-│   │         SUPABASE (banco de dados)       │              │
+│   │         MEMORY/ (file system)           │              │
 │   │                                         │              │
-│   │   conversas    → 109+ sessões           │              │
-│   │   mensagens    → 1000+ mensagens        │              │
-│   │   memorias     → 80+ memórias           │              │
-│   │   source_chunks→ 969 chunks (100%)       │              │
+│   │   sessions/   → logs de sessão          │              │
+│   │   decisions/  → decisões importantes    │              │
+│   │   learnings/  → aprendizados por fase   │              │
+│   │   State/      → estado ativo            │              │
+│   │   Signals/    → padrões e falhas        │              │
 │   │                                         │              │
 │   └─────────────────────────────────────────┘              │
 │                                                            │
-│   CRON JOBS (automático):                                  │
-│   ┌──────────────────────────────────────┐                 │
-│   │ */15 min → extract_memories.py       │                 │
-│   │            + generate_embeddings.py  │                 │
-│   │            (Claude Haiku extrai      │                 │
-│   │             decisões, insights e     │                 │
-│   │             gera embeddings)         │                 │
-│   └──────────────────────────────────────┘                 │
-│                                                            │
-│   EMBEDDINGS (busca semântica):                            │
-│   ┌──────────────────────────────────────┐                 │
-│   │ Ollama (local) → nomic-embed-text    │                 │
-│   │ 768 dimensões por chunk              │                 │
-│   │ pgvector no Supabase                 │                 │
-│   └──────────────────────────────────────┘                 │
-│                                                            │
-│   BUSCA UNIFICADA (Fase 3.4):                              │
-│   ┌──────────────────────────────────────┐                 │
-│   │ python3 scripts/search.py "query"    │                 │
-│   │ → Cruza memórias + sources           │                 │
-│   │ → Filtros: --autor, --limit          │                 │
-│   └──────────────────────────────────────┘                 │
+│   VANTAGEM: Claude Code lê nativamente                     │
+│   (sem scripts de busca, sem embeddings externos)          │
 │                                                            │
 └────────────────────────────────────────────────────────────┘
 ```
@@ -106,9 +61,8 @@ Este AI Brain pessoal é protótipo da interface que funcionários de hotel usar
 |------------|------------|---------|
 | Core | Claude Code CLI + Hooks | Acesso direto a features novas |
 | Interface | Terminal | Zero setup |
-| Banco | Supabase (free tier) | PostgreSQL grátis |
-| Vetorial | pgvector | Busca semântica |
-| Embeddings | Ollama (local) | Sem custo de API |
+| Memória | File system (MEMORY/) | Claude lê nativamente |
+| Conhecimento | sources/ (markdown) | Busca via Grep/Read |
 
 ## Arquivos do projeto
 
@@ -116,7 +70,7 @@ Este AI Brain pessoal é protótipo da interface que funcionários de hotel usar
 projects/ai-brain/
 ├── README.md      ← Você está aqui (visão + estado atual)
 ├── ROADMAP.md     ← Marcos e fases de implementação
-├── SETUP.md       ← Configs técnicas, SQLs, cron
+├── SETUP.md       ← Configs técnicas
 ├── REFERENCES.md  ← Quotes e material de consulta
 ├── CHANGELOG.md   ← Histórico de decisões
 ├── telos/

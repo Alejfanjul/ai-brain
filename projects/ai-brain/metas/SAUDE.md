@@ -196,25 +196,23 @@ Entre séries do lift principal. 50-100 reps por categoria por treino.
 
 ## Log Semanal
 
-### Semana atual (13-19 Jan 2026)
+### Semana 13-19 Jan 2026 (S1 - 5s)
 
 | Data | Treino | Completou? | Energia | Notas |
 |------|--------|------------|---------|-------|
-| | | | | |
-| | | | | |
-| | | | | |
+| 14/01 Ter | Bench (S1) | Sim | - | 70kg real |
 
-### Semana 20-26 Jan 2026
+### Semana 19-25 Jan 2026 (S2 - 3s)
 
-| Data | Treino planejado | Completou? | Energia | Notas |
-|------|------------------|------------|---------|-------|
-| 19/01 Seg | Deadlift (S2) | Não | - | Não treinou |
-| 20/01 Ter | Deadlift (S2) | Sim | - | Feriado. Acessórios: canoinha, bíceps, tríceps, seated row |
-| 21/01 Qua | Cardio (colete) | | | Planejado se não chover |
-| 22/01 Qui | Bench (S2) | | | |
-| | Cardio/Metcon | | | |
-| | OFF | | | |
-| | Squat (S2) | | | |
+| Data | Treino | Completou? | Energia | Notas |
+|------|--------|------------|---------|-------|
+| 18/01 Sáb | Squat (S2) | Sim | - | 106kg real (3x76, 3x86, 3x96) |
+| 20/01 Ter | OHP (S2) | Sim | - | 44kg real. Feriado. Acessórios: canoinha, bíceps, tríceps, seated row |
+| 21/01 Qua | Cardio (colete) | | | |
+| 22/01 Qui | Deadlift (S2) | | | |
+| 23/01 Sex | OFF | | | |
+| 24/01 Sáb | Cardio/Metcon | | | |
+| 25/01 Dom | Bench (S2) | | | |
 
 ---
 

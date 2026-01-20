@@ -98,12 +98,15 @@ def parse_saude(filepath: Optional[Path] = None) -> dict:
         }
         result['log_semanal'].append(entry)
 
-        # Track completed lifts
+        # Track completed lifts (only from current Wendler week)
         if completou == 'Sim' and treino:
-            # Extract lift name from "Deadlift (S2)"
-            lift_match = re.match(r'(\w+)', treino)
-            if lift_match:
-                result['lifts_completados'].append(lift_match.group(1))
+            # Check if this lift is from the current week (e.g., "OHP (S2)" for Semana 2)
+            current_week_marker = f"(S{result['semana']})"
+            if current_week_marker in treino:
+                # Extract lift name from "Deadlift (S2)"
+                lift_match = re.match(r'(\w+)', treino)
+                if lift_match:
+                    result['lifts_completados'].append(lift_match.group(1))
 
     return result
 

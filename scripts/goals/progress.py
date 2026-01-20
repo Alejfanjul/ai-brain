@@ -92,10 +92,12 @@ def calculate_saude_progress(data: Optional[dict] = None) -> dict:
         lifts_restantes.remove(proximo)
         lifts_restantes.insert(0, proximo)
 
-    # Check if next planned is cardio based on log
-    # Find the next incomplete entry starting from today or after
+    # Check today's workout and next planned workout from log
     proximo_tipo = 'lift'
     hoje = date.today()
+    treino_hoje = None
+    treino_hoje_feito = False
+    proximo_data = None
 
     for entry in data['log_semanal']:
         # Parse entry date (DD/MM format, assume current year)
@@ -105,13 +107,19 @@ def calculate_saude_progress(data: Optional[dict] = None) -> dict:
         except (ValueError, KeyError):
             continue
 
+        # Check if this is today's workout
+        if entry_date == hoje and entry.get('treino') and 'OFF' not in entry.get('treino', ''):
+            treino_hoje = entry.get('treino')
+            treino_hoje_feito = entry.get('completou', False)
+
         # Skip past dates that weren't completed
         if entry_date < hoje and not entry['completou']:
             continue
 
-        # Check this entry
-        if not entry['completou'] and entry.get('treino'):
+        # Find next incomplete workout
+        if not entry['completou'] and entry.get('treino') and 'OFF' not in entry.get('treino', ''):
             treino = entry['treino']
+            proximo_data = entry_date
             if 'Cardio' in treino or 'Metcon' in treino:
                 proximo = treino
                 proximo_tipo = 'cardio'
@@ -138,6 +146,9 @@ def calculate_saude_progress(data: Optional[dict] = None) -> dict:
         'progresso_ciclo': progresso_ciclo,
         'proximo_treino': proximo,
         'proximo_treino_tipo': proximo_tipo,
+        'proximo_data': proximo_data,
+        'treino_hoje': treino_hoje,
+        'treino_hoje_feito': treino_hoje_feito,
         'lifts_restantes': lifts_restantes,
         'lifts_completados': completados,
         'titulo': '5/3/1 Prep & Fat Loss',
@@ -285,14 +296,36 @@ def get_today_focus(saude: Optional[dict] = None, maconha: Optional[dict] = None
         maconha = calculate_maconha_progress()
 
     focus = []
+    hoje = date.today()
 
     # Training focus
+    treino_hoje = saude.get('treino_hoje')
+    treino_hoje_feito = saude.get('treino_hoje_feito', False)
     proximo = saude.get('proximo_treino')
-    if proximo:
-        if saude.get('proximo_treino_tipo') == 'cardio':
-            focus.append(f"Cardio: {proximo}")
+    proximo_data = saude.get('proximo_data')
+
+    if treino_hoje and treino_hoje_feito:
+        # Today's workout is done
+        focus.append(f"Treino de hoje ({treino_hoje}) ✓")
+    elif treino_hoje and not treino_hoje_feito:
+        # Today has a workout pending
+        if 'Cardio' in treino_hoje or 'Metcon' in treino_hoje:
+            focus.append(f"Hoje: {treino_hoje}")
         else:
-            focus.append(f"Treino: {proximo} ({saude['semana_tipo']})")
+            focus.append(f"Hoje: {treino_hoje} ({saude['semana_tipo']})")
+    elif proximo:
+        # No workout today, show next
+        if proximo_data and proximo_data > hoje:
+            dia_abbrev = ['Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sáb', 'Dom'][proximo_data.weekday()]
+            if saude.get('proximo_treino_tipo') == 'cardio':
+                focus.append(f"Próximo ({dia_abbrev}): {proximo}")
+            else:
+                focus.append(f"Próximo ({dia_abbrev}): {proximo} ({saude['semana_tipo']})")
+        else:
+            if saude.get('proximo_treino_tipo') == 'cardio':
+                focus.append(f"Cardio: {proximo}")
+            else:
+                focus.append(f"Treino: {proximo} ({saude['semana_tipo']})")
 
     # Maconha focus
     if maconha['hoje_permitido']:

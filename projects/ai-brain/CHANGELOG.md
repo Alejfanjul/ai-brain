@@ -4,7 +4,35 @@ Histórico de decisões e mudanças importantes do projeto.
 
 ---
 
-## 2026-01-12: Fase 3.4 concluída - Busca semântica unificada
+## 2026-01-20: Migração para modelo file-based (PAI-style)
+
+**Contexto:** Sistema de embeddings/Supabase adicionava infraestrutura externa que o Claude Code não acessa nativamente. Decisão de substituir por modelo file-based inspirado no PAI do Daniel Miessler.
+
+**O que foi removido:**
+- Cron job de extração de memórias (*/15 min)
+- Scripts: `embed_sources.py`, `generate_embeddings.py`, `extract_memories.py`, `cleanup_orphan_chunks.py`, `extract_supabase_schema.py`, `search.py`
+- Schemas SQL do Supabase
+- Dependência `supabase` do requirements.txt
+- Variáveis `SUPABASE_URL` e `SUPABASE_ANON_KEY` do .env
+
+**O que foi criado:**
+- Estrutura `MEMORY/` com sessions, decisions, learnings (6 fases), State, Signals
+- Hook `session-capture.ts` que dispara no evento Stop
+- Documentação completa do novo sistema
+
+**Backup:** `~/ai-brain-backup-20260120/`
+
+**Motivação:**
+| Antes (Supabase) | Depois (File-based) |
+|------------------|---------------------|
+| Scripts externos para busca | Claude lê nativamente |
+| Embeddings exigem processamento | Zero processamento |
+| Infraestrutura externa | Apenas arquivos |
+| Cron jobs | Hooks simples |
+
+---
+
+## 2026-01-12: Fase 3.4 concluída - Busca semântica unificada (OBSOLETO)
 
 **Contexto:** Próximo passo do Memory Lane era criar script de busca que cruza memórias com sources.
 

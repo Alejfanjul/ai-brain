@@ -153,46 +153,72 @@ cp templates/PROJECT-EXPLORATION.md projects/nome-do-projeto/README.md
 
 ---
 
-## PAI (Personal AI Infrastructure)
+## Ecossistema Daniel Miessler
 
-### O que é
+O **ai-brain** é construído sobre três repositórios de referência do Daniel Miessler:
 
-O **ai-brain** é uma implementação pessoal baseada no framework **PAI** (Personal AI Infrastructure) do Daniel Miessler.
+| Repo | O que é | Local | Quando usar |
+|------|---------|-------|-------------|
+| **PAI** | Arquitetura de IA pessoal | `~/Personal_AI_Infrastructure` | Criar skills, hooks, estrutura |
+| **Fabric** | 234 prompts prontos | `~/Fabric` | Tarefas específicas (análise, criação, extração) |
+| **Substrate** | Organização de conhecimento | `~/Substrate` | Estruturar dados, claims, ideias |
 
-| Repo | Propósito | Local |
-|------|-----------|-------|
-| **ai-brain** | Sistema ativo do Ale | `~/ai-brain` |
-| **Personal_AI_Infrastructure** | Framework original (referência) | `~/Personal_AI_Infrastructure` |
+### PAI (Personal AI Infrastructure)
 
-### Relação entre os dois
-
-```
-Personal_AI_Infrastructure     ai-brain
-(framework original)     →     (implementação pessoal)
-├── Conceitos                  ├── Skills customizados
-├── 15 Princípios             ├── Hooks adaptados
-├── Arquitetura base          ├── Scripts próprios
-└── Exemplos                  └── Conhecimento pessoal
-```
-
-O **ai-brain** incorporou do PAI:
+Framework de arquitetura. O ai-brain incorporou:
 - Sistema de Skills (`.claude-config/skills/`)
 - Sistema de Hooks (`.claude-config/hooks/`)
 - 15 Princípios Fundadores
 - Arquitetura CLI-first
-- Estrutura CORE/USER
 
-### Quando usar o PAI como referência
+**Usar para:** criar novos skills, hooks, estruturar features.
 
-Ao construir novas features, consultar o PAI original para:
-- Ver como funcionalidades foram estruturadas
-- Buscar padrões de skills/hooks
-- Entender princípios de design
+### Fabric
+
+Coleção de 234 patterns (prompts) testados pela comunidade.
+
+**Guias locais:**
+- `projects/ai-brain/guides/FABRIC-ALL-PATTERNS.md` — catálogo completo
+- `projects/ai-brain/guides/FABRIC-TELOS-PATTERNS.md` — patterns para TELOS
+
+**Categorias principais:**
+| Categoria | Qtd | Exemplos |
+|-----------|-----|----------|
+| Análise | 35 | `analyze_claims`, `analyze_personality`, `analyze_risk` |
+| Criação | 55 | `create_summary`, `create_keynote`, `create_report` |
+| Extração | 42 | `extract_wisdom`, `extract_insights`, `extract_ideas` |
+| TELOS | 16 | `t_find_blindspots`, `t_check_dunning_kruger` |
+
+**Usar para:** buscar prompts prontos antes de criar do zero.
 
 ```bash
-# Explorar o PAI original
-ls ~/Personal_AI_Infrastructure/
+# Listar patterns disponíveis
+ls ~/Fabric/patterns/
+
+# Usar um pattern
+cat input.txt | fabric -p extract_wisdom
 ```
+
+### Substrate
+
+Sistema de organização do mundo em categorias estruturadas.
+
+**Estrutura:**
+```
+~/Substrate/
+├── Arguments/      ← Argumentos e debates
+├── Claims/         ← Afirmações verificáveis
+├── Data/           ← Dados e estatísticas
+├── Experiments/    ← Experimentos e testes
+├── Frames/         ← Modelos mentais
+├── Ideas/          ← Ideias e conceitos
+├── Models/         ← Modelos de pensamento
+├── Organizations/  ← Organizações relevantes
+├── Outcomes/       ← Resultados e consequências
+└── People/         ← Pessoas importantes
+```
+
+**Usar para:** estruturar conhecimento, criar taxonomias.
 
 ### 15 Princípios Fundadores (resumo)
 

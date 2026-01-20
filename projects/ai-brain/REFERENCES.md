@@ -178,33 +178,56 @@ Artigo sobre engenharia de contexto para agentes IA (referência do Ale em 2026-
 
 Daniel Miessler construiu um ecossistema completo de projetos open source para IA pessoal.
 
-### Repositórios
+### Repositórios Principais (clonados localmente)
 
-| Repo | URL | Local |
-|------|-----|-------|
-| **PAI** | github.com/danielmiessler/Personal_AI_Infrastructure | `~/Personal_AI_Infrastructure` (PC trabalho) |
-| TELOS | github.com/danielmiessler/Telos | - |
-| Fabric | github.com/danielmiessler/fabric | - |
-| Daemon | github.com/danielmiessler/Daemon | - |
-| Substrate | github.com/danielmiessler/Substrate | - |
+| Repo | Propósito | Local |
+|------|-----------|-------|
+| **PAI** | Arquitetura de IA pessoal | `~/Personal_AI_Infrastructure` |
+| **Fabric** | 234 prompts prontos | `~/Fabric` |
+| **Substrate** | Organização de conhecimento | `~/Substrate` |
 
-### Relação ai-brain ↔ PAI
+### Outros Repos (referência)
 
-O **ai-brain** é a implementação pessoal do Ale, baseada no framework PAI:
+| Repo | URL | Descrição |
+|------|-----|-----------|
+| TELOS | github.com/danielmiessler/Telos | Template de contexto pessoal |
+| Daemon | github.com/danielmiessler/Daemon | Agente autônomo |
+
+### Relação ai-brain ↔ Ecossistema Miessler
 
 ```
-Personal_AI_Infrastructure     ai-brain
-(framework original)     →     (implementação pessoal)
-├── Conceitos                  ├── Skills customizados
-├── 15 Princípios             ├── Hooks adaptados
-├── Arquitetura base          ├── Scripts próprios
-└── Exemplos                  └── Conhecimento pessoal
+┌─────────────────────────────────────────────────────────────┐
+│                      ai-brain                                │
+│                (implementação pessoal)                       │
+├─────────────────────────────────────────────────────────────┤
+│                                                              │
+│   ┌─────────────┐  ┌─────────────┐  ┌─────────────┐        │
+│   │     PAI     │  │   Fabric    │  │  Substrate  │        │
+│   │ (estrutura) │  │  (prompts)  │  │   (dados)   │        │
+│   └─────────────┘  └─────────────┘  └─────────────┘        │
+│         ↓                ↓                ↓                 │
+│   Skills/Hooks    Patterns prontos   Taxonomias            │
+│                                                              │
+└─────────────────────────────────────────────────────────────┘
 ```
 
-**Quando consultar o PAI original:**
-- Buscar padrões para novos skills/hooks
-- Entender princípios de design
-- Ver exemplos de implementação
+### Quando usar cada repo
+
+| Situação | Usar |
+|----------|------|
+| Criar novo skill | PAI → ver estrutura de skills |
+| Analisar conteúdo | Fabric → buscar pattern existente |
+| Criar hook | PAI → ver exemplos de hooks |
+| Estruturar conhecimento | Substrate → ver categorias |
+| Extrair insights | Fabric → `extract_wisdom`, `extract_ideas` |
+| Criar resumo | Fabric → `create_summary`, `summarize` |
+
+### Guias Locais
+
+| Arquivo | Conteúdo |
+|---------|----------|
+| `guides/FABRIC-ALL-PATTERNS.md` | Catálogo dos 234 patterns do Fabric |
+| `guides/FABRIC-TELOS-PATTERNS.md` | 16 patterns específicos para TELOS |
 
 ### Sources Capturados
 

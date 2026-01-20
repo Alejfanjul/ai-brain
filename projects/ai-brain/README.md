@@ -1,6 +1,6 @@
 # AI Brain - Parceiro Digital Pessoal
 
-**Status:** Migração para modelo file-based (PAI-style)
+**Status:** Operacional (modelo file-based PAI-style)
 
 ## O que é
 
@@ -16,13 +16,15 @@ Toda ferramenta de produtividade que usei morreu da mesma forma: exige manutenç
 ### Solução
 Sistema que trabalha **junto** comigo:
 - Captura acontece naturalmente (conversas com Claude)
-- IA classifica e organiza automaticamente
-- Sistema me procura com o que importa (não eu procurando nele)
+- Hooks gravam sessões automaticamente
+- Claude lê arquivos nativamente (sem scripts intermediários)
 
 ### Conexão estratégica
 Este AI Brain pessoal é protótipo da interface que funcionários de hotel usarão no futuro. Mesma lógica: falar naturalmente em vez de navegar menus e preencher campos.
 
-## Arquitetura Atual (File-Based)
+---
+
+## Arquitetura (File-Based)
 
 ```
 ┌────────────────────────────────────────────────────────────┐
@@ -36,12 +38,12 @@ Este AI Brain pessoal é protótipo da interface que funcionários de hotel usar
 │   │  (terminal) │                                          │
 │   └──────┬──────┘                                          │
 │          │                                                 │
-│          │ (hooks capturam automaticamente)                │
+│          │ Stop hook → session-capture.ts                  │
 │          ▼                                                 │
 │   ┌─────────────────────────────────────────┐              │
 │   │         MEMORY/ (file system)           │              │
 │   │                                         │              │
-│   │   sessions/   → logs de sessão          │              │
+│   │   sessions/   → logs de sessão (auto)   │              │
 │   │   decisions/  → decisões importantes    │              │
 │   │   learnings/  → aprendizados por fase   │              │
 │   │   State/      → estado ativo            │              │
@@ -49,11 +51,82 @@ Este AI Brain pessoal é protótipo da interface que funcionários de hotel usar
 │   │                                         │              │
 │   └─────────────────────────────────────────┘              │
 │                                                            │
-│   VANTAGEM: Claude Code lê nativamente                     │
-│   (sem scripts de busca, sem embeddings externos)          │
+│   sources/ → PDFs, artigos, vídeos capturados              │
 │                                                            │
 └────────────────────────────────────────────────────────────┘
 ```
+
+### Por que file-based?
+
+| Antes (Supabase/Embeddings) | Agora (File-based) |
+|-----------------------------|---------------------|
+| Scripts externos para busca | Claude lê direto |
+| Processamento de embeddings | Zero processamento |
+| Cron jobs cada 15 min | Hooks no momento certo |
+| Infraestrutura externa | Apenas arquivos |
+
+---
+
+## Quick Start
+
+### Comandos principais
+
+| Comando | Descrição |
+|---------|-----------|
+| `/goals` ou `/metas` | Ver progresso das metas pessoais |
+| `/pdf` | Capturar PDF para sources |
+| `ls MEMORY/sessions/` | Ver sessões recentes |
+
+### Captura de conteúdo
+
+```bash
+# YouTube
+python3 scripts/capture_youtube.py <url>
+
+# Artigo web
+python3 scripts/capture_article.py <url>
+
+# PDF
+python3 scripts/capture_pdf.py /path/to/file.pdf --author "Autor" --title "Título"
+```
+
+### Consultar memória
+
+```bash
+# Sessões recentes
+ls -la ~/ai-brain/MEMORY/sessions/
+
+# Buscar termo
+grep -r "termo" ~/ai-brain/MEMORY/
+
+# Estado ativo
+cat ~/ai-brain/MEMORY/State/active-work.json
+```
+
+---
+
+## Estrutura MEMORY/
+
+```
+MEMORY/
+├── sessions/          # Auto-capturado pelo hook Stop
+│   └── YYYY-MM-DD-{session_id}.md
+├── decisions/         # Decisões importantes
+├── learnings/         # Aprendizados por fase do ciclo PAI
+│   ├── OBSERVE/       # Observações e descobertas
+│   ├── THINK/         # Análises e reflexões
+│   ├── PLAN/          # Planos e estratégias
+│   ├── BUILD/         # O que aprendi construindo
+│   ├── EXECUTE/       # O que aprendi executando
+│   └── VERIFY/        # Validações
+├── State/
+│   └── active-work.json   # Trabalho atual
+└── Signals/
+    ├── failures.jsonl     # Erros para análise
+    └── patterns.jsonl     # Padrões detectados
+```
+
+---
 
 ## Stack
 
@@ -63,31 +136,50 @@ Este AI Brain pessoal é protótipo da interface que funcionários de hotel usar
 | Interface | Terminal | Zero setup |
 | Memória | File system (MEMORY/) | Claude lê nativamente |
 | Conhecimento | sources/ (markdown) | Busca via Grep/Read |
+| Hooks | TypeScript + Bun | Performance + tipagem |
+
+---
 
 ## Arquivos do projeto
 
 ```
 projects/ai-brain/
-├── README.md      ← Você está aqui (visão + estado atual)
-├── ROADMAP.md     ← Marcos e fases de implementação
+├── README.md      ← Você está aqui
+├── ROADMAP.md     ← Marcos e fases
 ├── SETUP.md       ← Configs técnicas
-├── REFERENCES.md  ← Quotes e material de consulta
+├── REFERENCES.md  ← Material de estudo
 ├── CHANGELOG.md   ← Histórico de decisões
 ├── telos/
 │   └── TELOS-ALE.md       ← Contexto profundo pessoal
 ├── metas/
-│   ├── README.md          ← Visão geral das metas
-│   ├── MACONHA.md         ← Tracking: redução de maconha
+│   ├── README.md          ← Visão geral
+│   ├── MACONHA.md         ← Tracking: redução
 │   └── SAUDE.md           ← Tracking: 5/3/1 + cardio
 ├── guides/
-│   ├── FABRIC-ALL-PATTERNS.md      ← 234 patterns disponíveis
-│   └── FABRIC-TELOS-PATTERNS.md    ← 16 patterns para TELOS
+│   ├── FABRIC-ALL-PATTERNS.md      ← 234 patterns
+│   └── FABRIC-TELOS-PATTERNS.md    ← 16 patterns TELOS
 └── archive/
-    └── (conversas e rascunhos anteriores)
+    └── (rascunhos anteriores)
 ```
+
+---
+
+## Migração (2026-01-20)
+
+Sistema anterior (Supabase + embeddings + pgvector) foi substituído por modelo file-based.
+
+**Backup disponível em:** `~/ai-brain-backup-20260120/`
+
+Contém:
+- Scripts de embeddings removidos
+- Schemas SQL
+- Configuração do cron
+
+---
 
 ## Links úteis
 
-- [ROADMAP.md](./ROADMAP.md) - Ver próximos passos
+- [ROADMAP.md](./ROADMAP.md) - Próximos passos
 - [SETUP.md](./SETUP.md) - Configurar ambiente
-- [REFERENCES.md](./REFERENCES.md) - Material de estudo (Hillman, Nate)
+- [REFERENCES.md](./REFERENCES.md) - Material de estudo (Hillman, Nate, Miessler)
+- [MEMORY/README.md](../../MEMORY/README.md) - Documentação do sistema de memória

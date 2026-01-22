@@ -210,7 +210,7 @@ Entre séries do lift principal. 50-100 reps por categoria por treino.
 |------|--------|------------|---------|-------|
 | 18/01 Sáb | Squat (S2) | Sim | - | 106kg real (3x76, 3x86, 3x96) |
 | 20/01 Ter | OHP (S2) | Sim | - | 44kg real. Feriado. Acessórios: canoinha, bíceps, tríceps, seated row |
-| 21/01 Qua | Cardio (colete) | | | |
+| 21/01 Qua | Cardio (colete) | Sim | - | 43min caminhada, 10kg. Incômodo calcanhar esq (ligamento) - alongar amanhã |
 | 22/01 Qui | Deadlift (S2) | | | |
 | 23/01 Sex | OFF | | | |
 | 24/01 Sáb | Cardio/Metcon | | | |

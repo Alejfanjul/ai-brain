@@ -52,7 +52,7 @@
 | 18/01 | Dom | Não | - | - | Trouxe maconha pra casa por engano, resistiu! |
 | 19/01 | Seg | Não | - | - | Não fumou |
 | 20/01 | Ter | Não | 7+ | - | Feriado - dia "ideal" pra fumar, manteve firme. Energia melhor, tristeza diminuindo |
-| 21/01 | Qua | | | | |
+| 21/01 | Qua | Não | - | - | Streak mantido |
 | 22/01 | Qui | | | | |
 | 23/01 | Sex | | | | Permitido |
 | 24/01 | Sáb | | | | Permitido |

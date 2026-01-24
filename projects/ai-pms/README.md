@@ -1,26 +1,29 @@
-# AI-PMS - Sistema de Hotelaria Nativo de IA
+# Cosmo - Plataforma de Hotelaria
 
-> Sistema de gestão hoteleira construído nativamente para a era de agentes de IA.
+> "Nem todos os funcionários lidam com reservas, mas todos lidam com hóspedes."
 
 ---
 
 ## Visão
 
-A hotelaria se industrializou, mas nunca se digitalizou de verdade. Todos os sistemas foram construídos para digitalizar processos analógicos. A IA permite retornar à essência original da hospitalidade — tratamento individualizado em escala.
+**Cosmo** é uma plataforma base para hotelaria com o **hóspede no centro** — não reservas.
 
-**Inversão fundamental:** De sistema como ferramenta de controle para sistema como plataforma de empoderamento.
+A hotelaria se industrializou, mas nunca se digitalizou de verdade. Sistemas atuais são versões digitais fragmentadas de processos analógicos, centrados em reservas, usados apenas pela recepção.
+
+**Nossa proposta:** Sistema onde todos os funcionários contribuem, porque todos impactam o hóspede de alguma maneira.
 
 ---
 
 ## Status
 
-**Fase:** Exploração e definição
+**Fase:** Construção da base técnica
 
 - [x] Filosofia e propósito definidos
-- [x] Ideia de comunidade de prática documentada
-- [x] Arquitetura técnica desenhada
-- [x] Stack open source pesquisado
-- [x] Hotel como laboratório estruturado
+- [x] Stack open source pesquisado (QloApps + Channex)
+- [x] QloApps instalado e API funcionando
+- [x] Conta Channex criada
+- [ ] Integração QloApps ↔ Channex
+- [ ] Análise de Oceano Azul
 - [ ] Primeiro MVP/protótipo
 
 ---
@@ -29,15 +32,19 @@ A hotelaria se industrializou, mas nunca se digitalizou de verdade. Todos os sis
 
 ```
 ai-pms/
-├── README.md                ← Este arquivo
+├── README.md                    ← Este arquivo
+├── COSMO-VISION.md              ← Visão completa do produto
 ├── visao/
-│   ├── ai-pms-filosofia.md                    ← Propósito e filosofia do negócio
-│   └── ideia-sistema-social-hospitalidade.md  ← Comunidade de prática entre hotéis
+│   ├── ai-pms-filosofia.md      ← Propósito e filosofia
+│   └── ideia-sistema-social-hospitalidade.md
 ├── arquitetura/
-│   ├── HOTEL-ARCHITECTURE.md    ← Arquitetura técnica da plataforma
-│   └── STACK-RESEARCH.md        ← Pesquisa de stack open source
+│   ├── HOTEL-ARCHITECTURE.md    ← Arquitetura técnica
+│   └── STACK-RESEARCH.md        ← Pesquisa de stack
+├── integracao/
+│   └── CHANNEX-INTEGRATION.md   ← Plano de integração com Channel Manager
 └── lab/
-    └── HOTEL-LAB.md             ← Duke Beach como laboratório de observação
+    ├── HOTEL-LAB.md             ← Duke Beach como laboratório
+    └── QLOAPPS-EXPLORATION.md   ← Notas técnicas do QloApps
 ```
 
 ---
@@ -73,14 +80,40 @@ Este projeto é a **aplicação prática** do que está sendo aprendido em `proj
 
 ## Próximos Passos
 
-- [ ] Criar TELOS do Duke Beach Hotel
-- [ ] Identificar primeiro problema a resolver (skill específico)
-- [ ] Prototipar solução mínima
-- [ ] Validar com stakeholders reais
+### Imediato
+- [ ] Gerar API Key no Channex staging
+- [ ] Testar API do Channex
+- [ ] Construir middleware de integração
+
+### Estratégico
+- [ ] Análise de Oceano Azul dos PMS existentes
+- [ ] Protótipo de interface "hóspede no centro"
+- [ ] Validação com equipe do Duke Beach
+
+---
+
+## Ambiente de Desenvolvimento
+
+### QloApps (PMS)
+- **Local:** `~/QloApps`
+- **Servidor:** `cd ~/QloApps && php -S localhost:8080`
+- **Admin:** http://localhost:8080/admin/
+- **API Key:** `Q4D4TJJUN8DNHZL6GTZY2VQ493V2DMH9`
+
+### Channex (Channel Manager)
+- **Staging:** https://staging.channex.io/
+- **Docs:** https://docs.channex.io/
+
+### Sistema existente
+- **Local:** `~/sistema-os`
+- **Banco:** Supabase (PostgreSQL)
+- **Schema:** `~/sistema-os/docs/schemas/supabase_full_schema_20260116.sql`
 
 ---
 
 ## Referências
 
-- `projects/pai-study/` - Jornada de aprendizado PAI/TELOS/FABRIC
-- `projects/pai-study/TELOS-ALE.md` - TELOS pessoal (VISION conecta com este projeto)
+- `COSMO-VISION.md` - Visão completa do produto
+- `integracao/CHANNEX-INTEGRATION.md` - Plano de integração
+- `lab/QLOAPPS-EXPLORATION.md` - Notas técnicas QloApps
+- `~/sistema-os/` - Sistema atual (base para camada de IA)

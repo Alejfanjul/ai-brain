@@ -124,6 +124,52 @@ Trigger: Nova reserva via OTA
 4. Atualizar disponibilidade no QloApps
 ```
 
+**Estrutura XML para criar reserva no QloApps:**
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<qloapps>
+<booking>
+    <id_property>1</id_property>
+    <currency>BRL</currency>
+    <booking_status>1</booking_status>
+    <payment_status>1</payment_status>
+    <source>Channex-Booking.com</source>
+    <remark>Reserva via OTA</remark>
+    <associations>
+        <customer_detail>
+            <firstname>Maria</firstname>
+            <lastname>Santos</lastname>
+            <email>maria@teste.com</email>
+            <phone>11999998888</phone>
+        </customer_detail>
+        <price_details>
+            <total_paid>0</total_paid>
+            <total_price_with_tax>900.00</total_price_with_tax>
+        </price_details>
+        <room_types>
+            <room_type>
+                <id_room_type>1</id_room_type>
+                <checkin_date>2026-03-10</checkin_date>
+                <checkout_date>2026-03-12</checkout_date>
+                <number_of_rooms>1</number_of_rooms>
+                <rooms>
+                    <room>
+                        <!-- NÃO especificar id_room - deixar auto-select -->
+                        <adults>2</adults>
+                        <child>0</child>
+                        <unit_price_without_tax>720.00</unit_price_without_tax>
+                        <total_tax>180.00</total_tax>
+                    </room>
+                </rooms>
+            </room_type>
+        </room_types>
+    </associations>
+</booking>
+</qloapps>
+```
+
+**Importante:** NÃO especificar `id_room` na requisição. O QloApps seleciona automaticamente o primeiro quarto disponível do tipo solicitado.
+
 ---
 
 ## Mapeamento de Dados
@@ -266,14 +312,51 @@ channex-middleware/
 3. [x] Propriedade já existe: "The Hotel Prime"
 4. [x] Mapear room types (QloApps ↔ Channex)
 5. [x] Criar rate plans para cada room type
-6. [x] Testar envio de ARI (disponibilidade + tarifas)
+6. [x] Testar envio de ARI (disponibilidade + tarifas) - QloApps → Channex
+7. [x] Testar criação de reserva via API - Channex → QloApps
 
 ### Pendente
-7. [ ] Implementar cliente Python para QloApps
-8. [ ] Implementar cliente Python para Channex
-9. [ ] Criar sync automático de disponibilidade
-10. [ ] Criar sync de reservas (Channex → QloApps)
-11. [ ] Testar fluxo completo com OTA real
+
+#### Próxima sessão: Criar Middleware Python
+
+**Objetivo:** Automatizar a sincronização QloApps ↔ Channex
+
+**Estrutura proposta:**
+```
+projects/ai-pms/middleware/
+├── app/
+│   ├── __init__.py
+│   ├── main.py              # FastAPI app
+│   ├── config.py            # Credenciais e configurações
+│   ├── qloapps/
+│   │   ├── client.py        # Cliente API QloApps (XML)
+│   │   └── models.py        # Pydantic models
+│   ├── channex/
+│   │   ├── client.py        # Cliente API Channex (JSON)
+│   │   └── models.py        # Pydantic models
+│   ├── sync/
+│   │   ├── availability.py  # QloApps → Channex (ARI)
+│   │   └── bookings.py      # Channex → QloApps (reservas)
+│   └── mappings.py          # Mapeamento de IDs
+├── requirements.txt
+└── README.md
+```
+
+**Tarefas:**
+1. [ ] Criar estrutura do projeto
+2. [ ] Implementar cliente QloApps (XML → dict)
+3. [ ] Implementar cliente Channex (JSON)
+4. [ ] Criar sync de disponibilidade (cron ou manual)
+5. [ ] Criar sync de reservas (polling)
+6. [ ] Testar fluxo end-to-end
+
+**Credenciais já configuradas:**
+- QloApps API Key: `Q4D4TJJUN8DNHZL6GTZY2VQ493V2DMH9`
+- Channex API Key: `uTdTdIa1S+kXozFtM8wGtESiMtrzb7aRSZI50Io7rYEsS+EKApvdHjvvx+mqP09v`
+
+#### Futuro
+- [ ] Configurar webhook Channex para receber reservas em tempo real
+- [ ] Testar fluxo completo com OTA real (Booking.com staging)
 
 ---
 

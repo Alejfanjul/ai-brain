@@ -54,8 +54,8 @@
 | 20/01 | Ter | Não | 7+ | - | Feriado - dia "ideal" pra fumar, manteve firme. Energia melhor, tristeza diminuindo |
 | 21/01 | Qua | Não | - | - | Streak mantido |
 | 22/01 | Qui | Não | - | - | Streak 5 dias. Treinou pesado, manteve firme |
-| 23/01 | Sex | | | | Permitido |
-| 24/01 | Sáb | | | | Permitido |
+| 23/01 | Sex | Sim | | | Permitido - sexta liberada |
+| 24/01 | Sáb | Sim | | | Permitido |
 | 25/01 | Dom | | | | Permitido |
 
 **Reflexão da semana:**

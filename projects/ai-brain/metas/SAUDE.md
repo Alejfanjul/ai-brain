@@ -190,9 +190,8 @@ Entre séries do lift principal. 50-100 reps por categoria por treino.
 
 **Ciclo 1, Semana 2** (semana das 3 reps)
 
-**Próximo treino:** Bench (Dom 25/01)
-- 46kg x3, 53kg x3, 60kg x3
-- FSL: 5x5 @ 46kg
+**Próximo treino:** Squat (S3 - semana das 1s)
+- Aguardar início da Semana 3
 
 ---
 
@@ -212,9 +211,9 @@ Entre séries do lift principal. 50-100 reps por categoria por treino.
 | 20/01 Ter | OHP (S2) | Sim | - | 44kg real. Feriado. Acessórios: canoinha, bíceps, tríceps, seated row |
 | 21/01 Qua | Cardio (colete) | Sim | - | 43min caminhada, 10kg. Incômodo calcanhar esq (ligamento) - alongar amanhã |
 | 22/01 Qui | Deadlift (S2) | Sim | - | 120kg TM. 3x86, 3x96, 3x108. FSL 5x5@86. Acessórios em circuit (3x20): lat pulldown, biceps curl, canoinha, KB swing |
-| 23/01 Sex | Cardio (colete) | | | Planejado: 30-40min caminhada. Se dormir mal → OFF |
-| 24/01 Sáb | Cardio/Metcon | | | |
-| 25/01 Dom | Bench (S2) | | | |
+| 23/01 Sex | Cardio (colete) | Sim | - | 45min caminhada com colete. Tornozelo sem incômodo |
+| 24/01 Sáb | Bench (S2) | Sim | - | TM 70. 3x50, 3x56, 3x66. FSL 5x5@50. Acessórios: pullups, bíceps curl máquina, abwheel, tríceps |
+| 25/01 Dom | OFF | | | |
 
 ---
 

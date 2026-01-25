@@ -16,13 +16,18 @@ A hotelaria se industrializou, mas nunca se digitalizou de verdade. Sistemas atu
 
 ## Status
 
-**Fase:** Construção da base técnica
+**Fase:** Integração QloApps ↔ Channex (em progresso)
 
 - [x] Filosofia e propósito definidos
 - [x] Stack open source pesquisado (QloApps + Channex)
 - [x] QloApps instalado e API funcionando
-- [x] Conta Channex criada
-- [ ] Integração QloApps ↔ Channex
+- [x] Conta Channex criada (staging)
+- [x] Room types e rate plans mapeados
+- [x] **Middleware Python criado** (FastAPI)
+- [x] **Módulo PHP webhook no QloApps**
+- [x] **Fluxo QloApps → Middleware testado e funcionando**
+- [ ] Implementar sync real com Channex (ARI)
+- [ ] Configurar webhook Channex → Middleware
 - [ ] Análise de Oceano Azul
 - [ ] Primeiro MVP/protótipo
 
@@ -34,6 +39,14 @@ A hotelaria se industrializou, mas nunca se digitalizou de verdade. Sistemas atu
 ai-pms/
 ├── README.md                    ← Este arquivo
 ├── COSMO-VISION.md              ← Visão completa do produto
+├── middleware/                  ← 🆕 Middleware de integração
+│   ├── app/
+│   │   ├── main.py              # FastAPI app (webhooks)
+│   │   ├── config.py            # Configurações e mapeamentos
+│   │   ├── channex_client.py    # Cliente API Channex
+│   │   └── qloapps_client.py    # Cliente API QloApps
+│   ├── requirements.txt
+│   └── README.md
 ├── visao/
 │   ├── ai-pms-filosofia.md      ← Propósito e filosofia
 │   └── ideia-sistema-social-hospitalidade.md
@@ -45,6 +58,57 @@ ai-pms/
 └── lab/
     ├── HOTEL-LAB.md             ← Duke Beach como laboratório
     └── QLOAPPS-EXPLORATION.md   ← Notas técnicas do QloApps
+```
+
+---
+
+## Como Rodar
+
+### 1. QloApps (PMS)
+
+```bash
+cd ~/QloApps && php -S localhost:8080
+```
+
+- **Front:** http://localhost:8080
+- **Admin:** http://localhost:8080/admin964cmnm2w/
+
+### 2. Middleware (Integração)
+
+```bash
+cd ~/ai-brain/projects/ai-pms/middleware
+pip install -r requirements.txt
+uvicorn app.main:app --reload --port 8001
+```
+
+- **API:** http://localhost:8001
+- **Docs:** http://localhost:8001/docs
+
+### 3. Módulo QloApps
+
+O módulo `channexwebhook` já está instalado em:
+- `~/QloApps/modules/channexwebhook/`
+- Configurado para enviar webhooks para `http://localhost:8001/webhook/qloapps`
+
+---
+
+## Fluxo Atual (Funcionando)
+
+```
+┌─────────────────────────────────────────────────────────────────┐
+│  RESERVA NO MOTOR QLOAPPS                                       │
+│  ─────────────────────────                                      │
+│                                                                 │
+│  1. Hóspede faz reserva no site                                │
+│  2. QloApps cria a reserva                                      │
+│  3. Módulo PHP dispara webhook com dados da reserva            │
+│  4. Middleware recebe em /webhook/qloapps                       │
+│  5. Middleware extrai: room_type, datas, cliente               │
+│  6. Middleware mapeia para IDs do Channex                       │
+│  7. [TODO] Middleware envia ARI para Channex                    │
+│  8. [TODO] Channex atualiza OTAs                               │
+│                                                                 │
+└─────────────────────────────────────────────────────────────────┘
 ```
 
 ---
@@ -69,21 +133,13 @@ Conectar pessoas que fazem trabalhos similares em hotéis diferentes, permitindo
 
 ---
 
-## Conexão com PAI
-
-Este projeto é a **aplicação prática** do que está sendo aprendido em `projects/pai-study/`:
-- TELOS do hotel (contexto profundo)
-- Skills específicos de hotelaria
-- Hooks para automação
-
----
-
 ## Próximos Passos
 
-### Imediato
-- [ ] Gerar API Key no Channex staging
-- [ ] Testar API do Channex
-- [ ] Construir middleware de integração
+### Imediato (próxima sessão)
+1. [ ] Implementar envio real de ARI para Channex
+2. [ ] Expor middleware na internet (ngrok/cloudflare tunnel)
+3. [ ] Configurar webhook do Channex para receber reservas de OTAs
+4. [ ] Testar fluxo completo bidirecional
 
 ### Estratégico
 - [ ] Análise de Oceano Azul dos PMS existentes
@@ -92,22 +148,13 @@ Este projeto é a **aplicação prática** do que está sendo aprendido em `proj
 
 ---
 
-## Ambiente de Desenvolvimento
+## Credenciais (Staging)
 
-### QloApps (PMS)
-- **Local:** `~/QloApps`
-- **Servidor:** `cd ~/QloApps && php -S localhost:8080`
-- **Admin:** http://localhost:8080/admin/
-- **API Key:** `Q4D4TJJUN8DNHZL6GTZY2VQ493V2DMH9`
-
-### Channex (Channel Manager)
-- **Staging:** https://staging.channex.io/
-- **Docs:** https://docs.channex.io/
-
-### Sistema existente
-- **Local:** `~/sistema-os`
-- **Banco:** Supabase (PostgreSQL)
-- **Schema:** `~/sistema-os/docs/schemas/supabase_full_schema_20260116.sql`
+| Serviço | Credencial |
+|---------|------------|
+| QloApps API Key | `Q4D4TJJUN8DNHZL6GTZY2VQ493V2DMH9` |
+| Channex API Key | `uTdTdIa1S+kXozFtM8wGtESiMtrzb7aRSZI50Io7rYEsS+EKApvdHjvvx+mqP09v` |
+| Channex Property ID | `7c504651-9b33-48bc-9896-892c351f3736` |
 
 ---
 
@@ -115,5 +162,5 @@ Este projeto é a **aplicação prática** do que está sendo aprendido em `proj
 
 - `COSMO-VISION.md` - Visão completa do produto
 - `integracao/CHANNEX-INTEGRATION.md` - Plano de integração
+- `middleware/README.md` - Documentação do middleware
 - `lab/QLOAPPS-EXPLORATION.md` - Notas técnicas QloApps
-- `~/sistema-os/` - Sistema atual (base para camada de IA)

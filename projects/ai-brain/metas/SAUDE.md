@@ -188,10 +188,10 @@ Entre séries do lift principal. 50-100 reps por categoria por treino.
 
 ## Status Atual
 
-**Ciclo 1, Semana 2** (semana das 3 reps)
+**Ciclo 1, Semana 3** (semana das 1s)
 
-**Próximo treino:** Squat (S3 - semana das 1s)
-- Aguardar início da Semana 3
+**Próximo treino:** Corrida/Metcon (27/01)
+**Depois:** OHP (S3)
 
 ---
 
@@ -215,6 +215,13 @@ Entre séries do lift principal. 50-100 reps por categoria por treino.
 | 24/01 Sáb | Bench (S2) | Sim | - | TM 70. 3x50, 3x56, 3x66. FSL 5x5@50. Acessórios: pullups, bíceps curl máquina, abwheel, tríceps |
 | 25/01 Dom | OFF | | | |
 
+### Semana 26 Jan - 01 Fev 2026 (S3 - 1s)
+
+| Data | Treino | Completou? | Energia | Notas |
+|------|--------|------------|---------|-------|
+| 26/01 Seg | Squat (S3) | Sim | - | TM 104. 5x78, 3x88, 3x100. FSL 5x5@78. Acessórios (encurtado): 3x20 ab wheel, 3x20 pushup, 3x20 KB swing 20kg, ~2x20 biceps curl |
+| 27/01 Ter | Corrida/Metcon | | | |
+
 ---
 
 ## Métricas
@@ -231,8 +238,8 @@ Entre séries do lift principal. 50-100 reps por categoria por treino.
 ```
 Ciclo 1:
 ├── Semana 1 (5s) ✓
-├── Semana 2 (3s) ← AQUI
-├── Semana 3 (1s)
+├── Semana 2 (3s) ✓
+├── Semana 3 (1s) ← AQUI
 └── Semana 4 (Deload - 7th week protocol)
 
 Após Ciclo 1:

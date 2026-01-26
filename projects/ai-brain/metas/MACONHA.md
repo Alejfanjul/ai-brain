@@ -54,14 +54,14 @@
 | 20/01 | Ter | Não | 7+ | - | Feriado - dia "ideal" pra fumar, manteve firme. Energia melhor, tristeza diminuindo |
 | 21/01 | Qua | Não | - | - | Streak mantido |
 | 22/01 | Qui | Não | - | - | Streak 5 dias. Treinou pesado, manteve firme |
-| 23/01 | Sex | Sim | | | Permitido - sexta liberada |
-| 24/01 | Sáb | Sim | | | Permitido |
-| 25/01 | Dom | | | | Permitido |
+| 23/01 | Sex | Sim | | | Permitido - muito bom |
+| 24/01 | Sáb | Sim | | | Permitido - não valeu tanto a pena |
+| 25/01 | Dom | Sim | | | Permitido - não valeu tanto a pena |
 
 **Reflexão da semana:**
-- Como foi a quinta-feira?
-- Diferença na energia durante a semana?
-- Sono melhorou?
+- Streak de 5 dias (seg-sex) sem fumar - manteve firme mesmo no feriado
+- Insight importante: prazer diminui com uso consecutivo. 1x/semana > 3x seguidos
+- Próxima semana: plano continua Sex-Sáb-Dom, mas intenção de fumar só 2 dias
 
 ---
 

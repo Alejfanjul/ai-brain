@@ -220,7 +220,7 @@ Entre séries do lift principal. 50-100 reps por categoria por treino.
 | Data | Treino | Completou? | Energia | Notas |
 |------|--------|------------|---------|-------|
 | 26/01 Seg | Squat (S3) | Sim | - | TM 104. 5x78, 3x88, 3x100. FSL 5x5@78. Acessórios (encurtado): 3x20 ab wheel, 3x20 pushup, 3x20 KB swing 20kg, ~2x20 biceps curl |
-| 27/01 Ter | Cardio (colete) | | | 45min caminhada colete + 4 intervalos trote (30-60s). Transição para corrida com colete |
+| 27/01 Ter | Cardio (colete) | Sim | - | 40min caminhada colete 10kg. 6 intervalos corrida conversativa: 3x1:00 + 3x1:10. Sem dor articular |
 
 ---
 

@@ -4,6 +4,19 @@ Histórico de decisões e mudanças importantes do projeto.
 
 ---
 
+## 2026-01-28: Fix hook initialize-session.ts
+
+**Problema:** Hook `initialize-session.ts` falhava ao iniciar sessão com erro:
+```
+Cannot find module './lib/observability'
+```
+
+**Causa:** O hook foi versionado com dependência de um módulo de observability que nunca foi implementado. O código tentava enviar eventos para um dashboard inexistente.
+
+**Solução:** Removida dependência de `./lib/observability` do hook. O código de observability era opcional e não afeta a funcionalidade principal (título da aba, arquivos de sessão).
+
+---
+
 ## 2026-01-28: PAI Portável - Setup único por máquina
 
 **Contexto:** PAI Portável funcionava na máquina pessoal mas falhava na máquina do trabalho. Symlinks não são versionados pelo git, e hooks estavam apenas localmente em `~/.claude/`.

@@ -65,17 +65,17 @@
 
 ---
 
-### Semana 2 (27 Jan - 02 Fev 2026)
+### Semana 2 (26 Jan - 01 Fev 2026)
 
 | Data | Dia | Fumou? | Energia (1-10) | Sono | Notas |
 |------|-----|--------|----------------|------|-------|
-| 27/01 | Seg | | | | |
-| 28/01 | Ter | | | | |
-| 29/01 | Qua | | | | |
-| 30/01 | Qui | | | | |
-| 31/01 | Sex | | | | Permitido |
-| 01/02 | Sáb | | | | Permitido |
-| 02/02 | Dom | | | | Permitido - Fim da Fase 1 |
+| 26/01 | Seg | Não | | | |
+| 27/01 | Ter | Não | | | |
+| 28/01 | Qua | Não | | | |
+| 29/01 | Qui | | | | |
+| 30/01 | Sex | | | | Permitido |
+| 31/01 | Sáb | | | | Permitido |
+| 01/02 | Dom | | | | Permitido - Fim da Fase 1 |
 
 **Reflexão da semana:**
 - Conseguiu manter o padrão?

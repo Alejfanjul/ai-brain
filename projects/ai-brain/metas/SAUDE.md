@@ -190,8 +190,8 @@ Entre séries do lift principal. 50-100 reps por categoria por treino.
 
 **Ciclo 1, Semana 3** (semana das 1s)
 
-**Próximo treino:** Corrida/Metcon (27/01)
-**Depois:** OHP (S3)
+**Próximo treino:** Cardio (29/01)
+**Depois:** Deadlift (S3)
 
 ---
 
@@ -221,6 +221,7 @@ Entre séries do lift principal. 50-100 reps por categoria por treino.
 |------|--------|------------|---------|-------|
 | 26/01 Seg | Squat (S3) | Sim | - | TM 104. 5x78, 3x88, 3x100. FSL 5x5@78. Acessórios (encurtado): 3x20 ab wheel, 3x20 pushup, 3x20 KB swing 20kg, ~2x20 biceps curl |
 | 27/01 Ter | Cardio (colete) | Sim | - | 40min caminhada colete 10kg. 6 intervalos corrida conversativa: 3x1:00 + 3x1:10. Sem dor articular |
+| 28/01 Qua | OHP (S3) | Sim | - | TM 46. 5x36, 3x40, 5x46. FSL 5x5@36. Acessórios: 3x20 abwheel, 3x20 lat pulldown, 3x20 triceps pulley, 2x20 KB swing 20kg, 3x20 panturrilha 30kg |
 
 ---
 

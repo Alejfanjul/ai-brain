@@ -36,11 +36,10 @@ WEEKDAY_ABBREV = {
 
 
 def get_week_start(d: date) -> date:
-    """Get the Sunday that starts the week containing date d."""
+    """Get the Monday that starts the week containing date d."""
     # weekday(): Monday=0, Sunday=6
-    # We want Sunday as start, so we go back (weekday + 1) % 7 days
-    days_since_sunday = (d.weekday() + 1) % 7
-    return d - timedelta(days=days_since_sunday)
+    # Go back to Monday (weekday days)
+    return d - timedelta(days=d.weekday())
 
 
 def calculate_saude_progress(data: Optional[dict] = None) -> dict:

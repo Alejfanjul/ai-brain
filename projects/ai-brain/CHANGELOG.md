@@ -4,6 +4,34 @@ Histórico de decisões e mudanças importantes do projeto.
 
 ---
 
+## 2026-01-28: PAI Portável - Setup único por máquina
+
+**Contexto:** PAI Portável funcionava na máquina pessoal mas falhava na máquina do trabalho. Symlinks não são versionados pelo git, e hooks estavam apenas localmente em `~/.claude/`.
+
+**Problema identificado:**
+- Symlinks de `pai/` precisavam ser criados manualmente em cada máquina
+- Hooks não estavam no repo, então atualizações não propagavam
+
+**Solução implementada:**
+1. Hook `load-core-context.ts` agora faz **auto-setup** de symlinks para `pai/`
+2. Hooks e settings movidos para `.claude-config/` (versionados)
+3. Script `setup-pai.sh` atualizado para criar **symlinks** (não cópias)
+4. Criado `SETUP-WORK-PC.md` com instruções para o Claude executar
+
+**Arquitetura final:**
+```
+ai-brain/ (versionado)          ~/.claude/ (symlinks)
+├── pai/*.md            →       ├── pai/*.md
+├── .claude-config/hooks/ →     ├── hooks/*.ts
+└── .claude-config/settings.json → └── settings.json
+```
+
+**Fluxo de uso:**
+- Setup inicial: `./scripts/setup-pai.sh` (uma vez por máquina)
+- Atualizações: `git pull` (symlinks propagam mudanças automaticamente)
+
+---
+
 ## 2026-01-20: Migração para modelo file-based (PAI-style)
 
 **Contexto:** Sistema de embeddings/Supabase adicionava infraestrutura externa que o Claude Code não acessa nativamente. Decisão de substituir por modelo file-based inspirado no PAI do Daniel Miessler.

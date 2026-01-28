@@ -1,7 +1,7 @@
 # PAI Portável - Documentação
 
 > Contexto pessoal disponível em qualquer repositório.
-> Status: **Fase 1 concluída** (2026-01-27)
+> Status: **Fase 1.5 concluída** (2026-01-28)
 
 ---
 
@@ -14,29 +14,35 @@ O PAI Portável permite que seu contexto pessoal (identidade, projetos, preferê
 ## Arquitetura Atual
 
 ```
-ai-brain/                           ← SOURCE OF TRUTH
-├── pai/                            ← Arquivos de contexto
-│   ├── IDENTITY.md                 ← Quem sou (extraído do TELOS)
-│   └── PROJECTS.md                 ← 3 frentes + critérios de relevância
-├── MEMORY/                         ← Memória de sessões
-└── projects/ai-brain/telos/        ← TELOS completo
+ai-brain/                              ← SOURCE OF TRUTH (versionado)
+├── pai/                               ← Contexto pessoal
+│   ├── IDENTITY.md                    ← Quem sou (extraído do TELOS)
+│   └── PROJECTS.md                    ← 3 frentes de trabalho
+├── .claude-config/                    ← Configuração Claude
+│   ├── hooks/                         ← Hooks (5 arquivos + lib/)
+│   │   └── load-core-context.ts       ← Hook principal (auto-setup de pai/)
+│   └── settings.json                  ← Configurações + registro de hooks
+├── MEMORY/                            ← Memória de sessões
+├── scripts/setup-pai.sh               ← Script de setup (uma vez por máquina)
+└── SETUP-WORK-PC.md                   ← Instruções para máquina do trabalho
 
-~/.claude/                          ← GLOBAL
-├── pai/                            ← Symlinks
-│   ├── IDENTITY.md → ~/ai-brain/pai/IDENTITY.md
-│   └── PROJECTS.md → ~/ai-brain/pai/PROJECTS.md
-├── hooks/
-│   └── load-core-context.ts        ← Hook que injeta contexto
-└── settings.json                   ← Hooks registrados
-
-sistema-os/                         ← Herda contexto global
-├── CLAUDE.md                       ← (a criar) Instruções específicas
-└── MEMORY/sessions/                ← (a criar) Memória isolada
+~/.claude/                             ← GLOBAL (symlinks)
+├── pai/                               ← → ai-brain/pai/
+│   ├── IDENTITY.md
+│   └── PROJECTS.md
+├── hooks/                             ← → ai-brain/.claude-config/hooks/
+│   └── *.ts
+└── settings.json                      ← → ai-brain/.claude-config/settings.json
 ```
 
-**Fluxo:**
+**Fluxo de setup (uma vez por máquina):**
 ```
-ai-brain/pai/*.md → ~/.claude/pai/ (symlinks) → load-core-context.ts → Qualquer sessão
+git clone ai-brain → ./scripts/setup-pai.sh → Symlinks criados
+```
+
+**Fluxo de atualização (sempre):**
+```
+git pull → Symlinks já apontam para arquivos atualizados → Pronto
 ```
 
 ---
@@ -53,6 +59,13 @@ ai-brain/pai/*.md → ~/.claude/pai/ (symlinks) → load-core-context.ts → Qua
 - [x] Criar symlinks em `~/.claude/pai/`
 - [x] Corrigir `~/.claude/hooks/load-core-context.ts`
 - [x] Limpar arquivos obsoletos
+
+### Fase 1.5: Setup Portátil ✅
+- [x] Hook com auto-setup de symlinks pai/
+- [x] Hooks versionados em `.claude-config/hooks/`
+- [x] Settings versionado em `.claude-config/settings.json`
+- [x] Script `setup-pai.sh` atualizado (usa symlinks)
+- [x] Instruções `SETUP-WORK-PC.md` para máquina do trabalho
 
 ### Fase 2: Session Capture Global ⏳
 - [ ] Melhorar `session-capture.ts` para capturar resumo útil
@@ -73,20 +86,21 @@ ai-brain/pai/*.md → ~/.claude/pai/ (symlinks) → load-core-context.ts → Qua
 ## Setup em Nova Máquina
 
 ```bash
-# 1. Clonar repos
-git clone <ai-brain>
-git clone <sistema-os>
+# 1. Clonar repo
+git clone https://github.com/alejandrofjl/ai-brain.git ~/ai-brain
 
-# 2. Criar symlinks (uma vez)
-mkdir -p ~/.claude/pai
-ln -s ~/ai-brain/pai/IDENTITY.md ~/.claude/pai/IDENTITY.md
-ln -s ~/ai-brain/pai/PROJECTS.md ~/.claude/pai/PROJECTS.md
+# 2. Rodar setup (cria todos os symlinks)
+cd ~/ai-brain && ./scripts/setup-pai.sh
 
-# 3. Copiar hooks (se não existirem)
-cp -r ~/ai-brain/.claude-config/hooks/* ~/.claude/hooks/ 2>/dev/null || true
+# 3. Reiniciar Claude Code
 ```
 
-**Nota:** Se `~/ai-brain` estiver em path diferente, ajustar symlinks.
+**Alternativa:** Abrir `SETUP-WORK-PC.md` e colar no Claude Code - ele executa automaticamente.
+
+**Se path diferente de ~/ai-brain:**
+```bash
+export AI_BRAIN_PATH=/seu/path/ai-brain
+```
 
 ---
 
@@ -131,11 +145,28 @@ Quando o TELOS mudar significativamente, atualizar `pai/IDENTITY.md` manualmente
 | `pai/IDENTITY.md` | Quem sou, como trabalhar comigo |
 | `pai/PROJECTS.md` | 3 frentes de trabalho |
 | `projects/ai-brain/telos/TELOS-ALE.md` | TELOS completo |
-| `~/.claude/hooks/load-core-context.ts` | Hook que carrega contexto |
+| `.claude-config/hooks/load-core-context.ts` | Hook que carrega contexto (com auto-setup) |
+| `.claude-config/settings.json` | Configurações do Claude |
+| `scripts/setup-pai.sh` | Script de setup (symlinks) |
+| `SETUP-WORK-PC.md` | Instruções para máquina do trabalho |
 
 ---
 
 ## Log de Implementação
+
+### 2026-01-28 - Fase 1.5 concluída
+- Hook `load-core-context.ts` agora faz auto-setup de `~/.claude/pai/`
+  - Se symlinks não existem, procura ai-brain e cria automaticamente
+  - Mensagens de feedback para cada cenário
+- Hooks movidos para `.claude-config/hooks/` (versionados)
+- Settings movido para `.claude-config/settings.json` (versionado)
+- Script `setup-pai.sh` reescrito para usar symlinks (não cópias)
+- Criado `SETUP-WORK-PC.md` com instruções para Claude executar setup
+
+**Limitações documentadas:**
+- Setup inicial necessário uma vez por máquina
+- Arquivos novos exigem novo symlink (rodar setup de novo)
+- Symlinks são absolutos (se mudar path do repo, recriar)
 
 ### 2026-01-27 - Fase 1 concluída
 - Criados `pai/IDENTITY.md` e `pai/PROJECTS.md`

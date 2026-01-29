@@ -1,6 +1,6 @@
 # AI Brain - Roadmap
 
-> Última atualização: 2026-01-20 (Migração para modelo file-based)
+> Última atualização: 2026-01-29 (Análise estrutural PAI Daniel Miessler)
 
 ## Visão geral dos Marcos
 
@@ -11,6 +11,8 @@
 | 3 | Memória Semântica | ⚡ Migrado para file-based |
 | 4 | Proatividade | 📋 Futuro |
 | 5 | Contexto Profundo (TELOS) | 🔄 Em progresso |
+| 6 | PAI Portável | 🔄 Phase 1.5 concluída |
+| 7 | MEMORY System (captura real) | 📋 Pendente decisões arquiteturais |
 
 ---
 
@@ -134,6 +136,60 @@ Arquivos do sistema Supabase/embeddings salvos em:
 - [ ] Primeiro skill (ex: HotelOperations)
 - [ ] 1 workflow funcional
 - [ ] 1 tool em TypeScript
+
+---
+
+## Marco 6: PAI Portável 🔄
+
+**Objetivo:** Contexto pessoal (identidade, projetos) carrega automaticamente em qualquer sessão Claude Code, em qualquer repo, em qualquer máquina.
+
+### Fases
+
+| Fase | Descrição | Status |
+|------|-----------|--------|
+| 0 | Clareza (2 repos, 3 frentes) | ✅ Concluído |
+| 1 | PAI Portável (IDENTITY + PROJECTS + symlinks) | ✅ 2026-01-27 |
+| 1.5 | Setup portátil (auto-setup em hooks) | ✅ 2026-01-28 |
+| 2 | Reorganização estrutural | 📋 Decisões pendentes |
+| 3 | Configurar sistema-os | 📋 Pendente |
+| 4 | Fine-tuning | 📋 Pendente |
+| 5 | Workflows avançados | 📋 Futuro |
+
+**Docs:** `PAI-PORTAVEL.md`, `PAI-ESTRUTURA-DANIEL.md`
+
+### Fase 2: Reorganização estrutural 📋
+
+**Contexto:** Análise profunda do repositório e transcript do Daniel Miessler revelou divergências estruturais entre nossa implementação e a arquitetura de referência.
+
+**Problemas identificados:**
+1. MEMORY duplicado (ai-brain/ + ~/.claude/) com dados em locais diferentes
+2. Skills duplicadas (cópia separada em ~/.claude/ + fonte em .claude-config/)
+3. `pai/` como conceito separado (deveria ser `skills/CORE/USER/`)
+4. Session capture grava metadata vazia (sem conteúdo útil)
+5. Sem JSONL event stream (dados brutos que alimentam todo o sistema)
+
+**Decisões pendentes:** Ver `PAI-ESTRUTURA-DANIEL.md` seção 10.
+
+---
+
+## Marco 7: MEMORY System (captura real) 📋
+
+**Objetivo:** Sistema de memória que realmente captura, sumariza e aprende das sessões.
+
+**Inspiração:** Stanford "Generative Agents" (Reflections) + PAI do Daniel Miessler (3-tier memory).
+
+**Fluxo alvo:** Captura bruta → Sumarização → Reflexão → Aplicação
+
+**Capacidades alvo:**
+- [ ] Session capture com resumo ativo (não metadata vazia)
+- [ ] JSONL event stream (capture-all-events)
+- [ ] Learning por fase do Algorithm
+- [ ] Signal detection (failures, patterns, ratings)
+- [ ] State tracking (active-work, streaks)
+
+**Pré-requisito:** Decisões do Marco 6 Fase 2 (estrutura de diretórios).
+
+**Doc de referência:** `PAI-ESTRUTURA-DANIEL.md`
 
 ---
 

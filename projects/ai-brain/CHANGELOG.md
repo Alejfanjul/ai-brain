@@ -4,6 +4,36 @@ Histórico de decisões e mudanças importantes do projeto.
 
 ---
 
+## 2026-01-29: Análise estrutural PAI - Daniel Miessler
+
+**Contexto:** Assistimos o vídeo "How and Why I Built PAI" (Unsupervised Learning, Daniel Miessler + Nathan Labenz) e analisamos o repositório PAI baixado localmente para entender a arquitetura de referência.
+
+**Fontes analisadas:**
+- Transcript do vídeo (`sources/2026-01-26-unsupervised-learning-how-and-why-i-built-pai-with-nathan-labenz.md`)
+- Repositório PAI (`~/Personal_AI_Infrastructure/`)
+- GitHub Discussion #500 (PAI 3.x improvements)
+- Paper Stanford "Generative Agents" (inspiração do sistema de memória)
+
+**Entregável:** `PAI-ESTRUTURA-DANIEL.md` - resumo estrutural completo cobrindo:
+- Estrutura de `~/.claude/` (hooks, skills, MEMORY 3-tier, State, Signals)
+- Sistema de Hooks (8 eventos, 12 hooks ativos, sentiment analysis)
+- The Algorithm (7 fases: OBSERVE→LEARN)
+- Skill System (4 tiers de loading)
+- Gap analysis: 11 capacidades que o Daniel tem e nós não
+
+**Problemas estruturais identificados:**
+1. MEMORY duplicado em dois locais com dados separados
+2. Skills duplicadas (cópia real vs fonte versionada)
+3. `pai/` como conceito separado do CORE skill
+4. Session capture sem conteúdo útil
+5. Sem JSONL event stream
+
+**Decisões pendentes:** Estrutura de diretórios, prioridade de capacidades, modelo de portabilidade, escopo de implementação. Documentado em `PAI-ESTRUTURA-DANIEL.md` seção 10.
+
+**Roadmap atualizado:** Adicionados Marco 6 (PAI Portável) e Marco 7 (MEMORY System).
+
+---
+
 ## 2026-01-28: Fix hook initialize-session.ts
 
 **Problema:** Hook `initialize-session.ts` falhava ao iniciar sessão com erro:

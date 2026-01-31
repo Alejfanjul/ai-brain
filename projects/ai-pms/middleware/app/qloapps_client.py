@@ -125,16 +125,32 @@ class QloAppsClient:
         date_from: Optional[str] = None,
         date_to: Optional[str] = None
     ) -> dict:
-        """Get hotel availability (ARI)"""
-        # hotel_ari endpoint requires special handling
-        url = f"{self.base_url}?url=hotel_ari&id_hotel={hotel_id}&output_format=JSON"
+        """
+        Get hotel availability (ARI).
+
+        Note: This endpoint requires POST with XML body (not GET).
+        Returns room types with available rooms per type.
+        """
+        url = f"{self.base_url}?url=hotel_ari&output_format=JSON"
+
+        xml_body = (
+            '<?xml version="1.0" encoding="UTF-8"?>'
+            '<qloapps><hotel_ari>'
+            f'<id_hotel>{hotel_id}</id_hotel>'
+        )
         if date_from:
-            url += f"&date_from={date_from}"
+            xml_body += f'<date_from>{date_from}</date_from>'
         if date_to:
-            url += f"&date_to={date_to}"
+            xml_body += f'<date_to>{date_to}</date_to>'
+        xml_body += '</hotel_ari></qloapps>'
 
         async with httpx.AsyncClient() as client:
-            response = await client.get(url, auth=(self.api_key, ""))
+            response = await client.post(
+                url,
+                auth=(self.api_key, ""),
+                content=xml_body,
+                headers={"Content-Type": "application/xml"}
+            )
             response.raise_for_status()
             return response.json() if response.content else {}
 

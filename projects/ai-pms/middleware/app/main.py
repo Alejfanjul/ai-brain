@@ -23,8 +23,18 @@ logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
 app = FastAPI(
-    title="AI-PMS Middleware",
-    description="Syncs QloApps PMS with Channex Channel Manager",
+    title="Cosmo Middleware",
+    description="""
+Middleware que conecta o PMS (QloApps) com o Channel Manager (Channex).
+
+**O que faz:**
+- Recebe avisos de reservas novas/canceladas do QloApps e atualiza disponibilidade no Channex
+- Recebe avisos de reservas de OTAs (Booking, Expedia) via Channex e cria no QloApps
+
+**Como testar:**
+1. Use os endpoints de "Sync Manual" abaixo pra testar a conexao com Channex
+2. Os webhooks sao chamados automaticamente pelos sistemas
+    """,
     version="1.0.0"
 )
 
@@ -48,11 +58,17 @@ class QloAppsWebhook(BaseModel):
 
 # === Webhook Handlers ===
 
-@app.post("/webhook/channex")
+@app.post("/webhook/channex", tags=["Webhooks (automatico)"])
 async def webhook_channex(webhook: ChannexWebhook, background_tasks: BackgroundTasks):
     """
-    Receive webhook from Channex.
-    Handles: booking_new, booking_modification, booking_cancellation
+    Recebe avisos do Channex (reservas de OTAs).
+
+    Chamado automaticamente pelo Channex quando:
+    - Chega reserva nova de Booking/Expedia/Airbnb
+    - Reserva e modificada
+    - Reserva e cancelada
+
+    **Voce NAO precisa chamar isso manualmente.**
     """
     logger.info(f"Channex webhook received: {webhook.event}")
 
@@ -78,11 +94,19 @@ async def webhook_channex(webhook: ChannexWebhook, background_tasks: BackgroundT
         return {"status": "ignored", "event": webhook.event}
 
 
-@app.post("/webhook/qloapps")
+@app.post("/webhook/qloapps", tags=["Webhooks (automatico)"])
 async def webhook_qloapps(webhook: QloAppsWebhook, background_tasks: BackgroundTasks):
     """
-    Receive webhook from QloApps module.
-    Handles: booking.created, booking.updated, booking.cancelled
+    Recebe avisos do QloApps (reservas diretas).
+
+    Chamado automaticamente pelo QloApps quando:
+    - Reserva nova e criada no PMS
+    - Reserva e atualizada
+    - Reserva e cancelada
+
+    Quando recebe, atualiza a disponibilidade no Channex automaticamente.
+
+    **Voce NAO precisa chamar isso manualmente.**
     """
     logger.info(f"QloApps webhook received: {webhook.event}")
 
@@ -108,15 +132,28 @@ async def webhook_qloapps(webhook: QloAppsWebhook, background_tasks: BackgroundT
 async def handle_channex_booking_new(webhook: ChannexWebhook):
     """Process new booking from Channex -> create in QloApps"""
     try:
-        booking_id = webhook.payload.get("booking_id") if webhook.payload else None
-        if not booking_id:
-            logger.error("No booking_id in Channex webhook payload")
+        if not webhook.payload:
+            logger.error("No payload in Channex webhook")
+            return
+
+        booking_id = webhook.payload.get("booking_id")
+        revision_id = webhook.payload.get("revision_id")
+
+        if not booking_id and not revision_id:
+            logger.error("No booking_id or revision_id in Channex webhook payload")
             return
 
         # 1. Fetch full booking details from Channex
-        logger.info(f"Fetching booking {booking_id} from Channex...")
-        booking_response = await channex.get_booking(booking_id)
-        booking = booking_response.get("data", {}).get("attributes", {})
+        # Prefer revision endpoint (recommended by Channex docs)
+        if revision_id:
+            logger.info(f"Fetching booking revision {revision_id} from Channex...")
+            response = await channex.get_booking_revision(revision_id)
+        else:
+            logger.info(f"Fetching booking {booking_id} from Channex...")
+            response = await channex.get_booking(booking_id)
+
+        booking = response.get("data", {}).get("attributes", {})
+        logger.info(f"Booking details: status={booking.get('status')}, ota={booking.get('ota_name')}")
 
         # 2. Transform Channex booking to QloApps format
         qloapps_booking = transform_channex_to_qloapps(booking)
@@ -127,27 +164,98 @@ async def handle_channex_booking_new(webhook: ChannexWebhook):
         logger.info(f"Booking created in QloApps: {result}")
 
         # 4. Acknowledge booking in Channex
-        await channex.ack_booking(booking_id)
-        logger.info(f"Booking {booking_id} acknowledged in Channex")
+        if revision_id:
+            await channex.ack_booking(revision_id)
+            logger.info(f"Revision {revision_id} acknowledged in Channex")
+        elif booking_id:
+            await channex.ack_booking(booking_id)
+            logger.info(f"Booking {booking_id} acknowledged in Channex")
 
     except Exception as e:
         logger.error(f"Error handling Channex booking: {e}")
+        logger.error(traceback.format_exc())
 
 
 async def handle_channex_booking_modified(webhook: ChannexWebhook):
-    """Process modified booking from Channex"""
-    logger.info("Booking modification - TODO: implement update logic")
-    # TODO: Find existing booking in QloApps and update
+    """Process modified booking from Channex -> update in QloApps"""
+    try:
+        if not webhook.payload:
+            logger.error("No payload in Channex modification webhook")
+            return
+
+        revision_id = webhook.payload.get("revision_id")
+        booking_id = webhook.payload.get("booking_id")
+
+        logger.info(f"Booking modification: revision={revision_id}, booking={booking_id}")
+
+        # Fetch updated booking details
+        if revision_id:
+            response = await channex.get_booking_revision(revision_id)
+        elif booking_id:
+            response = await channex.get_booking(booking_id)
+        else:
+            logger.error("No revision_id or booking_id in modification webhook")
+            return
+
+        booking = response.get("data", {}).get("attributes", {})
+        logger.info(f"Modified booking: status={booking.get('status')}, ota={booking.get('ota_name')}")
+
+        # TODO: Find matching booking in QloApps and update it
+        # For now, log the modification details
+        logger.warning("Booking modification received but QloApps update not yet implemented")
+        logger.info(f"Modification details: {booking}")
+
+        # Acknowledge
+        ack_id = revision_id or booking_id
+        if ack_id:
+            await channex.ack_booking(ack_id)
+            logger.info(f"Modification {ack_id} acknowledged in Channex")
+
+    except Exception as e:
+        logger.error(f"Error handling Channex modification: {e}")
+        logger.error(traceback.format_exc())
 
 
 async def handle_channex_booking_cancelled(webhook: ChannexWebhook):
-    """Process cancelled booking from Channex"""
-    logger.info("Booking cancellation - TODO: implement cancel logic")
-    # TODO: Find existing booking in QloApps and cancel
+    """Process cancelled booking from Channex -> cancel in QloApps + update ARI"""
+    try:
+        if not webhook.payload:
+            logger.error("No payload in Channex cancellation webhook")
+            return
+
+        revision_id = webhook.payload.get("revision_id")
+        booking_id = webhook.payload.get("booking_id")
+
+        logger.info(f"Booking cancellation: revision={revision_id}, booking={booking_id}")
+
+        # Fetch cancelled booking details
+        if revision_id:
+            response = await channex.get_booking_revision(revision_id)
+        elif booking_id:
+            response = await channex.get_booking(booking_id)
+        else:
+            logger.error("No revision_id or booking_id in cancellation webhook")
+            return
+
+        booking = response.get("data", {}).get("attributes", {})
+        logger.info(f"Cancelled booking: ota={booking.get('ota_name')}")
+
+        # TODO: Find matching booking in QloApps and cancel it
+        logger.warning("Booking cancellation received but QloApps cancel not yet implemented")
+
+        # Acknowledge
+        ack_id = revision_id or booking_id
+        if ack_id:
+            await channex.ack_booking(ack_id)
+            logger.info(f"Cancellation {ack_id} acknowledged in Channex")
+
+    except Exception as e:
+        logger.error(f"Error handling Channex cancellation: {e}")
+        logger.error(traceback.format_exc())
 
 
 async def handle_qloapps_booking_created(webhook: QloAppsWebhook):
-    """Process new booking from QloApps -> update Channex ARI"""
+    """Process new booking from QloApps -> update Channex availability"""
     try:
         order_id = webhook.data.get("order_id")
         rooms = webhook.data.get("rooms", [])
@@ -159,15 +267,12 @@ async def handle_qloapps_booking_created(webhook: QloAppsWebhook):
             logger.warning("No room data in webhook - module may need update")
             return
 
-        # Process each room booked
         for room in rooms:
             qloapps_room_type_id = int(room.get("id_room_type", 0))
-            checkin = room.get("checkin_date", "").split(" ")[0]  # Remove time if present
+            checkin = room.get("checkin_date", "").split(" ")[0]
             checkout = room.get("checkout_date", "").split(" ")[0]
 
-            # Map to Channex IDs
             channex_room_type = ROOM_TYPE_MAPPING.get(qloapps_room_type_id)
-            channex_rate_plan = RATE_PLAN_MAPPING.get(qloapps_room_type_id)
 
             if not channex_room_type:
                 logger.warning(f"Unknown room type ID: {qloapps_room_type_id}")
@@ -175,23 +280,8 @@ async def handle_qloapps_booking_created(webhook: QloAppsWebhook):
 
             logger.info(f"Room booked: type={qloapps_room_type_id}, {checkin} to {checkout}")
 
-            # Generate date range for ARI update
-            from datetime import datetime as dt
-            start = dt.strptime(checkin, "%Y-%m-%d")
-            end = dt.strptime(checkout, "%Y-%m-%d")
-
-            dates_to_update = []
-            current = start
-            while current < end:
-                dates_to_update.append(current.strftime("%Y-%m-%d"))
-                current += timedelta(days=1)
-
-            logger.info(f"Dates affected: {dates_to_update}")
-            logger.info(f"Channex mapping: room_type={channex_room_type}, rate_plan={channex_rate_plan}")
-
-            # TODO: Get actual availability from QloApps and push to Channex
-            # For now, just log that we would update
-            logger.info(f"SUCCESS: Would sync {len(dates_to_update)} dates to Channex for room type {qloapps_room_type_id}")
+            # Get current availability from QloApps
+            await sync_availability_to_channex(qloapps_room_type_id, channex_room_type, checkin, checkout)
 
     except Exception as e:
         logger.error(f"Error handling QloApps booking: {e}")
@@ -199,13 +289,145 @@ async def handle_qloapps_booking_created(webhook: QloAppsWebhook):
 
 
 async def handle_qloapps_booking_updated(webhook: QloAppsWebhook):
-    """Process updated booking from QloApps"""
-    logger.info("QloApps booking updated - checking if ARI needs update")
+    """Process updated booking from QloApps -> re-sync availability"""
+    try:
+        order_id = webhook.data.get("order_id")
+        rooms = webhook.data.get("rooms", [])
+
+        logger.info(f"QloApps booking updated: order {order_id}")
+
+        for room in rooms:
+            qloapps_room_type_id = int(room.get("id_room_type", 0))
+            checkin = room.get("checkin_date", "").split(" ")[0]
+            checkout = room.get("checkout_date", "").split(" ")[0]
+
+            channex_room_type = ROOM_TYPE_MAPPING.get(qloapps_room_type_id)
+            if not channex_room_type:
+                continue
+
+            await sync_availability_to_channex(qloapps_room_type_id, channex_room_type, checkin, checkout)
+
+    except Exception as e:
+        logger.error(f"Error handling QloApps booking update: {e}")
+        logger.error(traceback.format_exc())
 
 
 async def handle_qloapps_booking_cancelled(webhook: QloAppsWebhook):
-    """Process cancelled booking from QloApps -> update Channex ARI (increase availability)"""
-    logger.info("QloApps booking cancelled - TODO: increase Channex availability")
+    """Process cancelled booking from QloApps -> re-sync availability (rooms freed up)"""
+    try:
+        order_id = webhook.data.get("order_id")
+        rooms = webhook.data.get("rooms", [])
+
+        logger.info(f"QloApps booking cancelled: order {order_id}")
+
+        for room in rooms:
+            qloapps_room_type_id = int(room.get("id_room_type", 0))
+            checkin = room.get("checkin_date", "").split(" ")[0]
+            checkout = room.get("checkout_date", "").split(" ")[0]
+
+            channex_room_type = ROOM_TYPE_MAPPING.get(qloapps_room_type_id)
+            if not channex_room_type:
+                continue
+
+            # Re-sync: availability should now be higher since rooms are freed
+            await sync_availability_to_channex(qloapps_room_type_id, channex_room_type, checkin, checkout)
+
+    except Exception as e:
+        logger.error(f"Error handling QloApps booking cancellation: {e}")
+        logger.error(traceback.format_exc())
+
+
+# === Sync Functions ===
+
+async def sync_availability_to_channex(
+    qloapps_room_type_id: int,
+    channex_room_type_id: str,
+    date_from: str,
+    date_to: str
+):
+    """
+    Query QloApps for current availability and push to Channex.
+
+    This is the core sync function — called on booking create, update, and cancel.
+    Always queries QloApps for the definitive availability count (not incremental).
+    """
+    try:
+        logger.info(f"Syncing availability: room_type={qloapps_room_type_id}, {date_from} to {date_to}")
+
+        # 1. Get current availability from QloApps
+        ari_data = await qloapps.get_availability(
+            hotel_id=1,
+            date_from=date_from,
+            date_to=date_to
+        )
+
+        logger.info(f"QloApps ARI response: {ari_data}")
+
+        # 2. Parse available room count for this room type
+        available_count = parse_qloapps_availability(ari_data, qloapps_room_type_id)
+
+        if available_count is None:
+            logger.warning(f"Could not parse availability from QloApps for room type {qloapps_room_type_id}")
+            logger.warning("Setting availability to 0 as safe default (prevents overbooking)")
+            available_count = 0
+
+        # 3. Push to Channex using date range (single API call)
+        values = [{
+            "property_id": settings.channex_property_id,
+            "room_type_id": channex_room_type_id,
+            "date_from": date_from,
+            "date_to": date_to,
+            "availability": max(0, available_count),
+        }]
+
+        result = await channex.update_availability(values)
+        logger.info(f"Channex availability updated: {available_count} rooms, {date_from} to {date_to}, result={result}")
+
+    except Exception as e:
+        logger.error(f"Error syncing availability to Channex: {e}")
+        logger.error(traceback.format_exc())
+
+
+def parse_qloapps_availability(ari_data: dict, room_type_id: int) -> dict:
+    """
+    Parse QloApps hotel_ari response to extract available room count.
+
+    QloApps returns data in this format:
+    {
+        "hotel_ari": {
+            "room_types": [
+                {
+                    "id_room_type": 1,
+                    "name": "General Rooms",
+                    "rooms": {
+                        "available": {"1": {...}, "2": {...}}  // each key = a room
+                    }
+                }
+            ]
+        }
+    }
+
+    The number of available rooms = number of keys in rooms.available.
+    Note: This gives total availability for the DATE RANGE, not per-date.
+    """
+    try:
+        hotel_ari = ari_data.get("hotel_ari", {})
+        room_types = hotel_ari.get("room_types", [])
+
+        for rt in room_types:
+            rt_id = int(rt.get("id_room_type", 0))
+            if rt_id == room_type_id:
+                available_rooms = rt.get("rooms", {}).get("available", {})
+                count = len(available_rooms)
+                logger.info(f"Room type {room_type_id} ({rt.get('name', '?')}): {count} rooms available")
+                return count
+
+        logger.warning(f"Room type {room_type_id} not found in ARI response")
+        return None
+
+    except Exception as e:
+        logger.error(f"Error parsing QloApps availability: {e}")
+        return None
 
 
 # === Transform Functions ===
@@ -278,9 +500,13 @@ def transform_channex_to_qloapps(channex_booking: dict) -> dict:
 
 # === Utility Endpoints ===
 
-@app.get("/health")
+@app.get("/health", tags=["Status"])
 async def health():
-    """Health check endpoint"""
+    """
+    Verifica se o middleware esta funcionando.
+
+    Retorna status dos servicos conectados (QloApps e Channex).
+    """
     return {
         "status": "healthy",
         "timestamp": datetime.now().isoformat(),
@@ -291,9 +517,9 @@ async def health():
     }
 
 
-@app.get("/")
+@app.get("/", tags=["Status"])
 async def root():
-    """Root endpoint with API info"""
+    """Pagina inicial com links para os endpoints."""
     return {
         "name": "AI-PMS Middleware",
         "version": "1.0.0",
@@ -307,43 +533,119 @@ async def root():
 
 # === Manual Sync Endpoints (for testing) ===
 
-@app.post("/sync/ari")
-async def sync_ari_to_channex(
+@app.post("/sync/availability", tags=["Sync Manual (para testar)"])
+async def sync_availability_manual(
     room_type_id: int,
-    date: str,
-    availability: int,
-    rate: float
+    date_from: str,
+    date_to: str,
+    availability: int
 ):
-    """Manually push ARI update to Channex"""
-    channex_room_type = ROOM_TYPE_MAPPING.get(room_type_id)
-    channex_rate_plan = RATE_PLAN_MAPPING.get(room_type_id)
+    """
+    Enviar disponibilidade manualmente pro Channex.
 
-    if not channex_room_type or not channex_rate_plan:
+    Exemplo: "Quarto tipo 1 tem 3 unidades disponiveis de 01/02 a 05/02"
+
+    - **room_type_id**: ID do tipo de quarto no QloApps (1=General, 2=Delux, 3=Executive, 4=Luxury, 11=Upper Laker)
+    - **date_from**: Data inicio (formato: 2026-02-01)
+    - **date_to**: Data fim (formato: 2026-02-05)
+    - **availability**: Quantos quartos disponiveis
+    """
+    channex_room_type = ROOM_TYPE_MAPPING.get(room_type_id)
+
+    if not channex_room_type:
         raise HTTPException(400, f"Unknown room_type_id: {room_type_id}")
 
     values = [{
         "property_id": settings.channex_property_id,
         "room_type_id": channex_room_type,
-        "rate_plan_id": channex_rate_plan,
-        "date": date,
+        "date_from": date_from,
+        "date_to": date_to,
         "availability": availability,
-        "rate": str(rate),  # Must be string!
+    }]
+
+    result = await channex.update_availability(values)
+    return {"status": "ok", "result": result}
+
+
+@app.post("/sync/rate", tags=["Sync Manual (para testar)"])
+async def sync_rate_manual(
+    room_type_id: int,
+    date_from: str,
+    date_to: str,
+    rate: float
+):
+    """
+    Enviar tarifa manualmente pro Channex.
+
+    Exemplo: "Quarto tipo 1 custa R$500 por noite de 01/02 a 05/02"
+
+    - **room_type_id**: ID do tipo de quarto no QloApps
+    - **date_from**: Data inicio (formato: 2026-02-01)
+    - **date_to**: Data fim (formato: 2026-02-05)
+    - **rate**: Valor por noite em reais (ex: 500.00)
+    """
+    channex_rate_plan = RATE_PLAN_MAPPING.get(room_type_id)
+
+    if not channex_rate_plan:
+        raise HTTPException(400, f"Unknown room_type_id: {room_type_id}")
+
+    values = [{
+        "property_id": settings.channex_property_id,
+        "rate_plan_id": channex_rate_plan,
+        "date_from": date_from,
+        "date_to": date_to,
+        "rate": int(rate * 100),  # Channex expects cents
     }]
 
     result = await channex.update_restrictions(values)
     return {"status": "ok", "result": result}
 
 
-@app.get("/bookings/channex")
+@app.post("/sync/full", tags=["Sync Manual (para testar)"])
+async def sync_full_from_qloapps(room_type_id: int, date_from: str, date_to: str):
+    """
+    Sincronizar disponibilidade do QloApps pro Channex.
+
+    Consulta o QloApps pra saber quantos quartos estao disponiveis
+    e envia essa informacao pro Channex.
+
+    **Precisa do QloApps rodando em localhost:8080.**
+
+    - **room_type_id**: ID do tipo de quarto no QloApps
+    - **date_from**: Data inicio (formato: 2026-02-01)
+    - **date_to**: Data fim (formato: 2026-02-05)
+    """
+    channex_room_type = ROOM_TYPE_MAPPING.get(room_type_id)
+
+    if not channex_room_type:
+        raise HTTPException(400, f"Unknown room_type_id: {room_type_id}")
+
+    await sync_availability_to_channex(room_type_id, channex_room_type, date_from, date_to)
+    return {"status": "ok", "room_type_id": room_type_id, "date_from": date_from, "date_to": date_to}
+
+
+@app.get("/bookings/channex", tags=["Consultar Reservas"])
 async def list_channex_bookings(status: Optional[str] = None):
-    """List bookings from Channex"""
+    """
+    Ver reservas no Channex.
+
+    Mostra todas as reservas que o Channex recebeu (de OTAs).
+
+    - **status** (opcional): Filtrar por status (new, modified, cancelled)
+    """
     return await channex.list_bookings(
         property_id=settings.channex_property_id,
         status=status
     )
 
 
-@app.get("/bookings/qloapps")
+@app.get("/bookings/qloapps", tags=["Consultar Reservas"])
 async def list_qloapps_bookings():
-    """List bookings from QloApps"""
+    """
+    Ver reservas no QloApps.
+
+    Mostra todas as reservas que estao no PMS (QloApps).
+
+    **Precisa do QloApps rodando em localhost:8080.**
+    """
     return await qloapps.list_bookings()

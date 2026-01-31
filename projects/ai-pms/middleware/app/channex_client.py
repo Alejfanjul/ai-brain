@@ -51,22 +51,40 @@ class ChannexClient:
 
     # === ARI (Availability, Rates, Inventory) ===
 
-    async def update_restrictions(self, values: list[dict]) -> dict:
+    async def update_availability(self, values: list[dict]) -> dict:
         """
-        Update availability/rates/restrictions
+        Update availability per room type.
 
         values example:
         [{
             "property_id": "uuid",
             "room_type_id": "uuid",
+            "date_from": "2026-01-25",
+            "date_to": "2026-01-28",
+            "availability": 5
+        }]
+        """
+        return await self._request("POST", "/availability", json={"values": values})
+
+    async def update_restrictions(self, values: list[dict]) -> dict:
+        """
+        Update rates/restrictions per rate plan.
+
+        values example:
+        [{
+            "property_id": "uuid",
             "rate_plan_id": "uuid",
             "date": "2026-01-25",
-            "availability": 5,
-            "rate": "1000.00",  # Must be string!
-            "min_stay_arrival": 1
+            "rate": 1000,
+            "min_stay_arrival": 1,
+            "stop_sell": false
         }]
         """
         return await self._request("POST", "/restrictions", json={"values": values})
+
+    async def get_booking_revision(self, revision_id: str) -> dict:
+        """Get full booking revision details"""
+        return await self._request("GET", f"/booking_revisions/{revision_id}")
 
     # === Webhooks ===
 

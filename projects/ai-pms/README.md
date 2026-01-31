@@ -8,28 +8,47 @@
 
 **Cosmo** é uma plataforma base para hotelaria com o **hóspede no centro** — não reservas.
 
-A hotelaria se industrializou, mas nunca se digitalizou de verdade. Sistemas atuais são versões digitais fragmentadas de processos analógicos, centrados em reservas, usados apenas pela recepção.
+**Modelo de negócio:** "Contrata só eu, cuido de toda a tua infraestrutura de software." Valor justo, baixo e variável.
 
-**Nossa proposta:** Sistema onde todos os funcionários contribuem, porque todos impactam o hóspede de alguma maneira.
+**Dependências externas aceitas:** Channex (channel manager) + Stripe (pagamentos). Tudo mais é nosso.
+
+> **Para visão completa do ecossistema, leia:** `ECOSYSTEM.md`
+
+---
+
+## Repositórios
+
+| Repo | Papel |
+|------|-------|
+| `sistema-os` | Plataforma principal (produção Duke Beach). 47 tabelas, 50+ endpoints, FastAPI + PostgreSQL. **Futuro PMS.** |
+| `ai-brain/projects/ai-pms` | Laboratório de integração (middleware, docs, visão Cosmo) |
+| `~/QloApps` | PMS **temporário** para provar conceito. Será descartado após migração pro sistema-os. |
 
 ---
 
 ## Status
 
-**Fase:** Integração QloApps ↔ Channex (em progresso)
+**Fase atual:** Provar conceito (QloApps + Channex)
 
 - [x] Filosofia e propósito definidos
-- [x] Stack open source pesquisado (QloApps + Channex)
+- [x] Stack pesquisado (QloApps + Channex)
 - [x] QloApps instalado e API funcionando
 - [x] Conta Channex criada (staging)
 - [x] Room types e rate plans mapeados
-- [x] **Middleware Python criado** (FastAPI)
-- [x] **Módulo PHP webhook no QloApps**
-- [x] **Fluxo QloApps → Middleware testado e funcionando**
+- [x] Middleware Python criado (FastAPI)
+- [x] Módulo PHP webhook no QloApps
+- [x] Fluxo QloApps → Middleware testado e funcionando
+- [x] Ecossistema documentado (`ECOSYSTEM.md`)
 - [ ] Implementar sync real com Channex (ARI)
-- [ ] Configurar webhook Channex → Middleware
-- [ ] Análise de Oceano Azul
-- [ ] Primeiro MVP/protótipo
+- [ ] Configurar webhook Channex → Middleware (ngrok)
+- [ ] Testar fluxo bidirecional completo
+- [ ] Configurar Duke Beach no QloApps (demo)
+
+**Roadmap macro:**
+1. Provar conceito com QloApps + Channex ← **estamos aqui**
+2. Migrar PMS pro sistema-os
+3. Construir Booking Engine próprio
+4. Revenue Management ativo
 
 ---
 
@@ -38,33 +57,33 @@ A hotelaria se industrializou, mas nunca se digitalizou de verdade. Sistemas atu
 ```
 ai-pms/
 ├── README.md                    ← Este arquivo
-├── COSMO-VISION.md              ← Visão completa do produto
-├── middleware/                  ← 🆕 Middleware de integração
+├── ECOSYSTEM.md                 ← Visão completa do ecossistema (referência principal)
+├── COSMO-VISION.md              ← Visão de produto, Blue Ocean, modelo de dados
+├── middleware/                   ← Middleware de integração (FastAPI)
 │   ├── app/
-│   │   ├── main.py              # FastAPI app (webhooks)
+│   │   ├── main.py              # Webhooks, rotas, sync
 │   │   ├── config.py            # Configurações e mapeamentos
 │   │   ├── channex_client.py    # Cliente API Channex
-│   │   └── qloapps_client.py    # Cliente API QloApps
+│   │   └── qloapps_client.py    # Cliente API QloApps (temporário)
 │   ├── requirements.txt
 │   └── README.md
 ├── visao/
-│   ├── ai-pms-filosofia.md      ← Propósito e filosofia
-│   └── ideia-sistema-social-hospitalidade.md
+│   ├── ai-pms-filosofia.md      ← 5 Stakeholders, propósito
+│   └── ideia-sistema-social-hospitalidade.md  ← Comunidade de prática (futuro)
 ├── arquitetura/
-│   ├── HOTEL-ARCHITECTURE.md    ← Arquitetura técnica
 │   └── STACK-RESEARCH.md        ← Pesquisa de stack
 ├── integracao/
-│   └── CHANNEX-INTEGRATION.md   ← Plano de integração com Channel Manager
+│   └── CHANNEX-INTEGRATION.md   ← Integração com Channel Manager
 └── lab/
-    ├── HOTEL-LAB.md             ← Duke Beach como laboratório
-    └── QLOAPPS-EXPLORATION.md   ← Notas técnicas do QloApps
+    ├── HOTEL-LAB.md             ← Duke Beach como laboratório, tarefas por área
+    └── archive/                 ← Docs arquivados (QloApps-specific)
 ```
 
 ---
 
 ## Como Rodar
 
-### 1. QloApps (PMS)
+### 1. QloApps (PMS temporário)
 
 ```bash
 cd ~/QloApps && php -S localhost:8080
@@ -92,62 +111,6 @@ O módulo `channexwebhook` já está instalado em:
 
 ---
 
-## Fluxo Atual (Funcionando)
-
-```
-┌─────────────────────────────────────────────────────────────────┐
-│  RESERVA NO MOTOR QLOAPPS                                       │
-│  ─────────────────────────                                      │
-│                                                                 │
-│  1. Hóspede faz reserva no site                                │
-│  2. QloApps cria a reserva                                      │
-│  3. Módulo PHP dispara webhook com dados da reserva            │
-│  4. Middleware recebe em /webhook/qloapps                       │
-│  5. Middleware extrai: room_type, datas, cliente               │
-│  6. Middleware mapeia para IDs do Channex                       │
-│  7. [TODO] Middleware envia ARI para Channex                    │
-│  8. [TODO] Channex atualiza OTAs                               │
-│                                                                 │
-└─────────────────────────────────────────────────────────────────┘
-```
-
----
-
-## Conceitos Chave
-
-### Framework dos 5 Stakeholders
-
-Para gerar impacto real, a solução deve atender simultaneamente:
-1. Dono do hotel
-2. Gerente
-3. Funcionários
-4. Hóspedes
-5. Comunidade local
-
-### Diferencial: Comunidade de Prática
-
-Conectar pessoas que fazem trabalhos similares em hotéis diferentes, permitindo:
-- Troca de conhecimento
-- Reconhecimento entre pares
-- Liderança emergente
-
----
-
-## Próximos Passos
-
-### Imediato (próxima sessão)
-1. [ ] Implementar envio real de ARI para Channex
-2. [ ] Expor middleware na internet (ngrok/cloudflare tunnel)
-3. [ ] Configurar webhook do Channex para receber reservas de OTAs
-4. [ ] Testar fluxo completo bidirecional
-
-### Estratégico
-- [ ] Análise de Oceano Azul dos PMS existentes
-- [ ] Protótipo de interface "hóspede no centro"
-- [ ] Validação com equipe do Duke Beach
-
----
-
 ## Credenciais (Staging)
 
 | Serviço | Credencial |
@@ -160,7 +123,11 @@ Conectar pessoas que fazem trabalhos similares em hotéis diferentes, permitindo
 
 ## Referências
 
-- `COSMO-VISION.md` - Visão completa do produto
-- `integracao/CHANNEX-INTEGRATION.md` - Plano de integração
-- `middleware/README.md` - Documentação do middleware
-- `lab/QLOAPPS-EXPLORATION.md` - Notas técnicas QloApps
+| Doc | Quando consultar |
+|-----|------------------|
+| `ECOSYSTEM.md` | Visão geral, glossário, roadmap, modelo de negócio |
+| `COSMO-VISION.md` | Decisões estratégicas, Blue Ocean |
+| `visao/ai-pms-filosofia.md` | Propósito, 5 Stakeholders |
+| `integracao/CHANNEX-INTEGRATION.md` | Detalhes técnicos da integração |
+| `lab/HOTEL-LAB.md` | Tarefas por área, framework de observação |
+| `/home/alejandro/sistema-os/` | Plataforma principal (produção) |

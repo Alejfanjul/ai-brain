@@ -1,0 +1,17 @@
+# We all want to be part of something exceptional
+
+## Fonte
+- **Tipo:** newsletter
+- **Autor:** Joe Hudson
+- **URL:** email
+- **Data original:** 2026-01-30
+- **Data captura:** 2026-01-31
+
+## Conteúdo
+
+The first pillar of fulfilling leadership
+
+ ---Art of Accomplishment --- Hi Alejandro,  Over the course of 30 years, I’ve worked with hundreds of leaders. And I often hear the same story: “I feel like I’m alone in this.”  So many leaders feel like success depends on them. That at the end of the day, they’re the ones truly responsible for everything.  So they work longer hours than anyone else, get involved in every decision, and carry the strategy, the culture, the execution. All based on the quiet belief that **no one else will do this if I don't.**  But when you slow down and look closer, that belief starts to crack.  If you lead a team of 200 people, that means 200 people who did not come to work hoping you’d be disappointed in them.  If you lead 2,000, that’s 2,000 people who woke up today wanting to be a part of a team that, on some level, has impact and wins.  Not one of them thought: *I hope the CEO thinks I failed today.*  It’s odd that a leader can be surrounded by hundreds or thousands of people. And at least 99% of them are trying to earn their respect, contribute meaningfully, or be a part of something that works.  And somehow, most leaders feel alone in it. **Pillar One: We all want to be part of something exceptional** The desire to be part of something great is deeply human. We're wired for it.  Research shows that cooperation and shared success activate our brain's core reward systems. We are neurologically built to seek meaningful collaboration.  Your team didn't sign up to be mediocre. They didn't join your company to play politics or coast through meetings.  That hunger is already there, in nearly every person on your team. Rather than trying to figure out how to create it, it’s far more effective to learn how to unblock it.  That's what we work on in the Council. We clear the unsaid fears, the ignored tensions, and the patterns that keep brilliant people from doing their best work together. We harness the fire that's already there.    --- **Experiment**  This week, notice how often you assume something is “on you.”  At least three times this week when someone who reports to you tells you that something needs to be different or brings you a problem, do not take it on. Do not take responsibility for it.  Instead, ask them:   1. How do you want to fix it? 2. What support do you need from me to fix it? |   In our next email, we'll dive into the second pillar: **Where it hurts is where we grow.**  Ready to apply?      --- **Apply for Early Decision** |     Big Love,  Joe  P.S. Last call to join our free Council Q&A this Monday. Save your seat here. --- **Opt-out from all Leadership emails by clicking here**  You are receiving this email because you signed up on artofaccomplishment.com.  PO BOX 2126, Sebastopol, CA 95473  If you'd like to update your email settings, choose one of the options below: 1. Update your email preferences to choose the types of emails you receive. 2. Click here to be removed from all future emails. Please know that once you click this link you won't receive any more emails from the Art of Accomplishment. If you are not interested in these updates and want to stay on our list but don't see the a link above to do so, hit reply and let us know. We'll take care of it for you personally. !
+
+## Minhas Anotações
+

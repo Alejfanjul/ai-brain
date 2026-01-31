@@ -72,8 +72,8 @@
 | 26/01 | Seg | Não | | | |
 | 27/01 | Ter | Não | | | |
 | 28/01 | Qua | Não | | | |
-| 29/01 | Qui | | | | |
-| 30/01 | Sex | | | | Permitido |
+| 29/01 | Qui | Não | | | |
+| 30/01 | Sex | Não | | | Permitido - escolheu não fumar |
 | 31/01 | Sáb | | | | Permitido |
 | 01/02 | Dom | | | | Permitido - Fim da Fase 1 |
 

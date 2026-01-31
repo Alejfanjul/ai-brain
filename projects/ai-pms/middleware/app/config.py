@@ -41,3 +41,10 @@ RATE_PLAN_MAPPING = {
     4: "ef4da7e1-9555-4ef5-9b8f-ac0bce3d7179",
     11: "e22e0f20-fe38-4ebd-8bd8-519f9dcfab8b",
 }
+
+# Default restrictions (QloApps nao expoe via API)
+# Usar endpoint manual /sync/restrictions pra override por data
+DEFAULT_RESTRICTIONS = {
+    "min_stay_arrival": 1,
+    "stop_sell": False,
+}

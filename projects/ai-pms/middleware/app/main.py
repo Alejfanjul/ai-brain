@@ -15,7 +15,7 @@ from fastapi import FastAPI, Request, HTTPException, BackgroundTasks
 from pydantic import BaseModel
 from typing import Optional
 
-from .config import settings, ROOM_TYPE_MAPPING, ROOM_TYPE_MAPPING_REVERSE, RATE_PLAN_MAPPING
+from .config import settings, ROOM_TYPE_MAPPING, ROOM_TYPE_MAPPING_REVERSE, RATE_PLAN_MAPPING, DEFAULT_RESTRICTIONS
 from .channex_client import channex
 from .qloapps_client import qloapps
 
@@ -29,7 +29,7 @@ app = FastAPI(
 Middleware que conecta o PMS (QloApps) com o Channel Manager (Channex).
 
 **O que faz:**
-- Recebe avisos de reservas novas/canceladas do QloApps e atualiza disponibilidade no Channex
+- Recebe avisos de reservas novas/canceladas do QloApps e atualiza ARI (disponibilidade + tarifas) no Channex
 - Recebe avisos de reservas de OTAs (Booking, Expedia) via Channex e cria no QloApps
 
 **Como testar:**
@@ -282,7 +282,7 @@ async def handle_qloapps_booking_created(webhook: QloAppsWebhook):
             logger.info(f"Room booked: type={qloapps_room_type_id}, {checkin} to {checkout}")
 
             # Get current availability from QloApps
-            await sync_availability_to_channex(qloapps_room_type_id, channex_room_type, checkin, checkout)
+            await sync_ari_to_channex(qloapps_room_type_id, channex_room_type, checkin, checkout)
 
     except Exception as e:
         logger.error(f"Error handling QloApps booking: {e}")
@@ -306,7 +306,7 @@ async def handle_qloapps_booking_updated(webhook: QloAppsWebhook):
             if not channex_room_type:
                 continue
 
-            await sync_availability_to_channex(qloapps_room_type_id, channex_room_type, checkin, checkout)
+            await sync_ari_to_channex(qloapps_room_type_id, channex_room_type, checkin, checkout)
 
     except Exception as e:
         logger.error(f"Error handling QloApps booking update: {e}")
@@ -331,7 +331,7 @@ async def handle_qloapps_booking_cancelled(webhook: QloAppsWebhook):
                 continue
 
             # Re-sync: availability should now be higher since rooms are freed
-            await sync_availability_to_channex(qloapps_room_type_id, channex_room_type, checkin, checkout)
+            await sync_ari_to_channex(qloapps_room_type_id, channex_room_type, checkin, checkout)
 
     except Exception as e:
         logger.error(f"Error handling QloApps booking cancellation: {e}")
@@ -340,17 +340,21 @@ async def handle_qloapps_booking_cancelled(webhook: QloAppsWebhook):
 
 # === Sync Functions ===
 
-async def sync_availability_to_channex(
+async def sync_ari_to_channex(
     qloapps_room_type_id: int,
     channex_room_type_id: str,
     date_from: str,
     date_to: str
 ):
     """
-    Query QloApps for current availability and push to Channex.
+    Query QloApps for current ARI and push to Channex.
 
-    This is the core sync function — called on booking create, update, and cancel.
-    Always queries QloApps for the definitive availability count (not incremental).
+    Syncs both:
+    - Availability (room count) via POST /availability
+    - Rates + restrictions via POST /restrictions
+
+    Called on booking create, update, and cancel.
+    Always queries QloApps for the definitive data (not incremental).
     """
     # Retry with backoff: QloApps webhook fires while PHP still holds DB locks,
     # so the hotel_ari endpoint may be unavailable for several seconds
@@ -360,10 +364,10 @@ async def sync_availability_to_channex(
     for attempt in range(max_retries):
         try:
             wait = delays[attempt]
-            logger.info(f"Syncing availability: room_type={qloapps_room_type_id}, {date_from} to {date_to} (attempt {attempt + 1}/{max_retries}, waiting {wait}s)")
+            logger.info(f"Syncing ARI: room_type={qloapps_room_type_id}, {date_from} to {date_to} (attempt {attempt + 1}/{max_retries}, waiting {wait}s)")
             await asyncio.sleep(wait)
 
-            # 1. Get current availability from QloApps
+            # 1. Get current ARI from QloApps (single call returns availability AND prices)
             ari_data = await qloapps.get_availability(
                 hotel_id=1,
                 date_from=date_from,
@@ -372,16 +376,15 @@ async def sync_availability_to_channex(
 
             logger.info(f"QloApps ARI response: {ari_data}")
 
-            # 2. Parse available room count for this room type
+            # 2. Parse and push availability
             available_count = parse_qloapps_availability(ari_data, qloapps_room_type_id)
 
             if available_count is None:
-                logger.warning(f"Could not parse availability from QloApps for room type {qloapps_room_type_id}")
+                logger.warning(f"Could not parse availability for room type {qloapps_room_type_id}")
                 logger.warning("Setting availability to 0 as safe default (prevents overbooking)")
                 available_count = 0
 
-            # 3. Push to Channex using date range (single API call)
-            values = [{
+            avail_values = [{
                 "property_id": settings.channex_property_id,
                 "room_type_id": channex_room_type_id,
                 "date_from": date_from,
@@ -389,15 +392,38 @@ async def sync_availability_to_channex(
                 "availability": max(0, available_count),
             }]
 
-            result = await channex.update_availability(values)
-            logger.info(f"Channex availability updated: {available_count} rooms, {date_from} to {date_to}, result={result}")
+            result = await channex.update_availability(avail_values)
+            logger.info(f"Channex availability updated: {available_count} rooms, {date_from} to {date_to}")
+
+            # 3. Parse and push rate + restrictions
+            rate = parse_qloapps_rate(ari_data, qloapps_room_type_id)
+            channex_rate_plan = RATE_PLAN_MAPPING.get(qloapps_room_type_id)
+
+            if rate and rate > 0 and channex_rate_plan:
+                restriction_values = [{
+                    "property_id": settings.channex_property_id,
+                    "rate_plan_id": channex_rate_plan,
+                    "date_from": date_from,
+                    "date_to": date_to,
+                    "rate": int(rate * 100),  # Channex expects cents
+                    **DEFAULT_RESTRICTIONS,
+                }]
+
+                rate_result = await channex.update_restrictions(restriction_values)
+                logger.info(f"Channex rate updated: R${rate:.2f}/night ({int(rate*100)} cents), {date_from} to {date_to}")
+            else:
+                if not rate or rate <= 0:
+                    logger.warning(f"No valid rate for room type {qloapps_room_type_id}, skipping rate sync")
+                if not channex_rate_plan:
+                    logger.warning(f"No rate plan mapping for room type {qloapps_room_type_id}, skipping rate sync")
+
             return  # success
 
         except Exception as e:
             if attempt < max_retries - 1:
                 logger.warning(f"Attempt {attempt + 1} failed: {e} — retrying...")
             else:
-                logger.error(f"All {max_retries} attempts failed syncing availability to Channex")
+                logger.error(f"All {max_retries} attempts failed syncing ARI to Channex")
                 logger.error(f"Last error: {e}")
                 logger.error(traceback.format_exc())
 
@@ -441,6 +467,33 @@ def parse_qloapps_availability(ari_data: dict, room_type_id: int) -> dict:
 
     except Exception as e:
         logger.error(f"Error parsing QloApps availability: {e}")
+        return None
+
+
+def parse_qloapps_rate(ari_data: dict, room_type_id: int) -> float:
+    """
+    Parse QloApps hotel_ari response to extract per-night rate.
+
+    Returns base_price_with_tax (tax-inclusive nightly rate).
+    This is the price guests see on OTAs.
+    Returns None if room type not found.
+    """
+    try:
+        hotel_ari = ari_data.get("hotel_ari", {})
+        room_types = hotel_ari.get("room_types", [])
+
+        for rt in room_types:
+            rt_id = int(rt.get("id_room_type", 0))
+            if rt_id == room_type_id:
+                rate = float(rt.get("base_price_with_tax", 0))
+                logger.info(f"Room type {room_type_id} ({rt.get('name', '?')}): R${rate:.2f}/night")
+                return rate
+
+        logger.warning(f"Room type {room_type_id} not found in ARI response for rate")
+        return None
+
+    except Exception as e:
+        logger.error(f"Error parsing QloApps rate: {e}")
         return None
 
 
@@ -615,13 +668,56 @@ async def sync_rate_manual(
     return {"status": "ok", "result": result}
 
 
+@app.post("/sync/restrictions", tags=["Sync Manual (para testar)"])
+async def sync_restrictions_manual(
+    room_type_id: int,
+    date_from: str,
+    date_to: str,
+    min_stay_arrival: int = 1,
+    stop_sell: bool = False,
+    closed_to_arrival: bool = False,
+    closed_to_departure: bool = False,
+):
+    """
+    Enviar restricoes manualmente pro Channex.
+
+    Controla como o quarto aparece nas OTAs pra um periodo especifico.
+
+    - **room_type_id**: ID do tipo de quarto no QloApps
+    - **date_from**: Data inicio (formato: 2026-02-01)
+    - **date_to**: Data fim (formato: 2026-02-05)
+    - **min_stay_arrival**: Minimo de noites se check-in nessa data (default: 1)
+    - **stop_sell**: Parar vendas nesse periodo (default: false)
+    - **closed_to_arrival**: Nao aceitar check-in nessas datas (default: false)
+    - **closed_to_departure**: Nao aceitar check-out nessas datas (default: false)
+    """
+    channex_rate_plan = RATE_PLAN_MAPPING.get(room_type_id)
+
+    if not channex_rate_plan:
+        raise HTTPException(400, f"Unknown room_type_id: {room_type_id}")
+
+    values = [{
+        "property_id": settings.channex_property_id,
+        "rate_plan_id": channex_rate_plan,
+        "date_from": date_from,
+        "date_to": date_to,
+        "min_stay_arrival": min_stay_arrival,
+        "stop_sell": stop_sell,
+        "closed_to_arrival": closed_to_arrival,
+        "closed_to_departure": closed_to_departure,
+    }]
+
+    result = await channex.update_restrictions(values)
+    return {"status": "ok", "result": result}
+
+
 @app.post("/sync/full", tags=["Sync Manual (para testar)"])
 async def sync_full_from_qloapps(room_type_id: int, date_from: str, date_to: str):
     """
-    Sincronizar disponibilidade do QloApps pro Channex.
+    Sincronizar ARI completo (disponibilidade + tarifa + restricoes) do QloApps pro Channex.
 
-    Consulta o QloApps pra saber quantos quartos estao disponiveis
-    e envia essa informacao pro Channex.
+    Consulta o QloApps pra saber quantos quartos estao disponiveis e o preco,
+    e envia tudo pro Channex.
 
     **Precisa do QloApps rodando em localhost:8080.**
 
@@ -634,7 +730,7 @@ async def sync_full_from_qloapps(room_type_id: int, date_from: str, date_to: str
     if not channex_room_type:
         raise HTTPException(400, f"Unknown room_type_id: {room_type_id}")
 
-    await sync_availability_to_channex(room_type_id, channex_room_type, date_from, date_to)
+    await sync_ari_to_channex(room_type_id, channex_room_type, date_from, date_to)
     return {"status": "ok", "room_type_id": room_type_id, "date_from": date_from, "date_to": date_to}
 
 

@@ -1,6 +1,6 @@
 # AI-PMS (Cosmo) - Roadmap
 
-> Ultima atualizacao: 2026-01-31 (Fase 1 sync QloApps → Channex funcionando)
+> Ultima atualizacao: 2026-01-31 (Fase 1.2 completa: ARI sync QloApps → Channex)
 
 ## Visao geral dos Marcos
 
@@ -27,17 +27,18 @@
 - Modulo PHP webhook instalado no QloApps (`channexwebhook`)
 - Room type mappings completos (5 tipos)
 
-### Fase 1.2: QloApps → Channex ✅
+### Fase 1.2: QloApps → Channex (ARI completo) ✅
 
 **Concluido 2026-01-31**
 
 - Webhook QloApps → Middleware funcionando (booking.created, booking.updated, booking.cancelled)
-- Middleware consulta disponibilidade real no QloApps (hotel_ari)
-- Push de disponibilidade para Channex (POST /availability)
-- Retry com backoff para lidar com DB locks do PHP
-- Sync manual via Swagger (POST /sync/full, /sync/availability, /sync/rate)
+- Middleware consulta ARI real no QloApps (hotel_ari) — uma chamada retorna disponibilidade E preco
+- Push de **disponibilidade** para Channex (POST /availability)
+- Push de **tarifas + restricoes** para Channex (POST /restrictions)
+- Retry com backoff (5s, 10s, 20s) para lidar com DB locks do PHP
+- Sync manual via Swagger: /sync/full, /sync/availability, /sync/rate, /sync/restrictions
 
-**Resultado:** Reserva no QloApps → disponibilidade atualizada automaticamente no Channex.
+**Resultado:** Reserva no QloApps → disponibilidade E tarifa atualizadas automaticamente no Channex.
 
 ### Fase 1.3: Channex → QloApps 📋
 
@@ -152,6 +153,41 @@ O middleware e a ponte. O PMS muda, o CM nao. O middleware traduz.
 | Channex | $30-49/mes | Certificacao OTA (barreira intransponivel) |
 | Stripe | ~2.5% | Seguranca de pagamento + cobertura global |
 | **Todo o resto** | **Nosso** | Codigo, dados, controle |
+
+---
+
+## Mapa de dados: o que sincroniza entre PMS e Channex
+
+Referencia completa pra saber o que esta implementado e o que falta.
+
+### PMS → Channex (pra OTAs mostrarem listagens)
+
+| Dado | Endpoint Channex | Status | Limitacao atual |
+|------|-----------------|--------|-----------------|
+| Disponibilidade (qtd quartos) | POST /availability | ✅ Automatico | Conta total no range, nao por dia |
+| Tarifa (preco/noite) | POST /restrictions | ✅ Automatico | Preco unico por tipo (sem variacao por data/temporada) |
+| Min stay | POST /restrictions | ⚠️ Default fixo (1) | QloApps nao expoe via API; usar /sync/restrictions manual |
+| Stop sell | POST /restrictions | ⚠️ Default fixo (false) | Idem |
+| Closed to arrival/departure | POST /restrictions | ❌ So manual | Endpoint /sync/restrictions existe pra override |
+| Detalhes do quarto (fotos, amenities) | N/A | ❌ Nao sincronizado | Configurar direto no Channex |
+
+### Channex → PMS (quando chega reserva de OTA)
+
+| Dado | Status | Limitacao atual |
+|------|--------|-----------------|
+| Reserva nova (criar no PMS) | ✅ Codigo pronto | Falta webhook Channex configurado (precisa ngrok) |
+| Modificacao de reserva | ❌ TODO no codigo | Nao encontra booking existente pra atualizar |
+| Cancelamento de reserva | ❌ TODO no codigo | Nao encontra booking existente pra cancelar |
+| Dados do hospede | ⚠️ Parcial | Nome, email, phone. Falta: nacionalidade, idioma, requests |
+| Numero de confirmacao OTA | ❌ Nao extraido | Util pra reconciliacao |
+
+### Limitacoes conhecidas (Fase 1)
+
+1. **Preco unico por tipo de quarto** — QloApps retorna `base_price_with_tax` fixo, sem variacao por data ou temporada. Precificacao dinamica vem no Marco 4.
+2. **Restricoes sao defaults** — QloApps nao expoe min_stay/stop_sell via API. Usar endpoint manual `/sync/restrictions` pra override. Campos reais vem no Marco 2 (sistema-os).
+3. **Sem sync automatico quando hotel muda tarifa** — Webhook so dispara em eventos de booking. Se mudar preco no QloApps sem criar reserva, usar `/sync/full` manual.
+4. **Webhook Channex → Middleware precisa de URL publica** — Middleware roda em localhost. Precisa ngrok ou tunnel pra receber bookings de OTAs.
+5. **Booking modification/cancellation vindos de OTA** — Codigo recebe o evento mas nao implementa update/cancel no QloApps ainda.
 
 ---
 

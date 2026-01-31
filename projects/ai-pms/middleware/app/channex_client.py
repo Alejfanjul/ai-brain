@@ -16,7 +16,7 @@ class ChannexClient:
         }
 
     async def _request(self, method: str, endpoint: str, **kwargs) -> dict:
-        async with httpx.AsyncClient() as client:
+        async with httpx.AsyncClient(timeout=30.0) as client:
             response = await client.request(
                 method,
                 f"{self.base_url}{endpoint}",

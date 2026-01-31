@@ -7,6 +7,7 @@ Endpoints:
 - POST /webhook/qloapps  - Receives webhooks from QloApps module (direct bookings)
 - GET  /health           - Health check
 """
+import asyncio
 import logging
 import traceback
 from datetime import datetime, timedelta
@@ -351,41 +352,54 @@ async def sync_availability_to_channex(
     This is the core sync function — called on booking create, update, and cancel.
     Always queries QloApps for the definitive availability count (not incremental).
     """
-    try:
-        logger.info(f"Syncing availability: room_type={qloapps_room_type_id}, {date_from} to {date_to}")
+    # Retry with backoff: QloApps webhook fires while PHP still holds DB locks,
+    # so the hotel_ari endpoint may be unavailable for several seconds
+    max_retries = 3
+    delays = [5, 10, 20]  # seconds between retries
 
-        # 1. Get current availability from QloApps
-        ari_data = await qloapps.get_availability(
-            hotel_id=1,
-            date_from=date_from,
-            date_to=date_to
-        )
+    for attempt in range(max_retries):
+        try:
+            wait = delays[attempt]
+            logger.info(f"Syncing availability: room_type={qloapps_room_type_id}, {date_from} to {date_to} (attempt {attempt + 1}/{max_retries}, waiting {wait}s)")
+            await asyncio.sleep(wait)
 
-        logger.info(f"QloApps ARI response: {ari_data}")
+            # 1. Get current availability from QloApps
+            ari_data = await qloapps.get_availability(
+                hotel_id=1,
+                date_from=date_from,
+                date_to=date_to
+            )
 
-        # 2. Parse available room count for this room type
-        available_count = parse_qloapps_availability(ari_data, qloapps_room_type_id)
+            logger.info(f"QloApps ARI response: {ari_data}")
 
-        if available_count is None:
-            logger.warning(f"Could not parse availability from QloApps for room type {qloapps_room_type_id}")
-            logger.warning("Setting availability to 0 as safe default (prevents overbooking)")
-            available_count = 0
+            # 2. Parse available room count for this room type
+            available_count = parse_qloapps_availability(ari_data, qloapps_room_type_id)
 
-        # 3. Push to Channex using date range (single API call)
-        values = [{
-            "property_id": settings.channex_property_id,
-            "room_type_id": channex_room_type_id,
-            "date_from": date_from,
-            "date_to": date_to,
-            "availability": max(0, available_count),
-        }]
+            if available_count is None:
+                logger.warning(f"Could not parse availability from QloApps for room type {qloapps_room_type_id}")
+                logger.warning("Setting availability to 0 as safe default (prevents overbooking)")
+                available_count = 0
 
-        result = await channex.update_availability(values)
-        logger.info(f"Channex availability updated: {available_count} rooms, {date_from} to {date_to}, result={result}")
+            # 3. Push to Channex using date range (single API call)
+            values = [{
+                "property_id": settings.channex_property_id,
+                "room_type_id": channex_room_type_id,
+                "date_from": date_from,
+                "date_to": date_to,
+                "availability": max(0, available_count),
+            }]
 
-    except Exception as e:
-        logger.error(f"Error syncing availability to Channex: {e}")
-        logger.error(traceback.format_exc())
+            result = await channex.update_availability(values)
+            logger.info(f"Channex availability updated: {available_count} rooms, {date_from} to {date_to}, result={result}")
+            return  # success
+
+        except Exception as e:
+            if attempt < max_retries - 1:
+                logger.warning(f"Attempt {attempt + 1} failed: {e} — retrying...")
+            else:
+                logger.error(f"All {max_retries} attempts failed syncing availability to Channex")
+                logger.error(f"Last error: {e}")
+                logger.error(traceback.format_exc())
 
 
 def parse_qloapps_availability(ari_data: dict, room_type_id: int) -> dict:

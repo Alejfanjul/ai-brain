@@ -28,7 +28,7 @@ class QloAppsClient:
 
         auth = (self.api_key, "")
 
-        async with httpx.AsyncClient() as client:
+        async with httpx.AsyncClient(timeout=30.0) as client:
             if method == "GET":
                 response = await client.get(url, auth=auth)
             elif method == "POST":
@@ -144,7 +144,7 @@ class QloAppsClient:
             xml_body += f'<date_to>{date_to}</date_to>'
         xml_body += '</hotel_ari></qloapps>'
 
-        async with httpx.AsyncClient() as client:
+        async with httpx.AsyncClient(timeout=30.0) as client:
             response = await client.post(
                 url,
                 auth=(self.api_key, ""),

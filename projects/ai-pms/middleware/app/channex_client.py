@@ -33,8 +33,12 @@ class ChannexClient:
         return await self._request("GET", f"/bookings/{booking_id}")
 
     async def ack_booking(self, booking_id: str) -> dict:
-        """Acknowledge a booking (mark as received)"""
+        """Acknowledge a booking by booking ID"""
         return await self._request("POST", f"/bookings/{booking_id}/ack")
+
+    async def ack_booking_revision(self, revision_id: str) -> dict:
+        """Acknowledge a booking revision (preferred for webhook processing)"""
+        return await self._request("POST", f"/booking_revisions/{revision_id}/ack")
 
     async def list_bookings(
         self,
@@ -85,6 +89,13 @@ class ChannexClient:
     async def get_booking_revision(self, revision_id: str) -> dict:
         """Get full booking revision details"""
         return await self._request("GET", f"/booking_revisions/{revision_id}")
+
+    async def get_booking_revision_feed(self, property_id: Optional[str] = None) -> dict:
+        """Get all unacknowledged booking revisions (ordered by oldest first)"""
+        params = {"order[inserted_at]": "asc"}
+        if property_id:
+            params["filter[property_id]"] = property_id
+        return await self._request("GET", "/booking_revisions/feed", params=params)
 
     # === Webhooks ===
 

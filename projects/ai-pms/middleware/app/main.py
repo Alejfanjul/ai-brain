@@ -8,6 +8,7 @@ Endpoints:
 - GET  /health           - Health check
 """
 import asyncio
+import json
 import logging
 import traceback
 from datetime import datetime, timedelta
@@ -18,6 +19,7 @@ from typing import Optional
 from .config import settings, ROOM_TYPE_MAPPING, ROOM_TYPE_MAPPING_REVERSE, RATE_PLAN_MAPPING, DEFAULT_RESTRICTIONS
 from .channex_client import channex
 from .qloapps_client import qloapps
+from .booking_store import booking_store
 
 # Logging
 logging.basicConfig(level=logging.INFO)
@@ -133,19 +135,28 @@ async def webhook_qloapps(webhook: QloAppsWebhook, background_tasks: BackgroundT
 async def handle_channex_booking_new(webhook: ChannexWebhook):
     """Process new booking from Channex -> create in QloApps"""
     try:
-        if not webhook.payload:
-            logger.error("No payload in Channex webhook")
-            return
+        # 0. Extract IDs from payload
+        revision_id = None
+        booking_id = None
 
-        booking_id = webhook.payload.get("booking_id")
-        revision_id = webhook.payload.get("revision_id")
+        if webhook.payload:
+            booking_id = webhook.payload.get("booking_id")
+            revision_id = webhook.payload.get("revision_id")
 
         if not booking_id and not revision_id:
             logger.error("No booking_id or revision_id in Channex webhook payload")
             return
 
-        # 1. Fetch full booking details from Channex
-        # Prefer revision endpoint (recommended by Channex docs)
+        # 1. Idempotency check
+        if booking_id and booking_store.exists(booking_id):
+            existing = booking_store.get_by_channex_id(booking_id)
+            logger.warning(f"Booking {booking_id} already processed -> QloApps order {existing['qloapps_order_id']}. Skipping.")
+            # Still ack to stop Channex from resending
+            if revision_id:
+                await channex.ack_booking_revision(revision_id)
+            return
+
+        # 2. Fetch full booking details from Channex
         if revision_id:
             logger.info(f"Fetching booking revision {revision_id} from Channex...")
             response = await channex.get_booking_revision(revision_id)
@@ -154,23 +165,51 @@ async def handle_channex_booking_new(webhook: ChannexWebhook):
             response = await channex.get_booking(booking_id)
 
         booking = response.get("data", {}).get("attributes", {})
-        logger.info(f"Booking details: status={booking.get('status')}, ota={booking.get('ota_name')}")
+        booking_id = booking_id or booking.get("booking_id")
+        logger.info(f"Booking details: status={booking.get('status')}, ota={booking.get('ota_name')}, unique_id={booking.get('unique_id')}")
 
-        # 2. Transform Channex booking to QloApps format
+        # 3. Transform Channex booking to QloApps format
         qloapps_booking = transform_channex_to_qloapps(booking)
 
-        # 3. Create booking in QloApps
-        logger.info(f"Creating booking in QloApps...")
+        # 4. Create booking in QloApps
+        logger.info("Creating booking in QloApps...")
         result = await qloapps.create_booking(qloapps_booking)
-        logger.info(f"Booking created in QloApps: {result}")
+        qloapps_order_id = extract_qloapps_order_id(result)
+        logger.info(f"Booking created in QloApps: order_id={qloapps_order_id}")
 
-        # 4. Acknowledge booking in Channex
+        # 5. Save mapping (Channex <-> QloApps)
+        customer = booking.get("customer", {})
+        guest_name = f"{customer.get('name', '')} {customer.get('surname', customer.get('last_name', ''))}".strip()
+        booking_store.save_booking(
+            channex_booking_id=booking_id,
+            qloapps_order_id=qloapps_order_id,
+            channex_revision_id=revision_id,
+            channex_unique_id=booking.get("unique_id"),
+            ota_name=booking.get("ota_name"),
+            guest_name=guest_name or "Unknown",
+            checkin=booking.get("arrival_date"),
+            checkout=booking.get("departure_date"),
+        )
+
+        # 6. Acknowledge in Channex (AFTER create + save)
+        # Only revision-level ack works (/bookings/{id}/ack returns 404)
         if revision_id:
-            await channex.ack_booking(revision_id)
+            await channex.ack_booking_revision(revision_id)
             logger.info(f"Revision {revision_id} acknowledged in Channex")
-        elif booking_id:
-            await channex.ack_booking(booking_id)
-            logger.info(f"Booking {booking_id} acknowledged in Channex")
+        else:
+            logger.warning(f"No revision_id to ack for booking {booking_id} — skipping ack")
+
+        # 7. Re-sync ARI (availability decreased due to new booking)
+        rooms = booking.get("rooms", [])
+        if rooms:
+            room = rooms[0]
+            channex_room_type_id = room.get("room_type_id", "")
+            qloapps_room_type_id = ROOM_TYPE_MAPPING_REVERSE.get(channex_room_type_id)
+            checkin = booking.get("arrival_date")
+            checkout = booking.get("departure_date")
+            if qloapps_room_type_id and channex_room_type_id and checkin and checkout:
+                logger.info("Re-syncing ARI after OTA booking...")
+                await sync_ari_to_channex(qloapps_room_type_id, channex_room_type_id, checkin, checkout)
 
     except Exception as e:
         logger.error(f"Error handling Channex booking: {e}")
@@ -180,37 +219,123 @@ async def handle_channex_booking_new(webhook: ChannexWebhook):
 async def handle_channex_booking_modified(webhook: ChannexWebhook):
     """Process modified booking from Channex -> update in QloApps"""
     try:
-        if not webhook.payload:
-            logger.error("No payload in Channex modification webhook")
-            return
+        # Channex booking_modification webhook uses "booking_revision_id" (not "revision_id")
+        revision_id = (
+            webhook.payload.get("booking_revision_id")
+            or webhook.payload.get("revision_id")
+        ) if webhook.payload else None
+        booking_id = webhook.payload.get("booking_id") if webhook.payload else None
 
-        revision_id = webhook.payload.get("revision_id")
-        booking_id = webhook.payload.get("booking_id")
+        if not revision_id and not booking_id:
+            logger.error("No IDs in modification webhook")
+            return
 
         logger.info(f"Booking modification: revision={revision_id}, booking={booking_id}")
 
-        # Fetch updated booking details
+        # 1. Fetch updated booking from Channex
         if revision_id:
             response = await channex.get_booking_revision(revision_id)
-        elif booking_id:
-            response = await channex.get_booking(booking_id)
         else:
-            logger.error("No revision_id or booking_id in modification webhook")
-            return
+            response = await channex.get_booking(booking_id)
 
         booking = response.get("data", {}).get("attributes", {})
+        booking_id = booking_id or booking.get("booking_id")
         logger.info(f"Modified booking: status={booking.get('status')}, ota={booking.get('ota_name')}")
 
-        # TODO: Find matching booking in QloApps and update it
-        # For now, log the modification details
-        logger.warning("Booking modification received but QloApps update not yet implemented")
-        logger.info(f"Modification details: {booking}")
+        # 2. Find existing QloApps booking via mapping
+        mapping = booking_store.get_by_channex_id(booking_id) if booking_id else None
+        if not mapping:
+            logger.warning(f"No QloApps mapping for Channex booking {booking_id}. Cannot modify — ack'ing to prevent retry storm.")
+            if revision_id:
+                await channex.ack_booking_revision(revision_id)
+            return
 
-        # Acknowledge
-        ack_id = revision_id or booking_id
-        if ack_id:
-            await channex.ack_booking(ack_id)
-            logger.info(f"Modification {ack_id} acknowledged in Channex")
+        qloapps_order_id = mapping["qloapps_order_id"]
+
+        # 3. Update QloApps booking (GET current → merge changes → PUT back)
+        # QloApps PUT quirks:
+        # - Requires id, id_property, currency, customer_detail (with ORIGINAL email), room_types with rooms
+        # - Customer lookup is by email — new email = "Customer not found"
+        # - Date/room changes are complex (room reallocation). POC updates guest name/phone only.
+        customer = booking.get("customer", {})
+        try:
+            current_qloapps = await qloapps.get_booking(qloapps_order_id)
+            qloapps_data = current_qloapps.get("booking", current_qloapps)
+
+            # Build PUT payload preserving original structure
+            original_cd = qloapps_data.get("associations", {}).get("customer_detail", {})
+            original_rooms = qloapps_data.get("associations", {}).get("room_types", [])
+            original_room = original_rooms[0] if original_rooms else {}
+            original_room_detail = original_room.get("rooms", [{}])[0] if original_room.get("rooms") else {}
+
+            # Merge guest changes (keep original email to avoid "Customer not found")
+            new_firstname = customer.get("name", customer.get("first_name", original_cd.get("firstname", "")))
+            new_lastname = customer.get("surname", customer.get("last_name", original_cd.get("lastname", "")))
+            new_phone = customer.get("phone", original_cd.get("phone", ""))
+            original_email = original_cd.get("email", "")
+
+            ota = booking.get("ota_name", "OTA")
+            unique_id = booking.get("unique_id", "")
+
+            put_data = {
+                "id": qloapps_order_id,
+                "id_property": qloapps_data.get("id_property", 1),
+                "currency": qloapps_data.get("currency", "BRL"),
+                "source": f"Channex-{ota}",
+                "associations": {
+                    "customer_detail": {
+                        "firstname": new_firstname,
+                        "lastname": new_lastname,
+                        "email": original_email,  # MUST keep original email
+                        "phone": new_phone,
+                    },
+                    "room_types": {
+                        "room_type": {
+                            "id_room_type": original_room.get("id_room_type", 1),
+                            "checkin_date": original_room.get("checkin_date", "").split(" ")[0],
+                            "checkout_date": original_room.get("checkout_date", "").split(" ")[0],
+                            "number_of_rooms": original_room.get("number_of_rooms", 1),
+                            "rooms": {
+                                "room": {
+                                    "id_room": original_room_detail.get("id_room"),
+                                    "id_hotel_booking": original_room_detail.get("id_hotel_booking", qloapps_order_id),
+                                    "adults": original_room_detail.get("adults", 2),
+                                    "child": original_room_detail.get("child", 0),
+                                    "unit_price_without_tax": original_room_detail.get("unit_price_without_tax", 0),
+                                    "total_tax": original_room_detail.get("total_tax", 0),
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            await qloapps.update_booking(qloapps_order_id, put_data)
+            logger.info(f"QloApps order {qloapps_order_id} updated: {new_firstname} {new_lastname}, phone={new_phone}")
+        except Exception as update_err:
+            logger.warning(f"Could not update QloApps order {qloapps_order_id}: {update_err}")
+            logger.warning("Modification logged in booking_store but QloApps may be out of sync")
+
+        # 4. Update mapping status (always, even if QloApps update failed)
+        booking_store.update_status(booking_id, "modified")
+
+        # 5. Ack in Channex
+        if revision_id:
+            await channex.ack_booking_revision(revision_id)
+            logger.info(f"Modification {revision_id} acknowledged")
+        else:
+            logger.warning(f"No revision_id to ack for modification of booking {booking_id}")
+
+        # 6. Re-sync ARI (dates may have changed)
+        rooms = booking.get("rooms", [])
+        if rooms:
+            room = rooms[0]
+            channex_room_type_id = room.get("room_type_id", "")
+            qloapps_room_type_id = ROOM_TYPE_MAPPING_REVERSE.get(channex_room_type_id)
+            checkin = booking.get("arrival_date")
+            checkout = booking.get("departure_date")
+            if qloapps_room_type_id and channex_room_type_id and checkin and checkout:
+                await sync_ari_to_channex(qloapps_room_type_id, channex_room_type_id, checkin, checkout)
 
     except Exception as e:
         logger.error(f"Error handling Channex modification: {e}")
@@ -220,35 +345,66 @@ async def handle_channex_booking_modified(webhook: ChannexWebhook):
 async def handle_channex_booking_cancelled(webhook: ChannexWebhook):
     """Process cancelled booking from Channex -> cancel in QloApps + update ARI"""
     try:
-        if not webhook.payload:
-            logger.error("No payload in Channex cancellation webhook")
-            return
+        # Channex booking_cancellation webhook uses "booking_revision_id" (not "revision_id")
+        revision_id = (
+            webhook.payload.get("booking_revision_id")
+            or webhook.payload.get("revision_id")
+        ) if webhook.payload else None
+        booking_id = webhook.payload.get("booking_id") if webhook.payload else None
 
-        revision_id = webhook.payload.get("revision_id")
-        booking_id = webhook.payload.get("booking_id")
+        if not revision_id and not booking_id:
+            logger.error("No IDs in cancellation webhook")
+            return
 
         logger.info(f"Booking cancellation: revision={revision_id}, booking={booking_id}")
 
-        # Fetch cancelled booking details
+        # 1. Fetch cancellation details from Channex
         if revision_id:
             response = await channex.get_booking_revision(revision_id)
-        elif booking_id:
-            response = await channex.get_booking(booking_id)
         else:
-            logger.error("No revision_id or booking_id in cancellation webhook")
-            return
+            response = await channex.get_booking(booking_id)
 
         booking = response.get("data", {}).get("attributes", {})
+        booking_id = booking_id or booking.get("booking_id")
         logger.info(f"Cancelled booking: ota={booking.get('ota_name')}")
 
-        # TODO: Find matching booking in QloApps and cancel it
-        logger.warning("Booking cancellation received but QloApps cancel not yet implemented")
+        # 2. Find existing QloApps booking via mapping
+        mapping = booking_store.get_by_channex_id(booking_id) if booking_id else None
+        if not mapping:
+            logger.warning(f"No QloApps mapping for Channex booking {booking_id}. Nothing to cancel — ack'ing.")
+            if revision_id:
+                await channex.ack_booking_revision(revision_id)
+            return
 
-        # Acknowledge
-        ack_id = revision_id or booking_id
-        if ack_id:
-            await channex.ack_booking(ack_id)
-            logger.info(f"Cancellation {ack_id} acknowledged in Channex")
+        qloapps_order_id = mapping["qloapps_order_id"]
+
+        # 3. Cancel in QloApps (best-effort — QloApps booking module may not support status changes)
+        try:
+            await qloapps.cancel_booking(qloapps_order_id)
+            logger.info(f"QloApps order {qloapps_order_id} cancel attempted")
+        except Exception as e:
+            logger.warning(f"QloApps cancel failed for order {qloapps_order_id}: {e} — continuing with status update")
+
+        # 4. Update mapping status (always — even if QloApps cancel failed)
+        booking_store.update_status(booking_id, "cancelled")
+        logger.info(f"Booking {booking_id} marked as cancelled in mapping store")
+
+        # 5. Ack in Channex
+        if revision_id:
+            await channex.ack_booking_revision(revision_id)
+            logger.info(f"Cancellation {revision_id} acknowledged")
+
+        # 6. Re-sync ARI (rooms are now free)
+        rooms = booking.get("rooms", [])
+        if rooms:
+            room = rooms[0]
+            channex_room_type_id = room.get("room_type_id", "")
+            qloapps_room_type_id = ROOM_TYPE_MAPPING_REVERSE.get(channex_room_type_id)
+            checkin = booking.get("arrival_date")
+            checkout = booking.get("departure_date")
+            if qloapps_room_type_id and channex_room_type_id and checkin and checkout:
+                logger.info("Re-syncing ARI after cancellation (rooms freed)...")
+                await sync_ari_to_channex(qloapps_room_type_id, channex_room_type_id, checkin, checkout)
 
     except Exception as e:
         logger.error(f"Error handling Channex cancellation: {e}")
@@ -500,21 +656,41 @@ def parse_qloapps_rate(ari_data: dict, room_type_id: int) -> float:
 # === Transform Functions ===
 
 def transform_channex_to_qloapps(channex_booking: dict) -> dict:
-    """Transform Channex booking format to QloApps format"""
+    """Transform Channex booking format to QloApps format.
 
+    Note: Channex customer fields may vary (name/surname vs single name).
+    The debug endpoint /webhook/channex/debug logs the real format.
+    """
     # Extract guest info
+    # Channex docs: customer has name, surname, mail, phone
+    # Fallback: if only "name" exists, split on space
     customer = channex_booking.get("customer", {})
-    name_parts = customer.get("name", "Guest Unknown").split(" ", 1)
-    firstname = name_parts[0]
-    lastname = name_parts[1] if len(name_parts) > 1 else ""
+    firstname = customer.get("name", customer.get("first_name", ""))
+    lastname = customer.get("surname", customer.get("last_name", ""))
+
+    if not firstname and not lastname:
+        # Last resort: try full_name or just "Guest"
+        full_name = customer.get("full_name", "Guest Unknown")
+        parts = full_name.split(" ", 1)
+        firstname = parts[0]
+        lastname = parts[1] if len(parts) > 1 else ""
+
+    email = customer.get("mail", customer.get("email", ""))
+    phone = customer.get("phone", "")
 
     # Extract room info
     rooms = channex_booking.get("rooms", [])
     room = rooms[0] if rooms else {}
 
+    if len(rooms) > 1:
+        logger.warning(f"Multi-room booking ({len(rooms)} rooms) — only first room will be processed")
+
     # Map Channex room_type_id to QloApps id_room_type
     channex_room_type = room.get("room_type_id", "")
     qloapps_room_type = ROOM_TYPE_MAPPING_REVERSE.get(channex_room_type, 1)
+
+    if channex_room_type and not ROOM_TYPE_MAPPING_REVERSE.get(channex_room_type):
+        logger.warning(f"Unknown Channex room_type_id: {channex_room_type}, defaulting to QloApps type 1")
 
     # Dates
     checkin = channex_booking.get("arrival_date", "")
@@ -526,6 +702,14 @@ def transform_channex_to_qloapps(channex_booking: dict) -> dict:
 
     # Source/OTA
     ota = channex_booking.get("ota_name", "OTA")
+    unique_id = channex_booking.get("unique_id", "")
+
+    # Tax split: POC uses 80/20 estimate
+    total_float = float(total)
+    price_without_tax = round(total_float * 0.8, 2)
+    tax = round(total_float * 0.2, 2)
+    if total_float > 0:
+        logger.warning(f"Tax split is estimated (80/20): base={price_without_tax}, tax={tax}")
 
     return {
         "id_property": 1,
@@ -533,13 +717,13 @@ def transform_channex_to_qloapps(channex_booking: dict) -> dict:
         "booking_status": 1,  # API_BOOKING_STATUS_NEW
         "payment_status": 1,
         "source": f"Channex-{ota}",
-        "remark": f"OTA Booking via Channex",
+        "remark": f"OTA: {ota} | Ref: {unique_id}",
         "associations": {
             "customer_detail": {
                 "firstname": firstname,
                 "lastname": lastname,
-                "email": customer.get("email", ""),
-                "phone": customer.get("phone", ""),
+                "email": email,
+                "phone": phone,
             },
             "price_details": {
                 "total_paid": "0",
@@ -555,14 +739,33 @@ def transform_channex_to_qloapps(channex_booking: dict) -> dict:
                         "room": {
                             "adults": room.get("occupancy", {}).get("adults", 2),
                             "child": room.get("occupancy", {}).get("children", 0),
-                            "unit_price_without_tax": str(float(total) * 0.8),  # Estimate
-                            "total_tax": str(float(total) * 0.2),  # Estimate
+                            "unit_price_without_tax": str(price_without_tax),
+                            "total_tax": str(tax),
                         }
                     }
                 }
             }
         }
     }
+
+
+def extract_qloapps_order_id(response: dict) -> int:
+    """Extract order ID from QloApps create booking response."""
+    try:
+        booking = response.get("booking", response)
+        if isinstance(booking, dict):
+            order_id = booking.get("id")
+            if order_id:
+                return int(order_id)
+        # Fallback: check for order key
+        order_id = response.get("id")
+        if order_id:
+            return int(order_id)
+        logger.warning(f"Could not extract order_id from QloApps response: {json.dumps(response, default=str)[:500]}")
+        return 0
+    except Exception as e:
+        logger.error(f"Error extracting order_id: {e}")
+        return 0
 
 
 # === Utility Endpoints ===
@@ -596,6 +799,43 @@ async def root():
             "docs": "/docs",
         }
     }
+
+
+# === Debug Endpoints ===
+
+@app.post("/webhook/channex/debug", tags=["Debug"])
+async def webhook_channex_debug(request: Request):
+    """
+    Endpoint temporario para capturar o formato EXATO do webhook do Channex.
+
+    Aceita qualquer JSON, loga completo, retorna 200.
+    Usar para validar antes de confiar no model ChannexWebhook.
+    """
+    body = await request.json()
+    logger.info(f"=== RAW CHANNEX WEBHOOK ===")
+    logger.info(json.dumps(body, indent=2, default=str))
+    logger.info(f"=== END RAW WEBHOOK ===")
+    return {"status": "received_debug", "body": body}
+
+
+@app.get("/bookings/mapping", tags=["Debug"])
+async def list_booking_mappings():
+    """
+    Mostra todos os mapeamentos Channex <-> QloApps.
+
+    Util pra verificar se bookings estao sendo rastreados corretamente.
+    """
+    return booking_store.get_all()
+
+
+@app.get("/bookings/channex/feed", tags=["Debug"])
+async def channex_booking_feed():
+    """
+    Mostra revisions de booking nao-confirmadas no Channex.
+
+    Se tiver items aqui, significa que o middleware ainda nao processou/ack'd.
+    """
+    return await channex.get_booking_revision_feed(settings.channex_property_id)
 
 
 # === Manual Sync Endpoints (for testing) ===

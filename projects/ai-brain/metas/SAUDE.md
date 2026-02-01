@@ -190,7 +190,7 @@ Entre séries do lift principal. 50-100 reps por categoria por treino.
 
 **Ciclo 1, Semana 3** (semana das 1s)
 
-**Próximo treino:** Bench (S3) - Dom 01/02
+**Próximo treino:** Bench (S3) - Seg 02/02
 **Último lift completado:** Deadlift (S3) - 30/01
 
 ---
@@ -224,7 +224,8 @@ Entre séries do lift principal. 50-100 reps por categoria por treino.
 | 28/01 Qua | OHP (S3) | Sim | - | TM 46. 5x36, 3x40, 5x46. FSL 5x5@36. Acessórios: 3x20 abwheel, 3x20 lat pulldown, 3x20 triceps pulley, 2x20 KB swing 20kg, 3x20 panturrilha 30kg |
 | 29/01 Qui | Cardio (colete) | Sim | - | 40min colete. 4x1:30 + 4x2:00 intervalos corrida (alguns acima do conversacional). Sem dor, pronto pra aumentar |
 | 30/01 Sex | Deadlift (S3) | Sim | - | TM 120. 5x90, 3x106, 2x116. FSL 5x5@90. Acessórios: 3x20 canoinha, 3x20 seated v-bar row, 3x20 bíceps curl, 3x20 panturrilha + alongamento |
-| 31/01 Sáb | OFF | | | Descanso. Bench (S3) amanhã |
+| 31/01 Sáb | OFF | | | Descanso |
+| 01/02 Dom | OFF | | | Descanso. Bench (S3) amanhã (02/02) |
 
 ---
 

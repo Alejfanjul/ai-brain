@@ -74,8 +74,8 @@
 | 28/01 | Qua | Não | | | |
 | 29/01 | Qui | Não | | | |
 | 30/01 | Sex | Não | | | Permitido - escolheu não fumar |
-| 31/01 | Sáb | | | | Permitido |
-| 01/02 | Dom | | | | Permitido - Fim da Fase 1 |
+| 31/01 | Sáb | Sim | | | Permitido |
+| 01/02 | Dom | Não | | | Permitido - escolheu não fumar. Fim da Fase 1 |
 
 **Reflexão da semana:**
 - Conseguiu manter o padrão?

@@ -1,6 +1,6 @@
 # AI-PMS (Cosmo) - Roadmap
 
-> Ultima atualizacao: 2026-01-31 (Fase 1.2 completa: ARI sync QloApps → Channex)
+> Ultima atualizacao: 2026-02-01 (Fase 1.3 completa: Channex → QloApps, booking lifecycle)
 
 ## Visao geral dos Marcos
 
@@ -40,17 +40,29 @@
 
 **Resultado:** Reserva no QloApps → disponibilidade E tarifa atualizadas automaticamente no Channex.
 
-### Fase 1.3: Channex → QloApps 📋
+### Fase 1.3: Channex → QloApps (OTA Bookings) ✅
 
-**Objetivo:** OTA booking chega via Channex → middleware cria no QloApps.
+**Concluido 2026-02-01**
 
-**Pendente:**
-- [ ] Expor middleware na internet (ngrok ou cloudflare tunnel)
-- [ ] Configurar webhook no Channex (event: booking)
-- [ ] Testar fluxo: booking simulado → middleware → QloApps
-- [ ] Implementar booking modification/cancellation no QloApps
+- ngrok configurado para URL publica (localhost:8001 → ngrok)
+- Webhook Channex criado via API (`POST /api/v1/webhooks`, `send_data: true`, `event_mask: booking`)
+- Booking CRS App instalado no Channex (permite simular bookings de OTAs)
+- `booking_store.py` criado: mapeamento Channex ↔ QloApps em JSON (file-based, zero infra)
+- Handler `booking_new`: fetch revision → transform → create QloApps → save mapping → ack revision → re-sync ARI
+- Handler `booking_modification`: fetch revision → lookup mapping → GET QloApps → merge guest changes → PUT → ack → re-sync ARI
+- Handler `booking_cancellation`: fetch revision → lookup mapping → cancel attempt QloApps → update status → ack → re-sync ARI
+- Idempotencia: booking_store.exists() evita duplicatas
+- Debug endpoints: `/webhook/channex/debug`, `/bookings/mapping`, `/bookings/channex/feed`
 
-**Pre-requisito:** URL publica para o middleware.
+**Aprendizados Channex:**
+- Webhooks enviam `booking_revision_id` (nao `revision_id`) em eventos especificos
+- Channex envia 2 webhooks simultaneos: generico `booking` + especifico (`booking_new`/`booking_modification`/`booking_cancellation`)
+- Ack funciona apenas por revision: `POST /booking_revisions/{revision_id}/ack`
+- CRS API para cancelar exige PUT com todos os campos + `status: "cancelled"`
+
+**Limitacao conhecida (aceita):** QloApps booking module nao suporta mudanca de status/datas via PUT. Cancelamento/modificacao ficam rastreados no booking_store. Irrelevante — QloApps sera substituido pelo sistema-os.
+
+**Resultado:** Ciclo completo new → modified → cancelled testado end-to-end via Channex CRS API.
 
 ### Fase 1.4: Validacao com Duke Beach 📋
 
@@ -64,10 +76,11 @@
 
 ### Criterio de conclusao do Marco 1
 
-- [x] QloApps booking → Channex ARI atualizado
-- [ ] Channex booking → QloApps booking criado
-- [ ] Fluxo bidirecional testado com dados reais
-- [ ] Zero cenarios de overbooking
+- [x] QloApps booking → Channex ARI atualizado (Fase 1.2)
+- [x] Channex booking → QloApps booking criado (Fase 1.3)
+- [x] Booking modification e cancellation funcionando (Fase 1.3)
+- [ ] Fluxo bidirecional testado com dados reais (Fase 1.4)
+- [ ] Zero cenarios de overbooking (Fase 1.4)
 
 ---
 
@@ -175,19 +188,23 @@ Referencia completa pra saber o que esta implementado e o que falta.
 
 | Dado | Status | Limitacao atual |
 |------|--------|-----------------|
-| Reserva nova (criar no PMS) | ✅ Codigo pronto | Falta webhook Channex configurado (precisa ngrok) |
-| Modificacao de reserva | ❌ TODO no codigo | Nao encontra booking existente pra atualizar |
-| Cancelamento de reserva | ❌ TODO no codigo | Nao encontra booking existente pra cancelar |
+| Reserva nova (criar no PMS) | ✅ Funcionando | Webhook → fetch revision → transform → create QloApps → ack |
+| Modificacao de reserva | ✅ Funcionando | GET→merge→PUT (guest name/phone). Datas/occupancy limitado pelo QloApps |
+| Cancelamento de reserva | ✅ Funcionando | Cancel attempt QloApps + status tracked no booking_store |
+| Mapeamento Channex ↔ QloApps | ✅ Funcionando | booking_store.py (JSON file-based) |
+| Idempotencia | ✅ Funcionando | Booking duplicado nao cria segunda reserva |
+| ARI re-sync apos booking OTA | ✅ Funcionando | Disponibilidade atualizada automaticamente |
 | Dados do hospede | ⚠️ Parcial | Nome, email, phone. Falta: nacionalidade, idioma, requests |
-| Numero de confirmacao OTA | ❌ Nao extraido | Util pra reconciliacao |
+| Numero de confirmacao OTA | ✅ Extraido | `unique_id` salvo no booking_store |
 
 ### Limitacoes conhecidas (Fase 1)
 
 1. **Preco unico por tipo de quarto** — QloApps retorna `base_price_with_tax` fixo, sem variacao por data ou temporada. Precificacao dinamica vem no Marco 4.
 2. **Restricoes sao defaults** — QloApps nao expoe min_stay/stop_sell via API. Usar endpoint manual `/sync/restrictions` pra override. Campos reais vem no Marco 2 (sistema-os).
 3. **Sem sync automatico quando hotel muda tarifa** — Webhook so dispara em eventos de booking. Se mudar preco no QloApps sem criar reserva, usar `/sync/full` manual.
-4. **Webhook Channex → Middleware precisa de URL publica** — Middleware roda em localhost. Precisa ngrok ou tunnel pra receber bookings de OTAs.
-5. **Booking modification/cancellation vindos de OTA** — Codigo recebe o evento mas nao implementa update/cancel no QloApps ainda.
+4. **QloApps PUT limitado** — Booking module nao suporta mudanca de status/datas via PUT. Modificacoes atualizam guest info; cancelamentos ficam rastreados no booking_store. Resolvido no Marco 2 (sistema-os).
+5. **Tax split estimado (80/20)** — POC usa split fixo 80% base + 20% tax. Tax real vem no Marco 2.
+6. **Multi-room bookings** — So processa primeiro quarto. Suficiente para POC.
 
 ---
 

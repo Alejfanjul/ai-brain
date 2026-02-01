@@ -39,13 +39,14 @@
 - [x] Módulo PHP webhook no QloApps
 - [x] Fluxo QloApps → Middleware testado e funcionando
 - [x] Ecossistema documentado (`ECOSYSTEM.md`)
-- [ ] Implementar sync real com Channex (ARI)
-- [ ] Configurar webhook Channex → Middleware (ngrok)
-- [ ] Testar fluxo bidirecional completo
+- [x] Sync ARI real com Channex (disponibilidade + tarifas + restricoes)
+- [x] ngrok configurado, webhook Channex → Middleware funcionando
+- [x] Booking new/modification/cancellation end-to-end
+- [x] Booking store (mapeamento Channex ↔ QloApps)
 - [ ] Configurar Duke Beach no QloApps (demo)
 
 **Roadmap macro:**
-1. Provar conceito com QloApps + Channex ← **estamos aqui**
+1. Provar conceito com QloApps + Channex ← **Fases 1.1-1.3 completas, falta 1.4 (dados reais)**
 2. Migrar PMS pro sistema-os
 3. Construir Booking Engine próprio
 4. Revenue Management ativo
@@ -61,10 +62,12 @@ ai-pms/
 ├── COSMO-VISION.md              ← Visão de produto, Blue Ocean, modelo de dados
 ├── middleware/                   ← Middleware de integração (FastAPI)
 │   ├── app/
-│   │   ├── main.py              # Webhooks, rotas, sync
+│   │   ├── main.py              # Webhooks, handlers, sync, debug endpoints
 │   │   ├── config.py            # Configurações e mapeamentos
 │   │   ├── channex_client.py    # Cliente API Channex
-│   │   └── qloapps_client.py    # Cliente API QloApps (temporário)
+│   │   ├── qloapps_client.py    # Cliente API QloApps (temporário)
+│   │   └── booking_store.py     # Mapeamento Channex ↔ QloApps (JSON)
+│   ├── data/                    # Dados runtime (gitignored)
 │   ├── requirements.txt
 │   └── README.md
 ├── visao/

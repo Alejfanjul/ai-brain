@@ -60,6 +60,14 @@ Acesso:
 | `POST /sync/rate` | Push manual de tarifa |
 | `POST /sync/restrictions` | Push manual de restricoes (min_stay, stop_sell, etc.) |
 
+### Debug
+
+| Endpoint | Descrição |
+|----------|-----------|
+| `POST /webhook/channex/debug` | Captura webhook Channex raw (loga JSON completo) |
+| `GET /bookings/mapping` | Mapeamentos Channex ↔ QloApps (booking_store) |
+| `GET /bookings/channex/feed` | Revisions nao-confirmadas no Channex |
+
 ### Consultas e Status
 
 | Endpoint | Descrição |
@@ -86,14 +94,32 @@ WEBHOOK_SECRET=
 
 ## Fluxos
 
-### Reserva OTA → QloApps
+### Reserva OTA → QloApps (Fase 1.3 ✅)
 
-1. Hóspede reserva no Booking.com/Airbnb
+1. Hospede reserva no Booking.com/Airbnb
 2. Channex recebe a reserva
-3. Channex envia webhook para `/webhook/channex`
-4. Middleware busca detalhes completos da reserva
-5. Middleware cria reserva no QloApps
-6. Middleware confirma (ack) no Channex
+3. Channex envia webhook para `/webhook/channex` (event: `booking_new`)
+4. Middleware checa idempotencia (booking_store)
+5. Middleware busca detalhes via `GET /booking_revisions/{revision_id}`
+6. Middleware transforma formato Channex → QloApps
+7. Middleware cria reserva no QloApps (`POST /bookings`)
+8. Middleware salva mapeamento em `data/bookings.json`
+9. Middleware confirma (ack) no Channex (`POST /booking_revisions/{id}/ack`)
+10. Middleware re-sync ARI (disponibilidade atualizada)
+
+### Modificacao OTA → QloApps (Fase 1.3 ✅)
+
+1. Channex envia webhook `booking_modification`
+2. Middleware busca revision + lookup no booking_store
+3. GET booking atual do QloApps → merge guest changes → PUT
+4. Atualiza status no booking_store → ack → re-sync ARI
+
+### Cancelamento OTA → QloApps (Fase 1.3 ✅)
+
+1. Channex envia webhook `booking_cancellation`
+2. Middleware busca revision + lookup no booking_store
+3. Cancel attempt no QloApps (best-effort)
+4. Atualiza status → `cancelled` no booking_store → ack → re-sync ARI
 
 ### Reserva Direta → Channex
 

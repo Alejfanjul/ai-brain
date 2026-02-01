@@ -2,8 +2,8 @@
 
 > Plano de integração entre PMS (QloApps) e Channel Manager (Channex).
 >
-> **Atualizado:** 2026-01-25
-> **Status:** Middleware funcionando, sync com Channex pendente
+> **Atualizado:** 2026-02-01
+> **Status:** Fase 1.3 completa — fluxo bidirecional QloApps ↔ Channex funcionando
 
 ---
 
@@ -57,15 +57,21 @@ Criar middleware que sincroniza:
 | **Módulo PHP criado** | 2026-01-25 | `channexwebhook` instalado |
 | **Webhook QloApps → Middleware** | 2026-01-25 | Testado e funcionando |
 
-### Pendente
+| **ARI sync real** | 2026-01-31 | Disponibilidade + tarifas + restricoes (Fase 1.2) |
+| **ngrok configurado** | 2026-02-01 | URL publica para receber webhooks Channex |
+| **Webhook Channex** | 2026-02-01 | `send_data: true`, `event_mask: booking` |
+| **Booking CRS App** | 2026-02-01 | Instalado para simular bookings OTA |
+| **booking_store.py** | 2026-02-01 | Mapeamento Channex ↔ QloApps (file-based) |
+| **Booking new** | 2026-02-01 | Channex → QloApps com idempotencia + ack + ARI re-sync |
+| **Booking modification** | 2026-02-01 | GET→merge→PUT + ack + ARI re-sync |
+| **Booking cancellation** | 2026-02-01 | Cancel attempt + status tracking + ack + ARI re-sync |
+
+### Proximo
 
 | Item | Prioridade | Descrição |
 |------|------------|-----------|
-| Sync ARI real | Alta | Enviar disponibilidade para Channex quando reserva é criada |
-| Expor middleware | Alta | ngrok ou cloudflare tunnel para receber webhooks externos |
-| Webhook Channex | Alta | Configurar Channex para enviar reservas para middleware |
-| Fluxo Channex → QloApps | Média | Criar reserva no QloApps quando OTA reserva |
-| Cancelamentos | Média | Sincronizar cancelamentos nos dois sentidos |
+| Validacao Duke Beach | Alta | Dados reais do hotel no QloApps (Fase 1.4) |
+| Migrar para sistema-os | Media | Substituir QloApps pelo PMS proprio (Marco 2) |
 
 ---
 
@@ -79,25 +85,33 @@ Criar middleware que sincroniza:
 middleware/
 ├── app/
 │   ├── __init__.py
-│   ├── main.py              # FastAPI app (webhooks)
+│   ├── main.py              # FastAPI app (webhooks, handlers, sync)
 │   ├── config.py            # Configurações e mapeamentos
 │   ├── channex_client.py    # Cliente API Channex (async)
-│   └── qloapps_client.py    # Cliente API QloApps (async)
+│   ├── qloapps_client.py    # Cliente API QloApps (async, temporario)
+│   └── booking_store.py     # Mapeamento Channex ↔ QloApps (JSON file)
+├── data/
+│   └── bookings.json        # Booking mappings (gitignored)
+├── .gitignore
 ├── requirements.txt
 └── README.md
 ```
 
-**Endpoints:**
+**Endpoints principais:**
 
 | Endpoint | Método | Descrição |
 |----------|--------|-----------|
 | `/webhook/qloapps` | POST | Recebe webhooks do módulo PHP |
 | `/webhook/channex` | POST | Recebe webhooks do Channex |
+| `/webhook/channex/debug` | POST | Debug: loga webhook raw |
+| `/bookings/mapping` | GET | Mapeamentos Channex ↔ QloApps |
+| `/bookings/channex/feed` | GET | Revisions nao-ack'd no Channex |
+| `/sync/full` | POST | Sync ARI completo (disponibilidade + tarifa) |
+| `/sync/availability` | POST | Push manual de disponibilidade |
+| `/sync/rate` | POST | Push manual de tarifa |
+| `/sync/restrictions` | POST | Push manual de restricoes |
 | `/health` | GET | Health check |
 | `/docs` | GET | Swagger UI |
-| `/sync/ari` | POST | Sync manual de ARI |
-| `/bookings/channex` | GET | Lista reservas do Channex |
-| `/bookings/qloapps` | GET | Lista reservas do QloApps |
 
 **Rodar:**
 ```bash
@@ -186,47 +200,50 @@ uvicorn app.main:app --reload --port 8001
 
 ## Fluxos de Dados
 
-### Fluxo 1: Reserva Direta (QloApps → Channex) ✅ PARCIAL
+### Fluxo 1: Reserva Direta (QloApps → Channex) ✅
 
 ```
-1. Hóspede reserva no motor do QloApps
+1. Hospede reserva no motor do QloApps
 2. QloApps valida reserva (hook actionValidateOrder)
-3. Módulo PHP envia webhook para middleware     ✅ FUNCIONANDO
-4. Middleware recebe em /webhook/qloapps        ✅ FUNCIONANDO
-5. Middleware extrai room_type, datas           ✅ FUNCIONANDO
-6. Middleware mapeia para IDs Channex           ✅ FUNCIONANDO
-7. Middleware envia ARI para Channex            ⏳ TODO
-8. Channex distribui para OTAs                  ⏳ TODO
+3. Modulo PHP envia webhook para middleware         ✅
+4. Middleware recebe em /webhook/qloapps             ✅
+5. Middleware consulta ARI real no QloApps           ✅
+6. Middleware envia disponibilidade (POST /availability)  ✅
+7. Middleware envia tarifas (POST /restrictions)     ✅
+8. Channex distribui para OTAs                       ✅
 ```
 
-**Request para atualizar ARI no Channex:**
-```json
-POST /api/v1/restrictions
-{
-  "values": [
-    {
-      "property_id": "7c504651-9b33-48bc-9896-892c351f3736",
-      "room_type_id": "329d23da-9238-4b58-b0a0-a7a294e7e024",
-      "rate_plan_id": "c4cada39-dae3-4813-9d3c-d4f02eda9b0f",
-      "date": "2026-01-28",
-      "availability": 4,
-      "rate": "350.00"
-    }
-  ]
-}
-```
-
-### Fluxo 2: Reserva OTA (Channex → QloApps) ⏳ TODO
+### Fluxo 2: Reserva OTA — Nova (Channex → QloApps) ✅
 
 ```
-1. Hóspede reserva no Booking.com/Airbnb
+1. Hospede reserva no Booking.com/Airbnb
 2. Channex recebe reserva
-3. Channex envia webhook para middleware        ⏳ Precisa configurar
-4. Middleware recebe em /webhook/channex        ✅ Endpoint pronto
-5. Middleware busca detalhes: GET /bookings/{id}
-6. Middleware transforma JSON → formato QloApps
-7. Middleware cria reserva no QloApps
-8. Middleware confirma: POST /bookings/{id}/ack
+3. Channex envia webhook booking_new + booking       ✅
+4. Middleware checa idempotencia (booking_store)      ✅
+5. Middleware busca revision: GET /booking_revisions/{id}  ✅
+6. Middleware transforma Channex → QloApps           ✅
+7. Middleware cria reserva no QloApps                ✅
+8. Middleware salva mapeamento (bookings.json)        ✅
+9. Middleware ack: POST /booking_revisions/{id}/ack  ✅
+10. Middleware re-sync ARI                           ✅
+```
+
+### Fluxo 3: Reserva OTA — Modificacao ✅
+
+```
+1. Channex envia webhook booking_modification        ✅
+2. Middleware busca revision + lookup no booking_store ✅
+3. GET booking QloApps → merge guest changes → PUT   ✅
+4. Atualiza status → ack → re-sync ARI              ✅
+```
+
+### Fluxo 4: Reserva OTA — Cancelamento ✅
+
+```
+1. Channex envia webhook booking_cancellation        ✅
+2. Middleware busca revision + lookup no booking_store ✅
+3. Cancel attempt no QloApps (best-effort)           ✅
+4. Status → cancelled no booking_store → ack → ARI  ✅
 ```
 
 ---
@@ -263,61 +280,21 @@ curl -X POST "https://staging.channex.io/api/v1/webhooks" \
 
 ---
 
-## Próximos Passos Detalhados
+## Proximos Passos
 
-### 1. Implementar sync ARI real
+### Fase 1.4: Validacao com Duke Beach
 
-No arquivo `middleware/app/main.py`, função `handle_qloapps_booking_created`:
+1. Criar property no QloApps com room types reais do Duke (LVU, DLVU, DLVL, LVL, OV, GOVP, GOV)
+2. Configurar tarifas reais
+3. Testar fluxo completo com dados reais
+4. Validar zero overbooking
 
-```python
-# Atual: apenas loga
-logger.info(f"SUCCESS: Would sync {len(dates_to_update)} dates to Channex")
+### Marco 2: Migrar para sistema-os
 
-# Implementar:
-# 1. Buscar disponibilidade atual do QloApps
-availability = await qloapps.get_availability(hotel_id=1, date_from=checkin, date_to=checkout)
-
-# 2. Montar payload para Channex
-values = []
-for date in dates_to_update:
-    values.append({
-        "property_id": settings.channex_property_id,
-        "room_type_id": channex_room_type,
-        "rate_plan_id": channex_rate_plan,
-        "date": date,
-        "availability": calcular_disponibilidade(availability, date),
-        "rate": str(obter_tarifa(availability, date)),
-    })
-
-# 3. Enviar para Channex
-result = await channex.update_restrictions(values)
-```
-
-### 2. Expor middleware na internet
-
-**Opção A - ngrok:**
-```bash
-ngrok http 8001
-# Copiar URL: https://abc123.ngrok.io
-```
-
-**Opção B - Cloudflare Tunnel:**
-```bash
-cloudflared tunnel --url http://localhost:8001
-```
-
-### 3. Configurar webhook no Channex
-
-Após ter URL pública, criar webhook via API ou UI:
-- URL: `https://SEU_DOMINIO/webhook/channex`
-- Evento: `booking` (ou `*` para todos)
-- `is_active: true`
-- `send_data: true`
-
-### 4. Testar fluxo bidirecional
-
-1. Criar reserva no QloApps → verificar se Channex recebeu ARI
-2. Criar reserva no Channex (simular OTA) → verificar se QloApps recebeu
+1. Criar endpoints ARI e booking CRUD no sistema-os
+2. Criar `sistemeos_client.py` no middleware (substitui `qloapps_client.py`)
+3. Testar fluxo bidirecional com sistema-os
+4. Descomissionar QloApps
 
 ---
 

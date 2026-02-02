@@ -1,7 +1,8 @@
 # Decisão: Sistema de MEMORY para Sessões
 
 **Data:** 2026-01-22
-**Status:** Planejamento pendente
+**Atualizado:** 2026-02-02
+**Status:** Implementado (abordagem híbrida)
 **Contexto:** Conversa sobre implementação de sistema de memória híbrido
 
 ---
@@ -54,21 +55,31 @@ history/
 
 ---
 
-## Próximos Passos (a planejar)
+## Solução Implementada (2026-02-02)
 
-1. **Definir comportamento do Claude** (via CLAUDE.md ou skill) para:
-   - Antes de encerrar, gerar resumo da sessão
-   - Escrever no `MEMORY/sessions/` com conteúdo útil
-   - Categorizar em learnings/decisions/bugs conforme apropriado
+Abordagem **híbrida simples**:
 
-2. **Decidir mecanismo de trigger:**
-   - Skill `/fim` que usuário invoca manualmente?
-   - Instrução no CLAUDE.md para fazer automaticamente?
-   - Combinação dos dois?
+### Camada 1: Hook automático (sempre roda)
+- `session-capture.ts` reescrito para ler JSONL do Claude Code
+- Extrai: summaries, primeira mensagem do usuário, arquivos modificados, tools usados
+- **Centralizado:** sempre salva em `~/ai-brain/MEMORY/sessions/` independente do projeto
+- MEMORY removido do sistema-os (`.gitignore` adicionado)
 
-3. **Revisar estrutura MEMORY/**
-   - Manter sessions/decisions/learnings?
-   - Adicionar research/bugs?
+### Camada 2: Skill `/fim` (opcional, melhor qualidade)
+- Skill `SessionEnd` criado em `.claude-config/skills/SessionEnd/SKILL.md`
+- Claude gera resumo rico antes de encerrar sessão
+- Se `/fim` já criou o arquivo, o hook append metadata automática
+
+### Decisões tomadas
+1. **MEMORY centralizado no ai-brain** — sessões de qualquer projeto vão pra cá
+2. **Mecanismo híbrido** — automático + manual (`/fim`)
+3. **42 session files vazios deletados** — limpeza do lixo acumulado
+
+## Próximos Passos
+
+1. Validar captura em sessões reais (ai-brain e sistema-os)
+2. Implementar extração de learnings das sessões capturadas
+3. Implementar skill de extração de conhecimento (tipo extract_knowledge)
 
 ---
 

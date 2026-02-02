@@ -1,24 +1,35 @@
 #!/usr/bin/env bun
 // session-capture.ts
-// Stop hook: Capture session summary to MEMORY/sessions/
-// ISOLATED MODE: Each project keeps its own memory, no cross-pollution
-// - Project with MEMORY/ → saves only there
-// - No MEMORY/ → falls back to ai-brain
+// SessionEnd hook: Capture session summary to MEMORY/sessions/
+// CENTRALIZED: All sessions go to ai-brain/MEMORY/sessions/ regardless of cwd
+// Reads Claude Code JSONL to extract real content (summaries, files, tools)
 
-import { writeFileSync, mkdirSync, existsSync } from 'fs';
+import { writeFileSync, readFileSync, mkdirSync, existsSync, statSync } from 'fs';
 import { join, basename } from 'path';
 import { homedir } from 'os';
 
-interface StopPayload {
+const MAX_JSONL_BYTES = 2 * 1024 * 1024; // 2MB cap for reading
+const AI_BRAIN_MEMORY = join(homedir(), 'ai-brain', 'MEMORY', 'sessions');
+
+interface SessionPayload {
   session_id: string;
   cwd?: string;
   [key: string]: any;
 }
 
+interface SessionData {
+  summaries: string[];
+  firstUserMessage: string;
+  filesModified: string[];
+  toolsUsed: string[];
+  userMessageCount: number;
+  project: string;
+  branch: string;
+}
+
 function getLocalTimestamp(): string {
   const date = new Date();
   const tz = process.env.TIME_ZONE || Intl.DateTimeFormat().resolvedOptions().timeZone;
-
   try {
     const localDate = new Date(date.toLocaleString('en-US', { timeZone: tz }));
     const year = localDate.getFullYear();
@@ -27,7 +38,6 @@ function getLocalTimestamp(): string {
     const hours = String(localDate.getHours()).padStart(2, '0');
     const minutes = String(localDate.getMinutes()).padStart(2, '0');
     const seconds = String(localDate.getSeconds()).padStart(2, '0');
-
     return `${year}-${month}-${day}T${hours}:${minutes}:${seconds}`;
   } catch {
     return new Date().toISOString();
@@ -42,17 +52,233 @@ function getDateString(): string {
   return `${year}-${month}-${day}`;
 }
 
-function findProjectMemory(cwd: string): string | null {
-  // Check if cwd has MEMORY/sessions/ directory
-  const localMemory = join(cwd, 'MEMORY', 'sessions');
-  if (existsSync(localMemory)) {
-    return localMemory;
+function cwdToProjectDir(cwd: string): string {
+  // Claude Code maps /home/marketing/ai-brain → -home-marketing-ai-brain
+  return cwd.replace(/\//g, '-');
+}
+
+function getJsonlPath(cwd: string, sessionId: string): string | null {
+  const projectDir = cwdToProjectDir(cwd);
+  const jsonlPath = join(homedir(), '.claude', 'projects', projectDir, `${sessionId}.jsonl`);
+  if (existsSync(jsonlPath)) {
+    return jsonlPath;
   }
   return null;
 }
 
-function getProjectName(cwd: string): string {
-  return basename(cwd);
+function extractUserText(content: any): string {
+  if (typeof content === 'string') return content;
+  if (Array.isArray(content)) {
+    for (const block of content) {
+      if (block?.type === 'text' && block.text) {
+        return block.text;
+      }
+    }
+  }
+  return '';
+}
+
+function extractFromJsonl(jsonlPath: string): SessionData {
+  const data: SessionData = {
+    summaries: [],
+    firstUserMessage: '',
+    filesModified: [],
+    toolsUsed: [],
+    userMessageCount: 0,
+    project: '',
+    branch: '',
+  };
+
+  try {
+    const fileSize = statSync(jsonlPath).size;
+    let rawContent: string;
+
+    if (fileSize > MAX_JSONL_BYTES) {
+      // For large files, read first 1MB + last 500KB
+      const buf = Buffer.alloc(MAX_JSONL_BYTES);
+      const fd = Bun.file(jsonlPath);
+      rawContent = readFileSync(jsonlPath, { encoding: 'utf-8', flag: 'r' }).substring(0, MAX_JSONL_BYTES);
+    } else {
+      rawContent = readFileSync(jsonlPath, 'utf-8');
+    }
+
+    const lines = rawContent.split('\n');
+    const filesSet = new Set<string>();
+    const toolsSet = new Set<string>();
+
+    for (const line of lines) {
+      if (!line.trim()) continue;
+
+      try {
+        const obj = JSON.parse(line);
+        const type = obj.type;
+
+        // Extract summaries
+        if (type === 'summary' && obj.summary) {
+          data.summaries.push(obj.summary);
+        }
+
+        // Extract first user message and count
+        if (type === 'user' && obj.message?.role === 'user') {
+          data.userMessageCount++;
+          if (!data.firstUserMessage) {
+            const text = extractUserText(obj.message.content);
+            // Clean up system-reminder tags and truncate
+            const cleaned = text.replace(/<system-reminder>[\s\S]*?<\/system-reminder>/g, '').trim();
+            data.firstUserMessage = cleaned.substring(0, 300);
+          }
+          // Extract branch from first available
+          if (!data.branch && obj.gitBranch) {
+            data.branch = obj.gitBranch;
+          }
+        }
+
+        // Extract tools and files from assistant messages
+        if (type === 'assistant' && Array.isArray(obj.message?.content)) {
+          for (const block of obj.message.content) {
+            if (block?.type === 'tool_use' && block.name) {
+              toolsSet.add(block.name);
+              // Track file modifications
+              if (['Write', 'Edit', 'NotebookEdit'].includes(block.name)) {
+                const fp = block.input?.file_path || block.input?.filePath || '';
+                if (fp) filesSet.add(fp);
+              }
+            }
+          }
+        }
+
+        // Extract branch from any record
+        if (!data.branch && obj.gitBranch) {
+          data.branch = obj.gitBranch;
+        }
+      } catch {
+        // Skip malformed lines
+        continue;
+      }
+    }
+
+    data.filesModified = [...filesSet];
+    data.toolsUsed = [...toolsSet].sort();
+  } catch (error) {
+    console.error('[PAI] JSONL extraction error:', error);
+  }
+
+  return data;
+}
+
+function buildContent(
+  sessionId: string,
+  shortId: string,
+  dateStr: string,
+  timestamp: string,
+  cwd: string,
+  projectName: string,
+  data: SessionData
+): string {
+  const topic = data.summaries.length > 0
+    ? data.summaries[data.summaries.length - 1]
+    : `Session with ${data.userMessageCount} interactions`;
+
+  const branch = data.branch || 'unknown';
+
+  let content = `---
+session_id: ${sessionId}
+timestamp: ${timestamp}
+project: ${projectName}
+cwd: ${cwd}
+branch: ${branch}
+interactions: ${data.userMessageCount}
+---
+
+# Session ${shortId}
+
+**Date:** ${dateStr} | **Project:** ${projectName}
+
+## Topic
+
+${topic}
+`;
+
+  // Initial context
+  if (data.firstUserMessage) {
+    content += `
+## Initial Context
+
+${data.firstUserMessage}
+`;
+  }
+
+  // What happened (summary evolution)
+  if (data.summaries.length > 1) {
+    content += `
+## What Happened
+
+`;
+    // Deduplicate similar summaries, keep unique ones
+    const seen = new Set<string>();
+    for (const s of data.summaries) {
+      if (!seen.has(s)) {
+        seen.add(s);
+        content += `- ${s}\n`;
+      }
+    }
+  }
+
+  // Files modified
+  if (data.filesModified.length > 0) {
+    content += `
+## Files Modified
+
+`;
+    for (const f of data.filesModified) {
+      content += `- ${f}\n`;
+    }
+  }
+
+  // Tools used
+  if (data.toolsUsed.length > 0) {
+    content += `
+## Tools Used
+
+${data.toolsUsed.join(', ')}
+`;
+  }
+
+  content += `
+---
+*Auto-generated from session JSONL by session-capture.ts*
+`;
+
+  return content;
+}
+
+function buildFallbackContent(
+  sessionId: string,
+  shortId: string,
+  dateStr: string,
+  timestamp: string,
+  cwd: string,
+  projectName: string
+): string {
+  return `---
+session_id: ${sessionId}
+timestamp: ${timestamp}
+project: ${projectName}
+cwd: ${cwd}
+interactions: 0
+---
+
+# Session ${shortId}
+
+**Date:** ${dateStr} | **Project:** ${projectName}
+
+## Topic
+
+Session without JSONL data (short session or JSONL not found)
+
+---
+*Auto-generated by session-capture.ts (no JSONL available)*
+`;
 }
 
 async function main() {
@@ -62,67 +288,62 @@ async function main() {
       process.exit(0);
     }
 
-    const payload: StopPayload = JSON.parse(stdinData);
+    const payload: SessionPayload = JSON.parse(stdinData);
     const cwd = payload.cwd || process.cwd();
     const sessionId = payload.session_id || 'unknown';
     const shortId = sessionId.substring(0, 8);
     const dateStr = getDateString();
     const timestamp = getLocalTimestamp();
     const filename = `${dateStr}-${shortId}.md`;
-    const projectName = getProjectName(cwd);
+    const projectName = basename(cwd);
 
-    // Check for local project MEMORY
-    const localMemoryDir = findProjectMemory(cwd);
+    // Always write to ai-brain MEMORY (centralized)
+    if (!existsSync(AI_BRAIN_MEMORY)) {
+      mkdirSync(AI_BRAIN_MEMORY, { recursive: true });
+    }
 
-    // Determine where to save (project local OR ai-brain, not both)
-    let targetDir: string;
-    let location: string;
+    const filepath = join(AI_BRAIN_MEMORY, filename);
 
-    if (localMemoryDir) {
-      // Project has its own MEMORY - save only there
-      targetDir = localMemoryDir;
-      location = `${projectName}/MEMORY/sessions`;
+    // If file already exists (created by /fim skill), append metadata section
+    if (existsSync(filepath)) {
+      const jsonlPath = getJsonlPath(cwd, sessionId);
+      if (jsonlPath) {
+        const data = extractFromJsonl(jsonlPath);
+        let appendContent = `\n\n## Auto-Metadata\n\n`;
+        appendContent += `- **Interactions:** ${data.userMessageCount}\n`;
+        appendContent += `- **Branch:** ${data.branch || 'unknown'}\n`;
+        if (data.toolsUsed.length > 0) {
+          appendContent += `- **Tools:** ${data.toolsUsed.join(', ')}\n`;
+        }
+        if (data.filesModified.length > 0) {
+          appendContent += `- **Files:** ${data.filesModified.join(', ')}\n`;
+        }
+        appendContent += `\n---\n*Metadata appended by session-capture.ts*\n`;
+
+        const existing = readFileSync(filepath, 'utf-8');
+        writeFileSync(filepath, existing + appendContent);
+      }
+      console.error(`[PAI] Session metadata appended: ${filename}`);
+      process.exit(0);
+    }
+
+    // Try to extract from JSONL
+    const jsonlPath = getJsonlPath(cwd, sessionId);
+
+    if (jsonlPath) {
+      const data = extractFromJsonl(jsonlPath);
+      const content = buildContent(sessionId, shortId, dateStr, timestamp, cwd, projectName, data);
+      writeFileSync(filepath, content);
+      console.error(`[PAI] Session captured (JSONL): ${filename} [${data.summaries.length} summaries, ${data.filesModified.length} files]`);
     } else {
-      // No local MEMORY - fall back to ai-brain
-      targetDir = join(homedir(), 'ai-brain', 'MEMORY', 'sessions');
-      location = 'ai-brain/MEMORY/sessions';
+      // Fallback: no JSONL found
+      const content = buildFallbackContent(sessionId, shortId, dateStr, timestamp, cwd, projectName);
+      writeFileSync(filepath, content);
+      console.error(`[PAI] Session captured (fallback): ${filename}`);
     }
-
-    // Ensure directory exists
-    if (!existsSync(targetDir)) {
-      mkdirSync(targetDir, { recursive: true });
-    }
-
-    // Session content
-    const content = `---
-session_id: ${sessionId}
-timestamp: ${timestamp}
-cwd: ${cwd}
-project: ${projectName}
----
-
-# Session ${shortId}
-
-**Date:** ${dateStr}
-**Project:** ${projectName}
-**Working directory:** ${cwd}
-
-## Summary
-
-Session captured automatically by stop hook.
-
----
-*Auto-generated by session-capture.ts*
-`;
-
-    // Save to determined location
-    const filepath = join(targetDir, filename);
-    writeFileSync(filepath, content);
-    console.error(`[PAI] Session captured: ${location}/${filename}`);
 
   } catch (error) {
-    // Never crash - just log
-    console.error('Session capture error:', error);
+    console.error('[PAI] Session capture error:', error);
   }
 
   process.exit(0);

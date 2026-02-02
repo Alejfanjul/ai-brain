@@ -44,10 +44,19 @@ ai-brain/
 | Comando | Descrição |
 |---------|-----------|
 | `/goals` ou `/metas` | Progresso das metas (treino + hábitos) |
+| `/fim` ou `/end` | Salvar resumo da sessão antes de sair |
 | `/pdf` | Capturar PDF para sources |
 | `ls MEMORY/sessions/` | Ver sessões recentes |
 | `python3 scripts/capture_youtube.py <url>` | Capturar vídeo YouTube |
 | `python3 scripts/capture_article.py <url>` | Capturar artigo web |
+
+## Session Memory
+
+MEMORY é centralizado no ai-brain — sessões de qualquer projeto (sistema-os, etc.) são salvas aqui.
+
+**Captura automática:** O hook `session-capture.ts` roda no SessionEnd e extrai conteúdo do JSONL (tópico, arquivos, tools).
+
+**Captura rica:** Use `/fim` antes de sair para Claude gerar um resumo detalhado da sessão.
 
 ## Consultar Memória
 

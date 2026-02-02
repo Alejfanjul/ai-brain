@@ -76,14 +76,14 @@ git pull → Symlinks já apontam para arquivos atualizados → Pronto
 - [x] `CLAUDE.md` global versionado em `.claude-config/CLAUDE.md`
 - [x] Eliminada limitação: novos hooks/skills/pai files não exigem re-run
 
-### Fase 2: Session Capture Global ⏳
-- [ ] Melhorar `session-capture.ts` para capturar resumo útil
-- [ ] Testar captura em múltiplos repos
+### Fase 2: Session Capture Global ✅
+- [x] Melhorar `session-capture.ts` para capturar resumo útil
+- [x] Testar captura em múltiplos repos (testado: ai-brain + sistema-os → centralizado)
 
-### Fase 3: Configurar sistema-os ⏳
-- [ ] Criar `CLAUDE.md` no sistema-os
-- [ ] Criar `MEMORY/sessions/` no sistema-os
-- [ ] Testar herança de contexto
+### Fase 3: Configurar sistema-os ✅
+- [x] Criar `CLAUDE.md` no sistema-os (já existia, enxugado de ~460 para 71 linhas)
+- [x] ~~Criar `MEMORY/sessions/` no sistema-os~~ (obsoleto — centralizado em ai-brain)
+- [x] Testar herança de contexto (sessão ad73f7ea confirmou PAI carregando no sistema-os)
 
 ### Fase 4: Afinar ⏳
 - [ ] Melhorar formato das sessions

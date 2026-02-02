@@ -9,7 +9,7 @@ MANDATORY skill creation framework for ALL skill creation requests.
 
 ## Authoritative Source
 
-**Before creating ANY skill, READ:** `$PAI_DIR/skills/CORE/SkillSystem.md`
+**Before creating ANY skill, READ:** `.claude-config/skills/CORE/SYSTEM/SKILLSYSTEM.md`
 
 This document contains the complete specification for:
 - Skill directory structure
@@ -20,11 +20,12 @@ This document contains the complete specification for:
 
 ## How to Create a Skill
 
-1. **Read the spec:** `$PAI_DIR/skills/CORE/SkillSystem.md`
-2. **Create directory:** `$PAI_DIR/skills/SkillName/`
-3. **Create SKILL.md** with required frontmatter and sections
+1. **Read the spec:** `.claude-config/skills/CORE/SYSTEM/SKILLSYSTEM.md`
+2. **Create directory:** `.claude-config/skills/SkillName/`
+3. **Create SKILL.md** with required frontmatter (name + description) and sections
 4. **Add Workflows/** directory if needed
 5. **Validate** by checking all workflow references resolve
+6. **Commit** to git — skill fica disponivel automaticamente via symlink para `~/.claude/skills/`
 
 ## How to Validate a Skill
 
@@ -50,9 +51,10 @@ Or manually check:
 **Example 1: Create a new skill**
 ```
 User: "Create a skill for managing my recipes"
-→ Read SkillSystem.md for structure
-→ Create $PAI_DIR/skills/Recipes/SKILL.md
+→ Read .claude-config/skills/CORE/SYSTEM/SKILLSYSTEM.md for structure
+→ Create .claude-config/skills/Recipes/SKILL.md
 → Use TitleCase naming throughout
+→ Commit to git
 ```
 
 **Example 2: Fix an existing skill**

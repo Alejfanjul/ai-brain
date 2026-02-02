@@ -57,6 +57,18 @@ if [ -f "$CONFIG_SRC/settings.json" ]; then
     echo "   ✅ settings.json"
 fi
 
+# Symlink skills directory
+echo "🧠 Linking skills..."
+if [ -d "$CONFIG_SRC/skills" ]; then
+    if [ -d "$CLAUDE_DIR/skills" ] && [ ! -L "$CLAUDE_DIR/skills" ]; then
+        echo "   ⚠️  Backing up existing skills to skills.bak"
+        mv "$CLAUDE_DIR/skills" "$CLAUDE_DIR/skills.bak-$(date +%Y%m%d)"
+    fi
+    rm -f "$CLAUDE_DIR/skills"
+    ln -s "$CONFIG_SRC/skills" "$CLAUDE_DIR/skills"
+    echo "   ✅ skills/"
+fi
+
 # Symlink PAI context files
 echo "📄 Linking PAI context..."
 for file in "$PAI_SRC"/*.md; do
@@ -85,5 +97,7 @@ echo ""
 echo "Symlinks created:"
 ls -la "$CLAUDE_DIR/hooks/"*.ts 2>/dev/null | head -5
 echo "..."
+ls -la "$CLAUDE_DIR/skills" 2>/dev/null
+ls -la "$CLAUDE_DIR/settings.json" 2>/dev/null
 echo ""
 echo "To verify: restart Claude Code and check if context loads."

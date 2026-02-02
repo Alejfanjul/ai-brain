@@ -1,11 +1,5 @@
 {
   "model": "opus",
-  "statusLine": {
-    "type": "command",
-    "command": "~/.claude/statusline.sh",
-    "padding": 0
-  },
-  "alwaysThinkingEnabled": true,
   "hooks": {
     "SessionStart": [
       {
@@ -55,5 +49,12 @@
         ]
       }
     ]
-  }
+  },
+  "statusLine": {
+    "type": "command",
+    "command": "~/.claude/statusline.sh",
+    "padding": 0
+  },
+  "language": "PT-BR",
+  "alwaysThinkingEnabled": true
 }

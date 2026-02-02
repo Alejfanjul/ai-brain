@@ -22,31 +22,16 @@ if [ ! -d "$CONFIG_SRC" ]; then
     exit 1
 fi
 
-# Create .claude directories if needed
-mkdir -p "$CLAUDE_DIR/hooks"
-mkdir -p "$CLAUDE_DIR/pai"
-
-# Symlink hooks
+# Symlink hooks directory
 echo "🪝 Linking hooks..."
-for hook in "$CONFIG_SRC/hooks"/*.ts; do
-    if [ -f "$hook" ]; then
-        filename=$(basename "$hook")
-        target="$CLAUDE_DIR/hooks/$filename"
-
-        # Remove existing file/symlink
-        rm -f "$target"
-
-        # Create symlink
-        ln -s "$hook" "$target"
-        echo "   ✅ $filename"
+if [ -d "$CONFIG_SRC/hooks" ]; then
+    if [ -d "$CLAUDE_DIR/hooks" ] && [ ! -L "$CLAUDE_DIR/hooks" ]; then
+        echo "   ⚠️  Backing up existing hooks to hooks.bak"
+        mv "$CLAUDE_DIR/hooks" "$CLAUDE_DIR/hooks.bak-$(date +%Y%m%d)"
     fi
-done
-
-# Symlink hooks/lib directory if exists
-if [ -d "$CONFIG_SRC/hooks/lib" ]; then
-    rm -rf "$CLAUDE_DIR/hooks/lib"
-    ln -s "$CONFIG_SRC/hooks/lib" "$CLAUDE_DIR/hooks/lib"
-    echo "   ✅ lib/"
+    rm -f "$CLAUDE_DIR/hooks"
+    ln -s "$CONFIG_SRC/hooks" "$CLAUDE_DIR/hooks"
+    echo "   ✅ hooks/"
 fi
 
 # Symlink settings.json
@@ -55,6 +40,14 @@ if [ -f "$CONFIG_SRC/settings.json" ]; then
     rm -f "$CLAUDE_DIR/settings.json"
     ln -s "$CONFIG_SRC/settings.json" "$CLAUDE_DIR/settings.json"
     echo "   ✅ settings.json"
+fi
+
+# Symlink global CLAUDE.md
+if [ -f "$CONFIG_SRC/CLAUDE.md" ]; then
+    echo "📝 Linking global CLAUDE.md..."
+    rm -f "$CLAUDE_DIR/CLAUDE.md"
+    ln -s "$CONFIG_SRC/CLAUDE.md" "$CLAUDE_DIR/CLAUDE.md"
+    echo "   ✅ CLAUDE.md"
 fi
 
 # Symlink skills directory
@@ -69,18 +62,17 @@ if [ -d "$CONFIG_SRC/skills" ]; then
     echo "   ✅ skills/"
 fi
 
-# Symlink PAI context files
+# Symlink PAI context directory
 echo "📄 Linking PAI context..."
-for file in "$PAI_SRC"/*.md; do
-    if [ -f "$file" ]; then
-        filename=$(basename "$file")
-        target="$CLAUDE_DIR/pai/$filename"
-
-        rm -f "$target"
-        ln -s "$file" "$target"
-        echo "   ✅ $filename"
+if [ -d "$PAI_SRC" ]; then
+    if [ -d "$CLAUDE_DIR/pai" ] && [ ! -L "$CLAUDE_DIR/pai" ]; then
+        echo "   ⚠️  Backing up existing pai to pai.bak"
+        mv "$CLAUDE_DIR/pai" "$CLAUDE_DIR/pai.bak-$(date +%Y%m%d)"
     fi
-done
+    rm -f "$CLAUDE_DIR/pai"
+    ln -s "$PAI_SRC" "$CLAUDE_DIR/pai"
+    echo "   ✅ pai/"
+fi
 
 # Check for bun (required for hooks)
 echo ""
@@ -95,9 +87,10 @@ echo ""
 echo "✅ PAI setup complete!"
 echo ""
 echo "Symlinks created:"
-ls -la "$CLAUDE_DIR/hooks/"*.ts 2>/dev/null | head -5
-echo "..."
+ls -la "$CLAUDE_DIR/hooks" 2>/dev/null
 ls -la "$CLAUDE_DIR/skills" 2>/dev/null
+ls -la "$CLAUDE_DIR/pai" 2>/dev/null
 ls -la "$CLAUDE_DIR/settings.json" 2>/dev/null
+ls -la "$CLAUDE_DIR/CLAUDE.md" 2>/dev/null
 echo ""
 echo "To verify: restart Claude Code and check if context loads."

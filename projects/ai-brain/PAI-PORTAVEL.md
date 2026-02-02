@@ -1,7 +1,7 @@
 # PAI Portável - Documentação
 
 > Contexto pessoal disponível em qualquer repositório.
-> Status: **Fase 1.5 concluída** (2026-01-28)
+> Status: **Fase 1.6 concluída** (2026-02-02)
 
 ---
 
@@ -21,19 +21,22 @@ ai-brain/                              ← SOURCE OF TRUTH (versionado)
 ├── .claude-config/                    ← Configuração Claude
 │   ├── hooks/                         ← Hooks (5 arquivos + lib/)
 │   │   └── load-core-context.ts       ← Hook principal (auto-setup de pai/)
-│   └── settings.json                  ← Configurações + registro de hooks
+│   ├── skills/                        ← Skills (CORE, CapturePdf, etc.)
+│   ├── settings.json                  ← Configurações + registro de hooks
+│   └── CLAUDE.md                      ← Instruções globais (tom, idioma)
 ├── MEMORY/                            ← Memória de sessões
 ├── scripts/setup-pai.sh               ← Script de setup (uma vez por máquina)
 └── SETUP-WORK-PC.md                   ← Instruções para máquina do trabalho
 
-~/.claude/                             ← GLOBAL (symlinks)
+~/.claude/                             ← GLOBAL (symlinks de DIRETÓRIO)
 ├── pai/                               ← → ai-brain/pai/
-│   ├── IDENTITY.md
-│   └── PROJECTS.md
 ├── hooks/                             ← → ai-brain/.claude-config/hooks/
-│   └── *.ts
-└── settings.json                      ← → ai-brain/.claude-config/settings.json
+├── skills/                            ← → ai-brain/.claude-config/skills/
+├── settings.json                      ← → ai-brain/.claude-config/settings.json
+└── CLAUDE.md                          ← → ai-brain/.claude-config/CLAUDE.md
 ```
+
+**Todos os symlinks são de diretório** (hooks/, skills/, pai/), então qualquer arquivo novo adicionado dentro deles é visível automaticamente sem re-run do setup.
 
 **Fluxo de setup (uma vez por máquina):**
 ```
@@ -66,6 +69,12 @@ git pull → Symlinks já apontam para arquivos atualizados → Pronto
 - [x] Settings versionado em `.claude-config/settings.json`
 - [x] Script `setup-pai.sh` atualizado (usa symlinks)
 - [x] Instruções `SETUP-WORK-PC.md` para máquina do trabalho
+
+### Fase 1.6: Symlinks de Diretório + CLAUDE.md Global ✅
+- [x] Hooks: symlink de diretório (não mais arquivo por arquivo)
+- [x] PAI context: symlink de diretório (não mais arquivo por arquivo)
+- [x] `CLAUDE.md` global versionado em `.claude-config/CLAUDE.md`
+- [x] Eliminada limitação: novos hooks/skills/pai files não exigem re-run
 
 ### Fase 2: Session Capture Global ⏳
 - [ ] Melhorar `session-capture.ts` para capturar resumo útil
@@ -147,12 +156,23 @@ Quando o TELOS mudar significativamente, atualizar `pai/IDENTITY.md` manualmente
 | `projects/ai-brain/telos/TELOS-ALE.md` | TELOS completo |
 | `.claude-config/hooks/load-core-context.ts` | Hook que carrega contexto (com auto-setup) |
 | `.claude-config/settings.json` | Configurações do Claude |
+| `.claude-config/CLAUDE.md` | Instruções globais (tom, idioma) |
 | `scripts/setup-pai.sh` | Script de setup (symlinks) |
 | `SETUP-WORK-PC.md` | Instruções para máquina do trabalho |
 
 ---
 
 ## Log de Implementação
+
+### 2026-02-02 - Fase 1.6 concluída
+- Hooks e PAI context agora usam symlinks de **diretório** (não mais arquivo por arquivo)
+- `CLAUDE.md` global movido para `.claude-config/CLAUDE.md` (versionado)
+- `setup-pai.sh` atualizado com novo padrão de symlinks
+- Eliminada limitação: novos hooks/skills/pai files visíveis automaticamente
+
+**Limitações restantes:**
+- Setup inicial necessário uma vez por máquina
+- Symlinks são absolutos (se mudar path do repo, recriar)
 
 ### 2026-01-28 - Fase 1.5 concluída
 - Hook `load-core-context.ts` agora faz auto-setup de `~/.claude/pai/`
@@ -162,11 +182,6 @@ Quando o TELOS mudar significativamente, atualizar `pai/IDENTITY.md` manualmente
 - Settings movido para `.claude-config/settings.json` (versionado)
 - Script `setup-pai.sh` reescrito para usar symlinks (não cópias)
 - Criado `SETUP-WORK-PC.md` com instruções para Claude executar setup
-
-**Limitações documentadas:**
-- Setup inicial necessário uma vez por máquina
-- Arquivos novos exigem novo symlink (rodar setup de novo)
-- Symlinks são absolutos (se mudar path do repo, recriar)
 
 ### 2026-01-27 - Fase 1 concluída
 - Criados `pai/IDENTITY.md` e `pai/PROJECTS.md`

@@ -4,6 +4,29 @@ Histórico de decisões e mudanças importantes do projeto.
 
 ---
 
+## 2026-02-02: Symlinks de diretório + CLAUDE.md global versionado
+
+**Contexto:** Hooks e PAI context usavam symlinks individuais por arquivo, exigindo re-run do `setup-pai.sh` sempre que um novo hook ou arquivo PAI fosse criado. O `CLAUDE.md` global (`~/.claude/CLAUDE.md`) não era versionado no repo.
+
+**Mudanças:**
+1. `hooks/` e `pai/` agora usam symlinks de **diretório inteiro** (mesmo padrão de `skills/`)
+2. `CLAUDE.md` global criado em `.claude-config/CLAUDE.md` e linkado via setup
+3. `setup-pai.sh` atualizado com novo padrão
+
+**Resultado:** Qualquer novo hook, skill ou arquivo PAI é visível automaticamente via `git pull`. Nenhum re-run necessário após setup inicial.
+
+**Arquitetura final:**
+```
+ai-brain/ (versionado)              ~/.claude/ (symlinks de diretório)
+├── .claude-config/hooks/    →      ├── hooks/
+├── .claude-config/skills/   →      ├── skills/
+├── .claude-config/CLAUDE.md →      ├── CLAUDE.md
+├── .claude-config/settings.json →  ├── settings.json
+└── pai/                     →      └── pai/
+```
+
+---
+
 ## 2026-01-29: Análise estrutural PAI - Daniel Miessler
 
 **Contexto:** Assistimos o vídeo "How and Why I Built PAI" (Unsupervised Learning, Daniel Miessler + Nathan Labenz) e analisamos o repositório PAI baixado localmente para entender a arquitetura de referência.

@@ -188,10 +188,10 @@ Entre séries do lift principal. 50-100 reps por categoria por treino.
 
 ## Status Atual
 
-**Ciclo 1, Semana 3 COMPLETA** (semana das 1s)
+**Ciclo 1, Semana 4 - Deload** (7th week protocol)
 
-**Próximo treino:** Semana 4 - Deload (7th week protocol)
-**Último lift completado:** Bench (S3) - 02/02
+**Próximo treino:** Lift de deload (cargas reduzidas)
+**Último treino:** Cardio colete - 03/02
 
 ---
 
@@ -228,6 +228,12 @@ Entre séries do lift principal. 50-100 reps por categoria por treino.
 | 01/02 Dom | OFF | | | Descanso. Bench (S3) amanhã (02/02) |
 | 02/02 Seg | Bench (S3) | Sim | - | TM 70. 5x56, 3x60, 6x66 (AMRAP). FSL 5x5@56. Acessórios: 3x20 ab-wheel, 3x7 pullup, 3x13 lat pulldown, 3x20 plate raise 10kg, 3x20 thruster 6kg/braço |
 
+### Semana 03-08 Fev 2026 (S4 - Deload)
+
+| Data | Treino | Completou? | Energia | Notas |
+|------|--------|------------|---------|-------|
+| 03/02 Ter | Cardio (colete) | Sim | - | ~50min caminhada colete 10kg. 4x1:30 + 4x2:00 intervalos corrida. Tranquilo - manteve ritmo de deload apesar de querer puxar mais |
+
 ---
 
 ## Métricas
@@ -245,8 +251,8 @@ Entre séries do lift principal. 50-100 reps por categoria por treino.
 Ciclo 1:
 ├── Semana 1 (5s) ✓
 ├── Semana 2 (3s) ✓
-├── Semana 3 (1s) ← AQUI
-└── Semana 4 (Deload - 7th week protocol)
+├── Semana 3 (1s) ✓
+└── Semana 4 (Deload - 7th week protocol) ← AQUI
 
 Após Ciclo 1:
 ├── Testar Training Maxes

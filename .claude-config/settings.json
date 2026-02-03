@@ -1,5 +1,68 @@
 {
   "model": "opus",
+  "permissions": {
+    "allow": [
+      "Read(**)",
+      "Write(**)",
+      "Edit(**)",
+      "Glob(**)",
+      "Grep(**)",
+      "WebSearch",
+
+      "Bash(git *)",
+      "Bash(gh *)",
+
+      "Bash(ls *)",
+      "Bash(cat *)",
+      "Bash(head *)",
+      "Bash(tail *)",
+      "Bash(wc *)",
+      "Bash(which *)",
+      "Bash(pwd)",
+      "Bash(echo *)",
+      "Bash(tree *)",
+      "Bash(find *)",
+      "Bash(grep *)",
+      "Bash(file *)",
+
+      "Bash(python *)",
+      "Bash(python3 *)",
+      "Bash(pytest *)",
+      "Bash(pip *)",
+      "Bash(PYTHONPATH=* python *)",
+      "Bash(PYTHONPATH=* pytest *)",
+
+      "Bash(npm *)",
+      "Bash(bun *)",
+      "Bash(node *)",
+
+      "Bash(psql *)",
+      "Bash(PGPASSWORD=* psql *)",
+
+      "Bash(curl *)",
+      "Bash(timeout *)",
+      "Bash(chmod *)",
+      "Bash(mkdir *)",
+      "Bash(cp *)",
+      "Bash(mv *)",
+      "Bash(export *)",
+      "Bash(source *)",
+      "Bash(alembic *)",
+      "Bash(ruff *)",
+      "Bash(black *)"
+    ],
+    "deny": [
+      "Bash(rm -rf *)",
+      "Bash(rm -r *)",
+      "Bash(sudo rm *)",
+      "Bash(dd if=*)",
+      "Bash(mkfs *)",
+      "Bash(git push --force *)",
+      "Bash(git push -f *)",
+      "Bash(git reset --hard *)",
+      "Bash(git clean -fd *)"
+    ]
+  },
   "hooks": {
     "SessionStart": [
       {

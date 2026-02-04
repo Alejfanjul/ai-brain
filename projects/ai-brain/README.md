@@ -24,36 +24,48 @@ Este AI Brain pessoal é protótipo da interface que funcionários de hotel usar
 
 ---
 
-## Arquitetura (File-Based)
+## Arquitetura (File-Based + Haiku)
 
 ```
-┌────────────────────────────────────────────────────────────┐
-│  AI BRAIN - MODELO FILE-BASED (PAI-style)                  │
-│                                                            │
-│   VOCÊ CONVERSA                                            │
-│        │                                                   │
-│        ▼                                                   │
-│   ┌─────────────┐                                          │
-│   │ Claude Code │  ← Você trabalha aqui                    │
-│   │  (terminal) │                                          │
-│   └──────┬──────┘                                          │
-│          │                                                 │
-│          │ Stop hook → session-capture.ts                  │
-│          ▼                                                 │
-│   ┌─────────────────────────────────────────┐              │
-│   │         MEMORY/ (file system)           │              │
-│   │                                         │              │
-│   │   sessions/   → logs de sessão (auto)   │              │
-│   │   decisions/  → decisões importantes    │              │
-│   │   learnings/  → aprendizados por fase   │              │
-│   │   State/      → estado ativo            │              │
-│   │   Signals/    → padrões e falhas        │              │
-│   │                                         │              │
-│   └─────────────────────────────────────────┘              │
-│                                                            │
-│   sources/ → PDFs, artigos, vídeos capturados              │
-│                                                            │
-└────────────────────────────────────────────────────────────┘
+┌─────────────────────────────────────────────────────────────────┐
+│  AI BRAIN - MODELO FILE-BASED (PAI-style) + CAPTURA INTELIGENTE │
+│                                                                 │
+│   VOCÊ CONVERSA                                                 │
+│        │                                                        │
+│        ▼                                                        │
+│   ┌─────────────┐                                               │
+│   │ Claude Code │  ← Você trabalha aqui                         │
+│   │  (terminal) │                                               │
+│   └──────┬──────┘                                               │
+│          │                                                      │
+│          ├─► Stop hook ─► stop-hook.ts ─► Haiku classifica      │
+│          │                    │                                 │
+│          │                    └─► learning? → MEMORY/learnings/ │
+│          │                                                      │
+│          └─► SessionEnd ─► session-capture.ts                   │
+│                               │                                 │
+│                               ├─► minimal? → SKIP               │
+│                               └─► Haiku resume → MEMORY/sessions│
+│                                                                 │
+│   ┌─────────────────────────────────────────┐                   │
+│   │         MEMORY/ (file system)           │                   │
+│   │                                         │                   │
+│   │   sessions/   → sessões produtivas      │                   │
+│   │   learnings/  → insights auto-extraídos │                   │
+│   │     ├── OBSERVE/  (descobertas)         │                   │
+│   │     ├── THINK/    (análises)            │                   │
+│   │     ├── PLAN/     (decisões)            │                   │
+│   │     ├── BUILD/    (implementação)       │                   │
+│   │     ├── EXECUTE/  (operacional)         │                   │
+│   │     └── VERIFY/   (validação)           │                   │
+│   │   decisions/  → decisões importantes    │                   │
+│   │   State/      → estado ativo            │                   │
+│   │   Signals/    → padrões e falhas        │                   │
+│   └─────────────────────────────────────────┘                   │
+│                                                                 │
+│   sources/ → PDFs, artigos, vídeos capturados                   │
+│                                                                 │
+└─────────────────────────────────────────────────────────────────┘
 ```
 
 ### Por que file-based?
@@ -74,8 +86,10 @@ Este AI Brain pessoal é protótipo da interface que funcionários de hotel usar
 | Comando | Descrição |
 |---------|-----------|
 | `/goals` ou `/metas` | Ver progresso das metas pessoais |
+| `/fim` ou `/end` | Salvar resumo detalhado antes de sair |
 | `/pdf` | Capturar PDF para sources |
 | `ls MEMORY/sessions/` | Ver sessões recentes |
+| `ls MEMORY/learnings/*/` | Ver learnings auto-extraídos |
 
 ### Captura de conteúdo
 
@@ -109,8 +123,8 @@ cat ~/ai-brain/MEMORY/State/active-work.json
 
 ```
 MEMORY/
-├── sessions/          # Auto-capturado pelo hook Stop
-│   └── YYYY-MM-DD-{session_id}.md
+├── sessions/          # Auto-capturado pelo hook SessionEnd
+│   └── YYYY-MM-DD_HH-mm-ss_{session_id}.md
 ├── decisions/         # Decisões importantes
 ├── learnings/         # Aprendizados por fase do ciclo PAI
 │   ├── OBSERVE/       # Observações e descobertas

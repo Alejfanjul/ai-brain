@@ -59,7 +59,8 @@ source: agent
 ## Rules
 
 - **Always** write to `~/ai-brain/MEMORY/sessions/` regardless of current project
-- **Filename:** `{YYYY-MM-DD}-{first-8-chars-of-session-id}.md`
+- **Filename:** `{YYYY-MM-DD}_{HH-mm-ss}_{first-8-chars-of-session-id}.md`
+  - Example: `2026-02-03_15-30-45_45e2aea2.md`
 - If you don't have the session_id, use a short random hex string
 - Be concise and factual - no filler
 - Write in the same language the user used during the session

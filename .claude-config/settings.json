@@ -101,6 +101,17 @@
         ]
       }
     ],
+    "Stop": [
+      {
+        "matcher": "*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "~/.bun/bin/bun run ~/.claude/hooks/stop-hook.ts"
+          }
+        ]
+      }
+    ],
     "SessionEnd": [
       {
         "matcher": "*",

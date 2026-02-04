@@ -4,6 +4,63 @@ Histórico de decisões e mudanças importantes do projeto.
 
 ---
 
+## 2026-02-03: Sistema de Captura Inteligente com Haiku
+
+**Contexto:** Muitas sessões vazias estavam sendo salvas em `MEMORY/sessions/`, poluindo a memória. O sistema do Daniel Miessler usa análise de conteúdo para filtrar e classificar automaticamente.
+
+**Problema identificado:**
+- Hook `session-capture.ts` salvava **todas** as sessões, inclusive vazias
+- Diretórios `MEMORY/learnings/{PHASE}/` existiam mas estavam vazios
+- Sem extração automática de aprendizados
+
+**Solução implementada:**
+
+1. **`lib/haiku-client.ts`** (NOVO)
+   - Cliente para chamadas à API Anthropic (Haiku 3.5)
+   - Carrega `ANTHROPIC_API_KEY` do `~/.claude/.env` automaticamente
+   - Custo negligível: ~$0.001 por chamada
+
+2. **`stop-hook.ts`** (NOVO) - Evento `Stop`
+   - Dispara após **cada resposta** do Claude
+   - Usa Haiku para classificar: `learning` / `work` / `empty`
+   - Se `learning`, extrai e salva em `MEMORY/learnings/{PHASE}/`
+   - Fases: OBSERVE, THINK, PLAN, BUILD, EXECUTE, VERIFY
+
+3. **`session-capture.ts`** (MELHORADO) - Evento `SessionEnd`
+   - **Filtro:** `interactions < 2` sem arquivos modificados → SKIP
+   - **Resumo inteligente:** Se não tem summary, Haiku gera
+   - Sessões vazias não são mais salvas
+
+4. **`settings.json`** (ATUALIZADO)
+   - Adicionado hook `Stop` para classificação em tempo real
+
+5. **`~/.claude/.env`** (ATUALIZADO)
+   - Adicionada `ANTHROPIC_API_KEY` para hooks
+
+**Arquitetura:**
+```
+Cada resposta (Stop)           Fim da sessão (SessionEnd)
+       │                              │
+       ▼                              ▼
+   stop-hook.ts                session-capture.ts
+       │                              │
+       ├─► Haiku classifica           ├─► interactions < 2? → SKIP
+       │                              │
+       └─► learning?                  └─► Sem summary? → Haiku gera
+           │                              │
+           ▼                              ▼
+   MEMORY/learnings/{PHASE}/      MEMORY/sessions/
+```
+
+**Formato de arquivos:** `YYYY-MM-DD_HH-mm-ss_{hash}.md`
+- Ordem cronológica clara pelo nome
+- Sem risco de sobrescrita (timestamp único)
+- Exemplo: `2026-02-03_15-30-45_45e2aea2.md`
+
+**Multi-máquina:** Todos os arquivos estão em `.claude-config/` (versionados). Em nova máquina, rodar `scripts/setup-pai.sh` após `git pull`.
+
+---
+
 ## 2026-02-02: Symlinks de diretório + CLAUDE.md global versionado
 
 **Contexto:** Hooks e PAI context usavam symlinks individuais por arquivo, exigindo re-run do `setup-pai.sh` sempre que um novo hook ou arquivo PAI fosse criado. O `CLAUDE.md` global (`~/.claude/CLAUDE.md`) não era versionado no repo.

@@ -101,21 +101,23 @@ O skill `/goals` ou `/metas` está em `~/.claude/skills/DailyGoals/SKILL.md`.
 
 ## MEMORY/ System
 
-Sistema file-based para memória persistente (PAI-style).
+Sistema file-based para memória persistente (PAI-style) com captura inteligente via Haiku.
 
 ### Estrutura
 
 ```
 MEMORY/
-├── sessions/          # Logs de sessão (criados automaticamente)
+├── sessions/          # Sessões produtivas (filtradas, sem vazias)
+│   └── YYYY-MM-DD_HH-mm-ss_{session_id}.md
 ├── decisions/         # Decisões importantes
-├── learnings/         # Aprendizados por fase do ciclo
-│   ├── OBSERVE/
-│   ├── THINK/
-│   ├── PLAN/
-│   ├── BUILD/
-│   ├── EXECUTE/
-│   └── VERIFY/
+├── learnings/         # Aprendizados AUTO-EXTRAÍDOS por fase
+│   ├── OBSERVE/       # Descobertas sobre sistemas/domínios
+│   ├── THINK/         # Conclusões de análises
+│   ├── PLAN/          # Decisões estratégicas
+│   ├── BUILD/         # Padrões de implementação
+│   ├── EXECUTE/       # Learnings operacionais
+│   └── VERIFY/        # Insights de validação
+│   └── YYYY-MM-DD_HH-mm-ss_{hash}.md
 ├── State/             # Estado ativo (JSON)
 │   └── active-work.json
 └── Signals/           # Padrões e falhas (JSONL)
@@ -123,11 +125,28 @@ MEMORY/
     └── patterns.jsonl
 ```
 
-### Hook de captura
+**Formato de nomes:** Timestamp completo garante ordem cronológica e evita sobrescrita.
 
-O hook `session-capture.ts` dispara no evento Stop e cria um arquivo em `MEMORY/sessions/` com:
-- YAML frontmatter (session_id, timestamp, cwd)
-- Conteúdo da sessão
+### Hooks de captura
+
+**1. `stop-hook.ts`** (evento `Stop` - cada resposta do Claude)
+- Usa Haiku para classificar: `learning` / `work` / `empty`
+- Se `learning`, extrai insight e salva em `MEMORY/learnings/{PHASE}/`
+- Custo: ~$0.001 por chamada
+
+**2. `session-capture.ts`** (evento `SessionEnd` - fim da sessão)
+- **Filtro:** `interactions < 2` sem arquivos → não salva
+- **Resumo inteligente:** Se não tem summary, Haiku gera
+- Salva em `MEMORY/sessions/`
+
+### Configuração
+
+A `ANTHROPIC_API_KEY` deve estar em `~/.claude/.env`:
+
+```bash
+# ~/.claude/.env
+ANTHROPIC_API_KEY=sk-ant-api03-...
+```
 
 ### Consulta
 
@@ -135,6 +154,20 @@ O hook `session-capture.ts` dispara no evento Stop e cria um arquivo em `MEMORY/
 # Ver sessões recentes
 ls -la ~/ai-brain/MEMORY/sessions/
 
-# Buscar em sessões
-grep -r "termo" ~/ai-brain/MEMORY/sessions/
+# Ver learnings por fase
+ls -la ~/ai-brain/MEMORY/learnings/BUILD/
+
+# Buscar em toda memória
+grep -r "termo" ~/ai-brain/MEMORY/
 ```
+
+### Multi-máquina
+
+Em nova máquina, após `git clone`:
+
+```bash
+cd ~/ai-brain
+bash scripts/setup-pai.sh
+```
+
+Os symlinks propagam automaticamente todos os hooks e configurações.

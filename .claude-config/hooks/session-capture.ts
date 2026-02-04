@@ -3,13 +3,16 @@
 // SessionEnd hook: Capture session summary to MEMORY/sessions/
 // CENTRALIZED: All sessions go to ai-brain/MEMORY/sessions/ regardless of cwd
 // Reads Claude Code JSONL to extract real content (summaries, files, tools)
+// v2: Adds minimum session filter + intelligent summary via Haiku
 
 import { writeFileSync, readFileSync, mkdirSync, existsSync, statSync } from 'fs';
 import { join, basename } from 'path';
 import { homedir } from 'os';
+import { callHaiku, SESSION_SUMMARY_PROMPT } from './lib/haiku-client';
 
 const MAX_JSONL_BYTES = 2 * 1024 * 1024; // 2MB cap for reading
 const AI_BRAIN_MEMORY = join(homedir(), 'ai-brain', 'MEMORY', 'sessions');
+const MIN_INTERACTIONS = 2; // Minimum interactions to save session
 
 interface SessionPayload {
   session_id: string;
@@ -50,6 +53,17 @@ function getDateString(): string {
   const month = String(date.getMonth() + 1).padStart(2, '0');
   const day = String(date.getDate()).padStart(2, '0');
   return `${year}-${month}-${day}`;
+}
+
+function getFilenameTimestamp(): string {
+  const date = new Date();
+  const year = date.getFullYear();
+  const month = String(date.getMonth() + 1).padStart(2, '0');
+  const day = String(date.getDate()).padStart(2, '0');
+  const hours = String(date.getHours()).padStart(2, '0');
+  const minutes = String(date.getMinutes()).padStart(2, '0');
+  const seconds = String(date.getSeconds()).padStart(2, '0');
+  return `${year}-${month}-${day}_${hours}-${minutes}-${seconds}`;
 }
 
 function cwdToProjectDir(cwd: string): string {
@@ -164,6 +178,59 @@ function extractFromJsonl(jsonlPath: string): SessionData {
   }
 
   return data;
+}
+
+/**
+ * Verifica se a sessão é mínima (deve ser ignorada)
+ * Sessões com poucas interações E sem arquivos modificados são descartadas
+ */
+function isMinimalSession(data: SessionData): boolean {
+  // Se tem arquivos modificados, sempre salvar
+  if (data.filesModified.length > 0) {
+    return false;
+  }
+  // Se tem poucas interações e nenhum arquivo, é mínima
+  return data.userMessageCount < MIN_INTERACTIONS;
+}
+
+/**
+ * Gera resumo inteligente via Haiku quando não há summary do Claude
+ */
+async function generateSmartSummary(data: SessionData): Promise<string | null> {
+  // Se já tem summary do Claude, usar
+  if (data.summaries.length > 0) {
+    return null; // Usar o que já existe
+  }
+
+  // Sessão muito curta para resumo inteligente
+  if (data.userMessageCount < 3 && data.filesModified.length === 0) {
+    return null;
+  }
+
+  // Construir contexto para Haiku
+  const context = `
+Primeira mensagem do usuário: ${data.firstUserMessage || 'N/A'}
+Arquivos modificados: ${data.filesModified.join(', ') || 'nenhum'}
+Ferramentas usadas: ${data.toolsUsed.join(', ') || 'nenhuma'}
+Total de interações: ${data.userMessageCount}
+Projeto: ${data.project || 'desconhecido'}
+  `.trim();
+
+  try {
+    const result = await callHaiku(
+      SESSION_SUMMARY_PROMPT,
+      context,
+      200
+    );
+
+    if (result?.content) {
+      return result.content;
+    }
+  } catch (error) {
+    console.error('[PAI] Smart summary generation failed:', error);
+  }
+
+  return null;
 }
 
 function buildContent(
@@ -294,7 +361,8 @@ async function main() {
     const shortId = sessionId.substring(0, 8);
     const dateStr = getDateString();
     const timestamp = getLocalTimestamp();
-    const filename = `${dateStr}-${shortId}.md`;
+    const filenameTs = getFilenameTimestamp();
+    const filename = `${filenameTs}_${shortId}.md`;
     const projectName = basename(cwd);
 
     // Always write to ai-brain MEMORY (centralized)
@@ -332,14 +400,27 @@ async function main() {
 
     if (jsonlPath) {
       const data = extractFromJsonl(jsonlPath);
+      data.project = projectName;
+
+      // FILTRO: Ignorar sessões mínimas
+      if (isMinimalSession(data)) {
+        console.error(`[PAI] Session ${shortId} skipped (minimal: ${data.userMessageCount} interactions, ${data.filesModified.length} files)`);
+        process.exit(0);
+      }
+
+      // RESUMO INTELIGENTE: Gerar via Haiku se não tem summary
+      const smartSummary = await generateSmartSummary(data);
+      if (smartSummary) {
+        data.summaries.push(smartSummary);
+      }
+
       const content = buildContent(sessionId, shortId, dateStr, timestamp, cwd, projectName, data);
       writeFileSync(filepath, content);
       console.error(`[PAI] Session captured (JSONL): ${filename} [${data.summaries.length} summaries, ${data.filesModified.length} files]`);
     } else {
-      // Fallback: no JSONL found
-      const content = buildFallbackContent(sessionId, shortId, dateStr, timestamp, cwd, projectName);
-      writeFileSync(filepath, content);
-      console.error(`[PAI] Session captured (fallback): ${filename}`);
+      // Fallback: no JSONL found - também aplicar filtro (sessão sem dados = mínima)
+      console.error(`[PAI] Session ${shortId} skipped (no JSONL data)`);
+      process.exit(0);
     }
 
   } catch (error) {

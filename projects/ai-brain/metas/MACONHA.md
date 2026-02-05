@@ -78,8 +78,26 @@
 | 01/02 | Dom | Não | | | Permitido - escolheu não fumar. Fim da Fase 1 |
 
 **Reflexão da semana:**
-- Conseguiu manter o padrão?
-- Pronto para Fase 2?
+- Fumou apenas 1 dia dos 3 permitidos
+- Escolheu conscientemente não fumar sexta e domingo
+
+---
+
+### Semana 3 (02-08 Fev 2026)
+
+| Data | Dia | Fumou? | Energia (1-10) | Sono | Notas |
+|------|-----|--------|----------------|------|-------|
+| 02/02 | Dom | Não | | | |
+| 03/02 | Seg | Não | | | |
+| 04/02 | Ter | Não | | | |
+| 05/02 | Qua | Não | | | Streak mantido |
+| 06/02 | Qui | | | | |
+| 07/02 | Sex | | | | Permitido |
+| 08/02 | Sáb | | | | Permitido |
+
+**Reflexão da semana:**
+- Semana inteira sem fumar até agora
+- Controle total
 
 ---
 

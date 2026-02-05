@@ -233,6 +233,8 @@ Entre séries do lift principal. 50-100 reps por categoria por treino.
 | Data | Treino | Completou? | Energia | Notas |
 |------|--------|------------|---------|-------|
 | 03/02 Ter | Cardio (colete) | Sim | - | ~50min caminhada colete 10kg. 4x1:30 + 4x2:00 intervalos corrida. Tranquilo - manteve ritmo de deload apesar de querer puxar mais |
+| 04/02 Qua | Squat (Deload) | Sim | - | TM 108. 5x46, 5x56, 5x66. FSL 5x5@46. Acessórios: 3x20 ab wheel, 3x20 remada baixa triângulo, 3x20 push-up, 3x20 KB swing 20kg |
+| 05/02 Qui | Cardio (colete) | Sim | - | ~50min colete 10kg. 4x1:30 + 5x2:00 intervalos corrida. Controlou intensidade por ser deload - poderia mais |
 
 ---
 

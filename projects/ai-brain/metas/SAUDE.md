@@ -26,19 +26,14 @@
 **Por que este template:**
 > "Many people have used this as part of a fat loss program. This happened merely by mistake, but it seems to have answered the age-old question of how to train, not lose strength and get leaner." — Jim Wendler
 
-**Princípios fundamentais:**
-1. Start too light (começar leve, construir momentum)
-2. Progress slow (progressão lenta e consistente)
-3. Multi-joint movements (squat, deadlift, bench, OHP)
-4. Set PRs (recordes pessoais de forma inteligente)
-5. Balance (força + condicionamento + mobilidade + recuperação)
-
 **Estrutura do programa:**
 - TM de 85% (conservador)
 - 5's PRO para séries principais (sem ir até falha)
 - 5x5 FSL (First Set Last) como suplementar
 - Assistance work entre séries do lift principal
 - Condicionamento integrado
+
+**Ordem dos lifts:** Squat → OHP → Deadlift → Bench
 
 **Livros de referência:**
 - Jim Wendler - 5/3/1 Forever (principal)
@@ -94,20 +89,9 @@
 
 ---
 
-## Estrutura Semanal Atual
+## Meta Semanal
 
-**Esquema conservador (por causa do trapézio):**
-
-| Dia | Atividade |
-|-----|-----------|
-| 1 | Lift (academia) |
-| 2 | Corrida ou Metcon casa |
-| 3 | OFF |
-| (repete) | |
-
-Ciclo de 4 lifts completa em ~12 dias.
-
-**Ordem dos lifts:** Squat → OHP → Deadlift → Bench
+**4-5 treinos por semana.** Alternando lift e cardio. Simples assim.
 
 ---
 
@@ -133,8 +117,8 @@ Entre séries do lift principal. 50-100 reps por categoria por treino.
 
 | Tipo | Frequência | Detalhes |
 |------|------------|----------|
-| Corrida | 1-2x/semana | 5-6km, ~6:00/km, Z2 conversacional |
-| Caminhada + colete | A iniciar | 30-40 min, 10kg |
+| Caminhada + colete | 2x/semana | 40-50 min, 10kg, com intervalos de corrida |
+| Corrida | Eventualmente | 5-6km, ~6:00/km, Z2 conversacional |
 | Metcon casa | A implementar | 15-20 min |
 
 ---
@@ -172,6 +156,23 @@ Entre séries do lift principal. 50-100 reps por categoria por treino.
 
 ---
 
+## Ponto de Atenção: Sono
+
+> Levar na próxima consulta psiquiátrica
+
+**Padrão atual (início Fev 2026):**
+- Deita entre 21h-22h, acorda ~4h sem conseguir voltar a dormir
+- Mente acelerada com projetos/ideias
+- Tomando ketiapina e mesmo assim não segura o sono a noite toda
+- Noite ruim de referência (05→06/02): acordou meia-noite, 2h, 4h, 7h30
+- Impacto: cansaço acumulado durante a semana, precisou pular treino (06/02)
+
+**Perguntar à médica:**
+- Ajuste de dose da ketiapina?
+- Padrão de despertar precoce com mente acelerada — investigar
+
+---
+
 ## Desafio: Trapézio
 
 **Causa:** Posição do computador + posição de dormir + compensação nos lifts
@@ -188,53 +189,65 @@ Entre séries do lift principal. 50-100 reps por categoria por treino.
 
 ## Status Atual
 
-**Ciclo 1, Semana 4 - Deload** (7th week protocol)
-
-**Próximo treino:** Lift de deload (cargas reduzidas)
-**Último treino:** Cardio colete - 03/02
+**Ciclo 1 — Deload (semana 4 de 4)**
+- Faltam: Deadlift e Bench de deload
+- Após deload: testar TMs, subir +2.5kg (upper) / +5kg (lower), escolher anchor template
 
 ---
 
 ## Log Semanal
 
-### Semana 13-19 Jan 2026 (S1 - 5s)
+### Semana 12-18 Jan (início do registro)
 
-| Data | Treino | Completou? | Energia | Notas |
-|------|--------|------------|---------|-------|
-| 14/01 Ter | Bench (S1) | Sim | - | 70kg real |
+| Data | Treino | Notas |
+|------|--------|-------|
+| 14/01 Qua | Bench 5s | 70kg real |
+| 18/01 Dom | Squat 3s | 106kg real (3x76, 3x86, 3x96) |
 
-### Semana 19-25 Jan 2026 (S2 - 3s)
+**Treinos: 2** (registro incompleto)
 
-| Data | Treino | Completou? | Energia | Notas |
-|------|--------|------------|---------|-------|
-| 18/01 Sáb | Squat (S2) | Sim | - | 106kg real (3x76, 3x86, 3x96) |
-| 20/01 Ter | OHP (S2) | Sim | - | 44kg real. Feriado. Acessórios: canoinha, bíceps, tríceps, seated row |
-| 21/01 Qua | Cardio (colete) | Sim | - | 43min caminhada, 10kg. Incômodo calcanhar esq (ligamento) - alongar amanhã |
-| 22/01 Qui | Deadlift (S2) | Sim | - | 120kg TM. 3x86, 3x96, 3x108. FSL 5x5@86. Acessórios em circuit (3x20): lat pulldown, biceps curl, canoinha, KB swing |
-| 23/01 Sex | Cardio (colete) | Sim | - | 45min caminhada com colete. Tornozelo sem incômodo |
-| 24/01 Sáb | Bench (S2) | Sim | - | TM 70. 3x50, 3x56, 3x66. FSL 5x5@50. Acessórios: pullups, bíceps curl máquina, abwheel, tríceps |
-| 25/01 Dom | OFF | | | |
+---
 
-### Semana 26 Jan - 01 Fev 2026 (S3 - 1s)
+### Semana 19-25 Jan
 
-| Data | Treino | Completou? | Energia | Notas |
-|------|--------|------------|---------|-------|
-| 26/01 Seg | Squat (S3) | Sim | - | TM 104. 5x78, 3x88, 3x100. FSL 5x5@78. Acessórios (encurtado): 3x20 ab wheel, 3x20 pushup, 3x20 KB swing 20kg, ~2x20 biceps curl |
-| 27/01 Ter | Cardio (colete) | Sim | - | 40min caminhada colete 10kg. 6 intervalos corrida conversativa: 3x1:00 + 3x1:10. Sem dor articular |
-| 28/01 Qua | OHP (S3) | Sim | - | TM 46. 5x36, 3x40, 5x46. FSL 5x5@36. Acessórios: 3x20 abwheel, 3x20 lat pulldown, 3x20 triceps pulley, 2x20 KB swing 20kg, 3x20 panturrilha 30kg |
-| 29/01 Qui | Cardio (colete) | Sim | - | 40min colete. 4x1:30 + 4x2:00 intervalos corrida (alguns acima do conversacional). Sem dor, pronto pra aumentar |
-| 30/01 Sex | Deadlift (S3) | Sim | - | TM 120. 5x90, 3x106, 2x116. FSL 5x5@90. Acessórios: 3x20 canoinha, 3x20 seated v-bar row, 3x20 bíceps curl, 3x20 panturrilha + alongamento |
-| 31/01 Sáb | OFF | | | Descanso |
-| 01/02 Dom | OFF | | | Descanso. Bench (S3) amanhã (02/02) |
-| 02/02 Seg | Bench (S3) | Sim | - | TM 70. 5x56, 3x60, 6x66 (AMRAP). FSL 5x5@56. Acessórios: 3x20 ab-wheel, 3x7 pullup, 3x13 lat pulldown, 3x20 plate raise 10kg, 3x20 thruster 6kg/braço |
+| Data | Treino | Notas |
+|------|--------|-------|
+| 20/01 Ter | OHP 3s | 44kg real. Feriado. Acessórios: canoinha, bíceps, tríceps, seated row |
+| 21/01 Qua | Cardio colete | 43min, 10kg. Incômodo calcanhar esq (ligamento) |
+| 22/01 Qui | Deadlift 3s | TM 120. 3x86, 3x96, 3x108. FSL 5x5@86. Acessórios circuit (3x20): lat pulldown, bíceps curl, canoinha, KB swing |
+| 23/01 Sex | Cardio colete | 45min. Tornozelo sem incômodo |
+| 24/01 Sáb | Bench 3s | TM 70. 3x50, 3x56, 3x66. FSL 5x5@50. Acessórios: pullups, bíceps curl, abwheel, tríceps |
 
-### Semana 03-08 Fev 2026 (S4 - Deload)
+**Treinos: 5/5** ✓
 
-| Data | Treino | Completou? | Energia | Notas |
-|------|--------|------------|---------|-------|
-| 03/02 Ter | Cardio (colete) | Sim | - | ~50min caminhada colete 10kg. 4x1:30 + 4x2:00 intervalos corrida. Tranquilo - manteve ritmo de deload apesar de querer puxar mais |
-| 04/02 Qua | Squat (Deload) | Sim | - | TM 108. 5x46, 5x56, 5x66. FSL 5x5@46. Acessórios: 3x20 ab wheel, 3x20 remada baixa triângulo, 3x20 push-up, 3x20 KB swing 20kg |
-| 05/02 Qui | Cardio (colete) | Sim | - | ~50min colete 10kg. 4x1:30 + 5x2:00 intervalos corrida. Controlou intensidade por ser deload - poderia mais |
+---
+
+### Semana 26 Jan - 01 Fev
+
+| Data | Treino | Notas |
+|------|--------|-------|
+| 26/01 Seg | Squat 1s | TM 104. 5x78, 3x88, 3x100. FSL 5x5@78. Acessórios: 3x20 ab wheel, 3x20 pushup, 3x20 KB swing 20kg, ~2x20 bíceps curl |
+| 27/01 Ter | Cardio colete | 40min, 10kg. 6 intervalos corrida: 3x1:00 + 3x1:10. Sem dor articular |
+| 28/01 Qua | OHP 1s | TM 46. 5x36, 3x40, 5x46. FSL 5x5@36. Acessórios: 3x20 abwheel, 3x20 lat pulldown, 3x20 tríceps, 2x20 KB swing, 3x20 panturrilha |
+| 29/01 Qui | Cardio colete | 40min. 4x1:30 + 4x2:00 intervalos corrida. Sem dor, pronto pra aumentar |
+| 30/01 Sex | Deadlift 1s | TM 120. 5x90, 3x106, 2x116. FSL 5x5@90. Acessórios: 3x20 canoinha, 3x20 seated v-bar row, 3x20 bíceps curl, 3x20 panturrilha |
+
+**Treinos: 5/5** ✓
+
+---
+
+### Semana 02-08 Fev (Deload)
+
+| Data | Treino | Notas |
+|------|--------|-------|
+| 02/02 Seg | Bench 1s | TM 70. 5x56, 3x60, 6x66 (AMRAP). FSL 5x5@56. Acessórios: 3x20 ab-wheel, 3x7 pullup, 3x13 lat pulldown, 3x20 plate raise, 3x20 thruster |
+| 03/02 Ter | Cardio colete | ~50min, 10kg. 4x1:30 + 4x2:00 intervalos corrida |
+| 04/02 Qua | Squat Deload | TM 108. 5x46, 5x56, 5x66. FSL 5x5@46. Acessórios: 3x20 ab wheel, 3x20 remada baixa, 3x20 push-up, 3x20 KB swing |
+| 05/02 Qui | Cardio colete | ~50min, 10kg. 4x1:30 + 5x2:00 intervalos corrida |
+| 06/02 Sex | OFF | Dormiu muito mal (acordou meia-noite, 2h, 4h, 7h30) |
+| 07/02 Sáb | OHP Deload | TM 46. 5x20, 5x26, 5x30. FSL 5x5@20. Acessórios: 3x20 ab wheel, 3x6-7 pullup + lat pulldown até 20, 3x30 tríceps, 3x20 bíceps curl |
+
+**Treinos: 5/5** ✓ (incluindo Bench 1s de segunda)
 
 ---
 
@@ -247,38 +260,13 @@ Entre séries do lift principal. 50-100 reps por categoria por treino.
 
 ---
 
-## Timeline do Ciclo
-
-```
-Ciclo 1:
-├── Semana 1 (5s) ✓
-├── Semana 2 (3s) ✓
-├── Semana 3 (1s) ✓
-└── Semana 4 (Deload - 7th week protocol) ← AQUI
-
-Após Ciclo 1:
-├── Testar Training Maxes
-├── Decidir próximo template (anchor)
-└── TM +2.5kg (upper) / +5kg (lower)
-```
-
----
-
 ## Próximos Passos
 
-### Imediato
-- [ ] Completar Ciclo 1 sem interrupções
-- [ ] Manter rotina de mobilidade do trapézio
-
-### Curto prazo (2-3 semanas)
-- [ ] Semana 4: Deload
+- [ ] Completar deload (Deadlift + Bench)
 - [ ] Testar TMs após deload
-- [ ] Iniciar caminhada com colete (não corrida ainda)
-- [ ] **Implementar metcons em casa** ← Próximo projeto
-
-### Médio prazo (após 6 semanas)
+- [ ] Subir TM +2.5kg (upper) / +5kg (lower)
 - [ ] Escolher Anchor template
-- [ ] Avaliar composição corporal
+- [ ] Implementar metcons em casa
 
 ---
 

@@ -12,7 +12,7 @@
 - Sono pior
 - Efeitos negativos amplificados com frequência alta
 
-**Benefícios do uso ocasional (1-2x/semana):**
+**Benefícios do uso ocasional (1x/semana):**
 - Relaxamento
 - Sexo é incrível
 - Às vezes, ideias criativas
@@ -20,32 +20,23 @@
 
 ---
 
-## Plano por Fases
+## Modelo Atual
 
-| Fase | Padrão permitido | Duração | Status |
-|------|------------------|---------|--------|
-| 0 | Qui-Sex-Sáb-Dom-Seg (5 dias) | - | Anterior |
-| 1 | **Sex-Sáb-Dom** (3 dias) | 2 semanas | **ATUAL** |
-| 2 | Sáb-Dom (2 dias) | 2 semanas | - |
-| 3 | Só com namorada | Contínuo | Meta final |
+> Fases abandonadas em 07/02/2026. A auto-regulação funcionou melhor que regras rígidas.
 
-**Início da Fase 1:** 2026-01-20 (terça-feira)
-**Fim da Fase 1:** 2026-02-02 (domingo)
+**Padrão:** ~1x por semana, por escolha própria
+**Controle:** Log semanal honesto. Se o padrão escorregar, o log mostra.
 
----
-
-## Regras da Fase 1
-
-1. Maconha fica no trabalho (não trazer para casa durante a semana)
-2. Dias permitidos: sexta, sábado, domingo
-3. Se fumar fora do padrão: registrar honestamente, sem drama, seguir em frente
-4. Ao final das 2 semanas: avaliar e decidir se avança para Fase 2
+**Regras:**
+1. Registrar semanalmente: fumou ou não, quantos dias, como se sentiu
+2. Se fumar fora do padrão: registrar sem drama, seguir em frente
+3. Sinal de alerta: 2+ dias por semana por 2 semanas seguidas → reavaliar
 
 ---
 
 ## Log Semanal
 
-### Semana 1 (20-26 Jan 2026)
+### Semana 1 (20-26 Jan 2026) — Fase 1
 
 | Data | Dia | Fumou? | Energia (1-10) | Sono | Notas |
 |------|-----|--------|----------------|------|-------|
@@ -58,14 +49,11 @@
 | 24/01 | Sáb | Sim | | | Permitido - não valeu tanto a pena |
 | 25/01 | Dom | Sim | | | Permitido - não valeu tanto a pena |
 
-**Reflexão da semana:**
-- Streak de 5 dias (seg-sex) sem fumar - manteve firme mesmo no feriado
-- Insight importante: prazer diminui com uso consecutivo. 1x/semana > 3x seguidos
-- Próxima semana: plano continua Sex-Sáb-Dom, mas intenção de fumar só 2 dias
+**Reflexão:** Streak de 5 dias sem fumar. Insight: prazer diminui com uso consecutivo. 1x/semana > 3x seguidos.
 
 ---
 
-### Semana 2 (26 Jan - 01 Fev 2026)
+### Semana 2 (26 Jan - 01 Fev 2026) — Fase 1
 
 | Data | Dia | Fumou? | Energia (1-10) | Sono | Notas |
 |------|-----|--------|----------------|------|-------|
@@ -75,49 +63,60 @@
 | 29/01 | Qui | Não | | | |
 | 30/01 | Sex | Não | | | Permitido - escolheu não fumar |
 | 31/01 | Sáb | Sim | | | Permitido |
-| 01/02 | Dom | Não | | | Permitido - escolheu não fumar. Fim da Fase 1 |
+| 01/02 | Dom | Não | | | Permitido - escolheu não fumar |
 
-**Reflexão da semana:**
-- Fumou apenas 1 dia dos 3 permitidos
-- Escolheu conscientemente não fumar sexta e domingo
+**Reflexão:** Fumou 1/3 dos dias permitidos. Escolheu conscientemente não fumar sexta e domingo.
 
 ---
 
-### Semana 3 (02-08 Fev 2026)
+### Semana 3 (02-08 Fev 2026) — Livre
 
-| Data | Dia | Fumou? | Energia (1-10) | Sono | Notas |
-|------|-----|--------|----------------|------|-------|
-| 02/02 | Dom | Não | | | |
-| 03/02 | Seg | Não | | | |
-| 04/02 | Ter | Não | | | |
-| 05/02 | Qua | Não | | | Streak mantido |
-| 06/02 | Qui | | | | |
-| 07/02 | Sex | | | | Permitido |
-| 08/02 | Sáb | | | | Permitido |
+| Data | Dia | Fumou? | Notas |
+|------|-----|--------|-------|
+| 02/02 | Seg | Não | |
+| 03/02 | Ter | Não | |
+| 04/02 | Qua | Não | |
+| 05/02 | Qui | Não | |
+| 06/02 | Sex | Não | Escolheu não fumar |
+| 07/02 | Sáb | | |
+| 08/02 | Dom | | |
 
-**Reflexão da semana:**
-- Semana inteira sem fumar até agora
-- Controle total
+**Reflexão:** Streak de 7 dias (desde 31/01). Primeira semana no modelo livre.
 
 ---
 
 ## Avaliação da Fase 1
 
-> Preencher em 02/02/2026
+> Período: 20/01 - 02/02/2026 (2 semanas)
 
-**Dias que fumou fora do padrão:**
-**Como se sentiu nas quintas sem fumar:**
-**Mudança na energia geral:**
-**Mudança no sono:**
-**Decisão:** [ ] Avançar para Fase 2 / [ ] Repetir Fase 1
+**Dias que fumou fora do padrão:** 0. Nenhum deslize.
+
+**Uso nos dias permitidos (Sex-Sáb-Dom):**
+- Semana 1: 3/3 (usou todos)
+- Semana 2: 1/3 (fumou só sábado, escolheu não usar sexta e domingo)
+- Total: 4 dias em 14. Antes eram ~10 em 14.
+
+**Insight principal:** Prazer diminui com uso consecutivo. 1x/semana > 3x seguidos.
+
+**Como se sentiu nas quintas sem fumar:** Bem. Treinou pesado, manteve firme. Sem registro de fissura.
+
+**Mudança na energia geral:** Energia melhor relatada no início (7+), tristeza diminuindo. Sem registros detalhados nas demais semanas.
+
+**Mudança no sono:** Sem dados registrados.
+
+**Evolução:** Redução natural de 3→1 dia por semana, sem forçar. Já operou no padrão da Fase 2 (Sáb-Dom) espontaneamente na semana 2.
+
+**Decisão:** Fases abandonadas. Auto-regulação com log semanal. A redução aconteceu naturalmente — estrutura formal virou desnecessária.
 
 ---
 
-## Histórico de Fases
+## Histórico
 
-| Fase | Período | Resultado |
-|------|---------|-----------|
-| 1 | 20/01 - 02/02 | (em andamento) |
+| Período | Modelo | Resultado |
+|---------|--------|-----------|
+| Antes de 20/01 | ~5 dias/semana | Uso frequente |
+| 20/01 - 02/02 | Fase 1 (Sex-Sáb-Dom) | 4 dias em 14. Zero deslizes. Redução natural pra 1x/sem |
+| 02/02 em diante | Livre (~1x/semana) | Em andamento |
 
 ---
 
@@ -127,3 +126,4 @@
 - Escorregar não é fracassar, é informação
 - 1x por semana = muito bom, sem efeito negativo
 - O teste real: como você se sente na quinta-feira?
+- Se o log mostrar 2+ dias/semana por 2 semanas → hora de reavaliar

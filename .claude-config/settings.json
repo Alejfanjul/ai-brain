@@ -30,8 +30,7 @@
       "Bash(git merge * main)",
       "Bash(git merge main*)",
       "Bash(> /dev/sd*)",
-      "Bash(chmod 777 *)",
-      "Bash(:(){ :|:& };:)"
+      "Bash(chmod 777 *)"
     ]
   },
   "hooks": {

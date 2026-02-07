@@ -30,7 +30,7 @@ Nenhum prompt de aprovacao para operacoes normais.
 | Delecao destrutiva | `rm -rf`, `rm -r /`, `rm -r ~`, `sudo rm` |
 | Git destrutivo | `push --force`, `push -f`, `reset --hard`, `clean -f`, `checkout -- .`, `restore .` |
 | Merge em main | `merge main`, `merge * main` |
-| Sistema | `dd if=`, `mkfs`, `chmod 777`, fork bomb |
+| Sistema | `dd if=`, `mkfs`, `chmod 777` |
 
 ### Segunda camada: security-validator.ts
 

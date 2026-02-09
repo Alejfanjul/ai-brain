@@ -1,5 +1,4 @@
 {
-  "model": "opus",
   "permissions": {
     "allow": [
       "Read(**)",
@@ -100,5 +99,8 @@
     "padding": 0
   },
   "language": "PT-BR",
-  "alwaysThinkingEnabled": true
+  "alwaysThinkingEnabled": true,
+  "enabledPlugins": {
+    "frontend-design@claude-plugins-official": true
+  }
 }

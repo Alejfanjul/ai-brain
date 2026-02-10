@@ -87,18 +87,30 @@ class DictationApp:
         return errors
 
     def toggle_recording(self):
-        """Alterna entre gravação e transcrição."""
+        """Callback do hotkey — retorna IMEDIATAMENTE para não travar o hook.
+
+        Windows remove hooks de teclado (SetWindowsHookEx) se o callback
+        demorar mais que ~200ms. sd.InputStream() pode levar 200-500ms,
+        então todo trabalho é despachado para thread separada.
+        """
+        threading.Thread(target=self._handle_toggle, daemon=True).start()
+
+    def _handle_toggle(self):
+        """Processa o toggle em thread separada (fora do hook do Windows)."""
         with self._state_lock:
-            if self._state == AppState.IDLE:
+            if self._state in (AppState.IDLE, AppState.SUCCESS, AppState.ERROR):
+                # SUCCESS/ERROR são transitórios — app está pronta para novo ciclo
                 self._start_recording()
+                return
             elif self._state == AppState.RECORDING:
                 self._set_state(AppState.PROCESSING)
                 self._stop_stream()
-                threading.Thread(
-                    target=self._transcribe_and_paste,
-                    daemon=True,
-                ).start()
-            # PROCESSING, SUCCESS, ERROR → ignora F9
+            else:
+                # PROCESSING → ignora F9
+                return
+
+        # Fora do lock — transcrição é lenta (chamada HTTP)
+        self._transcribe_and_paste()
 
     def _start_recording(self):
         """Começa a gravar do microfone."""

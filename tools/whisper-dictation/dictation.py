@@ -132,6 +132,13 @@ def beep_busy():
     _tone(600, 300)
 
 
+# --- Estados ---
+
+STATE_READY = "ready"
+STATE_RECORDING = "recording"
+STATE_TRANSCRIBING = "transcribing"
+
+
 # --- Singleton ---
 
 LOCK_FILE = Path(tempfile.gettempdir()) / "whisper_dictation.lock"
@@ -174,6 +181,94 @@ def _release_lock() -> None:
         pass
 
 
+# --- System Tray Icon ---
+# Opcional: se pystray/pillow não estiver instalado, funciona sem ícone.
+
+_tray_icon = None
+_tray_available = False
+
+try:
+    import pystray
+    from PIL import Image, ImageDraw
+
+    _tray_available = True
+
+    _TRAY_COLORS = {
+        STATE_READY: "#808080",        # Cinza
+        STATE_RECORDING: "#FF0000",    # Vermelho
+        STATE_TRANSCRIBING: "#FFC800", # Amarelo
+    }
+    _TRAY_SUCCESS_COLOR = "#00CC00"    # Verde (flash temporário)
+    _TRAY_ERROR_COLOR = "#CC0000"      # Vermelho escuro (flash temporário)
+
+    def _create_tray_image(color: str) -> Image.Image:
+        """Cria ícone circular com a cor do estado."""
+        size = 64
+        img = Image.new("RGBA", (size, size), (0, 0, 0, 0))
+        draw = ImageDraw.Draw(img)
+        draw.ellipse([(4, 4), (60, 60)], fill=color)
+        draw.ellipse([(4, 4), (60, 60)], outline="white", width=2)
+        return img
+
+    def _update_tray(state: str) -> None:
+        """Atualiza ícone e tooltip do tray."""
+        if _tray_icon is None:
+            return
+        labels = {
+            STATE_READY: "Whisper — Pronto (F9)",
+            STATE_RECORDING: "Whisper — Gravando...",
+            STATE_TRANSCRIBING: "Whisper — Transcrevendo...",
+        }
+        _tray_icon.icon = _create_tray_image(_TRAY_COLORS.get(state, "#808080"))
+        _tray_icon.title = labels.get(state, "Whisper Dictation")
+
+    def _flash_tray(color: str, duration: float = 1.0) -> None:
+        """Flash temporário no tray (sucesso/erro), depois volta para ready."""
+        if _tray_icon is None:
+            return
+        _tray_icon.icon = _create_tray_image(color)
+        time.sleep(duration)
+        _update_tray(STATE_READY)
+
+    def _start_tray(on_quit_callback) -> None:
+        """Inicia o tray icon em thread daemon."""
+        global _tray_icon
+        menu = pystray.Menu(
+            pystray.MenuItem("Sair", lambda icon, item: on_quit_callback()),
+        )
+        _tray_icon = pystray.Icon(
+            "whisper-dictation",
+            icon=_create_tray_image(_TRAY_COLORS[STATE_READY]),
+            title="Whisper — Pronto (F9)",
+            menu=menu,
+        )
+        threading.Thread(target=_tray_icon.run, daemon=True).start()
+        logger.info("  Tray icon ativo.")
+
+    def _stop_tray() -> None:
+        """Para o tray icon."""
+        global _tray_icon
+        if _tray_icon:
+            _tray_icon.visible = False
+            _tray_icon.stop()
+            _tray_icon = None
+
+except ImportError:
+    logger.debug("pystray/pillow não instalado — tray icon desativado.")
+
+    def _update_tray(state: str) -> None:
+        pass
+
+    def _flash_tray(color: str, duration: float = 1.0) -> None:
+        pass
+
+    def _start_tray(on_quit_callback) -> None:
+        pass
+
+    def _stop_tray() -> None:
+        pass
+
+
 # --- Configuração ---
 
 DEFAULT_CONFIG = {
@@ -186,11 +281,6 @@ DEFAULT_CONFIG = {
 
 # --- App ---
 
-# Estados possíveis
-STATE_READY = "ready"
-STATE_RECORDING = "recording"
-STATE_TRANSCRIBING = "transcribing"
-
 
 class DictationApp:
     def __init__(self, config: dict):
@@ -200,9 +290,15 @@ class DictationApp:
         self.stream = None
         self._lock = threading.Lock()
 
+    def _set_state(self, state: str) -> None:
+        """Atualiza estado e reflete no tray icon."""
+        self.state = state
+        _update_tray(state)
+
     def start(self):
         """Inicia o app de dictation."""
         _acquire_lock()
+        _start_tray(on_quit_callback=self._quit)
 
         hotkey = self.config["hotkey"]
         logger.info("Whisper Dictation ativo.")
@@ -219,8 +315,17 @@ class DictationApp:
             pass
         finally:
             self._cleanup()
+            _stop_tray()
             _release_lock()
             logger.info("Dictation encerrado.")
+
+    def _quit(self):
+        """Chamado pelo menu 'Sair' do tray."""
+        logger.info("Saindo via tray menu...")
+        _stop_tray()
+        self._cleanup()
+        _release_lock()
+        os._exit(0)
 
     def _toggle_recording(self):
         """Alterna entre gravação e transcrição."""
@@ -235,7 +340,7 @@ class DictationApp:
 
     def _start_recording(self):
         """Começa a gravar do microfone."""
-        self.state = STATE_RECORDING
+        self._set_state(STATE_RECORDING)
         self.audio_frames = []
 
         sample_rate = self.config["sample_rate"]
@@ -257,7 +362,7 @@ class DictationApp:
         except Exception as e:
             logger.error(f"  [ERRO] Falha ao abrir microfone: {e}")
             beep_error()
-            self.state = STATE_READY
+            self._set_state(STATE_READY)
             return
 
         beep_start_recording()
@@ -265,7 +370,7 @@ class DictationApp:
 
     def _stop_and_transcribe(self):
         """Para a gravação e inicia transcrição em thread separada."""
-        self.state = STATE_TRANSCRIBING
+        self._set_state(STATE_TRANSCRIBING)
 
         # Para o stream imediatamente
         if self.stream:
@@ -279,7 +384,7 @@ class DictationApp:
         if not self.audio_frames:
             logger.info("  [!] Nenhum áudio capturado.")
             beep_error()
-            self.state = STATE_READY
+            self._set_state(STATE_READY)
             return
 
         beep_stop_recording()
@@ -315,6 +420,12 @@ class DictationApp:
                 keyboard.send("ctrl+v")
                 beep_success()
                 logger.info(f'  [OK] "{text}"')
+                if _tray_available:
+                    threading.Thread(
+                        target=_flash_tray, args=(_TRAY_SUCCESS_COLOR, 1.5),
+                        daemon=True,
+                    ).start()
+                    return  # _flash_tray volta para STATE_READY
             else:
                 logger.info("  [!] Transcrição vazia.")
                 beep_error()
@@ -326,7 +437,7 @@ class DictationApp:
         finally:
             if temp_path:
                 temp_path.unlink(missing_ok=True)
-            self.state = STATE_READY
+            self._set_state(STATE_READY)
 
     def _transcribe_with_retry(self, audio_path: str, max_retries: int = 1) -> str:
         """Chama Whisper API com timeout e retry."""

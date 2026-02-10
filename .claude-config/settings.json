@@ -10,7 +10,12 @@
       "WebFetch(*)",
       "Skill(*)",
       "Task(*)",
-      "Bash(*)"
+      "Bash(*)",
+      "Read(//home/alejandro/ai-brain/.claude-config/hooks/**)",
+      "Read(//home/alejandro/ai-brain/.claude-config/skills/CORE/SYSTEM/**)",
+      "Read(//home/alejandro/ai-brain/MEMORY/**)",
+      "Read(//home/alejandro/.claude/file-history/8cbac80f-8d7f-4396-876e-cbf6865f0247/**)",
+      "Read(//tmp/hoje/**)"
     ],
     "deny": [
       "Bash(rm -rf *)",
@@ -98,9 +103,10 @@
     "command": "~/.claude/statusline.sh",
     "padding": 0
   },
-  "language": "PT-BR",
-  "alwaysThinkingEnabled": true,
   "enabledPlugins": {
-    "frontend-design@claude-plugins-official": true
-  }
+    "frontend-design@claude-plugins-official": true,
+    "ralph-loop@claude-plugins-official": true
+  },
+  "language": "PT-BR",
+  "alwaysThinkingEnabled": true
 }

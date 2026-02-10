@@ -78,10 +78,26 @@
 | 04/02 | Qua | Não | |
 | 05/02 | Qui | Não | |
 | 06/02 | Sex | Não | Escolheu não fumar |
-| 07/02 | Sáb | | |
-| 08/02 | Dom | | |
+| 07/02 | Sáb | Sim | Maravilhoso |
+| 08/02 | Dom | Não | |
 
 **Reflexão:** Streak de 7 dias (desde 31/01). Primeira semana no modelo livre.
+
+---
+
+### Semana 4 (09-15 Fev 2026) — Livre
+
+| Data | Dia | Fumou? | Notas |
+|------|-----|--------|-------|
+| 09/02 | Seg | Não | |
+| 10/02 | Ter | Não | |
+| 11/02 | Qua | | Planejado: ocasião especial (namorada) |
+| 12/02 | Qui | | |
+| 13/02 | Sex | | |
+| 14/02 | Sáb | | |
+| 15/02 | Dom | | |
+
+**Reflexão:** (pendente)
 
 ---
 

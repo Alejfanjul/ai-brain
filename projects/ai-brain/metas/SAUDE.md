@@ -10,7 +10,7 @@
 |------|-------|
 | Idade | 40 anos (11/10/1985) |
 | Peso inicial | 81kg |
-| Peso atual | ~81-83kg (auto-relato: "ganhei uns quilinhos") |
+| Peso atual | 80.1kg (10/02/2026) |
 | Histórico | Ex-CrossFit intermediário, parado ~2 anos |
 | Treino atual | Wendler 5/3/1 há algum tempo |
 | Início do plano | Final de dezembro 2025 |
@@ -42,50 +42,52 @@
 
 ---
 
-## Training Maxes Atuais
+## Training Maxes
 
-| Lift | 1RM Estimado | TM (80%) |
-|------|--------------|----------|
-| Squat | 130kg | 104kg |
-| Bench | 87.5kg | 70kg |
-| Deadlift | 150kg | 120kg |
-| OHP | 57.5kg | 46kg |
+| Lift | Ciclo 1 TM | Ciclo 2 TM |
+|------|------------|------------|
+| Squat | 104kg | 109kg (+5) |
+| Bench | 70kg | 72.5kg (+2.5) |
+| Deadlift | 120kg | 125kg (+5) |
+| OHP | 46kg | 48.5kg (+2.5) |
 
 ---
 
-## Cargas do Ciclo (baseado no TM)
+## Cargas do Ciclo 2 (3/5/1, 5's PRO + 5x5 FSL)
 
-### Squat (TM: 104kg)
+> Todas as séries são x5 reps (5's PRO). Sem AMRAP/PR sets.
 
-| Semana | Série 1 | Série 2 | Série 3 | FSL 5x5 |
-|--------|---------|---------|---------|---------|
-| 1 (5s) | 73kg x5 (70%) | 83kg x5 (80%) | 94kg x5 (90%) | 73kg |
-| 2 (3s) | 68kg x3 (65%) | 78kg x3 (75%) | 88kg x3 (85%) | 68kg |
-| 3 (1s) | 78kg x5 (75%) | 88kg x3 (85%) | 99kg x1 (95%) | 78kg |
-
-### Bench (TM: 70kg)
+### Squat (TM: 109kg)
 
 | Semana | Série 1 | Série 2 | Série 3 | FSL 5x5 |
 |--------|---------|---------|---------|---------|
-| 1 (5s) | 49kg x5 | 56kg x5 | 63kg x5 | 49kg |
-| 2 (3s) | 46kg x3 | 53kg x3 | 60kg x3 | 46kg |
-| 3 (1s) | 53kg x5 | 60kg x3 | 67kg x1 | 53kg |
+| 1 (3s) | 76kg x5 (70%) | 87kg x5 (80%) | 98kg x5 (90%) | 76kg |
+| 2 (5s) | 71kg x5 (65%) | 82kg x5 (75%) | 93kg x5 (85%) | 71kg |
+| 3 (1s) | 82kg x5 (75%) | 93kg x5 (85%) | 104kg x5 (95%) | 82kg |
 
-### Deadlift (TM: 120kg)
-
-| Semana | Série 1 | Série 2 | Série 3 | FSL 5x5 |
-|--------|---------|---------|---------|---------|
-| 1 (5s) | 84kg x5 | 96kg x5 | 108kg x5 | 84kg |
-| 2 (3s) | 78kg x3 | 90kg x3 | 102kg x3 | 78kg |
-| 3 (1s) | 90kg x5 | 102kg x3 | 114kg x1 | 90kg |
-
-### OHP (TM: 46kg)
+### Bench (TM: 72.5kg)
 
 | Semana | Série 1 | Série 2 | Série 3 | FSL 5x5 |
 |--------|---------|---------|---------|---------|
-| 1 (5s) | 32kg x5 | 37kg x5 | 41kg x5 | 32kg |
-| 2 (3s) | 30kg x3 | 35kg x3 | 39kg x3 | 30kg |
-| 3 (1s) | 35kg x5 | 39kg x3 | 44kg x1 | 35kg |
+| 1 (3s) | 51kg x5 | 58kg x5 | 65kg x5 | 51kg |
+| 2 (5s) | 47kg x5 | 54kg x5 | 62kg x5 | 47kg |
+| 3 (1s) | 54kg x5 | 62kg x5 | 69kg x5 | 54kg |
+
+### Deadlift (TM: 125kg)
+
+| Semana | Série 1 | Série 2 | Série 3 | FSL 5x5 |
+|--------|---------|---------|---------|---------|
+| 1 (3s) | 88kg x5 | 100kg x5 | 113kg x5 | 88kg |
+| 2 (5s) | 81kg x5 | 94kg x5 | 106kg x5 | 81kg |
+| 3 (1s) | 94kg x5 | 106kg x5 | 119kg x5 | 94kg |
+
+### OHP (TM: 48.5kg)
+
+| Semana | Série 1 | Série 2 | Série 3 | FSL 5x5 |
+|--------|---------|---------|---------|---------|
+| 1 (3s) | 34kg x5 | 39kg x5 | 44kg x5 | 34kg |
+| 2 (5s) | 32kg x5 | 36kg x5 | 41kg x5 | 32kg |
+| 3 (1s) | 36kg x5 | 41kg x5 | 46kg x5 | 36kg |
 
 ---
 
@@ -189,9 +191,16 @@ Entre séries do lift principal. 50-100 reps por categoria por treino.
 
 ## Status Atual
 
-**Ciclo 1 — Deload (semana 4 de 4)**
-- Faltam: Deadlift e Bench de deload
-- Após deload: testar TMs, subir +2.5kg (upper) / +5kg (lower), escolher anchor template
+**Ciclo 2 — Leader (Prep and Fat Loss)**
+- Deload do Ciclo 1 finalizado (Bench deload 11/02)
+- TMs novos: Squat 109 | Bench 72.5 | Deadlift 125 | OHP 48.5
+- Programação: 3/5/1, 5's PRO + 5x5 FSL, assistance entre séries
+- Semanas: 3 (depois: 7th Week Deload → Anchor)
+- Condicionamento: colete 10kg, progressão de blocos longos de corrida:
+  - Sem 1: 5x2:30 + 3x1:30 (~17min)
+  - Sem 2: 4x3:00 + 3x2:00 (~18min)
+  - Sem 3: 3x4:00 + 2x2:30 (~17min, blocos mais longos)
+  - Limitador: dor articular (tornozelo/calcanhar). Se voltar, reduzir intervalos
 
 ---
 
@@ -251,22 +260,35 @@ Entre séries do lift principal. 50-100 reps por categoria por treino.
 
 ---
 
+### Semana 09-15 Fev (Deload + Ciclo 2)
+
+| Data | Treino | Notas |
+|------|--------|-------|
+| 09/02 Seg | Deadlift Deload | TM 120. 5x50, 5x60, 5x70. FSL 5x5@50. Acessórios: 3x20 ab wheel, 3x20 puxada triângulo, 3x20 thruster 8kg/braço, 3x20 panturrilha |
+| 10/02 Ter | Esteira | 40min, 5.33km, ~8km/h, 420cal. Chuva impediu corrida com colete |
+
+**Treinos: 2/** (em andamento)
+
+---
+
 ## Métricas
 
 | Data | Peso | Observações |
 |------|------|-------------|
 | Dez 2025 | 81kg | Início |
-| | | |
+| 10/02/2026 | 80.1kg | Visibilidade do abdômen boa |
 
 ---
 
 ## Próximos Passos
 
-- [ ] Completar deload (Deadlift + Bench)
-- [ ] Testar TMs após deload
-- [ ] Subir TM +2.5kg (upper) / +5kg (lower)
-- [ ] Escolher Anchor template
-- [ ] Implementar metcons em casa
+- [x] Completar deload Ciclo 1 (Bench 11/02)
+- [x] Subir TM +2.5kg (upper) / +5kg (lower)
+- [ ] Ciclo 2 Leader — Prep and Fat Loss (3 semanas: ~14/02 - 07/03)
+- [ ] 7th Week Deload (~08-14/03)
+- [ ] Escolher Anchor template (Original 5/3/1 recomendado)
+- [ ] Anchor (3 semanas)
+- [ ] 7th Week TM Test — testar TMs com 3-5 reps
 
 ---
 

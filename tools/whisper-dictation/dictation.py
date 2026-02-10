@@ -19,6 +19,7 @@ import sys
 import tempfile
 import threading
 import time
+from enum import Enum, auto
 from logging.handlers import RotatingFileHandler
 from pathlib import Path
 
@@ -38,7 +39,6 @@ LOG_FILE = LOG_DIR / "whisper_dictation.log"
 logger = logging.getLogger("dictation")
 logger.setLevel(logging.DEBUG)
 
-# Arquivo: rotação 1MB, 2 backups
 _file_handler = RotatingFileHandler(
     LOG_FILE, maxBytes=1_000_000, backupCount=2, encoding="utf-8"
 )
@@ -47,96 +47,20 @@ _file_handler.setFormatter(
 )
 logger.addHandler(_file_handler)
 
-# Console: só quando não rodando minimizado
 _console_handler = logging.StreamHandler(sys.stdout)
 _console_handler.setFormatter(logging.Formatter("%(message)s"))
 logger.addHandler(_console_handler)
 
 
-# --- Feedback sonoro ---
-# Gera WAV em memória e toca via winsound.PlaySound (Windows audio system).
-# Não usa sounddevice para output — evita conflito com InputStream ativo.
-
-import io
-import wave as wave_mod
-
-BEEP_SAMPLE_RATE = 44100
-_tone_cache: dict[tuple[int, int], bytes] = {}
-
-
-def _make_wav(freq: int, duration_ms: int, volume: float = 0.5) -> bytes:
-    """Gera WAV em memória com fade-in para compatibilidade Bluetooth.
-
-    Bluetooth headphones entram em sleep quando não há áudio.
-    O fade-in de 150ms "acorda" o dispositivo antes do tom principal.
-    """
-    key = (freq, duration_ms)
-    if key in _tone_cache:
-        return _tone_cache[key]
-
-    primer_ms = 350  # tempo para acordar Bluetooth
-    total_ms = primer_ms + duration_ms
-
-    samples = int(BEEP_SAMPLE_RATE * total_ms / 1000)
-    t = np.linspace(0, total_ms / 1000, samples, endpoint=False)
-    wave = np.sin(2 * np.pi * freq * t) * volume
-
-    # Fade-in ao longo do primer: volume sobe de 0 → 100%
-    primer_samples = int(BEEP_SAMPLE_RATE * primer_ms / 1000)
-    wave[:primer_samples] *= np.linspace(0, 1, primer_samples)
-
-    data = (wave * 32767).astype(np.int16)
-
-    buf = io.BytesIO()
-    with wave_mod.open(buf, "wb") as wf:
-        wf.setnchannels(1)
-        wf.setsampwidth(2)
-        wf.setframerate(BEEP_SAMPLE_RATE)
-        wf.writeframes(data.tobytes())
-
-    wav_bytes = buf.getvalue()
-    _tone_cache[key] = wav_bytes
-    return wav_bytes
-
-
-def _tone(freq: int, duration_ms: int) -> None:
-    """Toca tom pela saída de áudio do Windows — roda em thread separada."""
-    def _play():
-        try:
-            import winsound
-            wav = _make_wav(freq, duration_ms)
-            winsound.PlaySound(wav, winsound.SND_MEMORY)
-        except Exception as e:
-            logger.debug(f"Beep falhou: {e}")
-
-    threading.Thread(target=_play, daemon=True).start()
-
-
-def beep_start_recording():
-    _tone(400, 400)
-
-
-def beep_stop_recording():
-    _tone(800, 400)
-
-
-def beep_success():
-    _tone(1200, 500)
-
-
-def beep_error():
-    _tone(300, 700)
-
-
-def beep_busy():
-    _tone(600, 300)
-
-
 # --- Estados ---
 
-STATE_READY = "ready"
-STATE_RECORDING = "recording"
-STATE_TRANSCRIBING = "transcribing"
+
+class AppState(Enum):
+    IDLE = auto()
+    RECORDING = auto()
+    PROCESSING = auto()
+    SUCCESS = auto()
+    ERROR = auto()
 
 
 # --- Singleton ---
@@ -155,9 +79,9 @@ def _kill_existing_instance() -> None:
             return
         os.kill(pid, signal.SIGTERM)
         logger.info(f"Instância anterior (PID {pid}) terminada.")
-        time.sleep(0.5)  # Aguarda processo morrer
+        time.sleep(0.5)
     except (ValueError, ProcessLookupError, PermissionError):
-        pass  # PID inválido ou processo já morreu
+        pass
     except OSError:
         pass
 
@@ -194,41 +118,53 @@ try:
     _tray_available = True
 
     _TRAY_COLORS = {
-        STATE_READY: "#808080",        # Cinza
-        STATE_RECORDING: "#FF0000",    # Vermelho
-        STATE_TRANSCRIBING: "#FFC800", # Amarelo
+        AppState.IDLE: "#808080",
+        AppState.RECORDING: "#FF0000",
+        AppState.PROCESSING: "#FFC800",
+        AppState.SUCCESS: "#00CC00",
+        AppState.ERROR: "#CC0000",
     }
-    _TRAY_SUCCESS_COLOR = "#00CC00"    # Verde (flash temporário)
-    _TRAY_ERROR_COLOR = "#CC0000"      # Vermelho escuro (flash temporário)
 
     def _create_tray_image(color: str) -> Image.Image:
         """Cria ícone circular com a cor do estado."""
         size = 64
         img = Image.new("RGBA", (size, size), (0, 0, 0, 0))
         draw = ImageDraw.Draw(img)
-        draw.ellipse([(4, 4), (60, 60)], fill=color)
-        draw.ellipse([(4, 4), (60, 60)], outline="white", width=2)
+        draw.ellipse([(4, 4), (60, 60)], fill=color, outline="#333333", width=2)
         return img
 
-    def _update_tray(state: str) -> None:
+    # Cache de ícones pré-renderizados
+    _tray_icons_cache: dict[AppState, Image.Image] = {}
+
+    def _get_tray_image(state: AppState) -> Image.Image:
+        if state not in _tray_icons_cache:
+            _tray_icons_cache[state] = _create_tray_image(
+                _TRAY_COLORS.get(state, "#808080")
+            )
+        return _tray_icons_cache[state]
+
+    _TRAY_TOOLTIPS = {
+        AppState.IDLE: "Whisper — Pronto (F9)",
+        AppState.RECORDING: "Whisper — Gravando...",
+        AppState.PROCESSING: "Whisper — Transcrevendo...",
+        AppState.SUCCESS: "Whisper — Sucesso!",
+        AppState.ERROR: "Whisper — Erro",
+    }
+
+    def _update_tray(state: AppState) -> None:
         """Atualiza ícone e tooltip do tray."""
         if _tray_icon is None:
             return
-        labels = {
-            STATE_READY: "Whisper — Pronto (F9)",
-            STATE_RECORDING: "Whisper — Gravando...",
-            STATE_TRANSCRIBING: "Whisper — Transcrevendo...",
-        }
-        _tray_icon.icon = _create_tray_image(_TRAY_COLORS.get(state, "#808080"))
-        _tray_icon.title = labels.get(state, "Whisper Dictation")
+        _tray_icon.icon = _get_tray_image(state)
+        _tray_icon.title = _TRAY_TOOLTIPS.get(state, "Whisper Dictation")
 
-    def _flash_tray(color: str, duration: float = 1.0) -> None:
-        """Flash temporário no tray (sucesso/erro), depois volta para ready."""
+    def _flash_tray(state: AppState, duration: float = 2.0) -> None:
+        """Flash temporário no tray (sucesso/erro), depois volta para idle."""
         if _tray_icon is None:
             return
-        _tray_icon.icon = _create_tray_image(color)
+        _update_tray(state)
         time.sleep(duration)
-        _update_tray(STATE_READY)
+        _update_tray(AppState.IDLE)
 
     def _start_tray(on_quit_callback) -> None:
         """Inicia o tray icon em thread daemon."""
@@ -238,8 +174,8 @@ try:
         )
         _tray_icon = pystray.Icon(
             "whisper-dictation",
-            icon=_create_tray_image(_TRAY_COLORS[STATE_READY]),
-            title="Whisper — Pronto (F9)",
+            icon=_get_tray_image(AppState.IDLE),
+            title=_TRAY_TOOLTIPS[AppState.IDLE],
             menu=menu,
         )
         threading.Thread(target=_tray_icon.run, daemon=True).start()
@@ -256,10 +192,10 @@ try:
 except ImportError:
     logger.debug("pystray/pillow não instalado — tray icon desativado.")
 
-    def _update_tray(state: str) -> None:
+    def _update_tray(state: AppState) -> None:
         pass
 
-    def _flash_tray(color: str, duration: float = 1.0) -> None:
+    def _flash_tray(state: AppState, duration: float = 2.0) -> None:
         pass
 
     def _start_tray(on_quit_callback) -> None:
@@ -285,20 +221,49 @@ DEFAULT_CONFIG = {
 class DictationApp:
     def __init__(self, config: dict):
         self.config = config
-        self.state = STATE_READY
-        self.audio_frames = []
+        self._state = AppState.IDLE
+        self._audio_frames: list = []
+        self._audio_lock = threading.Lock()
+        self._state_lock = threading.Lock()
         self.stream = None
-        self._lock = threading.Lock()
 
-    def _set_state(self, state: str) -> None:
+    def _set_state(self, state: AppState) -> None:
         """Atualiza estado e reflete no tray icon."""
-        self.state = state
+        self._state = state
         _update_tray(state)
+
+    def preflight_checks(self) -> list[str]:
+        """Verifica pré-requisitos. Retorna lista de erros (vazia = tudo OK)."""
+        errors = []
+
+        if not os.environ.get("OPENAI_API_KEY"):
+            errors.append("OPENAI_API_KEY não configurada")
+
+        try:
+            devices = sd.query_devices()
+            input_devices = [d for d in devices if d["max_input_channels"] > 0]
+            if not input_devices:
+                errors.append("Nenhum microfone encontrado")
+        except Exception as e:
+            errors.append(f"Erro ao verificar microfone: {e}")
+
+        try:
+            pyperclip.copy("test")
+            pyperclip.paste()
+        except Exception as e:
+            errors.append(f"Clipboard não acessível: {e}")
+
+        return errors
 
     def start(self):
         """Inicia o app de dictation."""
         _acquire_lock()
         _start_tray(on_quit_callback=self._quit)
+
+        errors = self.preflight_checks()
+        if errors:
+            for e in errors:
+                logger.error(f"  [PREFLIGHT] {e}")
 
         hotkey = self.config["hotkey"]
         logger.info("Whisper Dictation ativo.")
@@ -307,7 +272,7 @@ class DictationApp:
         logger.info(f"  Log: {LOG_FILE}")
         logger.info(f"  Aperte {hotkey} para gravar. Aperte de novo para transcrever.")
 
-        keyboard.add_hotkey(hotkey, self._toggle_recording)
+        keyboard.add_hotkey(hotkey, self.toggle_recording)
 
         try:
             keyboard.wait()
@@ -327,21 +292,36 @@ class DictationApp:
         _release_lock()
         os._exit(0)
 
-    def _toggle_recording(self):
-        """Alterna entre gravação e transcrição."""
-        with self._lock:
-            if self.state == STATE_READY:
+    def toggle_recording(self):
+        """Callback do hotkey — retorna IMEDIATAMENTE para não travar o hook.
+
+        Windows remove hooks de teclado (SetWindowsHookEx) se o callback
+        demorar mais que ~200ms. sd.InputStream() pode levar 200-500ms,
+        então todo trabalho é despachado para thread separada.
+        """
+        threading.Thread(target=self._handle_toggle, daemon=True).start()
+
+    def _handle_toggle(self):
+        """Processa o toggle em thread separada (fora do hook do Windows)."""
+        with self._state_lock:
+            if self._state in (AppState.IDLE, AppState.SUCCESS, AppState.ERROR):
                 self._start_recording()
-            elif self.state == STATE_RECORDING:
-                self._stop_and_transcribe()
-            elif self.state == STATE_TRANSCRIBING:
+                return
+            elif self._state == AppState.RECORDING:
+                self._set_state(AppState.PROCESSING)
+                self._stop_stream()
+            else:
+                # PROCESSING → ignora F9
                 logger.info("  [!] Transcrevendo... aguarde.")
-                threading.Thread(target=beep_busy, daemon=True).start()
+                return
+
+        # Fora do lock — transcrição é lenta (chamada HTTP)
+        self._transcribe_and_paste()
 
     def _start_recording(self):
         """Começa a gravar do microfone."""
-        self._set_state(STATE_RECORDING)
-        self.audio_frames = []
+        with self._audio_lock:
+            self._audio_frames = []
 
         sample_rate = self.config["sample_rate"]
         channels = self.config["channels"]
@@ -349,7 +329,8 @@ class DictationApp:
         def audio_callback(indata, frames, time_info, status):
             if status:
                 logger.warning(f"  [audio] {status}")
-            self.audio_frames.append(indata.copy())
+            with self._audio_lock:
+                self._audio_frames.append(indata.copy())
 
         try:
             self.stream = sd.InputStream(
@@ -359,85 +340,93 @@ class DictationApp:
                 callback=audio_callback,
             )
             self.stream.start()
+            self._set_state(AppState.RECORDING)
+            logger.info("  [REC] Gravando... (aperte hotkey para parar)")
         except Exception as e:
             logger.error(f"  [ERRO] Falha ao abrir microfone: {e}")
-            beep_error()
-            self._set_state(STATE_READY)
-            return
+            self._set_state(AppState.ERROR)
 
-        beep_start_recording()
-        logger.info("  [REC] Gravando... (aperte hotkey para parar)")
-
-    def _stop_and_transcribe(self):
-        """Para a gravação e inicia transcrição em thread separada."""
-        self._set_state(STATE_TRANSCRIBING)
-
-        # Para o stream imediatamente
+    def _stop_stream(self):
+        """Para o stream de áudio de forma segura."""
         if self.stream:
             try:
                 self.stream.stop()
+            except Exception:
+                try:
+                    self.stream.abort()
+                except Exception:
+                    pass
+            try:
                 self.stream.close()
-            except Exception as e:
-                logger.warning(f"  [audio] Erro ao fechar stream: {e}")
+            except Exception:
+                pass
             self.stream = None
 
-        if not self.audio_frames:
-            logger.info("  [!] Nenhum áudio capturado.")
-            beep_error()
-            self._set_state(STATE_READY)
-            return
+    def _collect_audio(self):
+        """Coleta frames de áudio de forma thread-safe."""
+        with self._audio_lock:
+            frames = self._audio_frames.copy()
+            self._audio_frames.clear()
+        if not frames:
+            return None
+        return np.concatenate(frames, axis=0)
 
-        beep_stop_recording()
-        logger.info("  [...] Transcrevendo...")
+    def _paste_text(self, text: str) -> bool:
+        """Cola texto via clipboard com retry e verificação."""
+        pyperclip.copy(text)
+        for _ in range(3):
+            time.sleep(0.1)
+            try:
+                if pyperclip.paste() == text:
+                    keyboard.send("ctrl+v")
+                    return True
+            except Exception:
+                pass
+        # Fallback: tenta colar mesmo sem verificação
+        keyboard.send("ctrl+v")
+        return False
 
-        # Captura frames antes de passar pra thread
-        frames = self.audio_frames.copy()
-        self.audio_frames = []
-
-        # Transcreve em thread separada — F9 continua responsivo
-        thread = threading.Thread(
-            target=self._transcribe_worker,
-            args=(frames,),
-            daemon=True,
-        )
-        thread.start()
-
-    def _transcribe_worker(self, frames: list):
-        """Worker que roda em thread: transcreve e cola texto."""
+    def _transcribe_and_paste(self):
+        """Transcreve o áudio gravado e cola o texto."""
         temp_path = None
         try:
-            # Salvar áudio em WAV temporário
-            audio_data = np.concatenate(frames, axis=0)
-            temp_path = Path(tempfile.gettempdir()) / f"whisper_dictation_{os.getpid()}.wav"
+            audio_data = self._collect_audio()
+
+            if audio_data is None:
+                logger.info("  [!] Nenhum áudio capturado.")
+                self._set_state(AppState.ERROR)
+                return
+
+            logger.info("  [...] Transcrevendo...")
+
+            temp_path = (
+                Path(tempfile.gettempdir()) / f"whisper_dictation_{os.getpid()}.wav"
+            )
             wavfile.write(str(temp_path), self.config["sample_rate"], audio_data)
 
-            # Transcrever com timeout e retry
             text = self._transcribe_with_retry(str(temp_path))
 
             if text and text.strip():
-                pyperclip.copy(text)
-                time.sleep(0.05)  # Aguarda clipboard sincronizar
-                keyboard.send("ctrl+v")
-                beep_success()
+                self._paste_text(text)
                 logger.info(f'  [OK] "{text}"')
+                self._set_state(AppState.SUCCESS)
                 if _tray_available:
                     threading.Thread(
-                        target=_flash_tray, args=(_TRAY_SUCCESS_COLOR, 1.5),
+                        target=_flash_tray,
+                        args=(AppState.SUCCESS, 2.0),
                         daemon=True,
                     ).start()
-                    return  # _flash_tray volta para STATE_READY
             else:
                 logger.info("  [!] Transcrição vazia.")
-                beep_error()
+                self._set_state(AppState.ERROR)
 
         except Exception as e:
             logger.error(f"  [ERRO] {e}")
-            beep_error()
+            self._set_state(AppState.ERROR)
 
         finally:
             if temp_path:
                 temp_path.unlink(missing_ok=True)
-            self._set_state(STATE_READY)
 
     def _transcribe_with_retry(self, audio_path: str, max_retries: int = 1) -> str:
         """Chama Whisper API com timeout e retry."""
@@ -463,12 +452,7 @@ class DictationApp:
 
     def _cleanup(self):
         """Limpa recursos."""
-        if self.stream:
-            try:
-                self.stream.stop()
-                self.stream.close()
-            except Exception:
-                pass
+        self._stop_stream()
 
 
 def load_config() -> dict:

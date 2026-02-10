@@ -56,7 +56,7 @@ No PowerShell:
 py -3.11 -m pip install openai sounddevice keyboard pyperclip numpy scipy pystray pillow
 ```
 
-Todas as deps estão em `requirements.txt`. Libs de feedback sonoro (`winsound`, `io`, `wave`) são stdlib do Python — não precisam instalar.
+Todas as deps estão em `requirements.txt`.
 
 > **Nota:** `pystray` e `pillow` são para o ícone na system tray (opcional). Se não estiverem instalados, o dictation funciona normalmente sem ícone.
 
@@ -77,11 +77,7 @@ Whisper Dictation ativo.
   Aperte F9 para gravar. Aperte de novo para transcrever.
 ```
 
-Aperta F9 → beep grave (gravando) → fala → aperta F9 → beep agudo (transcrevendo) → beep mais agudo (texto colado).
-
-> **Lição:** Se não ouvir beeps, verificar se o áudio do sistema funciona (testar com YouTube).
-> Os beeps usam `winsound.PlaySound` (mesma saída de áudio do sistema).
-> Fones Bluetooth têm latency de wake-up — por isso os sons têm fade-in de 350ms embutido.
+Aperta F9 → tray fica vermelho (gravando) → fala → aperta F9 → tray fica amarelo (transcrevendo) → tray fica verde (texto colado).
 
 ## 6. Configurar autostart (via watchdog)
 
@@ -116,21 +112,8 @@ Para remover: deletar `WhisperDictation.vbs` de:
 | **F9 sempre responsivo** | Transcrição roda em thread separada, hotkey nunca trava |
 | **Timeout API** | 30 segundos max, 1 retry automático |
 | **Auto-restart** | Watchdog reinicia se processo morrer (max 5x em 5 min) |
-| **Feedback sonoro** | Tons distintos via winsound.PlaySound (compatível com Bluetooth) |
 | **System tray icon** | Bolinha colorida na barra — cinza/vermelho/amarelo/verde por estado |
 | **Logs** | `whisper_dictation.log` e `whisper_watchdog.log` com rotação automática |
-
-## Feedback sonoro
-
-| Evento | Tom | Frequência |
-|--------|-----|------------|
-| Início gravação (F9) | Grave | 400Hz |
-| Fim gravação (F9 de novo) | Médio-agudo | 800Hz |
-| Texto colado com sucesso | Agudo | 1200Hz |
-| Erro (API, mic, etc.) | Grave longo | 300Hz |
-| Ocupado (F9 durante transcrição) | Médio | 600Hz |
-
-Cada tom tem fade-in de 350ms embutido para compatibilidade com fones Bluetooth (que entram em sleep e precisam de tempo para acordar).
 
 ## System tray icon
 
@@ -141,7 +124,8 @@ Quando `pystray` e `pillow` estão instalados, aparece um ícone circular na sys
 | Pronto | Cinza | "Whisper — Pronto (F9)" |
 | Gravando | Vermelho | "Whisper — Gravando..." |
 | Transcrevendo | Amarelo | "Whisper — Transcrevendo..." |
-| Sucesso (flash 1.5s) | Verde | — |
+| Sucesso (flash 2s) | Verde | "Whisper — Sucesso!" |
+| Erro (flash 2s) | Vermelho escuro | "Whisper — Erro" |
 
 - Clique direito no ícone → "Sair" para encerrar o processo
 - Se o ícone não aparece, as libs não estão instaladas — funciona normalmente sem ele
@@ -177,16 +161,6 @@ Alternativa rápida: arrastar o ícone da área de overflow para a barra de tare
    - O singleton resolve isso automaticamente (mata instância anterior)
    - Se persistir: `taskkill /f /im python.exe` e reiniciar
 
-### Não ouve beeps
-
-1. Testar áudio do sistema (YouTube, etc.)
-2. Testar `winsound` isolado:
-   ```powershell
-   py -3.11 -c "import winsound; winsound.PlaySound('SystemAsterisk', winsound.SND_ALIAS)"
-   ```
-3. Fone Bluetooth: os sons já têm fade-in de 350ms para compatibilidade
-4. Verificar log — erros de beep aparecem com `Beep falhou:`
-
 ### Texto não cola
 
 1. Verificar API key: `echo %OPENAI_API_KEY%` no PowerShell (deve mostrar `sk-...`)
@@ -203,10 +177,9 @@ Alternativa rápida: arrastar o ícone da área de overflow para a barra de tare
 
 - [ ] `py -3.11 --version` retorna 3.11.x
 - [ ] `echo %OPENAI_API_KEY%` retorna a key
-- [ ] `F9` emite beep grave ao pressionar (confirma processo ativo)
+- [ ] `F9` muda tray icon para vermelho (confirma processo ativo)
 - [ ] Falar algo → texto aparece colado
 - [ ] Funciona em Notepad, browser e VSCode
-- [ ] Funciona com fone Bluetooth conectado
 - [ ] Funciona após reiniciar o PC (autostart via watchdog)
 - [ ] Logs existem em `whisper_dictation.log`
 - [ ] Ícone aparece na system tray (cinza = pronto)

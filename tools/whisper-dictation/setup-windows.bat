@@ -56,6 +56,6 @@ echo.
 echo   Para iniciar automaticamente com o Windows:
 echo     setup-startup.bat
 echo.
-echo   Hotkey padrao: Ctrl+Shift+Space
+echo   Hotkey: veja config.json (padrao F9)
 echo ============================================
 pause

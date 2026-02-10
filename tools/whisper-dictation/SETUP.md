@@ -53,10 +53,12 @@ cp -f ~/ai-brain/tools/whisper-dictation/*.py ~/ai-brain/tools/whisper-dictation
 No PowerShell:
 
 ```powershell
-py -3.11 -m pip install openai sounddevice keyboard pyperclip numpy scipy
+py -3.11 -m pip install openai sounddevice keyboard pyperclip numpy scipy pystray pillow
 ```
 
 Todas as deps estão em `requirements.txt`. Libs de feedback sonoro (`winsound`, `io`, `wave`) são stdlib do Python — não precisam instalar.
+
+> **Nota:** `pystray` e `pillow` são para o ícone na system tray (opcional). Se não estiverem instalados, o dictation funciona normalmente sem ícone.
 
 ## 5. Testar
 
@@ -115,6 +117,7 @@ Para remover: deletar `WhisperDictation.vbs` de:
 | **Timeout API** | 30 segundos max, 1 retry automático |
 | **Auto-restart** | Watchdog reinicia se processo morrer (max 5x em 5 min) |
 | **Feedback sonoro** | Tons distintos via winsound.PlaySound (compatível com Bluetooth) |
+| **System tray icon** | Bolinha colorida na barra — cinza/vermelho/amarelo/verde por estado |
 | **Logs** | `whisper_dictation.log` e `whisper_watchdog.log` com rotação automática |
 
 ## Feedback sonoro
@@ -128,6 +131,30 @@ Para remover: deletar `WhisperDictation.vbs` de:
 | Ocupado (F9 durante transcrição) | Médio | 600Hz |
 
 Cada tom tem fade-in de 350ms embutido para compatibilidade com fones Bluetooth (que entram em sleep e precisam de tempo para acordar).
+
+## System tray icon
+
+Quando `pystray` e `pillow` estão instalados, aparece um ícone circular na system tray do Windows:
+
+| Estado | Cor | Tooltip |
+|--------|-----|---------|
+| Pronto | Cinza | "Whisper — Pronto (F9)" |
+| Gravando | Vermelho | "Whisper — Gravando..." |
+| Transcrevendo | Amarelo | "Whisper — Transcrevendo..." |
+| Sucesso (flash 1.5s) | Verde | — |
+
+- Clique direito no ícone → "Sair" para encerrar o processo
+- Se o ícone não aparece, as libs não estão instaladas — funciona normalmente sem ele
+
+### Fixar ícone na barra de tarefas
+
+Por padrão o Windows esconde ícones novos na área de overflow (seta `^`). Para fixar:
+
+1. Abrir **Settings > Personalization > Taskbar**
+2. Expandir **Other system tray icons**
+3. Ativar o toggle do **Python** (ou **Whisper Dictation**)
+
+Alternativa rápida: arrastar o ícone da área de overflow para a barra de tarefas.
 
 ## Troubleshooting
 
@@ -182,4 +209,6 @@ Cada tom tem fade-in de 350ms embutido para compatibilidade com fones Bluetooth 
 - [ ] Funciona com fone Bluetooth conectado
 - [ ] Funciona após reiniciar o PC (autostart via watchdog)
 - [ ] Logs existem em `whisper_dictation.log`
+- [ ] Ícone aparece na system tray (cinza = pronto)
+- [ ] Ícone muda de cor: vermelho (gravando) → amarelo (transcrevendo) → verde (sucesso)
 - [ ] Abrir duas instâncias → segunda assume, primeira morre

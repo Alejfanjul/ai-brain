@@ -11,12 +11,13 @@ Uso:
 """
 
 import argparse
-import io
 import json
+import os
 import sys
 import tempfile
 import threading
 import time
+from enum import Enum, auto
 from pathlib import Path
 
 import keyboard
@@ -36,44 +37,73 @@ DEFAULT_CONFIG = {
 }
 
 
+class AppState(Enum):
+    IDLE = auto()
+    RECORDING = auto()
+    PROCESSING = auto()
+    SUCCESS = auto()
+    ERROR = auto()
+
+
 class DictationApp:
-    def __init__(self, config: dict):
+    def __init__(self, config: dict, on_state_change=None):
         self.config = config
-        self.recording = False
-        self.audio_frames = []
+        self._state = AppState.IDLE
+        self._on_state_change = on_state_change
+        self._audio_frames = []
+        self._audio_lock = threading.Lock()
+        self._state_lock = threading.Lock()
         self.stream = None
-        self._lock = threading.Lock()
 
-    def start(self):
-        """Inicia o app de dictation."""
-        hotkey = self.config["hotkey"]
-        print(f"Whisper Dictation ativo.")
-        print(f"  Hotkey: {hotkey}")
-        print(f"  Idioma: {self.config['language']}")
-        print(f"  Aperte {hotkey} para gravar. Aperte de novo para transcrever.")
-        print(f"  Ctrl+C para sair.")
-        print()
+    def _set_state(self, new_state: AppState):
+        self._state = new_state
+        if self._on_state_change:
+            try:
+                self._on_state_change(new_state)
+            except Exception:
+                pass
 
-        keyboard.add_hotkey(hotkey, self._toggle_recording)
+    def preflight_checks(self) -> list[str]:
+        """Verifica pré-requisitos. Retorna lista de erros (vazia = tudo OK)."""
+        errors = []
+
+        if not os.environ.get("OPENAI_API_KEY"):
+            errors.append("OPENAI_API_KEY não configurada")
 
         try:
-            keyboard.wait()
-        except KeyboardInterrupt:
-            self._cleanup()
-            print("\nDictation encerrado.")
+            devices = sd.query_devices()
+            input_devices = [d for d in devices if d["max_input_channels"] > 0]
+            if not input_devices:
+                errors.append("Nenhum microfone encontrado")
+        except Exception as e:
+            errors.append(f"Erro ao verificar microfone: {e}")
 
-    def _toggle_recording(self):
+        try:
+            pyperclip.copy("test")
+            pyperclip.paste()
+        except Exception as e:
+            errors.append(f"Clipboard não acessível: {e}")
+
+        return errors
+
+    def toggle_recording(self):
         """Alterna entre gravação e transcrição."""
-        with self._lock:
-            if not self.recording:
+        with self._state_lock:
+            if self._state == AppState.IDLE:
                 self._start_recording()
-            else:
-                self._stop_and_transcribe()
+            elif self._state == AppState.RECORDING:
+                self._set_state(AppState.PROCESSING)
+                self._stop_stream()
+                threading.Thread(
+                    target=self._transcribe_and_paste,
+                    daemon=True,
+                ).start()
+            # PROCESSING, SUCCESS, ERROR → ignora F9
 
     def _start_recording(self):
         """Começa a gravar do microfone."""
-        self.recording = True
-        self.audio_frames = []
+        with self._audio_lock:
+            self._audio_frames = []
 
         sample_rate = self.config["sample_rate"]
         channels = self.config["channels"]
@@ -81,65 +111,124 @@ class DictationApp:
         def audio_callback(indata, frames, time_info, status):
             if status:
                 print(f"  [audio] {status}", file=sys.stderr)
-            self.audio_frames.append(indata.copy())
-
-        self.stream = sd.InputStream(
-            samplerate=sample_rate,
-            channels=channels,
-            dtype="int16",
-            callback=audio_callback,
-        )
-        self.stream.start()
-        print("  [REC] Gravando... (aperte hotkey para parar)")
-
-    def _stop_and_transcribe(self):
-        """Para a gravação, transcreve e cola o texto."""
-        self.recording = False
-
-        if self.stream:
-            self.stream.stop()
-            self.stream.close()
-            self.stream = None
-
-        if not self.audio_frames:
-            print("  [!] Nenhum áudio capturado.")
-            return
-
-        print("  [...] Transcrevendo...")
-
-        # Salvar áudio em WAV temporário
-        audio_data = np.concatenate(self.audio_frames, axis=0)
-        temp_path = Path(tempfile.gettempdir()) / "whisper_dictation_temp.wav"
-
-        wavfile.write(str(temp_path), self.config["sample_rate"], audio_data)
+            with self._audio_lock:
+                self._audio_frames.append(indata.copy())
 
         try:
-            text = transcribe_audio(
-                str(temp_path),
-                language=self.config["language"],
+            self.stream = sd.InputStream(
+                samplerate=sample_rate,
+                channels=channels,
+                dtype="int16",
+                callback=audio_callback,
             )
+            self.stream.start()
+            self._set_state(AppState.RECORDING)
+            print("  [REC] Gravando... (aperte hotkey para parar)")
+        except Exception as e:
+            print(f"  [ERRO] Falha ao iniciar gravação: {e}", file=sys.stderr)
+            self._set_state(AppState.ERROR)
 
-            if text.strip():
-                pyperclip.copy(text)
-                # Pequeno delay para garantir que o clipboard atualizou
-                time.sleep(0.05)
-                keyboard.send("ctrl+v")
-                print(f"  [OK] \"{text}\"")
-            else:
-                print("  [!] Transcrição vazia.")
+    def _stop_stream(self):
+        """Para o stream de áudio de forma segura."""
+        if self.stream:
+            try:
+                self.stream.stop()
+            except Exception:
+                try:
+                    self.stream.abort()
+                except Exception:
+                    pass
+            try:
+                self.stream.close()
+            except Exception:
+                pass
+            self.stream = None
+
+    def _collect_audio(self):
+        """Coleta frames de áudio de forma thread-safe."""
+        with self._audio_lock:
+            frames = self._audio_frames.copy()
+            self._audio_frames.clear()
+        if not frames:
+            return None
+        return np.concatenate(frames, axis=0)
+
+    def _paste_text(self, text: str) -> bool:
+        """Cola texto via clipboard com retry."""
+        pyperclip.copy(text)
+        for _ in range(3):
+            time.sleep(0.1)
+            try:
+                if pyperclip.paste() == text:
+                    keyboard.send("ctrl+v")
+                    return True
+            except Exception:
+                pass
+        # Fallback: tenta colar mesmo sem verificação
+        keyboard.send("ctrl+v")
+        return False
+
+    def _transcribe_and_paste(self):
+        """Transcreve o áudio gravado e cola o texto. Roda em thread separada."""
+        try:
+            audio_data = self._collect_audio()
+
+            if audio_data is None:
+                print("  [!] Nenhum áudio capturado.")
+                self._set_state(AppState.ERROR)
+                return
+
+            print("  [...] Transcrevendo...")
+
+            temp_path = Path(tempfile.gettempdir()) / "whisper_dictation_temp.wav"
+            wavfile.write(str(temp_path), self.config["sample_rate"], audio_data)
+
+            try:
+                text = transcribe_audio(
+                    str(temp_path),
+                    language=self.config["language"],
+                )
+
+                if text.strip():
+                    self._paste_text(text)
+                    print(f'  [OK] "{text}"')
+                    self._set_state(AppState.SUCCESS)
+                else:
+                    print("  [!] Transcrição vazia.")
+                    self._set_state(AppState.ERROR)
+
+            except Exception as e:
+                print(f"  [ERRO] {e}", file=sys.stderr)
+                self._set_state(AppState.ERROR)
+
+            finally:
+                temp_path.unlink(missing_ok=True)
 
         except Exception as e:
-            print(f"  [ERRO] {e}", file=sys.stderr)
+            print(f"  [ERRO] Falha inesperada: {e}", file=sys.stderr)
+            self._set_state(AppState.ERROR)
 
-        finally:
-            # Limpar arquivo temporário
-            temp_path.unlink(missing_ok=True)
+    def start(self):
+        """Inicia o app de dictation (modo standalone, sem tray icon)."""
+        hotkey = self.config["hotkey"]
+        print("Whisper Dictation ativo.")
+        print(f"  Hotkey: {hotkey}")
+        print(f"  Idioma: {self.config['language']}")
+        print(f"  Aperte {hotkey} para gravar. Aperte de novo para transcrever.")
+        print("  Ctrl+C para sair.")
+        print()
 
-    def _cleanup(self):
+        keyboard.add_hotkey(hotkey, self.toggle_recording)
+
+        try:
+            keyboard.wait()
+        except KeyboardInterrupt:
+            self.cleanup()
+            print("\nDictation encerrado.")
+
+    def cleanup(self):
         """Limpa recursos."""
-        if self.stream:
-            self.stream.stop()
-            self.stream.close()
+        self._stop_stream()
 
 
 def load_config() -> dict:

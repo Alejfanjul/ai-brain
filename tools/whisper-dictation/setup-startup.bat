@@ -8,9 +8,9 @@ set "DICTATION_DIR=C:\Users\%USERNAME%\whisper-dictation"
 set "STARTUP_DIR=%APPDATA%\Microsoft\Windows\Start Menu\Programs\Startup"
 set "SHORTCUT=%STARTUP_DIR%\WhisperDictation.vbs"
 
-REM Verifica se dictation.py existe
-if not exist "%DICTATION_DIR%\dictation.py" (
-    echo [ERRO] dictation.py nao encontrado em %DICTATION_DIR%
+REM Verifica se run.py existe
+if not exist "%DICTATION_DIR%\run.py" (
+    echo [ERRO] run.py nao encontrado em %DICTATION_DIR%
     echo        Copie a pasta whisper-dictation para C:\Users\%USERNAME%\
     exit /b 1
 )
@@ -19,7 +19,7 @@ REM Cria VBScript que roda minimizado (sem janela preta)
 echo Creating startup script...
 (
     echo Set WshShell = CreateObject("WScript.Shell"^)
-    echo WshShell.Run "py -3.11 ""%DICTATION_DIR%\dictation.py""", 0, False
+    echo WshShell.Run "py -3.11 ""%DICTATION_DIR%\run.py""", 0, False
 ) > "%SHORTCUT%"
 
 if %errorlevel% neq 0 (

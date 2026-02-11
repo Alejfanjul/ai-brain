@@ -47,9 +47,11 @@ _file_handler.setFormatter(
 )
 logger.addHandler(_file_handler)
 
-_console_handler = logging.StreamHandler(sys.stdout)
-_console_handler.setFormatter(logging.Formatter("%(message)s"))
-logger.addHandler(_console_handler)
+# pythonw.exe seta sys.stdout = None — só adiciona console handler se disponível
+if sys.stdout is not None:
+    _console_handler = logging.StreamHandler(sys.stdout)
+    _console_handler.setFormatter(logging.Formatter("%(message)s"))
+    logger.addHandler(_console_handler)
 
 
 # --- Estados ---

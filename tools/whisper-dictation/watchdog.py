@@ -34,7 +34,8 @@ _handler.setFormatter(
     logging.Formatter("%(asctime)s [%(levelname)s] %(message)s", datefmt="%H:%M:%S")
 )
 logger.addHandler(_handler)
-logger.addHandler(logging.StreamHandler(sys.stdout))
+if sys.stdout is not None:
+    logger.addHandler(logging.StreamHandler(sys.stdout))
 
 
 def main():

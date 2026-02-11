@@ -15,12 +15,12 @@ if not exist "%DICTATION_DIR%\watchdog.py" (
     exit /b 1
 )
 
-REM Cria VBScript que roda watchdog minimizado (7 = SW_SHOWMINNOACTIVE)
-REM IMPORTANTE: usar 7 em vez de 0 (SW_HIDE) — janela oculta quebra hooks de teclado
+REM Cria VBScript que roda watchdog via pythonw (sem janela de console)
+REM pyw = pythonw.exe — processo GUI, não cria console nenhum
 echo Creating startup script...
 (
     echo Set WshShell = CreateObject("WScript.Shell"^)
-    echo WshShell.Run "py -3.11 ""%DICTATION_DIR%\watchdog.py""", 7, False
+    echo WshShell.Run "pyw -3.11 ""%DICTATION_DIR%\watchdog.py""", 0, False
 ) > "%SHORTCUT%"
 
 if %errorlevel% neq 0 (

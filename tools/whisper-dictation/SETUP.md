@@ -65,7 +65,7 @@ Todas as deps estão em `requirements.txt`.
 No PowerShell:
 
 ```powershell
-py -3.11 "C:\Users\Alejandro\whisper-dictation\dictation.py"
+py -3.11 "C:\Users\aleja\whisper-dictation\dictation.py"
 ```
 
 Deve mostrar:
@@ -73,7 +73,7 @@ Deve mostrar:
 Whisper Dictation ativo.
   Hotkey: F9
   Idioma: pt
-  Log: C:\Users\Alejandro\whisper-dictation\whisper_dictation.log
+  Log: C:\Users\aleja\whisper-dictation\whisper_dictation.log
   Aperte F9 para gravar. Aperte de novo para transcrever.
 ```
 
@@ -84,7 +84,7 @@ Aperta F9 → tray fica vermelho (gravando) → fala → aperta F9 → tray fica
 No PowerShell, dentro da pasta:
 
 ```powershell
-cd C:\Users\Alejandro\whisper-dictation
+cd C:\Users\aleja\whisper-dictation
 .\setup-startup.bat
 ```
 
@@ -148,13 +148,13 @@ Alternativa rápida: arrastar o ícone da área de overflow para a barra de tare
    - Task Manager → procurar `python` ou `py`
    - Se não está: rodar manualmente para ver erros:
      ```powershell
-     py -3.11 "C:\Users\Alejandro\whisper-dictation\dictation.py"
+     py -3.11 "C:\Users\aleja\whisper-dictation\dictation.py"
      ```
 
 2. **Verificar logs:**
    ```powershell
-   type "C:\Users\Alejandro\whisper-dictation\whisper_dictation.log"
-   type "C:\Users\Alejandro\whisper-dictation\whisper_watchdog.log"
+   type "C:\Users\aleja\whisper-dictation\whisper_dictation.log"
+   type "C:\Users\aleja\whisper-dictation\whisper_watchdog.log"
    ```
 
 3. **Múltiplas instâncias:**

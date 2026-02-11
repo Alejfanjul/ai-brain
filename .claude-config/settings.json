@@ -11,11 +11,9 @@
       "Skill(*)",
       "Task(*)",
       "Bash(*)",
-      "Read(//home/alejandro/ai-brain/.claude-config/hooks/**)",
-      "Read(//home/alejandro/ai-brain/.claude-config/skills/CORE/SYSTEM/**)",
-      "Read(//home/alejandro/ai-brain/MEMORY/**)",
-      "Read(//home/alejandro/.claude/file-history/8cbac80f-8d7f-4396-876e-cbf6865f0247/**)",
-      "Read(//tmp/hoje/**)"
+      "Read(//tmp/video-analysis/**)",
+      "Read(//tmp/hoje/**)",
+      "Read(//mnt/c/Users/aleja/whisper-dictation/**)"
     ],
     "deny": [
       "Bash(rm -rf *)",
@@ -35,6 +33,9 @@
       "Bash(git merge main*)",
       "Bash(> /dev/sd*)",
       "Bash(chmod 777 *)"
+    ],
+    "additionalDirectories": [
+      "/mnt/c/Users/aleja/AppData/Roaming/Microsoft/Windows/Start Menu/Programs/Startup"
     ]
   },
   "hooks": {
@@ -104,8 +105,7 @@
     "padding": 0
   },
   "enabledPlugins": {
-    "frontend-design@claude-plugins-official": true,
-    "ralph-loop@claude-plugins-official": true
+    "frontend-design@claude-plugins-official": true
   },
   "language": "PT-BR",
   "alwaysThinkingEnabled": true

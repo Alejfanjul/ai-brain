@@ -91,8 +91,8 @@
 |------|-----|--------|-------|
 | 09/02 | Seg | Não | |
 | 10/02 | Ter | Não | |
-| 11/02 | Qua | | Planejado: ocasião especial (namorada) |
-| 12/02 | Qui | | |
+| 11/02 | Qua | Sim | Namorada veio, vinho, jantar — valeu a pena |
+| 12/02 | Qui | Não | Decidiu não fumar o restinho. "É assim que começa o final." |
 | 13/02 | Sex | | |
 | 14/02 | Sáb | | |
 | 15/02 | Dom | | |

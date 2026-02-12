@@ -266,8 +266,10 @@ Entre séries do lift principal. 50-100 reps por categoria por treino.
 |------|--------|-------|
 | 09/02 Seg | Deadlift Deload | TM 120. 5x50, 5x60, 5x70. FSL 5x5@50. Acessórios: 3x20 ab wheel, 3x20 puxada triângulo, 3x20 thruster 8kg/braço, 3x20 panturrilha |
 | 10/02 Ter | Esteira | 40min, 5.33km, ~8km/h, 420cal. Chuva impediu corrida com colete |
+| 11/02 Qua | Bench Deload | TM 70. 5x30, 5x40, 5x46. FSL 5x5@30. Acessórios: 3x20 ab wheel, 3x20 tríceps pulldown, 3x20 rosca polia, 3x20 air squat |
+| 12/02 Qui | OFF | |
 
-**Treinos: 2/** (em andamento)
+**Treinos: 3/** (em andamento)
 
 ---
 

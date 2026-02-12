@@ -11,6 +11,8 @@ Uso:
 """
 
 import argparse
+import ctypes
+import ctypes.wintypes as wintypes
 import json
 import logging
 import os
@@ -217,6 +219,84 @@ DEFAULT_CONFIG = {
 }
 
 
+# --- Windows Hotkey API (RegisterHotKey) ---
+# Substitui SetWindowsHookEx (usado pela lib keyboard) que morre silenciosamente.
+# RegisterHotKey é message-based, não sofre com timeout, sobrevive a screen lock/UAC.
+
+_user32 = ctypes.windll.user32
+
+WM_HOTKEY = 0x0312
+WM_QUIT = 0x0012
+
+MOD_ALT = 0x0001
+MOD_CONTROL = 0x0002
+MOD_SHIFT = 0x0004
+MOD_NOREPEAT = 0x4000
+
+_VK_MAP = {
+    "f1": 0x70, "f2": 0x71, "f3": 0x72, "f4": 0x73,
+    "f5": 0x74, "f6": 0x75, "f7": 0x76, "f8": 0x77,
+    "f9": 0x78, "f10": 0x79, "f11": 0x7A, "f12": 0x7B,
+    "space": 0x20, "enter": 0x0D, "tab": 0x09,
+    "escape": 0x1B, "backspace": 0x08, "delete": 0x2E,
+}
+
+HOTKEY_ID = 1
+
+
+def _parse_hotkey(hotkey_str: str) -> tuple[int, int]:
+    """Converte string de hotkey em (modifiers, vk_code) para RegisterHotKey.
+
+    Exemplos: "F9" → (MOD_NOREPEAT, 0x78)
+              "ctrl+shift+space" → (MOD_CONTROL|MOD_SHIFT|MOD_NOREPEAT, 0x20)
+    """
+    modifiers = MOD_NOREPEAT
+    vk = 0
+
+    parts = [p.strip().lower() for p in hotkey_str.split("+")]
+    for part in parts:
+        if part in ("ctrl", "control"):
+            modifiers |= MOD_CONTROL
+        elif part in ("shift",):
+            modifiers |= MOD_SHIFT
+        elif part in ("alt",):
+            modifiers |= MOD_ALT
+        elif part in _VK_MAP:
+            vk = _VK_MAP[part]
+        elif len(part) == 1 and part.isalnum():
+            vk = ord(part.upper())
+        else:
+            raise ValueError(f"Hotkey não reconhecida: '{part}' em '{hotkey_str}'")
+
+    if vk == 0:
+        raise ValueError(f"Nenhuma tecla principal encontrada em '{hotkey_str}'")
+
+    return modifiers, vk
+
+
+def _register_hotkey(hotkey_id: int, modifiers: int, vk: int) -> bool:
+    """Registra hotkey global via Windows API. Retorna True se sucesso."""
+    return bool(_user32.RegisterHotKey(None, hotkey_id, modifiers, vk))
+
+
+def _unregister_hotkey(hotkey_id: int) -> None:
+    """Remove registro de hotkey."""
+    _user32.UnregisterHotKey(None, hotkey_id)
+
+
+def _run_hotkey_loop(callback) -> None:
+    """Message loop que processa WM_HOTKEY. Bloqueia a thread chamadora.
+
+    Sai quando recebe WM_QUIT (via PostThreadMessage de outra thread).
+    """
+    msg = wintypes.MSG()
+    while _user32.GetMessageA(ctypes.byref(msg), None, 0, 0) > 0:
+        if msg.message == WM_HOTKEY and msg.wParam == HOTKEY_ID:
+            callback()
+        _user32.TranslateMessage(ctypes.byref(msg))
+        _user32.DispatchMessageA(ctypes.byref(msg))
+
+
 # --- App ---
 
 
@@ -228,6 +308,7 @@ class DictationApp:
         self._audio_lock = threading.Lock()
         self._state_lock = threading.Lock()
         self.stream = None
+        self._main_thread_id = None
 
     def _set_state(self, state: AppState) -> None:
         """Atualiza estado e reflete no tray icon."""
@@ -274,13 +355,26 @@ class DictationApp:
         logger.info(f"  Log: {LOG_FILE}")
         logger.info(f"  Aperte {hotkey} para gravar. Aperte de novo para transcrever.")
 
-        keyboard.add_hotkey(hotkey, self.toggle_recording)
+        # RegisterHotKey — confiável, não morre silenciosamente como SetWindowsHookEx
+        self._main_thread_id = ctypes.windll.kernel32.GetCurrentThreadId()
+        try:
+            mods, vk = _parse_hotkey(hotkey)
+        except ValueError as e:
+            logger.error(f"  [ERRO] Hotkey inválida: {e}")
+            return
+
+        if not _register_hotkey(HOTKEY_ID, mods, vk):
+            logger.error(f"  [ERRO] Falha ao registrar {hotkey} (em uso por outro app?)")
+            return
+
+        logger.info(f"  Hotkey registrada via RegisterHotKey (thread {self._main_thread_id})")
 
         try:
-            keyboard.wait()
+            _run_hotkey_loop(self.toggle_recording)
         except KeyboardInterrupt:
             pass
         finally:
+            _unregister_hotkey(HOTKEY_ID)
             self._cleanup()
             _stop_tray()
             _release_lock()
@@ -289,18 +383,15 @@ class DictationApp:
     def _quit(self):
         """Chamado pelo menu 'Sair' do tray."""
         logger.info("Saindo via tray menu...")
-        _stop_tray()
-        self._cleanup()
-        _release_lock()
-        os._exit(0)
+        if self._main_thread_id:
+            # Posta WM_QUIT para o message loop do RegisterHotKey (main thread)
+            # Isso faz GetMessageA retornar 0, saindo do loop naturalmente
+            _user32.PostThreadMessageA(self._main_thread_id, WM_QUIT, 0, 0)
+        else:
+            os._exit(0)
 
     def toggle_recording(self):
-        """Callback do hotkey — retorna IMEDIATAMENTE para não travar o hook.
-
-        Windows remove hooks de teclado (SetWindowsHookEx) se o callback
-        demorar mais que ~200ms. sd.InputStream() pode levar 200-500ms,
-        então todo trabalho é despachado para thread separada.
-        """
+        """Callback do hotkey — despacha trabalho para thread separada."""
         threading.Thread(target=self._handle_toggle, daemon=True).start()
 
     def _handle_toggle(self):

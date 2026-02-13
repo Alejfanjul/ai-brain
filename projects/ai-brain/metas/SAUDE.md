@@ -268,8 +268,9 @@ Entre séries do lift principal. 50-100 reps por categoria por treino.
 | 10/02 Ter | Esteira | 40min, 5.33km, ~8km/h, 420cal. Chuva impediu corrida com colete |
 | 11/02 Qua | Bench Deload | TM 70. 5x30, 5x40, 5x46. FSL 5x5@30. Acessórios: 3x20 ab wheel, 3x20 tríceps pulldown, 3x20 rosca polia, 3x20 air squat |
 | 12/02 Qui | OFF | |
+| 13/02 Sex | Cardio colete | 10kg. 4x2:30 + 2x3:00 = 16min corrida. Podia ir mais, mas sem atenção tende a desacelerar. Próximo: aumentar sprints ou duração |
 
-**Treinos: 3/** (em andamento)
+**Treinos: 4/** (em andamento)
 
 ---
 

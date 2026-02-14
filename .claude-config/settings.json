@@ -16,7 +16,8 @@
       "Read(//mnt/c/Users/aleja/whisper-dictation/**)",
       "Read(//mnt/c/Users/aleja/OneDrive/Desktop/Duke eventos/site-duke-eventos/fotos/**)",
       "Read(//mnt/c/Users/Alejandro/Desktop/**)",
-      "Read(//home/alejandro/sistema-os/**)"
+      "Read(//home/alejandro/sistema-os/**)",
+      "Read(//home/alejandro/.claude/plugins/cache/claude-plugins-official/supabase/2cd88e7947b7/**)"
     ],
     "deny": [
       "Bash(rm -rf *)",

@@ -80,17 +80,6 @@
         ]
       }
     ],
-    "SessionEnd": [
-      {
-        "matcher": "*",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "~/.bun/bin/bun run ~/.claude/hooks/session-capture.ts"
-          }
-        ]
-      }
-    ]
   },
   "statusLine": {
     "type": "command",

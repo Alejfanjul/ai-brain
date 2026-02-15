@@ -1,3 +1,13 @@
+# Claude Code Settings Backup
+
+> Atualizado: 2026-02-15
+> Para replicar em outra máquina, copie os conteúdos abaixo nos respectivos caminhos.
+
+---
+
+## 1. Global — `~/.claude/settings.json`
+
+```json
 {
   "permissions": {
     "allow": [
@@ -10,14 +20,7 @@
       "WebFetch(*)",
       "Skill(*)",
       "Task(*)",
-      "Bash(*)",
-      "Read(//tmp/video-analysis/**)",
-      "Read(//tmp/hoje/**)",
-      "Read(//mnt/c/Users/aleja/whisper-dictation/**)",
-      "Read(//mnt/c/Users/aleja/OneDrive/Desktop/Duke eventos/site-duke-eventos/fotos/**)",
-      "Read(//mnt/c/Users/Alejandro/Desktop/**)",
-      "Read(//home/alejandro/sistema-os/**)",
-      "Read(//home/alejandro/.claude/plugins/cache/claude-plugins-official/supabase/2cd88e7947b7/**)"
+      "Bash(*)"
     ],
     "deny": [
       "Bash(rm -rf *)",
@@ -37,9 +40,6 @@
       "Bash(git merge main*)",
       "Bash(> /dev/sd*)",
       "Bash(chmod 777 *)"
-    ],
-    "additionalDirectories": [
-      "/mnt/c/Users/aleja/AppData/Roaming/Microsoft/Windows/Start Menu/Programs/Startup"
     ]
   },
   "hooks": {
@@ -93,3 +93,39 @@
   "language": "PT-BR",
   "alwaysThinkingEnabled": true
 }
+```
+
+### Notas
+- `permissions.allow` pode ter paths adicionais específicos da máquina (ex: `/mnt/c/Users/...`)
+- `permissions.additionalDirectories` é específico da máquina — ajustar conforme necessário
+- Hooks dependem de `~/.bun/bin/bun` e scripts em `~/.claude/hooks/` — copiar também
+
+---
+
+## 2. Projeto (sistema-os) — `sistema-os/.claude/settings.json`
+
+```json
+{
+  "enabledPlugins": {
+    "feature-dev@claude-plugins-official": true,
+    "playwright@claude-plugins-official": true,
+    "explanatory-output-style@claude-plugins-official": true,
+    "hookify@claude-plugins-official": true
+  }
+}
+```
+
+---
+
+## Checklist para nova máquina
+
+1. Instalar Claude Code
+2. Copiar `~/.claude/settings.json` (global)
+3. Copiar `~/.claude/CLAUDE.md` (instruções globais)
+4. Copiar `~/.claude/hooks/` (todos os scripts de hooks)
+5. Copiar `~/.claude/skills/` (skills customizadas)
+6. Copiar `~/.claude/pai/` (PAI context)
+7. Copiar `~/.claude/statusline.sh`
+8. Instalar bun: `curl -fsSL https://bun.sh/install | bash`
+9. Clonar sistema-os e copiar `.claude/settings.json` do projeto
+10. Plugins são instalados automaticamente na primeira sessão

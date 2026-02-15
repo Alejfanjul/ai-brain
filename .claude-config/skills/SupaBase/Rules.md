@@ -1,6 +1,6 @@
 # Regras do Banco de Dados — Sistema OS
 
-12 regras extraidas do `~/sistema-os/docs/LEARNINGS.md`. Seguir TODAS antes de gerar SQL ou migrations.
+15 regras extraidas do `~/sistema-os/docs/LEARNINGS.md`. Seguir TODAS antes de gerar SQL ou migrations.
 
 ---
 
@@ -198,3 +198,61 @@ created_at TIMESTAMP NOT NULL DEFAULT timezone('utc', now())
 -- NAO usar
 created_at TIMESTAMPTZ
 ```
+
+---
+
+## 13. Session Pooler para asyncpg (porta 5432)
+
+SQLAlchemy async com asyncpg exige **Session Pooler** (porta 5432). Transaction Pooler (porta 6543) nao suporta prepared statements.
+
+```python
+# ERRADO — Transaction Pooler, falha com asyncpg
+DATABASE_URL = "postgresql+asyncpg://user:pass@host:6543/db"
+
+# CORRETO — Session Pooler
+DATABASE_URL = "postgresql+asyncpg://user:pass@host:5432/db"
+```
+
+| Feature | Transaction (6543) | Session (5432) |
+|---------|-------------------|----------------|
+| Prepared Statements | Nao | Sim |
+| Conexoes simultaneas | >10k | ~200 |
+| Compatibilidade asyncpg | Nao | Total |
+
+---
+
+## 14. WSL2: usar REST API para operacoes em massa
+
+Em WSL2, conexao direta Python → Supabase PostgreSQL falha (firewall virtualizado). Usar REST API com httpx.
+
+```python
+# ERRADO em WSL2 — timeout/connection refused
+engine = create_async_engine("postgresql+asyncpg://...")
+
+# CORRETO em WSL2 — REST API com batch upsert
+headers = {
+    "apikey": SUPABASE_KEY,
+    "Prefer": "resolution=merge-duplicates"
+}
+response = client.post(f"{SUPABASE_URL}/rest/v1/hospedes", json=batch)
+```
+
+Em producao (Linux real), SQLAlchemy direto funciona normalmente.
+
+---
+
+## 15. Indices em colunas de filtro
+
+Colunas usadas em WHERE/JOIN frequentes devem ter indice. Sem indice = full table scan.
+
+```sql
+-- Campos que merecem indice
+CREATE INDEX IF NOT EXISTS ix_hospedes_cpf ON hospedes(numero_documento);
+CREATE INDEX IF NOT EXISTS ix_hospedes_celular ON hospedes(celular);
+CREATE INDEX IF NOT EXISTS ix_hospedes_email ON hospedes(email);
+CREATE INDEX IF NOT EXISTS ix_reservas_status ON reservas(status);
+-- Foreign keys (se nao criados automaticamente)
+CREATE INDEX IF NOT EXISTS ix_os_itens_os_id ON os_itens(os_id);
+```
+
+Regra: se voce faz `WHERE campo = valor` frequentemente, crie indice nesse campo.

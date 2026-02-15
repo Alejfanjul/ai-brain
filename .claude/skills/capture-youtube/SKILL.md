@@ -32,6 +32,36 @@ def slugify(text):
     text = re.sub(r'[-\s]+', '-', text)
     return text.strip('-')
 
+def extract_author_name(uploader):
+    """Extrai nome do autor a partir do nome do canal.
+
+    Heurísticas:
+    1. Mapeamento manual de canais conhecidos
+    2. Se contém '|', pega a parte que parece nome de pessoa
+    3. Se contém ' - ', pega a parte que parece nome de pessoa
+    4. Fallback: retorna o uploader original
+    """
+    # Mapeamento de canais conhecidos para autor
+    known_channels = {
+        'AI News & Strategy Daily': 'Nate B Jones',
+    }
+
+    # Check mapeamento direto
+    for channel, author in known_channels.items():
+        if channel.lower() in uploader.lower():
+            return author
+
+    # Heurística: separador '|' ou ' - '
+    for sep in ['|', ' - ']:
+        if sep in uploader:
+            parts = [p.strip() for p in uploader.split(sep)]
+            # Pegar a parte mais curta que parece nome de pessoa (2-4 palavras)
+            candidates = [p for p in parts if 1 < len(p.split()) <= 4]
+            if candidates:
+                return candidates[-1]  # Geralmente o nome vem depois
+
+    return uploader
+
 def extract_video_info(url):
     """Extrai metadata do vídeo usando yt-dlp"""
     cmd = [
@@ -59,9 +89,12 @@ def extract_video_info(url):
     if upload_date and len(upload_date) == 8:
         upload_date = f"{upload_date[0:4]}-{upload_date[4:6]}-{upload_date[6:8]}"
     
+    author = extract_author_name(uploader)
+
     return {
         'title': title,
-        'uploader': uploader,
+        'author': author,
+        'channel': uploader,
         'upload_date': upload_date,
         'duration': duration
     }
@@ -109,16 +142,17 @@ def create_capture_file(url):
     
     # Criar nome do arquivo
     today = datetime.now().strftime('%Y-%m-%d')
-    author_slug = slugify(info['uploader'])
+    author_slug = slugify(info['author'])
     title_slug = slugify(info['title'])
     filename = f"{today}-{author_slug}-{title_slug}.md"
-    
+
     # Criar conteúdo
+    channel_line = f"\n- **Canal:** {info['channel']}" if info['channel'] != info['author'] else ""
     content = f"""# {info['title']}
 
 ## Fonte
 - **Tipo:** video
-- **Autor:** {info['uploader']}
+- **Autor:** {info['author']}{channel_line}
 - **URL:** {url}
 - **Data original:** {info['upload_date']}
 - **Data captura:** {today}

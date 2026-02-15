@@ -270,8 +270,9 @@ Entre séries do lift principal. 50-100 reps por categoria por treino.
 | 12/02 Qui | OFF | |
 | 13/02 Sex | Cardio colete | 10kg. 4x2:30 + 2x3:00 = 16min corrida. Podia ir mais, mas sem atenção tende a desacelerar. Próximo: aumentar sprints ou duração |
 | 14/02 Sáb | Squat Ciclo 2 Sem 1 | TM 108 (app). 5x70, 5x80, 5x96. FSL 5x5@70. Acessórios: 3x20 canoinha, 3x20 bíceps curl, 3x20 push-up, 3x20 KB swing russo 20kg |
+| 15/02 Dom | OFF | DOMS nas pernas do squat. Descanso ativo |
 
-**Treinos: 5/** (em andamento)
+**Treinos: 5/5** ✓ (semana fechada — próximo: corrida ou academia segunda)
 
 ---
 

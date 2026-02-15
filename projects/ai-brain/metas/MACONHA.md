@@ -94,8 +94,8 @@
 | 11/02 | Qua | Sim | Namorada veio, vinho, jantar — valeu a pena |
 | 12/02 | Qui | Não | Decidiu não fumar o restinho. "É assim que começa o final." |
 | 13/02 | Sex | Sim | Pouquinho. Apagou, dormiu até tarde. Precisava descansar |
-| 14/02 | Sáb | | Feriado. Pensando em fumar de noite |
-| 15/02 | Dom | | |
+| 14/02 | Sáb | Sim | Fumou uma ponta que sobrou. Foi bom |
+| 15/02 | Dom | Não | |
 
 **Reflexão:** Sentindo culpa pelo uso, mas ao mesmo tempo quer ter essa liberdade. Semana diferente — feriado, mais relaxada.
 

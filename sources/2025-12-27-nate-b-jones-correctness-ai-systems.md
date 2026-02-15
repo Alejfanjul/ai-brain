@@ -2,7 +2,7 @@
 
 ## Fonte
 - **Tipo:** newsletter
-- **Autor:** Nate (natesnewsletter.substack.com)
+- **Autor:** Nate B Jones
 - **URL:** https://natesnewsletter.substack.com/
 - **Data original:** 2025-12 (aproximado)
 - **Data captura:** 2025-12-27

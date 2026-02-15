@@ -2,7 +2,7 @@
 
 ## Fonte
 - **Tipo:** newsletter
-- **Autor:** Nate
+- **Autor:** Nate B Jones
 - **URL:** email
 - **Data original:** 2026-01-02
 - **Data captura:** 2026-01-02

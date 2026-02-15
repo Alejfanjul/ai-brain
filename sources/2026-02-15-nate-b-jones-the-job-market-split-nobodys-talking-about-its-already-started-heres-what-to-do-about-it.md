@@ -2,7 +2,7 @@
 
 ## Fonte
 - **Tipo:** video
-- **Autor:** AI News & Strategy Daily | Nate B Jones
+- **Autor:** Nate B Jones
 - **URL:** https://www.youtube.com/watch?v=RtMLnCMv3do
 - **Data original:** 2026-02-15
 - **Data captura:** 2026-02-15

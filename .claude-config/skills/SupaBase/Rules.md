@@ -1,6 +1,6 @@
 # Regras do Banco de Dados — Sistema OS
 
-15 regras extraidas do `~/sistema-os/docs/LEARNINGS.md`. Seguir TODAS antes de gerar SQL ou migrations.
+16 regras extraidas do `~/sistema-os/docs/LEARNINGS.md`. Seguir TODAS antes de gerar SQL ou migrations.
 
 ---
 
@@ -256,3 +256,24 @@ CREATE INDEX IF NOT EXISTS ix_os_itens_os_id ON os_itens(os_id);
 ```
 
 Regra: se voce faz `WHERE campo = valor` frequentemente, crie indice nesse campo.
+
+---
+
+## 16. RLS (Row Level Security) em toda tabela nova
+
+Toda tabela nova deve ter RLS habilitado. Mesmo que o acesso seja via backend (FastAPI), previne exposicao acidental via anon key do Supabase.
+
+```sql
+-- OBRIGATORIO ao criar tabela
+ALTER TABLE nome_tabela ENABLE ROW LEVEL SECURITY;
+
+-- Policy minima (permite tudo via service_role, bloqueia anon)
+CREATE POLICY "service_role_full_access" ON nome_tabela
+    FOR ALL USING (auth.role() = 'service_role');
+
+-- Se precisar acesso via anon key (raro no sistema-os)
+CREATE POLICY "anon_read" ON nome_tabela
+    FOR SELECT USING (true);
+```
+
+Sem RLS, qualquer pessoa com a anon key pode ler/escrever toda a tabela via PostgREST.

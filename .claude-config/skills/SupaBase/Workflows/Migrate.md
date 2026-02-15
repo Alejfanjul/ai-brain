@@ -6,7 +6,7 @@ Cria migrations SQL para o banco do sistema-os seguindo todas as convencoes do p
 
 ### 1. Carregar regras
 
-Ler `Rules.md` (na raiz do skill). Todas as 12 regras se aplicam a migrations.
+Ler `Rules.md` (na raiz do skill). Todas as 16 regras se aplicam a migrations.
 
 ### 2. Consultar schema atual
 
@@ -119,9 +119,12 @@ CREATE INDEX IF NOT EXISTS ix_nome_tabela_campo
 -- ALTER TABLE nome_tabela ADD COLUMN IF NOT EXISTS novo_campo VARCHAR(500);
 
 -- ============================================================
--- 5. RLS (Row Level Security) — considerar se tabela tem dados sensiveis
+-- 5. RLS (Row Level Security) — OBRIGATORIO para tabelas novas
 -- ============================================================
 
--- ALTER TABLE nome_tabela ENABLE ROW LEVEL SECURITY;
--- CREATE POLICY "policy_name" ON nome_tabela FOR ALL USING (true);
+ALTER TABLE nome_tabela ENABLE ROW LEVEL SECURITY;
+
+-- Policy padrao: acesso total via service_role (backend), bloqueio via anon
+CREATE POLICY "service_role_full_access" ON nome_tabela
+    FOR ALL USING (auth.role() = 'service_role');
 ```

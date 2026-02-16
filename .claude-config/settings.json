@@ -11,13 +11,17 @@
       "Skill(*)",
       "Task(*)",
       "Bash(*)",
+      "mcp__plugin_supabase_supabase__*",
+      "mcp__plugin_playwright_playwright__*",
       "Read(//tmp/video-analysis/**)",
       "Read(//tmp/hoje/**)",
       "Read(//mnt/c/Users/aleja/whisper-dictation/**)",
       "Read(//mnt/c/Users/aleja/OneDrive/Desktop/Duke eventos/site-duke-eventos/fotos/**)",
       "Read(//mnt/c/Users/Alejandro/Desktop/**)",
       "Read(//home/alejandro/sistema-os/**)",
-      "Read(//home/alejandro/.claude/plugins/cache/claude-plugins-official/supabase/2cd88e7947b7/**)"
+      "Read(//home/alejandro/.claude/plugins/cache/claude-plugins-official/supabase/2cd88e7947b7/**)",
+      "Read(//home/alejandro/.claude/**)",
+      "Read(//home/alejandro/ai-brain/.claude/**)"
     ],
     "deny": [
       "Bash(rm -rf *)",

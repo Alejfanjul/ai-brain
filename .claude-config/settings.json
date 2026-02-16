@@ -71,6 +71,15 @@
             "command": "~/.bun/bin/bun run ~/.claude/hooks/security-validator.ts"
           }
         ]
+      },
+      {
+        "matcher": "Read|Write|Edit|Glob|Grep",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "~/.bun/bin/bun run ~/.claude/hooks/worktree-auto-approve.ts"
+          }
+        ]
       }
     ],
     "UserPromptSubmit": [

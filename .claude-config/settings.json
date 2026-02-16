@@ -21,13 +21,7 @@
       "Read(//home/alejandro/sistema-os/**)",
       "Read(//home/alejandro/.claude/plugins/cache/claude-plugins-official/supabase/2cd88e7947b7/**)",
       "Read(//home/alejandro/.claude/**)",
-      "Read(//home/alejandro/ai-brain/.claude/**)",
-      "Read(//home/alejandro/ai-brain/.claude-config/skills/FastApi/**)",
-      "Read(//home/alejandro/ai-brain/.claude-config/skills/SupaBase/**)",
-      "Read(//home/alejandro/ai-brain/.claude-config/skills/CreateSkill/**)",
-      "Read(//home/alejandro/ai-brain/.claude-config/skills/CORE/SYSTEM/**)",
-      "Read(//home/alejandro/ai-brain/.claude-config/skills/CapturePdf/**)",
-      "Read(//home/alejandro/ai-brain/.claude-config/skills/Frontend/**)"
+      "Read(//home/alejandro/ai-brain/**)"
     ],
     "deny": [
       "Bash(rm -rf *)",

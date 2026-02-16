@@ -52,16 +52,39 @@ git worktree add {worktree_dir} -b feature/{feature}
 
 Executar o comando git worktree add com os parametros montados.
 
-### 5. Setup do ambiente (se aplicavel)
+### 5. Symlink de arquivos gitignored
 
-Verificar se o projeto precisa de setup:
-- **Python**: checar se existe `requirements.txt` ou `pyproject.toml` — sugerir criar venv
+Arquivos no `.gitignore` NAO sao copiados para a worktree. Verificar e criar symlinks:
+
+```bash
+# .env (credenciais, config de ambiente)
+if [ -f {repo_dir}/.env ] && [ ! -f {worktree_dir}/.env ]; then
+  ln -s {repo_dir}/.env {worktree_dir}/.env
+fi
+```
+
+**Arquivos comuns que precisam de symlink:**
+
+| Arquivo | Motivo |
+|---------|--------|
+| `.env` | Credenciais do banco, API keys, config de ambiente |
+| `.env.local` | Overrides locais |
+| `venv/` | Virtual environment Python (ou criar novo) |
+
+**Regra:** Sempre verificar se `.env` existe no repo pai. Se sim, criar symlink automaticamente (nao copiar — symlink garante que mudancas no original se propagam).
+
+Para venv Python, PERGUNTAR ao usuario: symlink da venv existente ou criar nova?
+
+### 6. Setup do ambiente (se aplicavel)
+
+Verificar se o projeto precisa de setup adicional:
+- **Python**: checar se existe `requirements.txt` ou `pyproject.toml` — sugerir criar venv ou symlink
 - **Node**: checar se existe `package.json` — sugerir `npm install`
 - **Outros**: checar documentacao do projeto
 
-NAO executar automaticamente — apenas informar o usuario o que precisa ser feito.
+NAO executar setup automaticamente — apenas informar o usuario o que precisa ser feito.
 
-### 6. Confirmar e instruir
+### 7. Confirmar e instruir
 
 Informar o usuario:
 
@@ -77,7 +100,7 @@ Para iniciar uma sessao Claude na worktree:
   cd /home/alejandro/{worktree_dir} && claude
 ```
 
-### 7. Registrar em additionalDirectories (se na mesma sessao)
+### 8. Registrar em additionalDirectories (se na mesma sessao)
 
 Se o usuario quiser acessar a worktree da sessao atual (sem abrir nova sessao), a worktree precisa estar registrada em `additionalDirectories` no settings.local.json do projeto.
 

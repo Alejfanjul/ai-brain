@@ -49,7 +49,7 @@
 | Squat | 104kg | 109kg (+5) |
 | Bench | 70kg | 72.5kg (+2.5) |
 | Deadlift | 120kg | 125kg (+5) |
-| OHP | 46kg | 48.5kg (+2.5) |
+| OHP | 46kg | 46kg (mantido — conservador, ombro) |
 
 ---
 
@@ -81,13 +81,13 @@
 | 2 (5s) | 81kg x5 | 94kg x5 | 106kg x5 | 81kg |
 | 3 (1s) | 94kg x5 | 106kg x5 | 119kg x5 | 94kg |
 
-### OHP (TM: 48.5kg)
+### OHP (TM: 46kg — mantido, ombro conservador)
 
 | Semana | Série 1 | Série 2 | Série 3 | FSL 5x5 |
 |--------|---------|---------|---------|---------|
-| 1 (3s) | 34kg x5 | 39kg x5 | 44kg x5 | 34kg |
-| 2 (5s) | 32kg x5 | 36kg x5 | 41kg x5 | 32kg |
-| 3 (1s) | 36kg x5 | 41kg x5 | 46kg x5 | 36kg |
+| 1 (3s) | 32kg x5 | 37kg x5 | 41kg x5 | 32kg |
+| 2 (5s) | 30kg x5 | 35kg x5 | 39kg x5 | 30kg |
+| 3 (1s) | 35kg x5 | 39kg x5 | 44kg x5 | 35kg |
 
 ---
 
@@ -273,6 +273,17 @@ Entre séries do lift principal. 50-100 reps por categoria por treino.
 | 15/02 Dom | OFF | DOMS nas pernas do squat. Descanso ativo |
 
 **Treinos: 5/5** ✓ (semana fechada — próximo: corrida ou academia segunda)
+
+---
+
+### Semana 16-22 Fev (Ciclo 2 - Semana 1)
+
+| Data | Treino | Notas |
+|------|--------|-------|
+| 16/02 Seg | Cardio colete | 10kg. 5x2:30 + 3x1:30 = ~17min corrida. Conforme plano Sem 1 |
+| 17/02 Ter | OHP Ciclo 2 Sem 1 | TM 46 (app). 5x30, 5x36, 5x40. FSL 5x5@30. Acessórios: 3x20 ab wheel, 3x20 lat pulldown, 3x20 goblet squat KB 20kg, 2x20 panturrilha 25kg |
+
+**Treinos: 2/?**
 
 ---
 

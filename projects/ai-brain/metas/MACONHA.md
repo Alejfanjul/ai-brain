@@ -101,6 +101,17 @@
 
 ---
 
+### Semana 5 (16-22 Fev 2026) — Livre
+
+| Data | Dia | Fumou? | Notas |
+|------|-----|--------|-------|
+| 16/02 | Seg | Não | |
+| 17/02 | Ter | | |
+
+**Reflexão:** —
+
+---
+
 ## Avaliação da Fase 1
 
 > Período: 20/01 - 02/02/2026 (2 semanas)

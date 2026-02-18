@@ -21,7 +21,10 @@
       "Read(//home/alejandro/sistema-os/**)",
       "Read(//home/alejandro/.claude/plugins/cache/claude-plugins-official/supabase/2cd88e7947b7/**)",
       "Read(//home/alejandro/.claude/**)",
-      "Read(//home/alejandro/ai-brain/**)"
+      "Read(//home/alejandro/ai-brain/**)",
+      "Read(//mnt/c/Users/Alejandro/concierge-platform/design/kv-duke/Tipografia/**)",
+      "Read(//mnt/c/Users/Alejandro/concierge-platform/design/kv-duke/**)",
+      "Read(//mnt/c/Users/Alejandro/concierge-platform/design/kv-duke/linguiagem/**)"
     ],
     "deny": [
       "Bash(rm -rf *)",
@@ -38,7 +41,6 @@
       "Bash(git checkout -- .)",
       "Bash(git restore .)",
       "Bash(git merge * main)",
-      "Bash(git merge main*)",
       "Bash(> /dev/sd*)",
       "Bash(chmod 777 *)"
     ],

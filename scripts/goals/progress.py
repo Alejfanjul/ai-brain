@@ -13,51 +13,23 @@ except ImportError:
     from parser import parse_saude, parse_maconha
 
 
-# Weekday mapping (Python: 0=Monday, 6=Sunday)
 WEEKDAY_PT = {
-    0: 'Segunda',
-    1: 'Terça',
-    2: 'Quarta',
-    3: 'Quinta',
-    4: 'Sexta',
-    5: 'Sábado',
-    6: 'Domingo',
+    0: 'Segunda', 1: 'Terça', 2: 'Quarta', 3: 'Quinta',
+    4: 'Sexta', 5: 'Sábado', 6: 'Domingo',
 }
 
 WEEKDAY_ABBREV = {
-    0: 'Seg',
-    1: 'Ter',
-    2: 'Qua',
-    3: 'Qui',
-    4: 'Sex',
-    5: 'Sáb',
-    6: 'Dom',
+    0: 'Seg', 1: 'Ter', 2: 'Qua', 3: 'Qui',
+    4: 'Sex', 5: 'Sáb', 6: 'Dom',
 }
-
-
-def get_week_start(d: date) -> date:
-    """Get the Monday that starts the week containing date d."""
-    # weekday(): Monday=0, Sunday=6
-    # Go back to Monday (weekday days)
-    return d - timedelta(days=d.weekday())
 
 
 def calculate_saude_progress(data: Optional[dict] = None) -> dict:
     """
     Calculate training progress metrics.
 
-    Returns:
-        dict with keys:
-        - ciclo: int
-        - semana: int
-        - semana_tipo: str
-        - progresso_ciclo: float (0-1, percentage of cycle completed)
-        - proximo_treino: str (next lift)
-        - proximo_treino_tipo: str ('lift' or 'cardio')
-        - lifts_restantes: list[str]
-        - lifts_completados: list[str]
-        - titulo: str (display title)
-        - subtitulo: str (display subtitle)
+    Cycle has 3 weeks (3/5/1), 4 lifts per week = 12 total.
+    Progress = completed lifts position / 12.
     """
     if data is None:
         data = parse_saude()
@@ -68,86 +40,22 @@ def calculate_saude_progress(data: Optional[dict] = None) -> dict:
     ordem = data['ordem_lifts']
     completados = data['lifts_completados']
 
-    # Calculate cycle progress (4 weeks per cycle, 4 lifts per week)
-    # Total: 16 lift sessions per cycle
-    # Current position: (semana-1)*4 + lifts_done_this_week
+    # 3 weeks per cycle, N lifts per week
     lifts_done = len(completados)
-    total_position = (semana - 1) * 4 + lifts_done
-    progresso_ciclo = total_position / 16
+    total_position = (semana - 1) * len(ordem) + lifts_done
+    total_lifts = 3 * len(ordem)
+    progresso_ciclo = total_position / total_lifts
 
-    # Find next lift
-    proximo = data.get('proximo_treino')
-    if not proximo and completados:
-        # Infer from completed lifts
-        for lift in ordem:
-            if lift not in completados:
-                proximo = lift
-                break
-
-    # Calculate remaining lifts for the week
     lifts_restantes = [l for l in ordem if l not in completados]
-    if proximo and proximo in lifts_restantes:
-        # Move proximo to front
-        lifts_restantes.remove(proximo)
-        lifts_restantes.insert(0, proximo)
 
-    # Check today's workout and next planned workout from log
-    proximo_tipo = 'lift'
-    hoje = date.today()
-    treino_hoje = None
-    treino_hoje_feito = False
-    proximo_data = None
-
-    for entry in data['log_semanal']:
-        # Parse entry date (DD/MM format, assume current year)
-        try:
-            day, month = entry['data'].split('/')
-            entry_date = date(hoje.year, int(month), int(day))
-        except (ValueError, KeyError):
-            continue
-
-        # Check if this is today's workout
-        if entry_date == hoje and entry.get('treino') and 'OFF' not in entry.get('treino', ''):
-            treino_hoje = entry.get('treino')
-            treino_hoje_feito = entry.get('completou', False)
-
-        # Skip past dates that weren't completed
-        if entry_date < hoje and not entry['completou']:
-            continue
-
-        # Find next incomplete workout
-        if not entry['completou'] and entry.get('treino') and 'OFF' not in entry.get('treino', ''):
-            treino = entry['treino']
-            proximo_data = entry_date
-            if 'Cardio' in treino or 'Metcon' in treino:
-                proximo = treino
-                proximo_tipo = 'cardio'
-                break
-            else:
-                lift_match = treino.split()[0] if treino else None
-                if lift_match and lift_match in ordem:
-                    proximo = lift_match
-                    proximo_tipo = 'lift'
-                break
-
-    # Format week type for display
-    semana_display = {
-        '5s': '5s',
-        '3s': '3s',
-        '1s': '1s',
-        'deload': 'Deload',
-    }.get(semana_tipo, semana_tipo)
+    semana_display = {'5s': '5s', '3s': '3s', '1s': '1s'}.get(semana_tipo, semana_tipo)
 
     return {
         'ciclo': ciclo,
         'semana': semana,
         'semana_tipo': semana_tipo,
         'progresso_ciclo': progresso_ciclo,
-        'proximo_treino': proximo,
-        'proximo_treino_tipo': proximo_tipo,
-        'proximo_data': proximo_data,
-        'treino_hoje': treino_hoje,
-        'treino_hoje_feito': treino_hoje_feito,
+        'proximo_treino': data.get('proximo_treino'),
         'lifts_restantes': lifts_restantes,
         'lifts_completados': completados,
         'titulo': '5/3/1 Prep & Fat Loss',
@@ -157,22 +65,10 @@ def calculate_saude_progress(data: Optional[dict] = None) -> dict:
 
 def calculate_maconha_progress(data: Optional[dict] = None) -> dict:
     """
-    Calculate reduction progress metrics.
+    Calculate usage progress metrics for Livre model.
 
-    Returns:
-        dict with keys:
-        - fase: int
-        - fase_padrao: str
-        - progresso_fase: float (0-1)
-        - dias_na_fase: int
-        - dias_total_fase: int
-        - streak: int (days without smoking)
-        - proximo_permitido: date
-        - proximo_permitido_str: str
-        - hoje_permitido: bool
-        - hoje_dia: str (weekday name)
-        - titulo: str
-        - subtitulo: str
+    Progress bar represents streak toward 7-day target.
+    Alert triggers if 2+ days smoked for 2 consecutive weeks.
     """
     if data is None:
         data = parse_maconha()
@@ -180,166 +76,72 @@ def calculate_maconha_progress(data: Optional[dict] = None) -> dict:
     hoje = date.today()
     hoje_dia = WEEKDAY_PT[hoje.weekday()]
 
-    fase = data['fase_atual']
-    padrao = data['fase_padrao']
-    inicio = data['fase_inicio']
-    fim = data['fase_fim']
-    dias_permitidos = data['dias_permitidos']
     streak = data['streak']
+    fumou_esta = data.get('fumou_esta_semana', 0)
+    fumou_passada = data.get('fumou_semana_passada', 0)
+    alerta = data.get('alerta', False)
+    week_start = data.get('week_start', hoje - timedelta(days=hoje.weekday()))
 
-    # Calculate phase progress
-    dias_na_fase = 1
-    dias_total_fase = 14  # 2 weeks default
-    progresso_fase = 0.0
+    # Progress: streak toward 7-day target
+    progresso_streak = min(1.0, streak / 7)
 
-    if inicio and fim:
-        dias_total_fase = (fim - inicio).days + 1
-        dias_na_fase = (hoje - inicio).days + 1
-        dias_na_fase = max(1, min(dias_na_fase, dias_total_fase))
-        progresso_fase = dias_na_fase / dias_total_fase
-
-    # Check if today is an allowed day
-    hoje_permitido = hoje_dia in dias_permitidos
-
-    # Find next allowed day
-    proximo_permitido = None
-    for i in range(1, 8):
-        check_date = hoje + timedelta(days=i)
-        check_dia = WEEKDAY_PT[check_date.weekday()]
-        if check_dia in dias_permitidos:
-            proximo_permitido = check_date
-            break
-
-    # If today is allowed and not yet passed (before 6pm), consider today
-    if hoje_permitido:
-        proximo_permitido = hoje
-
-    proximo_str = ''
-    if proximo_permitido:
-        if proximo_permitido == hoje:
-            proximo_str = 'Hoje!'
-        else:
-            dia_abbrev = WEEKDAY_ABBREV[proximo_permitido.weekday()]
-            proximo_str = f'{dia_abbrev} {proximo_permitido.day:02d}/{proximo_permitido.month:02d}'
-
-    # Calculate weekly usage (Sunday-based week)
-    week_start = get_week_start(hoje)
-    prev_week_start = week_start - timedelta(days=7)
-
-    # Count allowed days and usage this week
-    usados_semana = 0
-    permitidos_semana = 0
-    usados_semana_passada = 0
-    permitidos_semana_passada = 0
-
-    for entry in data['log_semanal']:
-        try:
-            day, month = entry['data'].split('/')
-            entry_date = date(hoje.year, int(month), int(day))
-        except (ValueError, KeyError):
-            continue
-
-        entry_dia = WEEKDAY_PT[entry_date.weekday()]
-        is_allowed_day = entry_dia in dias_permitidos
-
-        # This week (from Sunday to today)
-        if entry_date >= week_start and entry_date <= hoje:
-            if is_allowed_day:
-                permitidos_semana += 1
-                if entry['fumou'] is True:
-                    usados_semana += 1
-
-        # Last week
-        elif entry_date >= prev_week_start and entry_date < week_start:
-            if is_allowed_day:
-                permitidos_semana_passada += 1
-                if entry['fumou'] is True:
-                    usados_semana_passada += 1
-
-    # Max allowed days per week based on pattern (Sex-Sáb-Dom = 3)
-    max_permitidos_semana = len(dias_permitidos)
+    # Alert text
+    alerta_texto = ''
+    if alerta:
+        alerta_texto = '⚠ ALERTA: 2+ dias por 2 semanas seguidas'
+    elif fumou_passada >= 2:
+        alerta_texto = f'⚠ Semana passada: {fumou_passada} dia(s) — acima de 1x'
 
     return {
-        'fase': fase,
-        'fase_padrao': padrao,
-        'progresso_fase': progresso_fase,
-        'dias_na_fase': dias_na_fase,
-        'dias_total_fase': dias_total_fase,
+        'modelo': data.get('modelo', 'livre'),
+        'padrao': data.get('padrao', '~1x/semana'),
         'streak': streak,
-        'proximo_permitido': proximo_permitido,
-        'proximo_permitido_str': proximo_str,
-        'hoje_permitido': hoje_permitido,
+        'progresso_streak': progresso_streak,
+        'fumou_esta_semana': fumou_esta,
+        'fumou_semana_passada': fumou_passada,
+        'alerta': alerta,
+        'alerta_texto': alerta_texto,
+        'ultimo_uso': data.get('ultimo_uso'),
         'hoje_dia': hoje_dia,
-        'titulo': f'Fase {fase} ({padrao})',
-        'subtitulo': f'Dia {dias_na_fase} de {dias_total_fase} | Streak: {streak} dias sem fumar',
-        # Weekly stats
         'week_start': week_start,
-        'usados_semana': usados_semana,
-        'permitidos_semana': permitidos_semana,
-        'max_permitidos_semana': max_permitidos_semana,
-        'usados_semana_passada': usados_semana_passada,
-        'permitidos_semana_passada': permitidos_semana_passada,
+        'titulo': f"Livre ({data.get('padrao', '~1x/semana')})",
+        'subtitulo': f'Streak: {streak} dias sem fumar',
     }
 
 
 def get_today_focus(saude: Optional[dict] = None, maconha: Optional[dict] = None) -> list[str]:
-    """
-    Get 3 focus items for today.
-
-    Returns:
-        list of 3 action items
-    """
+    """Get 3 focus items for today."""
     if saude is None:
         saude = calculate_saude_progress()
     if maconha is None:
         maconha = calculate_maconha_progress()
 
     focus = []
-    hoje = date.today()
 
     # Training focus
-    treino_hoje = saude.get('treino_hoje')
-    treino_hoje_feito = saude.get('treino_hoje_feito', False)
     proximo = saude.get('proximo_treino')
-    proximo_data = saude.get('proximo_data')
-
-    if treino_hoje and treino_hoje_feito:
-        # Today's workout is done
-        focus.append(f"Treino de hoje ({treino_hoje}) ✓")
-    elif treino_hoje and not treino_hoje_feito:
-        # Today has a workout pending
-        if 'Cardio' in treino_hoje or 'Metcon' in treino_hoje:
-            focus.append(f"Hoje: {treino_hoje}")
-        else:
-            focus.append(f"Hoje: {treino_hoje} ({saude['semana_tipo']})")
-    elif proximo:
-        # No workout today, show next
-        if proximo_data and proximo_data > hoje:
-            dia_abbrev = ['Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sáb', 'Dom'][proximo_data.weekday()]
-            if saude.get('proximo_treino_tipo') == 'cardio':
-                focus.append(f"Próximo ({dia_abbrev}): {proximo}")
-            else:
-                focus.append(f"Próximo ({dia_abbrev}): {proximo} ({saude['semana_tipo']})")
-        else:
-            if saude.get('proximo_treino_tipo') == 'cardio':
-                focus.append(f"Cardio: {proximo}")
-            else:
-                focus.append(f"Treino: {proximo} ({saude['semana_tipo']})")
+    if proximo:
+        focus.append(f"Treino: {proximo} ({saude['semana_tipo']})")
+    else:
+        focus.append("Todos os lifts da semana completos!")
 
     # Maconha focus
-    if maconha['hoje_permitido']:
-        focus.append("Hoje é dia permitido - aproveite se quiser")
+    streak = maconha['streak']
+    if maconha.get('alerta'):
+        focus.append(f"⚠ Atenção: uso acima de 1x/semana por 2 semanas")
+    elif streak >= 5:
+        focus.append(f"Streak: {streak} dias ✓")
     else:
-        focus.append(f"Dia de resistir - próximo permitido: {maconha['proximo_permitido_str']}")
+        focus.append(f"Streak: {streak} dias — meta ~7 entre usos")
 
-    # Add mobility/recovery focus
+    # Mobility
     focus.append("Mobilidade: 10-15 min (trapézio + cervical)")
 
     return focus[:3]
 
 
 if __name__ == "__main__":
-    print("=== SAÚDE PROGRESS ===")
+    print("=== SAUDE PROGRESS ===")
     saude = calculate_saude_progress()
     for key, value in saude.items():
         print(f"{key}: {value}")

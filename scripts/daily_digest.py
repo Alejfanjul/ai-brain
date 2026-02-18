@@ -44,14 +44,13 @@ def generate_digest_json() -> dict:
             'lifts_restantes': saude_progress['lifts_restantes'],
         },
         'maconha': {
-            'fase': maconha_progress['fase'],
-            'fase_padrao': maconha_progress['fase_padrao'],
-            'progresso': round(maconha_progress['progresso_fase'], 2),
-            'dias_na_fase': maconha_progress['dias_na_fase'],
-            'dias_total_fase': maconha_progress['dias_total_fase'],
+            'modelo': maconha_progress['modelo'],
             'streak': maconha_progress['streak'],
-            'hoje_permitido': maconha_progress['hoje_permitido'],
-            'proximo_permitido': maconha_progress['proximo_permitido_str'],
+            'progresso_streak': round(maconha_progress['progresso_streak'], 2),
+            'fumou_esta_semana': maconha_progress['fumou_esta_semana'],
+            'fumou_semana_passada': maconha_progress['fumou_semana_passada'],
+            'alerta': maconha_progress['alerta'],
+            'ultimo_uso': maconha_progress['ultimo_uso'].isoformat() if maconha_progress['ultimo_uso'] else None,
         },
         'foco_do_dia': focus,
     }
@@ -75,22 +74,8 @@ def generate_digest_ascii() -> str:
     # Saude section
     lifts_restantes_str = ' → '.join(saude['lifts_restantes']) if saude['lifts_restantes'] else 'Semana completa!'
 
-    # Determine next workout date from log
-    proximo_data = ''
-    for entry in saude_data.get('log_semanal', []):
-        if not entry.get('completou', False) and entry.get('treino'):
-            try:
-                day, month = entry['data'].split('/')
-                entry_date = date(hoje.year, int(month), int(day))
-                if entry_date >= hoje:
-                    weekday_abbrev = ['Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sáb', 'Dom'][entry_date.weekday()]
-                    proximo_data = f" - {weekday_abbrev} {entry['data']}"
-                    break
-            except (ValueError, KeyError):
-                continue
-
     saude_details = [
-        f"Próximo: {saude['proximo_treino']}{proximo_data}",
+        f"Próximo: {saude['proximo_treino']}",
         f"Lifts restantes: {lifts_restantes_str}",
     ]
 
@@ -102,24 +87,21 @@ def generate_digest_ascii() -> str:
     ))
 
     # Maconha section
-    hoje_status = "dia de resistir" if not maconha['hoje_permitido'] else "dia permitido"
-    mark = checkmark(not maconha['hoje_permitido'])  # Checkmark for resistance days
-
-    # Weekly usage stats
     week_start_str = maconha['week_start'].strftime('%d/%m')
-    usados = maconha['usados_semana']
-    max_dias = maconha['max_permitidos_semana']
 
     maconha_details = [
-        f"Semana ({week_start_str}): {usados}/{max_dias} dias permitidos usados",
-        f"Próximo permitido: {maconha['proximo_permitido_str']}",
-        f"Hoje: {maconha['hoje_dia']} - {hoje_status} {mark if not maconha['hoje_permitido'] else ''}".strip(),
+        f"Esta semana ({week_start_str}): {maconha['fumou_esta_semana']} dia(s)",
+        f"Semana passada: {maconha['fumou_semana_passada']} dia(s)"
+        + (' ⚠' if maconha['fumou_semana_passada'] >= 2 else ''),
+        f"Hoje: {maconha['hoje_dia']}",
     ]
+    if maconha.get('alerta_texto'):
+        maconha_details.append(maconha['alerta_texto'])
 
     lines.append(format_goal_section(
         f"MACONHA - {maconha['titulo']}",
         maconha['subtitulo'],
-        maconha['progresso_fase'],
+        maconha['progresso_streak'],
         maconha_details
     ))
 
@@ -136,11 +118,10 @@ def generate_digest_short() -> str:
     maconha = calculate_maconha_progress()
 
     treino_pct = int(saude['progresso_ciclo'] * 100)
-    maconha_pct = int(maconha['progresso_fase'] * 100)
 
     return (
         f"Treino: C{saude['ciclo']}S{saude['semana']} ({treino_pct}%) | "
-        f"Maconha: F{maconha['fase']} ({maconha_pct}%) streak:{maconha['streak']}d | "
+        f"Maconha: streak:{maconha['streak']}d sem:{maconha['fumou_esta_semana']}d | "
         f"Próximo: {saude['proximo_treino']}"
     )
 

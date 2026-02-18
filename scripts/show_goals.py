@@ -28,7 +28,6 @@ def show_saude(as_json: bool = False) -> None:
     """Display only training progress."""
     saude_data = parse_saude()
     saude = calculate_saude_progress(saude_data)
-    hoje = date.today()
 
     if as_json:
         print(json.dumps({
@@ -44,22 +43,8 @@ def show_saude(as_json: bool = False) -> None:
 
     lifts_restantes_str = ' → '.join(saude['lifts_restantes']) if saude['lifts_restantes'] else 'Semana completa!'
 
-    # Determine next workout date from log
-    proximo_data = ''
-    for entry in saude_data.get('log_semanal', []):
-        if not entry.get('completou', False) and entry.get('treino'):
-            try:
-                day, month = entry['data'].split('/')
-                entry_date = date(hoje.year, int(month), int(day))
-                if entry_date >= hoje:
-                    weekday_abbrev = ['Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sáb', 'Dom'][entry_date.weekday()]
-                    proximo_data = f" - {weekday_abbrev} {entry['data']}"
-                    break
-            except (ValueError, KeyError):
-                continue
-
     saude_details = [
-        f"Próximo: {saude['proximo_treino']}{proximo_data}",
+        f"Próximo: {saude['proximo_treino']}",
         f"Lifts restantes: {lifts_restantes_str}",
     ]
 
@@ -72,40 +57,37 @@ def show_saude(as_json: bool = False) -> None:
 
 
 def show_maconha(as_json: bool = False) -> None:
-    """Display only reduction progress."""
+    """Display only usage progress (Livre model)."""
     maconha = calculate_maconha_progress()
 
     if as_json:
         print(json.dumps({
-            'fase': maconha['fase'],
-            'fase_padrao': maconha['fase_padrao'],
-            'progresso': round(maconha['progresso_fase'], 2),
-            'dias_na_fase': maconha['dias_na_fase'],
-            'dias_total_fase': maconha['dias_total_fase'],
+            'modelo': maconha['modelo'],
+            'padrao': maconha['padrao'],
             'streak': maconha['streak'],
-            'hoje_permitido': maconha['hoje_permitido'],
-            'proximo_permitido': maconha['proximo_permitido_str'],
+            'progresso_streak': round(maconha['progresso_streak'], 2),
+            'fumou_esta_semana': maconha['fumou_esta_semana'],
+            'fumou_semana_passada': maconha['fumou_semana_passada'],
+            'alerta': maconha['alerta'],
+            'ultimo_uso': maconha['ultimo_uso'].isoformat() if maconha['ultimo_uso'] else None,
         }, indent=2, ensure_ascii=False))
         return
 
-    hoje_status = "dia de resistir" if not maconha['hoje_permitido'] else "dia permitido"
-    mark = checkmark(not maconha['hoje_permitido'])
-
-    # Weekly usage stats
     week_start_str = maconha['week_start'].strftime('%d/%m')
-    usados = maconha['usados_semana']
-    max_dias = maconha['max_permitidos_semana']
 
     maconha_details = [
-        f"Semana ({week_start_str}): {usados}/{max_dias} dias permitidos usados",
-        f"Próximo permitido: {maconha['proximo_permitido_str']}",
-        f"Hoje: {maconha['hoje_dia']} - {hoje_status} {mark if not maconha['hoje_permitido'] else ''}".strip(),
+        f"Esta semana ({week_start_str}): {maconha['fumou_esta_semana']} dia(s)",
+        f"Semana passada: {maconha['fumou_semana_passada']} dia(s)"
+        + (' ⚠' if maconha['fumou_semana_passada'] >= 2 else ''),
+        f"Hoje: {maconha['hoje_dia']}",
     ]
+    if maconha['alerta_texto']:
+        maconha_details.append(maconha['alerta_texto'])
 
     print(format_goal_section(
         f"MACONHA - {maconha['titulo']}",
         maconha['subtitulo'],
-        maconha['progresso_fase'],
+        maconha['progresso_streak'],
         maconha_details
     ))
 

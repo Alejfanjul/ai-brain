@@ -5,7 +5,7 @@ Extracts structured data for progress tracking.
 """
 
 import re
-from datetime import datetime, date
+from datetime import date, timedelta
 from pathlib import Path
 from typing import Optional
 
@@ -13,21 +13,20 @@ from typing import Optional
 AI_BRAIN = Path.home() / "ai-brain"
 METAS_DIR = AI_BRAIN / "projects" / "ai-brain" / "metas"
 
+# Wendler 3/5/1 week type mapping (Prep & Fat Loss template)
+WEEK_TYPE_351 = {1: '3s', 2: '5s', 3: '1s'}
+
 
 def parse_saude(filepath: Optional[Path] = None) -> dict:
     """
     Parse SAUDE.md and extract training data.
 
-    Returns:
-        dict with keys:
-        - ciclo: int (cycle number)
-        - semana: int (week number, 1-4)
-        - semana_tipo: str ('5s', '3s', '1s', 'deload')
-        - tms: dict[str, int] (lift -> TM in kg)
-        - proximo_treino: str (next lift name)
-        - ordem_lifts: list[str] (lift order)
-        - log_semanal: list[dict] (weekly log entries)
-        - lifts_completados: list[str] (lifts done this week)
+    Handles current format:
+    - Status Atual: **Ciclo N — Leader (Prep and Fat Loss)**
+    - Week headers: ### Semana DD-DD Mmm (Ciclo N - Semana M)
+    - TM table: | Lift | Ciclo 1 TM | Ciclo 2 TM |
+    - Log: | DD/MM Dia | Treino | Notas |
+    - Lift entries: "Lift Ciclo N Sem M" (e.g., "OHP Ciclo 2 Sem 1")
     """
     if filepath is None:
         filepath = METAS_DIR / "SAUDE.md"
@@ -37,94 +36,103 @@ def parse_saude(filepath: Optional[Path] = None) -> dict:
     result = {
         'ciclo': 1,
         'semana': 1,
-        'semana_tipo': '5s',
+        'semana_tipo': '3s',
         'tms': {},
         'proximo_treino': None,
-        'ordem_lifts': ['Deadlift', 'Bench', 'Squat', 'OHP'],
-        'log_semanal': [],
+        'ordem_lifts': ['Squat', 'OHP', 'Deadlift', 'Bench'],
         'lifts_completados': [],
+        'log_semanal': [],
     }
 
-    # Extract cycle and week: **Ciclo X, Semana Y** (semana das Xs)
-    ciclo_match = re.search(r'\*\*Ciclo\s+(\d+),\s+Semana\s+(\d+)\*\*\s*\(semana das (\d+)', content)
+    # --- 1. Extract cycle from Status Atual ---
+    ciclo_match = re.search(r'\*\*Ciclo\s+(\d+)\s*[—–-]', content)
     if ciclo_match:
         result['ciclo'] = int(ciclo_match.group(1))
-        result['semana'] = int(ciclo_match.group(2))
-        reps = ciclo_match.group(3)
-        result['semana_tipo'] = f"{reps}s"
 
-    # Fallback: check timeline for "← AQUI" marker
-    if not ciclo_match:
-        timeline_match = re.search(r'├── Semana (\d+) \((\d+)s\) ← AQUI', content)
-        if timeline_match:
-            result['semana'] = int(timeline_match.group(1))
-            result['semana_tipo'] = f"{timeline_match.group(2)}s"
+    # --- 2. Extract semana from latest week header ---
+    # Pattern: ### Semana DD-DD Mmm (Ciclo N - Semana M)
+    week_headers = list(re.finditer(
+        r'###\s+Semana\s+.+?\(Ciclo\s+(\d+)\s*-\s*Semana\s+(\d+)\)',
+        content
+    ))
+    if week_headers:
+        last = week_headers[-1]
+        result['ciclo'] = int(last.group(1))
+        result['semana'] = int(last.group(2))
 
-    # Extract TMs from table
-    # | Lift | 1RM Estimado | TM (80%) |
-    tm_pattern = r'\|\s*(Squat|Bench|Deadlift|OHP)\s*\|\s*[\d.]+kg\s*\|\s*(\d+)kg\s*\|'
-    for match in re.finditer(tm_pattern, content):
-        lift = match.group(1)
-        tm = int(match.group(2))
-        result['tms'][lift] = tm
+    # --- 3. Week type from 3/5/1 ordering ---
+    result['semana_tipo'] = WEEK_TYPE_351.get(result['semana'], '3s')
 
-    # Extract próximo treino
-    proximo_match = re.search(r'\*\*Próximo treino:\*\*\s*(\w+)', content)
-    if proximo_match:
-        result['proximo_treino'] = proximo_match.group(1)
-
-    # Extract lift order
+    # --- 4. Lift order ---
     ordem_match = re.search(r'\*\*Ordem dos lifts:\*\*\s*(.+)', content)
     if ordem_match:
-        lifts_str = ordem_match.group(1)
-        result['ordem_lifts'] = [l.strip() for l in lifts_str.split('→')]
+        result['ordem_lifts'] = [l.strip() for l in ordem_match.group(1).split('→')]
 
-    # Extract log semanal (current week)
-    # Pattern: | DD/MM | Treino | Sim/Não/? | energia | notas |
-    log_pattern = r'\|\s*(\d{2}/\d{2})\s+\w+\s*\|\s*([^|]+)\|\s*(Sim|Não|[^|]*)\s*\|\s*([^|]*)\|\s*([^|]*)\|'
-    for match in re.finditer(log_pattern, content):
+    # --- 5. TMs — last kg value per lift row ---
+    for match in re.finditer(r'\|\s*(Squat|Bench|Deadlift|OHP)\s*\|(.+)', content):
+        lift = match.group(1)
+        kg_values = re.findall(r'([\d.]+)kg', match.group(2))
+        if kg_values:
+            result['tms'][lift] = float(kg_values[-1])
+
+    # --- 6. Parse ALL log entries ---
+    # Format: | DD/MM Dia | Treino text | Notas text |
+    all_entries = []
+    for match in re.finditer(
+        r'\|\s*(\d{2}/\d{2})\s+\S+\s*\|\s*([^|]+)\|\s*([^|]*)\|',
+        content
+    ):
         date_str = match.group(1)
         treino = match.group(2).strip()
-        completou = match.group(3).strip()
-        energia = match.group(4).strip()
-        notas = match.group(5).strip()
-
-        entry = {
+        notas = match.group(3).strip()
+        try:
+            day, month = date_str.split('/')
+            entry_date = date(2026, int(month), int(day))
+        except ValueError:
+            continue
+        all_entries.append({
             'data': date_str,
+            'date': entry_date,
             'treino': treino,
-            'completou': completou == 'Sim',
-            'energia': energia,
             'notas': notas,
-        }
-        result['log_semanal'].append(entry)
+        })
 
-        # Track completed lifts (only from current Wendler week)
-        if completou == 'Sim' and treino:
-            # Check if this lift is from the current week (e.g., "OHP (S2)" for Semana 2)
-            current_week_marker = f"(S{result['semana']})"
-            if current_week_marker in treino:
-                # Extract lift name from "Deadlift (S2)"
-                lift_match = re.match(r'(\w+)', treino)
-                if lift_match:
-                    result['lifts_completados'].append(lift_match.group(1))
+    result['log_semanal'] = all_entries
+
+    # --- 7. Find completed lifts for current cycle+semana ---
+    ciclo = result['ciclo']
+    semana = result['semana']
+    main_lifts = set(result['ordem_lifts'])
+
+    for entry in all_entries:
+        treino = entry['treino']
+        # "Lift Ciclo N Sem M" pattern
+        m = re.match(r'(\w+)\s+Ciclo\s+(\d+)\s+Sem\s+(\d+)', treino)
+        if m and int(m.group(2)) == ciclo and int(m.group(3)) == semana:
+            lift = m.group(1)
+            if lift in main_lifts and lift not in result['lifts_completados']:
+                result['lifts_completados'].append(lift)
+
+    # --- 8. Determine next lift ---
+    completados = set(result['lifts_completados'])
+    for lift in result['ordem_lifts']:
+        if lift not in completados:
+            result['proximo_treino'] = lift
+            break
+
+    if not result['proximo_treino'] and len(completados) >= len(result['ordem_lifts']):
+        result['proximo_treino'] = result['ordem_lifts'][0]
 
     return result
 
 
 def parse_maconha(filepath: Optional[Path] = None) -> dict:
     """
-    Parse MACONHA.md and extract reduction plan data.
+    Parse MACONHA.md and extract usage data.
 
-    Returns:
-        dict with keys:
-        - fase_atual: int (current phase number)
-        - fase_padrao: str (allowed pattern, e.g., "Sex-Sáb-Dom")
-        - fase_inicio: date
-        - fase_fim: date
-        - dias_permitidos: list[str] (allowed day names)
-        - log_semanal: list[dict] (weekly log entries)
-        - streak: int (consecutive days without smoking)
-        - ultimo_uso: date or None
+    Handles both formats:
+    - 6-col (Fase 1): | DD/MM | Dia | Sim/Não | Energia | Sono | Notas |
+    - 4-col (Livre):  | DD/MM | Dia | Sim/Não | Notas |
     """
     if filepath is None:
         filepath = METAS_DIR / "MACONHA.md"
@@ -132,116 +140,109 @@ def parse_maconha(filepath: Optional[Path] = None) -> dict:
     content = filepath.read_text(encoding='utf-8')
 
     result = {
-        'fase_atual': 1,
-        'fase_padrao': '',
-        'fase_inicio': None,
-        'fase_fim': None,
-        'dias_permitidos': [],
-        'log_semanal': [],
+        'modelo': 'livre',
+        'padrao': '~1x/semana',
         'streak': 0,
         'ultimo_uso': None,
+        'log_entries': [],
+        'fumou_esta_semana': 0,
+        'fumou_semana_passada': 0,
+        'week_start': None,
+        'alerta': False,
     }
 
-    # Extract current phase from table (look for **ATUAL**)
-    # Pattern: | 1 | **Sex-Sáb-Dom** (3 dias) | 2 semanas | **ATUAL** |
-    fase_pattern = r'\|\s*(\d+)\s*\|\s*\*?\*?([A-Za-záéíóúÁÉÍÓÚ\-]+)\*?\*?[^|]*\|\s*[^|]+\|\s*\*\*ATUAL\*\*\s*\|'
-    fase_match = re.search(fase_pattern, content)
-    if fase_match:
-        result['fase_atual'] = int(fase_match.group(1))
-        padrao = fase_match.group(2).strip().strip('*')
-        result['fase_padrao'] = padrao
+    # Detect model
+    if 'Fases abandonadas' in content or 'auto-regulação' in content:
+        result['modelo'] = 'livre'
 
-        # Extract allowed days from pattern (e.g., "Sex-Sáb-Dom")
-        dias_map = {
-            'Seg': 'Segunda',
-            'Ter': 'Terça',
-            'Qua': 'Quarta',
-            'Qui': 'Quinta',
-            'Sex': 'Sexta',
-            'Sáb': 'Sábado',
-            'Sab': 'Sábado',
-            'Dom': 'Domingo',
-        }
-        for abbrev in padrao.split('-'):
-            abbrev = abbrev.strip().strip('*')
-            if abbrev in dias_map:
-                result['dias_permitidos'].append(dias_map[abbrev])
+    # Extract pattern
+    padrao_match = re.search(r'\*\*Padrão:\*\*\s*(.+)', content)
+    if padrao_match:
+        result['padrao'] = padrao_match.group(1).strip()
 
-    # Extract phase dates
-    # **Início da Fase X:** YYYY-MM-DD
-    inicio_match = re.search(r'\*\*Início da Fase \d+:\*\*\s*(\d{4}-\d{2}-\d{2})', content)
-    if inicio_match:
-        result['fase_inicio'] = datetime.strptime(inicio_match.group(1), '%Y-%m-%d').date()
-
-    fim_match = re.search(r'\*\*Fim da Fase \d+:\*\*\s*(\d{4}-\d{2}-\d{2})', content)
-    if fim_match:
-        result['fase_fim'] = datetime.strptime(fim_match.group(1), '%Y-%m-%d').date()
-
-    # Extract log entries and calculate streak
-    # Pattern: | DD/MM | Dia | Não/Sim | energia | sono | notas |
-    log_pattern = r'\|\s*(\d{2}/\d{2})\s*\|\s*(\w+)\s*\|\s*(Sim|Não|[^|]*)\s*\|\s*([^|]*)\|\s*([^|]*)\|\s*([^|]*)\|'
-
+    # Parse ALL log entries — unified regex for first 3 columns
     all_entries = []
-    for match in re.finditer(log_pattern, content):
+    for match in re.finditer(
+        r'\|\s*(\d{2}/\d{2})\s*\|\s*(\S+)\s*\|\s*(Sim|Não|)\s*\|',
+        content
+    ):
         date_str = match.group(1)
         dia = match.group(2).strip()
         fumou_raw = match.group(3).strip()
-        energia = match.group(4).strip()
-        sono = match.group(5).strip()
-        notas = match.group(6).strip()
 
-        # Parse fumou status
         fumou = None
         if fumou_raw == 'Sim':
             fumou = True
         elif fumou_raw == 'Não':
             fumou = False
-        # else: None (not recorded yet)
 
-        entry = {
+        try:
+            day, month = date_str.split('/')
+            entry_date = date(2026, int(month), int(day))
+        except ValueError:
+            continue
+
+        all_entries.append({
             'data': date_str,
             'dia': dia,
+            'date': entry_date,
             'fumou': fumou,
-            'energia': energia,
-            'sono': sono,
-            'notas': notas,
-        }
-        all_entries.append(entry)
-        result['log_semanal'].append(entry)
+        })
 
-    # Calculate streak (consecutive "Não" from most recent entry going backwards)
-    # Only count entries that have been filled in (fumou is not None)
-    filled_entries = [e for e in all_entries if e['fumou'] is not None]
+    result['log_entries'] = all_entries
 
-    # Sort by date (assuming DD/MM format, year is 2026)
-    def parse_date(entry):
-        day, month = entry['data'].split('/')
-        return date(2026, int(month), int(day))
-
-    filled_entries.sort(key=parse_date, reverse=True)
-
+    # Calculate streak (consecutive Não from most recent recorded entry)
+    filled = sorted(
+        [e for e in all_entries if e['fumou'] is not None],
+        key=lambda e: e['date'],
+        reverse=True
+    )
     streak = 0
-    for entry in filled_entries:
+    for entry in filled:
         if entry['fumou'] is False:
             streak += 1
         else:
-            if entry['fumou'] is True:
-                result['ultimo_uso'] = parse_date(entry)
+            result['ultimo_uso'] = entry['date']
             break
-
     result['streak'] = streak
+
+    # Weekly usage stats
+    hoje = date.today()
+    week_start = hoje - timedelta(days=hoje.weekday())  # Monday
+    prev_week_start = week_start - timedelta(days=7)
+
+    fumou_esta = 0
+    fumou_passada = 0
+    for entry in all_entries:
+        if entry['fumou'] is True:
+            if entry['date'] >= week_start:
+                fumou_esta += 1
+            elif entry['date'] >= prev_week_start:
+                fumou_passada += 1
+
+    result['fumou_esta_semana'] = fumou_esta
+    result['fumou_semana_passada'] = fumou_passada
+    result['week_start'] = week_start
+
+    # Alert: 2+ days for 2 consecutive weeks
+    result['alerta'] = fumou_esta >= 2 and fumou_passada >= 2
 
     return result
 
 
 if __name__ == "__main__":
-    # Test parsing
-    print("=== SAÚDE ===")
+    print("=== SAUDE ===")
     saude = parse_saude()
     for key, value in saude.items():
-        print(f"{key}: {value}")
+        if key == 'log_semanal':
+            print(f"{key}: [{len(value)} entries]")
+        else:
+            print(f"{key}: {value}")
 
     print("\n=== MACONHA ===")
     maconha = parse_maconha()
     for key, value in maconha.items():
-        print(f"{key}: {value}")
+        if key == 'log_entries':
+            print(f"{key}: [{len(value)} entries]")
+        else:
+            print(f"{key}: {value}")

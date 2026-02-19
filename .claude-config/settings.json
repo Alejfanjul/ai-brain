@@ -24,7 +24,8 @@
       "Read(//home/alejandro/ai-brain/**)",
       "Read(//mnt/c/Users/Alejandro/concierge-platform/design/kv-duke/Tipografia/**)",
       "Read(//mnt/c/Users/Alejandro/concierge-platform/design/kv-duke/**)",
-      "Read(//mnt/c/Users/Alejandro/concierge-platform/design/kv-duke/linguiagem/**)"
+      "Read(//mnt/c/Users/Alejandro/concierge-platform/design/kv-duke/linguiagem/**)",
+      "Read(//mnt/c/Users/Alejandro/concierge-platform/design/**)"
     ],
     "deny": [
       "Bash(rm -rf *)",

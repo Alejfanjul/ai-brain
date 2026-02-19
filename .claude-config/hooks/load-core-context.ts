@@ -12,7 +12,7 @@ interface SessionStartPayload {
   [key: string]: any;
 }
 
-const PAI_FILES = ['IDENTITY.md', 'PROJECTS.md'];
+const PAI_FILES = ['IDENTITY.md', 'PROJECTS.md', 'DAIDENTITY.md'];
 
 function isSubagentSession(): boolean {
   return process.env.CLAUDE_CODE_AGENT !== undefined ||
@@ -144,8 +144,16 @@ async function main() {
       process.exit(0);
     }
 
+    const daIdentityPath = join(paiDir, 'DAIDENTITY.md');
+    const hasDaIdentity = existsSync(daIdentityPath);
+
     // Read available files
     let contextContent = '';
+
+    if (hasDaIdentity) {
+      const daIdentity = readFileSync(daIdentityPath, 'utf-8');
+      contextContent += daIdentity + '\n\n---\n\n';
+    }
 
     if (hasIdentity) {
       const identity = readFileSync(identityPath, 'utf-8');
@@ -158,7 +166,12 @@ async function main() {
     }
 
     // Build output with setup message if symlinks were just created
-    let statusMessage = 'PAI Context loaded (IDENTITY + PROJECTS)';
+    const loadedParts = [
+      hasDaIdentity ? 'AI_IDENTITY' : null,
+      hasIdentity ? 'IDENTITY' : null,
+      hasProjects ? 'PROJECTS' : null,
+    ].filter(Boolean).join(' + ');
+    let statusMessage = `PAI Context loaded (${loadedParts})`;
     if (setupResult.message) {
       statusMessage = setupResult.message + '\n' + statusMessage;
     }

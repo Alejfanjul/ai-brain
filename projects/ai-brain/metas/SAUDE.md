@@ -282,8 +282,10 @@ Entre séries do lift principal. 50-100 reps por categoria por treino.
 |------|--------|-------|
 | 16/02 Seg | Cardio colete | 10kg. 5x2:30 + 3x1:30 = ~17min corrida. Conforme plano Sem 1 |
 | 17/02 Ter | OHP Ciclo 2 Sem 1 | TM 46 (app). 5x30, 5x36, 5x40. FSL 5x5@30. Acessórios: 3x20 ab wheel, 3x20 lat pulldown, 3x20 goblet squat KB 20kg, 2x20 panturrilha 25kg |
+| 18/02 Qua | OFF | |
+| 19/02 Qui | Cardio colete | 10kg. 5x2:30 + 3x1:30 = ~17min corrida. Conforme plano Sem 1. Último cardio Sem 1 |
 
-**Treinos: 2/?**
+**Treinos: 3/?**
 
 ---
 

@@ -284,8 +284,9 @@ Entre séries do lift principal. 50-100 reps por categoria por treino.
 | 17/02 Ter | OHP Ciclo 2 Sem 1 | TM 46 (app). 5x30, 5x36, 5x40. FSL 5x5@30. Acessórios: 3x20 ab wheel, 3x20 lat pulldown, 3x20 goblet squat KB 20kg, 2x20 panturrilha 25kg |
 | 18/02 Qua | OFF | |
 | 19/02 Qui | Cardio colete | 10kg. 5x2:30 + 3x1:30 = ~17min corrida. Conforme plano Sem 1. Último cardio Sem 1 |
+| 20/02 Sex | Deadlift Ciclo 2 Sem 1 | TM 120 (app mostra TM 125?). Aquec: 5x50, 5x60, 4x80. Principal: 5x80, 5x90, 5x100. FSL 5x5@80. Acessórios: 3x20 canoinha, 3x20 puxada baixa triângulo, 3x20 plate raise 10kg, 2x20 panturrilha 25kg |
 
-**Treinos: 3/?**
+**Treinos: 4/?**
 
 ---
 

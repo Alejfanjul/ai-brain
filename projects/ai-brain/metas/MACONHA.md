@@ -108,6 +108,8 @@
 | 16/02 | Seg | Não | |
 | 17/02 | Ter | Sim | Diego veio em casa, cerveja + fumo. Conversa produtiva de negócios, bonding |
 | 18/02 | Qua | Não | |
+| 19/02 | Qui | Não | |
+| 20/02 | Sex | Não | |
 
 **Reflexão:** Semana passada carnaval (3 dias), terça exceção com Diego. Próximo planejado: 22/02. Atento para não virar rotina.
 

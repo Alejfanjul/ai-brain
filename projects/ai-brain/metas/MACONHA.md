@@ -1,10 +1,10 @@
-# Redução de Maconha - Log de Progresso
+# Maconha - Log Reflexivo
 
-> **Meta final:** Poder ter em casa e não fumar. Usar apenas ocasionalmente (com namorada).
+> **Objetivo:** Usar com consciência, sem culpa desnecessária. Manter o log como ferramenta de honestidade, não de controle.
 
 ---
 
-## Por que reduzir
+## Por que reduzir (contexto original)
 
 **Custos do uso frequente (5 dias/semana):**
 - Droga depressiva + histórico de depressão + antidepressivo = não faz sentido
@@ -12,7 +12,7 @@
 - Sono pior
 - Efeitos negativos amplificados com frequência alta
 
-**Benefícios do uso ocasional (1x/semana):**
+**Benefícios do uso ocasional:**
 - Relaxamento
 - Sexo é incrível
 - Às vezes, ideias criativas
@@ -22,138 +22,107 @@
 
 ## Modelo Atual
 
-> Fases abandonadas em 07/02/2026. A auto-regulação funcionou melhor que regras rígidas.
+> Atualizado em 21/02/2026 após conversa reflexiva sobre culpa e controle.
 
-**Padrão:** ~1x por semana, por escolha própria
-**Controle:** Log semanal honesto. Se o padrão escorregar, o log mostra.
+**Padrão natural:** 1-2x por semana, por escolha própria
+**Critério real:** Atrapalha sono, treino ou produtividade? Se não, tá bem.
+**Log:** Semanal, reflexivo. Sem contagem de dias, sem meta numérica rígida.
 
-**Regras:**
-1. Registrar semanalmente: fumou ou não, quantos dias, como se sentiu
-2. Se fumar fora do padrão: registrar sem drama, seguir em frente
-3. Sinal de alerta: 2+ dias por semana por 2 semanas seguidas → reavaliar
+**O que mudou:**
+- Meta de "1x/semana" cumpriu seu papel (reduziu de 5x para ~1x) — missão cumprida
+- O formato de controle diário (sim/não por dia) gerava culpa desproporcional
+- O novo formato foca em como se sentiu, não em quantas vezes
+
+**Sinal de atenção (não de alerta):**
+- Fumar virando automático/diário em vez de escolha consciente
+- Sentir que *precisa* fumar pra funcionar
+- Impacto real no sono, treino ou trabalho
+
+---
+
+## Insight: Culpa e Perfeccionismo (21/02/2026)
+
+Conversa com Kai sobre o padrão de culpa. Conexões:
+
+- A meta de 1x/semana virou mais uma régua pra se provar insuficiente
+- Mesmo padrão da infância: "pra ser aceito, tinha que ser perfeito"
+- Qualquer desvio do plano ativa o circuito de falha, independente da gravidade real
+- Rotina de 5h às 21h30 (treino + trabalho + projetos), e fumar um pouco à noite registra como "erro"
+- A culpa crônica por algo leve é potencialmente pior que o uso moderado — especialmente com histórico de depressão
+- Cortar grama, descansar, qualquer coisa não-produtiva cai no mesmo padrão
+
+**Conclusão:** O problema nunca foi a maconha em si. É a dificuldade de parar sem se sentir culpado. A auto-regulação já funciona — o que faltava era permitir que ela funcionasse sem uma régua em cima.
 
 ---
 
 ## Log Semanal
 
-### Semana 1 (20-26 Jan 2026) — Fase 1
+### Semana 16-22 Fev 2026
 
-| Data | Dia | Fumou? | Energia (1-10) | Sono | Notas |
-|------|-----|--------|----------------|------|-------|
-| 18/01 | Dom | Não | - | - | Trouxe maconha pra casa por engano, resistiu! |
-| 19/01 | Seg | Não | - | - | Não fumou |
-| 20/01 | Ter | Não | 7+ | - | Feriado - dia "ideal" pra fumar, manteve firme. Energia melhor, tristeza diminuindo |
-| 21/01 | Qua | Não | - | - | Streak mantido |
-| 22/01 | Qui | Não | - | - | Streak 5 dias. Treinou pesado, manteve firme |
-| 23/01 | Sex | Sim | | | Permitido - muito bom |
-| 24/01 | Sáb | Sim | | | Permitido - não valeu tanto a pena |
-| 25/01 | Dom | Sim | | | Permitido - não valeu tanto a pena |
+**Uso:** Terça (com Diego, cerveja e conversa de negócios), sexta (sozinho, pouco, cansaço após dia longo). Sábado e domingo ainda abertos.
 
-**Reflexão:** Streak de 5 dias sem fumar. Insight: prazer diminui com uso consecutivo. 1x/semana > 3x seguidos.
+**Como me senti:** Terça valeu — conexão real, papo produtivo. Sexta foi mais escape de cansaço, não planejado. Gerou culpa na hora, o que motivou a conversa reflexiva de sábado.
+
+**Impacto no resto:** Nenhum. Treino mantido (4 treinos na semana incluindo deadlift sexta). Trabalho produtivo a semana inteira.
 
 ---
 
-### Semana 2 (26 Jan - 01 Fev 2026) — Fase 1
+### Semana 09-15 Fev 2026
 
-| Data | Dia | Fumou? | Energia (1-10) | Sono | Notas |
-|------|-----|--------|----------------|------|-------|
-| 26/01 | Seg | Não | | | |
-| 27/01 | Ter | Não | | | |
-| 28/01 | Qua | Não | | | |
-| 29/01 | Qui | Não | | | |
-| 30/01 | Sex | Não | | | Permitido - escolheu não fumar |
-| 31/01 | Sáb | Sim | | | Permitido |
-| 01/02 | Dom | Não | | | Permitido - escolheu não fumar |
+**Uso:** Quarta (namorada, vinho, jantar), sexta (pouquinho, dormiu), sábado (ponta que sobrou).
 
-**Reflexão:** Fumou 1/3 dos dias permitidos. Escolheu conscientemente não fumar sexta e domingo.
+**Como me senti:** Quarta valeu a pena. Sexta e sábado foram mais inércia — fumou porque tinha, não porque queria muito. Sentiu culpa.
+
+**Impacto no resto:** Nenhum significativo. Semana de carnaval, ritmo diferente.
 
 ---
 
-### Semana 3 (02-08 Fev 2026) — Livre
+### Semana 02-08 Fev 2026
 
-| Data | Dia | Fumou? | Notas |
-|------|-----|--------|-------|
-| 02/02 | Seg | Não | |
-| 03/02 | Ter | Não | |
-| 04/02 | Qua | Não | |
-| 05/02 | Qui | Não | |
-| 06/02 | Sex | Não | Escolheu não fumar |
-| 07/02 | Sáb | Sim | Maravilhoso |
-| 08/02 | Dom | Não | |
+**Uso:** Sábado (1x). Maravilhoso.
 
-**Reflexão:** Streak de 7 dias (desde 31/01). Primeira semana no modelo livre.
+**Como me senti:** Perfeito. Uma vez, planejado, curtiu muito.
+
+**Impacto no resto:** Zero. Melhor semana do registro.
 
 ---
 
-### Semana 4 (09-15 Fev 2026) — Livre
+### Semana 26 Jan - 01 Fev 2026
 
-| Data | Dia | Fumou? | Notas |
-|------|-----|--------|-------|
-| 09/02 | Seg | Não | |
-| 10/02 | Ter | Não | |
-| 11/02 | Qua | Sim | Namorada veio, vinho, jantar — valeu a pena |
-| 12/02 | Qui | Não | Decidiu não fumar o restinho. "É assim que começa o final." |
-| 13/02 | Sex | Sim | Pouquinho. Apagou, dormiu até tarde. Precisava descansar |
-| 14/02 | Sáb | Sim | Fumou uma ponta que sobrou. Foi bom |
-| 15/02 | Dom | Não | |
+**Uso:** Sábado (1x). Escolheu não fumar sexta e domingo mesmo podendo.
 
-**Reflexão:** Sentindo culpa pelo uso, mas ao mesmo tempo quer ter essa liberdade. Semana diferente — feriado, mais relaxada.
+**Como me senti:** Bem. Escolha consciente.
+
+**Impacto no resto:** Nenhum.
 
 ---
 
-### Semana 5 (16-22 Fev 2026) — Livre
+### Semana 20-26 Jan 2026
 
-| Data | Dia | Fumou? | Notas |
-|------|-----|--------|-------|
-| 16/02 | Seg | Não | |
-| 17/02 | Ter | Sim | Diego veio em casa, cerveja + fumo. Conversa produtiva de negócios, bonding |
-| 18/02 | Qua | Não | |
-| 19/02 | Qui | Não | |
-| 20/02 | Sex | Não | |
+**Uso:** Sexta, sábado, domingo (3x seguidos — primeiro registro, modelo antigo).
 
-**Reflexão:** Semana passada carnaval (3 dias), terça exceção com Diego. Próximo planejado: 22/02. Atento para não virar rotina.
+**Como me senti:** Sexta muito bom. Sábado e domingo não valeram tanto. Insight: prazer diminui com uso consecutivo.
+
+**Impacto no resto:** Confirmou que 1x > 3x seguidos.
 
 ---
 
-## Avaliação da Fase 1
-
-> Período: 20/01 - 02/02/2026 (2 semanas)
-
-**Dias que fumou fora do padrão:** 0. Nenhum deslize.
-
-**Uso nos dias permitidos (Sex-Sáb-Dom):**
-- Semana 1: 3/3 (usou todos)
-- Semana 2: 1/3 (fumou só sábado, escolheu não usar sexta e domingo)
-- Total: 4 dias em 14. Antes eram ~10 em 14.
-
-**Insight principal:** Prazer diminui com uso consecutivo. 1x/semana > 3x seguidos.
-
-**Como se sentiu nas quintas sem fumar:** Bem. Treinou pesado, manteve firme. Sem registro de fissura.
-
-**Mudança na energia geral:** Energia melhor relatada no início (7+), tristeza diminuindo. Sem registros detalhados nas demais semanas.
-
-**Mudança no sono:** Sem dados registrados.
-
-**Evolução:** Redução natural de 3→1 dia por semana, sem forçar. Já operou no padrão da Fase 2 (Sáb-Dom) espontaneamente na semana 2.
-
-**Decisão:** Fases abandonadas. Auto-regulação com log semanal. A redução aconteceu naturalmente — estrutura formal virou desnecessária.
-
----
-
-## Histórico
+## Evolução
 
 | Período | Modelo | Resultado |
 |---------|--------|-----------|
-| Antes de 20/01 | ~5 dias/semana | Uso frequente |
-| 20/01 - 02/02 | Fase 1 (Sex-Sáb-Dom) | 4 dias em 14. Zero deslizes. Redução natural pra 1x/sem |
-| 02/02 em diante | Livre (~1x/semana) | Em andamento |
+| Antes de 20/01 | ~5 dias/semana | Uso frequente, automático |
+| 20/01 - 02/02 | Fase 1 (Sex-Sáb-Dom) | 4 dias em 14. Redução natural pra 1x/sem |
+| 02/02 - 21/02 | Livre (~1x/semana) | Auto-regulação funcionando. Culpa > uso real |
+| 21/02 em diante | Reflexivo (sem meta numérica) | Foco em consciência, não controle |
 
 ---
 
 ## Lembretes
 
-- O objetivo não é punição, é liberdade (poder ter em casa e escolher não usar)
-- Escorregar não é fracassar, é informação
-- 1x por semana = muito bom, sem efeito negativo
-- O teste real: como você se sente na quinta-feira?
-- Se o log mostrar 2+ dias/semana por 2 semanas → hora de reavaliar
+- O objetivo é liberdade, não punição
+- Fumar pouco à noite depois de 16h de trabalho não é falha de caráter
+- O critério é impacto real, não contagem de dias
+- Prazer diminui com uso consecutivo — o corpo já sabe disso
+- A culpa gasta mais energia que o uso moderado
+- Registrar é pra ter clareza, não pra se julgar

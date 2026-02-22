@@ -65,10 +65,10 @@ def calculate_saude_progress(data: Optional[dict] = None) -> dict:
 
 def calculate_maconha_progress(data: Optional[dict] = None) -> dict:
     """
-    Calculate usage progress metrics for Livre model.
+    Calculate usage info for reflective model.
 
-    Progress bar represents streak toward 7-day target.
-    Alert triggers if 2+ days smoked for 2 consecutive weeks.
+    No streak counting, no progress bars, no rigid alerts.
+    Shows latest week's reflection and pattern.
     """
     if data is None:
         data = parse_maconha()
@@ -76,36 +76,16 @@ def calculate_maconha_progress(data: Optional[dict] = None) -> dict:
     hoje = date.today()
     hoje_dia = WEEKDAY_PT[hoje.weekday()]
 
-    streak = data['streak']
-    fumou_esta = data.get('fumou_esta_semana', 0)
-    fumou_passada = data.get('fumou_semana_passada', 0)
-    alerta = data.get('alerta', False)
-    week_start = data.get('week_start', hoje - timedelta(days=hoje.weekday()))
-
-    # Progress: streak toward 7-day target
-    progresso_streak = min(1.0, streak / 7)
-
-    # Alert text
-    alerta_texto = ''
-    if alerta:
-        alerta_texto = '⚠ ALERTA: 2+ dias por 2 semanas seguidas'
-    elif fumou_passada >= 2:
-        alerta_texto = f'⚠ Semana passada: {fumou_passada} dia(s) — acima de 1x'
+    semanas = data.get('semanas', [])
+    ultima = semanas[0] if semanas else {}
 
     return {
-        'modelo': data.get('modelo', 'livre'),
-        'padrao': data.get('padrao', '~1x/semana'),
-        'streak': streak,
-        'progresso_streak': progresso_streak,
-        'fumou_esta_semana': fumou_esta,
-        'fumou_semana_passada': fumou_passada,
-        'alerta': alerta,
-        'alerta_texto': alerta_texto,
-        'ultimo_uso': data.get('ultimo_uso'),
+        'modelo': data.get('modelo', 'reflexivo'),
+        'padrao_natural': data.get('padrao_natural', ''),
+        'criterio': data.get('criterio', ''),
         'hoje_dia': hoje_dia,
-        'week_start': week_start,
-        'titulo': f"Livre ({data.get('padrao', '~1x/semana')})",
-        'subtitulo': f'Streak: {streak} dias sem fumar',
+        'ultima_semana': ultima,
+        'total_semanas': len(semanas),
     }
 
 
@@ -126,13 +106,14 @@ def get_today_focus(saude: Optional[dict] = None, maconha: Optional[dict] = None
         focus.append("Todos os lifts da semana completos!")
 
     # Maconha focus
-    streak = maconha['streak']
-    if maconha.get('alerta'):
-        focus.append(f"⚠ Atenção: uso acima de 1x/semana por 2 semanas")
-    elif streak >= 5:
-        focus.append(f"Streak: {streak} dias ✓")
+    ultima = maconha.get('ultima_semana', {})
+    impacto = ultima.get('impacto', '')
+    if impacto and 'nenhum' in impacto.lower():
+        focus.append("Maconha: uso sem impacto esta semana")
+    elif impacto:
+        focus.append(f"Maconha: {impacto[:50]}")
     else:
-        focus.append(f"Streak: {streak} dias — meta ~7 entre usos")
+        focus.append("Maconha: sem registro esta semana")
 
     # Mobility
     focus.append("Mobilidade: 10-15 min (trapézio + cervical)")

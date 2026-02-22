@@ -130,9 +130,9 @@ def parse_maconha(filepath: Optional[Path] = None) -> dict:
     """
     Parse MACONHA.md and extract usage data.
 
-    Handles both formats:
-    - 6-col (Fase 1): | DD/MM | Dia | Sim/Não | Energia | Sono | Notas |
-    - 4-col (Livre):  | DD/MM | Dia | Sim/Não | Notas |
+    Handles reflective format (Feb 2026+):
+    - Weekly narrative sections with **Uso:**, **Como me senti:**, **Impacto no resto:**
+    - No daily tables, no streak counting, no rigid alerts.
     """
     if filepath is None:
         filepath = METAS_DIR / "MACONHA.md"
@@ -140,92 +140,49 @@ def parse_maconha(filepath: Optional[Path] = None) -> dict:
     content = filepath.read_text(encoding='utf-8')
 
     result = {
-        'modelo': 'livre',
-        'padrao': '~1x/semana',
-        'streak': 0,
-        'ultimo_uso': None,
-        'log_entries': [],
-        'fumou_esta_semana': 0,
-        'fumou_semana_passada': 0,
-        'week_start': None,
-        'alerta': False,
+        'modelo': 'reflexivo',
+        'padrao_natural': '',
+        'criterio': '',
+        'semanas': [],
     }
 
-    # Detect model
-    if 'Fases abandonadas' in content or 'auto-regulação' in content:
-        result['modelo'] = 'livre'
-
-    # Extract pattern
-    padrao_match = re.search(r'\*\*Padrão:\*\*\s*(.+)', content)
+    # Extract current model info
+    padrao_match = re.search(r'\*\*Padrão natural:\*\*\s*(.+)', content)
     if padrao_match:
-        result['padrao'] = padrao_match.group(1).strip()
+        result['padrao_natural'] = padrao_match.group(1).strip()
 
-    # Parse ALL log entries — unified regex for first 3 columns
-    all_entries = []
-    for match in re.finditer(
-        r'\|\s*(\d{2}/\d{2})\s*\|\s*(\S+)\s*\|\s*(Sim|Não|)\s*\|',
-        content
-    ):
-        date_str = match.group(1)
-        dia = match.group(2).strip()
-        fumou_raw = match.group(3).strip()
+    criterio_match = re.search(r'\*\*Critério real:\*\*\s*(.+)', content)
+    if criterio_match:
+        result['criterio'] = criterio_match.group(1).strip()
 
-        fumou = None
-        if fumou_raw == 'Sim':
-            fumou = True
-        elif fumou_raw == 'Não':
-            fumou = False
+    # Parse weekly sections under "## Log Semanal"
+    log_section = re.split(r'^## Log Semanal\s*$', content, flags=re.MULTILINE)
+    if len(log_section) < 2:
+        return result
 
-        try:
-            day, month = date_str.split('/')
-            entry_date = date(2026, int(month), int(day))
-        except ValueError:
-            continue
+    log_content = log_section[1]
+    # Stop at next ## section
+    log_content = re.split(r'^## (?!#)', log_content, flags=re.MULTILINE)[0]
 
-        all_entries.append({
-            'data': date_str,
-            'dia': dia,
-            'date': entry_date,
-            'fumou': fumou,
-        })
+    # Split by ### headers
+    week_blocks = re.split(r'^### ', log_content, flags=re.MULTILINE)[1:]
 
-    result['log_entries'] = all_entries
+    for block in week_blocks:
+        lines = block.strip().split('\n')
+        header = lines[0].strip() if lines else ''
+        body = '\n'.join(lines[1:])
 
-    # Calculate streak (consecutive Não from most recent recorded entry)
-    filled = sorted(
-        [e for e in all_entries if e['fumou'] is not None],
-        key=lambda e: e['date'],
-        reverse=True
-    )
-    streak = 0
-    for entry in filled:
-        if entry['fumou'] is False:
-            streak += 1
-        else:
-            result['ultimo_uso'] = entry['date']
-            break
-    result['streak'] = streak
+        uso_match = re.search(r'\*\*Uso:\*\*\s*(.+?)(?:\n\n|\n\*\*|$)', body, re.DOTALL)
+        sentimento_match = re.search(r'\*\*Como me senti:\*\*\s*(.+?)(?:\n\n|\n\*\*|$)', body, re.DOTALL)
+        impacto_match = re.search(r'\*\*Impacto no resto:\*\*\s*(.+?)(?:\n\n|\n\*\*|$)', body, re.DOTALL)
 
-    # Weekly usage stats
-    hoje = date.today()
-    week_start = hoje - timedelta(days=hoje.weekday())  # Monday
-    prev_week_start = week_start - timedelta(days=7)
-
-    fumou_esta = 0
-    fumou_passada = 0
-    for entry in all_entries:
-        if entry['fumou'] is True:
-            if entry['date'] >= week_start:
-                fumou_esta += 1
-            elif entry['date'] >= prev_week_start:
-                fumou_passada += 1
-
-    result['fumou_esta_semana'] = fumou_esta
-    result['fumou_semana_passada'] = fumou_passada
-    result['week_start'] = week_start
-
-    # Alert: 2+ days for 2 consecutive weeks
-    result['alerta'] = fumou_esta >= 2 and fumou_passada >= 2
+        semana = {
+            'header': header,
+            'uso': uso_match.group(1).strip() if uso_match else '',
+            'sentimento': sentimento_match.group(1).strip() if sentimento_match else '',
+            'impacto': impacto_match.group(1).strip() if impacto_match else '',
+        }
+        result['semanas'].append(semana)
 
     return result
 

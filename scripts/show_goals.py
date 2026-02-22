@@ -57,39 +57,35 @@ def show_saude(as_json: bool = False) -> None:
 
 
 def show_maconha(as_json: bool = False) -> None:
-    """Display only usage progress (Livre model)."""
+    """Display usage reflection (Reflexivo model)."""
     maconha = calculate_maconha_progress()
 
     if as_json:
         print(json.dumps({
             'modelo': maconha['modelo'],
-            'padrao': maconha['padrao'],
-            'streak': maconha['streak'],
-            'progresso_streak': round(maconha['progresso_streak'], 2),
-            'fumou_esta_semana': maconha['fumou_esta_semana'],
-            'fumou_semana_passada': maconha['fumou_semana_passada'],
-            'alerta': maconha['alerta'],
-            'ultimo_uso': maconha['ultimo_uso'].isoformat() if maconha['ultimo_uso'] else None,
+            'padrao_natural': maconha['padrao_natural'],
+            'criterio': maconha['criterio'],
+            'ultima_semana': maconha['ultima_semana'],
         }, indent=2, ensure_ascii=False))
         return
 
-    week_start_str = maconha['week_start'].strftime('%d/%m')
+    ultima = maconha.get('ultima_semana', {})
 
-    maconha_details = [
-        f"Esta semana ({week_start_str}): {maconha['fumou_esta_semana']} dia(s)",
-        f"Semana passada: {maconha['fumou_semana_passada']} dia(s)"
-        + (' ⚠' if maconha['fumou_semana_passada'] >= 2 else ''),
-        f"Hoje: {maconha['hoje_dia']}",
-    ]
-    if maconha['alerta_texto']:
-        maconha_details.append(maconha['alerta_texto'])
-
-    print(format_goal_section(
-        f"MACONHA - {maconha['titulo']}",
-        maconha['subtitulo'],
-        maconha['progresso_streak'],
-        maconha_details
-    ))
+    print(f"MACONHA - Reflexivo ({maconha['padrao_natural']})")
+    print('─' * 36)
+    if ultima:
+        print(f"  {ultima.get('header', '')}")
+        if ultima.get('uso'):
+            print(f"  Uso: {ultima['uso']}")
+        if ultima.get('impacto'):
+            print(f"  Impacto: {ultima['impacto']}")
+        if ultima.get('sentimento'):
+            print(f"  Reflexão: {ultima['sentimento']}")
+    else:
+        print("  Sem registros recentes.")
+    if maconha.get('criterio'):
+        print(f"\n  Critério: {maconha['criterio']}")
+    print()
 
 
 def show_today(as_json: bool = False) -> None:

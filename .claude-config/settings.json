@@ -12,21 +12,7 @@
       "Task(*)",
       "Bash(*)",
       "mcp__plugin_supabase_supabase__*",
-      "mcp__plugin_playwright_playwright__*",
-      "Read(//tmp/video-analysis/**)",
-      "Read(//tmp/hoje/**)",
-      "Read(//mnt/c/Users/aleja/whisper-dictation/**)",
-      "Read(//mnt/c/Users/aleja/OneDrive/Desktop/Duke eventos/site-duke-eventos/fotos/**)",
-      "Read(//mnt/c/Users/Alejandro/Desktop/**)",
-      "Read(//home/alejandro/sistema-os/**)",
-      "Read(//home/alejandro/.claude/plugins/cache/claude-plugins-official/supabase/2cd88e7947b7/**)",
-      "Read(//home/alejandro/.claude/**)",
-      "Read(//home/alejandro/ai-brain/**)",
-      "Read(//mnt/c/Users/Alejandro/concierge-platform/design/kv-duke/Tipografia/**)",
-      "Read(//mnt/c/Users/Alejandro/concierge-platform/design/kv-duke/**)",
-      "Read(//mnt/c/Users/Alejandro/concierge-platform/design/kv-duke/linguiagem/**)",
-      "Read(//mnt/c/Users/Alejandro/concierge-platform/design/**)",
-      "Read(//tmp/**)"
+      "mcp__plugin_playwright_playwright__*"
     ],
     "deny": [
       "Bash(rm -rf *)",
@@ -46,9 +32,7 @@
       "Bash(> /dev/sd*)",
       "Bash(chmod 777 *)"
     ],
-    "additionalDirectories": [
-      "/mnt/c/Users/aleja/AppData/Roaming/Microsoft/Windows/Start Menu/Programs/Startup"
-    ]
+    "additionalDirectories": []
   },
   "hooks": {
     "SessionStart": [
@@ -100,7 +84,7 @@
   },
   "statusLine": {
     "type": "command",
-    "command": "~/.claude/statusline.sh",
+    "command": "~/.bun/bin/bun run ~/.claude/hooks/statusline.ts",
     "padding": 0
   },
   "enabledPlugins": {

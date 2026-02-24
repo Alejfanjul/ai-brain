@@ -3,7 +3,7 @@
 // SessionStart hook: Inject IDENTITY and PROJECTS into Claude's context
 // Auto-creates symlinks if ai-brain is found but ~/.claude/pai/ doesn't exist
 
-import { existsSync, readFileSync, mkdirSync, symlinkSync } from 'fs';
+import { existsSync, readFileSync, mkdirSync, symlinkSync, copyFileSync } from 'fs';
 import { join } from 'path';
 import { homedir } from 'os';
 
@@ -86,19 +86,24 @@ function ensurePaiSymlinks(paiDir: string): SetupResult {
       mkdirSync(paiDir, { recursive: true });
     }
 
-    // Create symlinks for each PAI file
+    // Link or copy each PAI file (symlink preferred, copy as fallback for Windows)
     for (const file of PAI_FILES) {
       const sourceFile = join(sourcePath, file);
       const targetFile = join(paiDir, file);
 
       if (existsSync(sourceFile) && !existsSync(targetFile)) {
-        symlinkSync(sourceFile, targetFile);
+        try {
+          symlinkSync(sourceFile, targetFile);
+        } catch {
+          // Symlink may fail on Windows without developer mode — copy instead
+          copyFileSync(sourceFile, targetFile);
+        }
       }
     }
 
     return {
       success: true,
-      message: `PAI: Symlinks criados automaticamente a partir de ${sourcePath}/`,
+      message: `PAI: Contexto vinculado automaticamente a partir de ${sourcePath}/`,
       sourcePath
     };
   } catch (error) {

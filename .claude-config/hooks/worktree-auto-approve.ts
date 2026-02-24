@@ -3,6 +3,9 @@
 // PreToolUse hook: Auto-approves file operations on git worktrees
 // matching the pattern: sistema-os-wt-*
 
+import { homedir } from 'os';
+import { resolve, sep } from 'path';
+
 interface PreToolUsePayload {
   session_id: string;
   tool_name: string;
@@ -10,7 +13,15 @@ interface PreToolUsePayload {
 }
 
 // Pattern: any directory under home matching sistema-os-wt-{name}
-const WORKTREE_PATTERN = /^\/home\/alejandro\/sistema-os-wt-[^/]+/;
+const HOME = homedir();
+
+function isWorktreePath(filePath: string): boolean {
+  const normalized = resolve(filePath);
+  const homePrefix = HOME + sep;
+  if (!normalized.startsWith(homePrefix)) return false;
+  const relative = normalized.slice(homePrefix.length);
+  return /^sistema-os-wt-[^/\\]+/.test(relative);
+}
 
 function extractPath(toolName: string, toolInput: Record<string, any>): string | null {
   switch (toolName) {
@@ -45,7 +56,7 @@ async function main() {
       process.exit(0);
     }
 
-    if (WORKTREE_PATTERN.test(path)) {
+    if (isWorktreePath(path)) {
       // Auto-approve: bypass permission prompt
       console.log(JSON.stringify({ decision: "approve" }));
     }

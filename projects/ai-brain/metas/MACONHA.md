@@ -59,11 +59,15 @@ Conversa com Kai sobre o padrão de culpa. Conexões:
 
 ### Semana 16-22 Fev 2026
 
-**Uso:** Terça (com Diego, cerveja e conversa de negócios), sexta (sozinho, pouco, cansaço após dia longo). Sábado e domingo ainda abertos.
+**Uso:** Terça (com Diego, cerveja e conversa de negócios), sexta (sozinho, pouco, cansaço após dia longo), sábado, domingo. Total: ~2 baseados bem finos em 4 dias — consumo baixo em volume.
 
-**Como me senti:** Terça valeu — conexão real, papo produtivo. Sexta foi mais escape de cansaço, não planejado. Gerou culpa na hora, o que motivou a conversa reflexiva de sábado.
+**Como me senti:** Terça valeu — conexão real, papo produtivo. Sexta foi mais escape de cansaço. Sábado: sexo com a namorada, vinho, foi fenomenal — exatamente o uso que faz sentido. Domingo: inércia, não acrescentou muito.
 
-**Impacto no resto:** Nenhum. Treino mantido (4 treinos na semana incluindo deadlift sexta). Trabalho produtivo a semana inteira.
+**Efeitos observados:** Despertar matinal mais lento (não sair da cama, mas foco demorou mais a ligar). Na academia, sensação de cansaço/preguiça, mais dificuldade pra fazer força — correlação clara com dias consecutivos.
+
+**Insight consolidado:** O prazer diminui exponencialmente com a frequência. Quanto menos, mais a próxima sessão vale. O problema nunca foi o consumo em si, mas a culpa — e essa está sendo colocada de lado.
+
+**Impacto no resto:** Nenhum crítico. Treino mantido (5 treinos na semana). Culpa presente na sexta, motivou a conversa reflexiva de sábado (21/02) e a mudança de modelo.
 
 ---
 
@@ -104,6 +108,14 @@ Conversa com Kai sobre o padrão de culpa. Conexões:
 **Como me senti:** Sexta muito bom. Sábado e domingo não valeram tanto. Insight: prazer diminui com uso consecutivo.
 
 **Impacto no resto:** Confirmou que 1x > 3x seguidos.
+
+---
+
+### Semana 23 Fev - 01 Mar 2026
+
+**Uso:** Segunda (23/02 — último dia de um ciclo de 4 dias seguidos). Plano: só sábado (com a namorada, repetir o que funcionou).
+
+**Intenção:** Não fumar durante a semana. Deixar o prazer acumular. Sábado vai ser melhor por causa disso.
 
 ---
 

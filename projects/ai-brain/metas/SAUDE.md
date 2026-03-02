@@ -297,8 +297,9 @@ Entre séries do lift principal. 50-100 reps por categoria por treino.
 |------|--------|-------|
 | 24/02 Ter | Squat Ciclo 2 Sem 2 | TM 108 (app). Aquec: 5x46, 5x56, 3x66. Principal: 3x76, 3x86, 3x96. FSL 5x5@76. Acessórios: 3x20 canoinha, 3x20 bíceps curl, 3x20 push-up, 3x20 panturrilha 25kg |
 | 25/02 Qua | Cardio colete | 10kg. 4x3:00 + 3x2:00 = ~18min corrida. Conforme plano Sem 2. Puxou um pouco mais, foi bem |
+| 02/03 Dom | Cardio colete | 10kg. 4x3:00 + 3x2:00 = ~18min corrida, 35min total. Conforme plano Sem 2. Quer aumentar tempo de corrida |
 
-**Treinos: 2/?**
+**Treinos: 3/?**
 
 ---
 

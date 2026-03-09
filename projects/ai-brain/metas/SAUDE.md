@@ -297,9 +297,24 @@ Entre séries do lift principal. 50-100 reps por categoria por treino.
 |------|--------|-------|
 | 24/02 Ter | Squat Ciclo 2 Sem 2 | TM 108 (app). Aquec: 5x46, 5x56, 3x66. Principal: 3x76, 3x86, 3x96. FSL 5x5@76. Acessórios: 3x20 canoinha, 3x20 bíceps curl, 3x20 push-up, 3x20 panturrilha 25kg |
 | 25/02 Qua | Cardio colete | 10kg. 4x3:00 + 3x2:00 = ~18min corrida. Conforme plano Sem 2. Puxou um pouco mais, foi bem |
-| 02/03 Dom | Cardio colete | 10kg. 4x3:00 + 3x2:00 = ~18min corrida, 35min total. Conforme plano Sem 2. Quer aumentar tempo de corrida |
+**Treinos: 2/?**
 
-**Treinos: 3/?**
+---
+
+### Semana 02-08 Mar (Ciclo 2 - Semana 2 cont.)
+
+| Data | Treino | Notas |
+|------|--------|-------|
+| 02/03 Seg | Cardio colete | 10kg. 4x3:00 + 3x2:00 = ~18min corrida, 35min total |
+| 03/03 Ter | Deadlift Ciclo 2 Sem 2 | TM 120 (app). Aquec: 5x50, 5x60, 3x70. Principal: 3x86, 3x96, 5x110. FSL 5x5@86. Acessórios: feitos (não lembrados) |
+| 04/03 Qua | Cardio colete | 10kg. 3x4:00 + 3x2:00 corrida |
+| 05/03 Qui | Bench Ciclo 2 Sem 2 | TM 70 (app). Aquec: 5x30, 5x36, 3x40. Principal: 3x50, 3x56, 7x66. FSL 5x5@50. Acessórios: feitos (não lembrados) |
+| 06/03 Sex | OFF | |
+| 07/03 Sáb | Cardio colete | 10kg. 3x4:00 + 2x3:00 corrida |
+
+**Treinos: 5/5** ✓
+
+**Nota:** Não seguiu 5's PRO — fez reps conforme o app (3/3/AMRAP em vez de 5/5/5). Não sabia do protocolo. A partir da Semana 3, corrigir para 5 reps em todas as séries principais.
 
 ---
 

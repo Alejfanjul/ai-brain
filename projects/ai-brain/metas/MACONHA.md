@@ -22,16 +22,15 @@
 
 ## Modelo Atual
 
-> Atualizado em 21/02/2026 após conversa reflexiva sobre culpa e controle.
+> Atualizado em 09/03/2026 — retorno à meta numérica após semana de recaída.
 
-**Padrão natural:** 1-2x por semana, por escolha própria
-**Critério real:** Atrapalha sono, treino ou produtividade? Se não, tá bem.
-**Log:** Semanal, reflexivo. Sem contagem de dias, sem meta numérica rígida.
+**Meta:** 1-2x por semana, máximo
+**Critério real:** Atrapalha sono, treino ou produtividade? Se sim, passou do ponto.
+**Log:** Semanal, reflexivo. Frequência importa de novo — o corpo mostrou isso.
 
-**O que mudou:**
-- Meta de "1x/semana" cumpriu seu papel (reduziu de 5x para ~1x) — missão cumprida
-- O formato de controle diário (sim/não por dia) gerava culpa desproporcional
-- O novo formato foca em como se sentiu, não em quantas vezes
+**Histórico de ajustes:**
+- 21/02: Removeu meta numérica, focou em consciência. Funcionou por um tempo.
+- 09/03: Semana de ~5x mostrou que sem trava, o uso escala de volta. Meta numérica volta como guardrail.
 
 **Sinal de atenção (não de alerta):**
 - Fumar virando automático/diário em vez de escolha consciente
@@ -111,6 +110,34 @@ Conversa com Kai sobre o padrão de culpa. Conexões:
 
 ---
 
+### Semana 09-15 Mar 2026 (meta: max 2x)
+
+| Dia | Fumou? | Nota |
+|-----|--------|------|
+| Seg 09 | — | |
+| Ter 10 | — | |
+| Qua 11 | — | |
+| Qui 12 | — | |
+| Sex 13 | — | |
+| Sáb 14 | — | |
+| Dom 15 | — | |
+
+**Total: 0/2**
+
+---
+
+### Semana 02-08 Mar 2026
+
+**Uso:** ~5x na semana. Um pouco por dia, quase todo dia.
+
+**Como me senti:** Não está legal. Uso voltou a ficar automático/diário em vez de escolha consciente — exatamente o sinal de atenção listado acima.
+
+**Impacto no resto:** Suficiente pra querer voltar à meta de 1-2x/semana.
+
+**Decisão:** Retorno ao guardrail numérico. O modelo "sem meta" funcionou por algumas semanas, mas sem trava o padrão antigo volta. Meta: 1-2x/semana.
+
+---
+
 ### Semana 23 Fev - 01 Mar 2026
 
 **Uso:** Segunda (23/02 — último dia de um ciclo de 4 dias seguidos). Plano: só sábado (com a namorada, repetir o que funcionou).
@@ -126,7 +153,8 @@ Conversa com Kai sobre o padrão de culpa. Conexões:
 | Antes de 20/01 | ~5 dias/semana | Uso frequente, automático |
 | 20/01 - 02/02 | Fase 1 (Sex-Sáb-Dom) | 4 dias em 14. Redução natural pra 1x/sem |
 | 02/02 - 21/02 | Livre (~1x/semana) | Auto-regulação funcionando. Culpa > uso real |
-| 21/02 em diante | Reflexivo (sem meta numérica) | Foco em consciência, não controle |
+| 21/02 - 08/03 | Reflexivo (sem meta numérica) | Funcionou ~2 semanas, depois uso escalou |
+| 09/03 em diante | Meta 1-2x/semana | Guardrail de volta. Consciência + limite. |
 
 ---
 

@@ -114,15 +114,15 @@ Conversa com Kai sobre o padrão de culpa. Conexões:
 
 | Dia | Fumou? | Nota |
 |-----|--------|------|
-| Seg 09 | — | |
-| Ter 10 | — | |
+| Seg 09 | Não | |
+| Ter 10 | Sim | Apresentação pro diretor do hotel foi bem. Fumou "pra comemorar". Admite que não valeu a pena — sem arrependimento, mas sem ganho real. Sem efeitos no dia seguinte (treinou normalmente). |
 | Qua 11 | — | |
 | Qui 12 | — | |
 | Sex 13 | — | |
 | Sáb 14 | — | |
 | Dom 15 | — | |
 
-**Total: 0/2**
+**Total: 1/2**
 
 ---
 

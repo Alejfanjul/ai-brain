@@ -156,6 +156,8 @@ Entre séries do lift principal. 50-100 reps por categoria por treino.
 
 **Status atual:** Não seguindo 100%, notou ganho de peso.
 
+**Observação (01/03/2026):** ~2 semanas comendo além do necessário (Duke + casa da mãe). Não é fome real — é comer além. Gordura abdominal aumentou visivelmente (estava mais definido). Hábito matinal de banana + amendoim + mel justificado como "energia pro treino" mas reconhecido como racionalização. Plano: maneirar na alimentação a partir desta semana.
+
 ---
 
 ## Ponto de Atenção: Sono
@@ -297,7 +299,12 @@ Entre séries do lift principal. 50-100 reps por categoria por treino.
 |------|--------|-------|
 | 24/02 Ter | Squat Ciclo 2 Sem 2 | TM 108 (app). Aquec: 5x46, 5x56, 3x66. Principal: 3x76, 3x86, 3x96. FSL 5x5@76. Acessórios: 3x20 canoinha, 3x20 bíceps curl, 3x20 push-up, 3x20 panturrilha 25kg |
 | 25/02 Qua | Cardio colete | 10kg. 4x3:00 + 3x2:00 = ~18min corrida. Conforme plano Sem 2. Puxou um pouco mais, foi bem |
-**Treinos: 2/?**
+| 26/02 Qui | OFF | Festa de aniversário, dormiu tarde |
+| 27/02 Sex | OFF | Cansaço acumulado |
+| 28/02 Sáb | OHP Ciclo 2 Sem 2 | TM 46 (app). Aquec: 5x20, 5x26, 3x30. Principal: 3x36, 3x40, 3x46. FSL 5x5@30. Acessórios: 3x20 ab wheel, 3x20 lat pulldown, 3x20 push-up, 2x20 plate raise |
+| 01/03 Dom | OFF | Dormiu até mais tarde, descanso |
+
+**Treinos: 3/?**
 
 ---
 
@@ -324,8 +331,7 @@ Entre séries do lift principal. 50-100 reps por categoria por treino.
 |------|--------|-------|
 | 10/03 Ter | Squat Ciclo 2 Sem 3 | TM 108 (app). Aquec: 5x46, 5x56, 5x66. Principal: 5x80, 5x96, 5x106. FSL 5x5@80. 5's PRO seguido corretamente. Acessórios: 3x20 ab wheel, 3x20 lat pulldown, 3x20 dips, 2x20 bíceps curl |
 | 11/03 Qua | Cardio colete | 10kg. 3x4:00 + 3x3:00 corrida |
-
-**Treinos: 2/?**
+| 12/03 Qui | OFF | |
 
 ---
 

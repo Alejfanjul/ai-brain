@@ -12,7 +12,12 @@
       "Task(*)",
       "Bash(*)",
       "mcp__plugin_supabase_supabase__*",
-      "mcp__plugin_playwright_playwright__*"
+      "mcp__plugin_playwright_playwright__*",
+      "Read(//c/Users/Alejandro/.claude/tools/figma-cli/**)",
+      "Read(//c/Users/Alejandro/.claude/**)",
+      "mcp__plugin_figma_figma__*",
+      "Read(//c/Users/Alejandro/Downloads/**)",
+      "Read(//c/Users/Alejandro/Desktop/**)"
     ],
     "deny": [
       "Bash(rm -rf *)",
@@ -32,7 +37,11 @@
       "Bash(> /dev/sd*)",
       "Bash(chmod 777 *)"
     ],
-    "additionalDirectories": []
+    "additionalDirectories": [
+      "C:\\Users\\Alejandro\\.claude\\tools\\figma-cli\\src",
+      "C:\\Users\\Alejandro\\.claude\\tools\\figma-cli\\scripts",
+      "c:\\Users\\Alejandro\\.claude"
+    ]
   },
   "hooks": {
     "SessionStart": [
@@ -89,7 +98,8 @@
   },
   "enabledPlugins": {
     "frontend-design@claude-plugins-official": true,
-    "supabase@claude-plugins-official": true
+    "supabase@claude-plugins-official": true,
+    "figma@claude-plugins-official": true
   },
   "language": "PT-BR",
   "alwaysThinkingEnabled": true

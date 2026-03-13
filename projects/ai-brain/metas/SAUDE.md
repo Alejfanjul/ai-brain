@@ -332,6 +332,7 @@ Entre séries do lift principal. 50-100 reps por categoria por treino.
 | 10/03 Ter | Squat Ciclo 2 Sem 3 | TM 108 (app). Aquec: 5x46, 5x56, 5x66. Principal: 5x80, 5x96, 5x106. FSL 5x5@80. 5's PRO seguido corretamente. Acessórios: 3x20 ab wheel, 3x20 lat pulldown, 3x20 dips, 2x20 bíceps curl |
 | 11/03 Qua | Cardio colete | 10kg. 3x4:00 + 3x3:00 corrida |
 | 12/03 Qui | OFF | |
+| 13/03 Sex | OHP Ciclo 2 Sem 3 | TM 46 (app). Aquec: 5x20, 5x26, 3x30. Principal: 5x36, 5x40, 5x46. FSL 5x5@36. 5's PRO seguido. Acessórios: 3x20 ab wheel, 3x20 puxada triângulo, 3x20 push-up, 2x20 bíceps curl |
 
 ---
 

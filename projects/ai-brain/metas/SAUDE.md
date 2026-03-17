@@ -333,6 +333,10 @@ Entre séries do lift principal. 50-100 reps por categoria por treino.
 | 11/03 Qua | Cardio colete | 10kg. 3x4:00 + 3x3:00 corrida |
 | 12/03 Qui | OFF | |
 | 13/03 Sex | OHP Ciclo 2 Sem 3 | TM 46 (app). Aquec: 5x20, 5x26, 3x30. Principal: 5x36, 5x40, 5x46. FSL 5x5@36. 5's PRO seguido. Acessórios: 3x20 ab wheel, 3x20 puxada triângulo, 3x20 push-up, 2x20 bíceps curl |
+| 14/03 Sáb | Cardio colete | 10kg. 3x4:00 + 2x3:00 corrida. Conforme plano Sem 3 |
+| 15/03 Dom | OFF | |
+| 16/03 Seg | OFF | |
+| 17/03 Ter | Corrida leve | 4.2km sem colete. Só pra girar |
 
 ---
 

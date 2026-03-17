@@ -118,11 +118,29 @@ Conversa com Kai sobre o padrão de culpa. Conexões:
 | Ter 10 | Sim | Apresentação pro diretor do hotel foi bem. Fumou "pra comemorar". Admite que não valeu a pena — sem arrependimento, mas sem ganho real. Sem efeitos no dia seguinte (treinou normalmente). |
 | Qua 11 | Não | |
 | Qui 12 | Não | |
-| Sex 13 | — | |
-| Sáb 14 | — | |
-| Dom 15 | — | |
+| Sex 13 | Sim | Um pouco |
+| Sáb 14 | Sim | Um pouco |
+| Dom 15 | Sim | Brigadeiro de maconha com a namorada. Não deu a brisa esperada — tolerância alta. |
+
+**Total: 4/2** ⚠️ Passou da meta
+
+---
+
+### Semana 16-22 Mar 2026 (meta: max 2x)
+
+| Dia | Fumou? | Nota |
+|-----|--------|------|
+| Seg 16 | Sim | Um pouco |
+| Ter 17 | Não | Decidiu guardar a maconha para perder resistência |
+| Qua 18 | — | |
+| Qui 19 | — | |
+| Sex 20 | — | |
+| Sáb 21 | — | |
+| Dom 22 | — | |
 
 **Total: 1/2**
+
+**Reflexão (17/03):** Cinco dias seguidos (sex-seg) confirmaram o padrão: consumo frequente → tolerância alta → efeito fraco → desvantagens pesam mais que vantagens. Brigadeiro de maconha no domingo não deu brisa boa — sinal claro de tolerância. Decisão: guardar a maconha, fazer um período off para resetar tolerância. O efeito pós (cansaço, névoa) está pesando mais que o efeito pró (relaxamento).
 
 ---
 

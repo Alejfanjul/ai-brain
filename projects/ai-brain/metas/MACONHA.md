@@ -22,15 +22,19 @@
 
 ## Modelo Atual
 
-> Atualizado em 09/03/2026 — retorno à meta numérica após semana de recaída.
+> Atualizado em 17/03/2026 — análise de dados confirmou duas travas necessárias.
 
-**Meta:** 1-2x por semana, máximo
+**Regra (duas travas):**
+1. **Nunca dois dias seguidos** (evita efeito cascata: névoa, cansaço, desregulação alimentar)
+2. **Max 2x por semana** (evita tolerância e névoa acumulada)
+
 **Critério real:** Atrapalha sono, treino ou produtividade? Se sim, passou do ponto.
 **Log:** Semanal, reflexivo. Frequência importa de novo — o corpo mostrou isso.
 
 **Histórico de ajustes:**
 - 21/02: Removeu meta numérica, focou em consciência. Funcionou por um tempo.
 - 09/03: Semana de ~5x mostrou que sem trava, o uso escala de volta. Meta numérica volta como guardrail.
+- 17/03: Análise cruzada maconha x treino confirmou que o problema é consecutividade + frequência alta. Duas travas definidas.
 
 **Sinal de atenção (não de alerta):**
 - Fumar virando automático/diário em vez de escolha consciente
@@ -174,6 +178,31 @@ Conversa com Kai sobre o padrão de culpa. Conexões:
 
 ---
 
+## Análise: Maconha x Treino (17/03/2026)
+
+Cruzamento de dados do log de maconha com log de treino (SAUDE.md):
+
+| Semana | Maconha | Consecutivos? | Treinos | Qualidade |
+|--------|---------|---------------|---------|-----------|
+| 26 Jan - 01 Fev | 1x | Não | 5/5 ✓ | Boa |
+| 02-08 Fev | 1x | Não | 5/5 ✓ | Melhor semana do registro |
+| 09-15 Fev | 3x | Parcial (sex-sáb) | 5/5 ✓ | Ok |
+| 16-22 Fev | 4x | Parcial (sex-sáb-dom) | 5/5 ✓ | Despertar lento, preguiça na academia |
+| 23 Fev - 01 Mar | 4x | Sim (qua→sáb) | 3/? | Cansaço, desânimo, "lesado" |
+| 02-08 Mar | ~5x | Sim (quase diário) | 5/5 | Treino ok, mas motivação destruída |
+| 09-15 Mar | 4x | Sim (sex→seg) | ~4 | Tolerância alta, brisa fraca |
+
+**Conclusões:**
+1. **Consecutividade é o divisor de águas** — mais que a quantidade total na semana
+2. **Semana 02-08 Mar é reveladora:** treinou 5/5 mas relatou desânimo e falta de perspectiva. Corpo foi, energia mental não
+3. **Melhores semanas (1x)** = treino perfeito, zero impacto negativo
+4. **Alimentação escala junto** com uso consecutivo (efeito cascata)
+5. **5 dias seguidos (13-16 Mar):** tolerância tão alta que brigadeiro de maconha não fez efeito
+
+**Insight:** A regra precisa de duas travas — não-consecutividade sozinha permite 4x/sem espaçados (ainda ruim). Max 2x sozinho não impede 2 dias seguidos. As duas juntas funcionam.
+
+---
+
 ## Evolução
 
 | Período | Modelo | Resultado |
@@ -182,7 +211,7 @@ Conversa com Kai sobre o padrão de culpa. Conexões:
 | 20/01 - 02/02 | Fase 1 (Sex-Sáb-Dom) | 4 dias em 14. Redução natural pra 1x/sem |
 | 02/02 - 21/02 | Livre (~1x/semana) | Auto-regulação funcionando. Culpa > uso real |
 | 21/02 - 08/03 | Reflexivo (sem meta numérica) | Funcionou ~2 semanas, depois uso escalou |
-| 09/03 em diante | Meta 1-2x/semana | Guardrail de volta. Consciência + limite. |
+| 09/03 em diante | Duas travas: max 2x/sem + nunca consecutivo | Baseado em análise de dados |
 
 ---
 

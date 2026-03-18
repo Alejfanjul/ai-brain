@@ -60,76 +60,6 @@ Conversa com Kai sobre o padrão de culpa. Conexões:
 
 ## Log Semanal
 
-### Semana 16-22 Fev 2026
-
-**Uso:** Terça (com Diego, cerveja e conversa de negócios), sexta (sozinho, pouco, cansaço após dia longo), sábado, domingo. Total: ~2 baseados bem finos em 4 dias — consumo baixo em volume.
-
-**Como me senti:** Terça valeu — conexão real, papo produtivo. Sexta foi mais escape de cansaço. Sábado: sexo com a namorada, vinho, foi fenomenal — exatamente o uso que faz sentido. Domingo: inércia, não acrescentou muito.
-
-**Efeitos observados:** Despertar matinal mais lento (não sair da cama, mas foco demorou mais a ligar). Na academia, sensação de cansaço/preguiça, mais dificuldade pra fazer força — correlação clara com dias consecutivos.
-
-**Insight consolidado:** O prazer diminui exponencialmente com a frequência. Quanto menos, mais a próxima sessão vale. O problema nunca foi o consumo em si, mas a culpa — e essa está sendo colocada de lado.
-
-**Impacto no resto:** Nenhum crítico. Treino mantido (5 treinos na semana). Culpa presente na sexta, motivou a conversa reflexiva de sábado (21/02) e a mudança de modelo.
-
----
-
-### Semana 09-15 Fev 2026
-
-**Uso:** Quarta (namorada, vinho, jantar), sexta (pouquinho, dormiu), sábado (ponta que sobrou).
-
-**Como me senti:** Quarta valeu a pena. Sexta e sábado foram mais inércia — fumou porque tinha, não porque queria muito. Sentiu culpa.
-
-**Impacto no resto:** Nenhum significativo. Semana de carnaval, ritmo diferente.
-
----
-
-### Semana 02-08 Fev 2026
-
-**Uso:** Sábado (1x). Maravilhoso.
-
-**Como me senti:** Perfeito. Uma vez, planejado, curtiu muito.
-
-**Impacto no resto:** Zero. Melhor semana do registro.
-
----
-
-### Semana 26 Jan - 01 Fev 2026
-
-**Uso:** Sábado (1x). Escolheu não fumar sexta e domingo mesmo podendo.
-
-**Como me senti:** Bem. Escolha consciente.
-
-**Impacto no resto:** Nenhum.
-
----
-
-### Semana 20-26 Jan 2026
-
-**Uso:** Sexta, sábado, domingo (3x seguidos — primeiro registro, modelo antigo).
-
-**Como me senti:** Sexta muito bom. Sábado e domingo não valeram tanto. Insight: prazer diminui com uso consecutivo.
-
-**Impacto no resto:** Confirmou que 1x > 3x seguidos.
-
----
-
-### Semana 09-15 Mar 2026 (meta: max 2x)
-
-| Dia | Fumou? | Nota |
-|-----|--------|------|
-| Seg 09 | Não | |
-| Ter 10 | Sim | Apresentação pro diretor do hotel foi bem. Fumou "pra comemorar". Admite que não valeu a pena — sem arrependimento, mas sem ganho real. Sem efeitos no dia seguinte (treinou normalmente). |
-| Qua 11 | Não | |
-| Qui 12 | Não | |
-| Sex 13 | Sim | Um pouco |
-| Sáb 14 | Sim | Um pouco |
-| Dom 15 | Sim | Brigadeiro de maconha com a namorada. Não deu a brisa esperada — tolerância alta. |
-
-**Total: 4/2** ⚠️ Passou da meta
-
----
-
 ### Semana 16-22 Mar 2026 (meta: max 2x)
 
 | Dia | Fumou? | Nota |
@@ -148,33 +78,143 @@ Conversa com Kai sobre o padrão de culpa. Conexões:
 
 ---
 
+### Semana 09-15 Mar 2026 (meta: max 2x)
+
+| Dia | Fumou? | Nota |
+|-----|--------|------|
+| Seg 09 | Não | |
+| Ter 10 | Sim | Apresentação pro diretor do hotel foi bem. Fumou "pra comemorar". Sem efeitos no dia seguinte |
+| Qua 11 | Não | |
+| Qui 12 | Não | |
+| Sex 13 | Sim | Um pouco |
+| Sáb 14 | Sim | Um pouco |
+| Dom 15 | Sim | Brigadeiro de maconha com a namorada. Não deu a brisa esperada — tolerância alta |
+
+**Total: 4/2** ⚠️ Passou da meta
+
+---
+
 ### Semana 02-08 Mar 2026
 
-**Contexto:** Semana de pressão no trabalho — indefinições, incertezas, reunião com chefe. Gatilhos emocionais fortes.
+| Dia | Fumou? | Nota |
+|-----|--------|------|
+| Seg 02 | Sim? | |
+| Ter 03 | Sim? | |
+| Qua 04 | Sim? | |
+| Qui 05 | Sim? | |
+| Sex 06 | Sim? | |
+| Sáb 07 | Não? | |
+| Dom 08 | Não? | |
 
-**Uso real:** ~5x na semana. Um pouco por dia, quase todo dia. Uso voltou a ficar automático/diário em vez de escolha consciente.
+**Total: ~5x** ⚠️ Quase diário, uso automático
 
-**Como me senti:** Desânimo claro no fim da semana. Dificuldade de se sentir motivado com os projetos de IA, sensação de falta de perspectiva. Padrão: uso consecutivo → névoa → desânimo → amplifica tendência depressiva.
+**Contexto:** Semana de pressão no trabalho — indefinições, incertezas, reunião com chefe. Gatilhos emocionais fortes. Desânimo claro no fim da semana. Dificuldade de se sentir motivado com projetos de IA. Padrão: uso consecutivo → névoa → desânimo → amplifica tendência depressiva.
 
-**Impacto no resto:** Motivação com projetos pessoais caiu. Perspectiva ficou turva. Difícil separar o que é efeito da maconha do que é efeito do contexto de trabalho — provavelmente os dois se amplificando.
-
-**Decisão:** Retorno ao guardrail numérico. O modelo "sem meta" funcionou por algumas semanas, mas sem trava o padrão antigo volta. Meta: 1-2x/semana.
-
-**Reset:** 09/03/2026 (segunda-feira) — primeiro dia off. Decisão consciente de quebrar o ciclo.
+**Decisão:** Retorno ao guardrail numérico. Sem trava, o padrão antigo volta. Reset em 09/03.
 
 ---
 
 ### Semana 23 Fev - 01 Mar 2026
 
-**Plano original:** Só sábado (com a namorada).
+| Dia | Fumou? | Nota |
+|-----|--------|------|
+| Seg 23 | Sim | Fim do ciclo anterior |
+| Ter 24 | Não | |
+| Qua 25 | Sim | Sozinho — Diego veio mas só tomou cerveja, fumou depois |
+| Qui 26 | Não | |
+| Sex 27 | Sim | Sozinho |
+| Sáb 28 | Sim | Sozinho |
+| Dom 01 | Não | Com vontade — tem em casa, cansado. Não fumou |
 
-**Uso real:** Segunda (23/02, fim do ciclo anterior), quarta (25/02, sozinho — Diego veio mas só tomou cerveja com ele, fumou depois que saiu), sexta (27/02, sozinho), sábado (28/02, sozinho). Total: 4 dias. Domingo com vontade — tem em casa, cansado.
+**Total: 4x**
 
-**Como me senti:** O padrão se repetiu. Uso consecutivo (qua→sex→sáb) trouxe sensação de cansaço, desânimo, "lesado". O prazer diminuiu a cada sessão. A vontade no domingo não é prazer — é inércia. Gosta de fumar sozinho, mas às vezes vem ansiedade e autocobrança junto.
+**Reflexão:** Uso consecutivo (qua→sex→sáb) trouxe cansaço, desânimo, "lesado". Prazer diminuiu a cada sessão. Vontade no domingo não é prazer — é inércia. Todos os usos foram sozinho, por escolha. Semana mais fraca de treino (3/5). Alimentação acima do necessário.
 
-**Impacto no resto:** Semana mais fraca de treino (3/5). Alimentação acima do necessário. Gordura abdominal aumentou. Difícil isolar causa (comida vs. maconha vs. festa), mas o acúmulo é visível.
+---
 
-**Padrão identificado:** Todos os usos da semana foram sozinho, por escolha. Não foi gatilho social — é preferência real. O problema não é fumar sozinho em si, é a frequência: 1x sozinho = curtição; 3x seguidos = inércia + cansaço + autocobrança.
+### Semana 16-22 Fev 2026
+
+| Dia | Fumou? | Nota |
+|-----|--------|------|
+| Seg 16 | Não | |
+| Ter 17 | Sim | Com Diego, cerveja e conversa de negócios. Valeu |
+| Qua 18 | Não | |
+| Qui 19 | Não | |
+| Sex 20 | Sim | Sozinho, pouco. Mais escape de cansaço |
+| Sáb 21 | Sim | Com namorada, vinho, sexo. Fenomenal — exatamente o uso que faz sentido |
+| Dom 22 | Sim | Inércia, não acrescentou muito |
+
+**Total: 4x** (~2 baseados finos em volume)
+
+**Reflexão:** Despertar matinal mais lento. Na academia, cansaço/preguiça correlacionado com dias consecutivos. Prazer diminui exponencialmente com frequência. Treino mantido (5/5). Motivou mudança de modelo em 21/02.
+
+---
+
+### Semana 09-15 Fev 2026
+
+| Dia | Fumou? | Nota |
+|-----|--------|------|
+| Seg 09 | Não | |
+| Ter 10 | Não | |
+| Qua 11 | Sim | Com namorada, vinho, jantar. Valeu |
+| Qui 12 | Não | |
+| Sex 13 | Sim | Pouquinho, dormiu. Mais inércia |
+| Sáb 14 | Sim | Ponta que sobrou. Inércia |
+| Dom 15 | Não | |
+
+**Total: 3x**
+
+**Reflexão:** Quarta valeu. Sexta e sábado foram inércia — fumou porque tinha. Sentiu culpa. Semana de carnaval, ritmo diferente. Sem impacto significativo no resto.
+
+---
+
+### Semana 02-08 Fev 2026
+
+| Dia | Fumou? | Nota |
+|-----|--------|------|
+| Seg 02 | Não | |
+| Ter 03 | Não | |
+| Qua 04 | Não | |
+| Qui 05 | Não | |
+| Sex 06 | Não | |
+| Sáb 07 | Sim | Maravilhoso. Uma vez, planejado, curtiu muito |
+| Dom 08 | Não | |
+
+**Total: 1x** ✓ Melhor semana do registro
+
+---
+
+### Semana 26 Jan - 01 Fev 2026
+
+| Dia | Fumou? | Nota |
+|-----|--------|------|
+| Seg 26 | Não | |
+| Ter 27 | Não | |
+| Qua 28 | Não | |
+| Qui 29 | Não | |
+| Sex 30 | Não | Escolheu não fumar mesmo podendo |
+| Sáb 31 | Sim | Escolha consciente |
+| Dom 01 | Não | Escolheu não fumar mesmo podendo |
+
+**Total: 1x** ✓
+
+---
+
+### Semana 20-26 Jan 2026
+
+| Dia | Fumou? | Nota |
+|-----|--------|------|
+| Seg 20 | Não | |
+| Ter 21 | Não | |
+| Qua 22 | Não | |
+| Qui 23 | Sim | Primeiro registro. Modelo antigo (Sex-Sáb-Dom) |
+| Sex 24 | Sim | |
+| Sáb 25 | Sim | |
+| Dom 26 | Não | |
+
+**Total: 3x** (consecutivos)
+
+**Reflexão:** Sexta muito bom. Sábado e domingo não valeram tanto. Confirmou que 1x > 3x seguidos.
 
 ---
 

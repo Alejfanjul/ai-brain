@@ -17,7 +17,9 @@
       "Read(//c/Users/Alejandro/.claude/**)",
       "mcp__plugin_figma_figma__*",
       "Read(//c/Users/Alejandro/Downloads/**)",
-      "Read(//c/Users/Alejandro/Desktop/**)"
+      "Read(//c/Users/Alejandro/Desktop/**)",
+      "Read(//c/Users/Alejandro/sistema-os/docs/proposta-pj/**)",
+      "Read(//c/Users/Alejandro/concierge-platform/**)"
     ],
     "deny": [
       "Bash(rm -rf *)",

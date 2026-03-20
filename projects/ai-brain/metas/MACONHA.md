@@ -66,9 +66,9 @@ Conversa com Kai sobre o padrão de culpa. Conexões:
 |-----|--------|------|
 | Seg 16 | Sim | Um pouco |
 | Ter 17 | Não | Decidiu guardar a maconha para perder resistência |
-| Qua 18 | — | |
-| Qui 19 | — | |
-| Sex 20 | — | |
+| Qua 18 | Não | |
+| Qui 19 | Não | |
+| Sex 20 | Não | |
 | Sáb 21 | — | |
 | Dom 22 | — | |
 

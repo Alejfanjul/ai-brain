@@ -345,6 +345,8 @@ Entre séries do lift principal. 50-100 reps por categoria por treino.
 | 16/03 Seg | OFF | |
 | 17/03 Ter | Corrida leve | 4.2km sem colete. Só pra girar |
 | 18/03 Qua | Deadlift Ciclo 2 Sem 3 | TM 125. 5's PRO. Acessórios: 4x20 canoinha, 4x10 pull-up + 4x10 tríceps curl, 3x20 bíceps curl |
+| 19/03 Qui | Cardio colete | 10kg. 3x4:00 + 3x3:00 corrida |
+| 20/03 Sex | Bench Ciclo 2 Sem 3 | TM 70. Aquec: 5x30, 5x36, 3x40. Principal: 5x56, 5x60, 6x66. FSL 5x5@50. Acessórios: 3x20 canoinha, 3x20 puxada baixa triângulo, 3x tríceps curl, 2x bíceps curl |
 
 ---
 

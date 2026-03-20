@@ -479,6 +479,36 @@ class DictationApp:
         keyboard.send("ctrl+v")
         return False
 
+    # Alucinações conhecidas do Whisper quando recebe silêncio/ruído baixo
+    _HALLUCINATION_PATTERNS = [
+        "legendas pela comunidade amara.org",
+        "amara.org",
+        "legendas pela comunidade",
+        "obrigado por assistir",
+        "thank you for watching",
+        "thanks for watching",
+        "please subscribe",
+        "inscreva-se",
+        "subtitles by",
+        "sottotitoli di",
+        "sous-titres par",
+        "untertitel von",
+    ]
+
+    def _is_hallucination(self, text: str) -> bool:
+        """Detecta alucinações conhecidas do Whisper."""
+        normalized = text.strip().lower().rstrip(".")
+        return any(h in normalized for h in self._HALLUCINATION_PATTERNS)
+
+    def _is_silence(self, audio_data: np.ndarray, threshold: float = 200.0) -> bool:
+        """Verifica se o áudio está abaixo do threshold de energia (silêncio).
+
+        threshold=200 para int16 é bem conservador — voz normal fica acima de 500.
+        """
+        rms = np.sqrt(np.mean(audio_data.astype(np.float64) ** 2))
+        logger.debug(f"  [audio] RMS energy: {rms:.1f} (threshold: {threshold})")
+        return rms < threshold
+
     def _transcribe_and_paste(self):
         """Transcreve o áudio gravado e cola o texto."""
         temp_path = None
@@ -490,6 +520,11 @@ class DictationApp:
                 self._set_state(AppState.ERROR)
                 return
 
+            if self._is_silence(audio_data):
+                logger.info("  [!] Áudio muito baixo (silêncio detectado). Ignorando.")
+                self._set_state(AppState.IDLE)
+                return
+
             logger.info("  [...] Transcrevendo...")
 
             temp_path = (
@@ -499,7 +534,7 @@ class DictationApp:
 
             text = self._transcribe_with_retry(str(temp_path))
 
-            if text and text.strip():
+            if text and text.strip() and not self._is_hallucination(text):
                 self._paste_text(text)
                 logger.info(f'  [OK] "{text}"')
                 self._set_state(AppState.SUCCESS)
@@ -509,6 +544,9 @@ class DictationApp:
                         args=(AppState.SUCCESS, 2.0),
                         daemon=True,
                     ).start()
+            elif text and self._is_hallucination(text):
+                logger.info(f'  [!] Alucinação filtrada: "{text}"')
+                self._set_state(AppState.IDLE)
             else:
                 logger.info("  [!] Transcrição vazia.")
                 self._set_state(AppState.ERROR)

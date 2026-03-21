@@ -347,6 +347,40 @@ Entre séries do lift principal. 50-100 reps por categoria por treino.
 | 18/03 Qua | Deadlift Ciclo 2 Sem 3 | TM 125. 5's PRO. Acessórios: 4x20 canoinha, 4x10 pull-up + 4x10 tríceps curl, 3x20 bíceps curl |
 | 19/03 Qui | Cardio colete | 10kg. 3x4:00 + 3x3:00 corrida |
 | 20/03 Sex | Bench Ciclo 2 Sem 3 | TM 70. Aquec: 5x30, 5x36, 3x40. Principal: 5x56, 5x60, 6x66. FSL 5x5@50. Acessórios: 3x20 canoinha, 3x20 puxada baixa triângulo, 3x tríceps curl, 2x bíceps curl |
+| 21/03 Sáb | Cardio colete (Deload) | 10kg. 4x2:00 + 3x1:30 corrida. Volume reduzido conforme deload |
+
+**Ciclo 2 Leader completo (Bench 20/03 foi o último lift).** Entrando no 7th Week Deload.
+
+---
+
+### 7th Week Deload (21-29 Mar)
+
+**Lifts:** 5x65%, 5x75%, 5x85% do TM. Sem FSL. Assistance leve (menos volume).
+
+| Lift | Série 1 | Série 2 | Série 3 |
+|------|---------|---------|---------|
+| Squat (TM 109) | 71kg x5 | 82kg x5 | 93kg x5 |
+| OHP (TM 46) | 30kg x5 | 35kg x5 | 39kg x5 |
+| Deadlift (TM 125) | 81kg x5 | 94kg x5 | 106kg x5 |
+| Bench (TM 72.5) | 47kg x5 | 54kg x5 | 62kg x5 |
+
+**Cardio:** Misto — colete deload + corridas sem colete (testar velocidade)
+- Colete: 4x2:00 + 3x1:30 corrida
+- Tiros sem colete: aquec 10min trote → 6x150m (~80-85%) c/ 1:30 caminhando. Volta calma 5min
+
+**Plano da semana:**
+
+| Data | Treino | Notas |
+|------|--------|-------|
+| 21/03 Sáb | Cardio colete (Deload) | 10kg. 4x2:00 + 3x1:30 corrida ✓ |
+| 22/03 Dom | Squat Deload | 5x71, 5x82, 5x93. Assistance leve |
+| 23/03 Seg | OFF | |
+| 24/03 Ter | Tiros sem colete | 6x150m (~80-85%) c/ 1:30 caminhando |
+| 25/03 Qua | OHP Deload | 5x30, 5x35, 5x39. Assistance leve |
+| 26/03 Qui | Cardio colete (Deload) | 10kg. 4x2:00 + 3x1:30 corrida |
+| 27/03 Sex | Deadlift Deload | 5x81, 5x94, 5x106. Assistance leve |
+| 28/03 Sáb | Corrida sem colete | Tiros ou corrida leve |
+| 29/03 Dom | Bench Deload | 5x47, 5x54, 5x62. Assistance leve |
 
 ---
 
@@ -363,8 +397,8 @@ Entre séries do lift principal. 50-100 reps por categoria por treino.
 
 - [x] Completar deload Ciclo 1 (Bench 11/02)
 - [x] Subir TM +2.5kg (upper) / +5kg (lower)
-- [ ] Ciclo 2 Leader — Prep and Fat Loss (3 semanas: ~14/02 - 07/03)
-- [ ] 7th Week Deload (~08-14/03)
+- [x] Ciclo 2 Leader — Prep and Fat Loss (3 semanas: 14/02 - 20/03)
+- [ ] 7th Week Deload (21-29/03) ← **em andamento**
 - [ ] Escolher Anchor template (Original 5/3/1 recomendado)
 - [ ] Anchor (3 semanas)
 - [ ] 7th Week TM Test — testar TMs com 3-5 reps

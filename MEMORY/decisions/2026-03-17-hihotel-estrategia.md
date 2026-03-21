@@ -1,52 +1,69 @@
 # HiHotel — Estratégia e Identidade
 
-**Data:** 2026-03-17
-**Status:** Em formação
+**Data início:** 2026-03-17
+**Última atualização:** 2026-03-21
+**Status:** Em formação — identidade emergindo
 
 Ale e Matheus estão construindo a **HiHotel**, empresa de tecnologia hoteleira.
 
-## Produtos
-- **SID** (repo: sistema-os) — Sistema de orquestração hoteleira ("sistema nervoso do hotel"). Três camadas: operacional, tático, estratégico. Já tem módulos em produção no Duke. Visão: 3ª geração de IA (Seth Godin) — conectar pessoas, informação certa na hora certa pro funcionário fazer seu melhor trabalho. Efeito de rede interno.
-- **Concierge Platform** (repo: concierge-platform) — Launcher Android TV + backend (Go WS gateway + Laravel API + PostgreSQL). MVP em desenvolvimento. IP da HiHotel. "Cavalo de Tróia" — mais fácil de vender (gera receita visível pro hotel).
+## Identidade (definida em 2026-03-21)
+
+**A HiHotel não é uma empresa de software. É a camada de inteligência da hotelaria.**
+
+- **Lado funcionário (SID):** plataforma onde ele aprende, é avaliado, é reconhecido e se desenvolve. Gamificação, quizzes, pontos, benefícios dados pela HiHotel.
+- **Lado hóspede (Concierge):** perfil portável de hospitalidade que viaja entre hotéis. Preferências, histórico, avaliações.
+- **Lado hotel:** sistema nervoso que coordena a operação e transforma dados em decisão.
+- **Por baixo:** a HiHotel acumula conhecimento que ninguém mais tem — como hotéis funcionam na prática.
+
+SID e Concierge são duas faces da mesma moeda, não produtos separados.
 
 ## Sócios
 - **Ale** — Estratégia & Produto. Background: BRF (marketing, transformação cultural), consultoria, Four Seasons, UFSC.
 - **Matheus** — Tecnologia & Infraestrutura. Dev Pleno, Scrum Master, Azure Certified, autor de apostilas.
 
-## Cliente / Proposta
-- Apresentaram proposta ao **Diego** e **Heiko** do Duke Beach Hotel (sistema-os/docs/proposta-pj/apresentacao-v7.html).
-- Proposta é transição de CLT para PJ — parceria tecnológica com escopo definido.
-- Próximo passo: proposta financeira e técnica detalhada.
-- Heiko pode ter papel na expansão para outros hotéis (termos a definir).
+## Duke Beach Hotel = Laboratório
 
-## Decisões estratégicas (sessão 2026-03-17)
+O Duke não é cliente — é laboratório. Proposta: "vocês nos dão acesso ao ambiente, ganham tudo que for construído. Quando funcionar, a gente escala e o Duke é vitrine."
 
-### Modelo de negócio
-- **Concierge** = produto com licença (IP da HiHotel). Escalável, SaaS, vendável.
-- **SID** = serviço de alto valor. O SID do Duke é do Duke (foi construído CLT). Mas o conhecimento/playbook é da HiHotel.
-- Código não é o IP — domínio e expertise são. IA torna código barato de produzir; o valor está em saber O QUE construir.
+- Apresentaram proposta ao **Diego** e **Heiko** (sistema-os/docs/proposta-pj/apresentacao-v7.html)
+- Proposta é transição de CLT para PJ
+- Código fica com o Duke, dados/conhecimento ficam com a HiHotel
+- Concierge: IP da HiHotel, licença de uso pro Duke
+- Heiko pode ter papel na expansão futura
 
-### Estrutura de receita por hotel
-1. Concierge Platform → licença mensal (recorrente, escalável)
-2. Setup + Implementação → fee único (cada vez mais rápido com playbook + IA)
-3. Orquestração tipo SID → contrato mensal de evolução (upsell)
+## Decisões estratégicas
 
-### Visão de longo prazo
-- Concierge com base instalada = SaaS com múltiplo de valuation (empresa vendável)
-- Conhecimento acumulado de operação hoteleira = moat
-- Rede de hotéis no Concierge = efeito de rede
-- Não é empresa de software puro nem consultoria pura — é domain experts + IA
+### Sessão 2026-03-17
+- Código não é IP — domínio e expertise são
+- SID do Duke é do Duke (construído CLT)
+- Concierge é IP da HiHotel
 
-### Proposta pro Duke (estrutura acordada)
-- Concierge: projeto à parte, IP da HiHotel, licença de uso pro Duke
-- SID: contrato de manutenção e evolução, sistema é do Duke
-- Migração CMNET: projeto pontual com escopo fechado
+### Sessão 2026-03-21 (evolução grande)
+- **SID expandido:** não é ERP. É plataforma de coordenação humana com gamificação
+- **Frase-chave:** "O funcionário trabalha para o meu sistema e indiretamente atinge os resultados do hotel"
+- **Vender resultado, não tecnologia.** Diego confirmou: vender tech pra hotel não funciona
+- **Modelo de receita adiado intencionalmente** — foco em entender valor antes de precificar
+- **O que a HiHotel captura:** conhecimento operacional granular que nem OpenAI, TOTVS ou Oracle têm
+- **Perfil portável do funcionário:** muda de hotel, continua no SID (LinkedIn da hotelaria operacional)
+- **Ciclo SID↔Concierge:** hóspede avalia → funcionário ganha pontos → hotel vê resultado → ciclo fortalece
+- **Analogias:** Pokémon GO (captura dados via plataforma desejável), Waze (uso gera dados sem esforço)
+
+Sessão completa: `MEMORY/sessions/2026-03-21-hihotel-identidade-visao-estrategica.md`
 
 ## Referências intelectuais
-- **Nate** (newsletter): Jevons Paradox — quando custo de execução cai 10x, expandir ambição, não cortar. Domain experts viram builders. → `sources/2026-03-14-nate-ai-cut-execution-cost-by-10x-the-companies-cutting.md`
-- **Seth Godin**: 3ª geração de IA = criar valor conectando pessoas. Ferramentas que melhoram quando mais pessoas usam. → `sources/2026-02-15-seth-godin-the-next-generation-of-ai-businesses.md`
+- **Nate** (newsletter): Jevons Paradox, domain experts viram builders → `sources/2026-03-14-nate-ai-cut-execution-cost-by-10x-the-companies-cutting.md`
+- **Seth Godin**: 3ª geração de IA = criar valor conectando pessoas → `sources/2026-02-15-seth-godin-the-next-generation-of-ai-businesses.md`
+- **Pokémon GO / Niantic**: plataforma como veículo de captura de dados invisível
+- **Waze**: uso gera dados sem esforço, rede é o ativo (Google comprou por US$1bi+)
+- **Daniel Misler**: ineficiência organizacional, papéis baseados em status
+
+## Pessoas relevantes
+- **Stella** — garçonete Duke, promovida a assistente A&B. Sugeriu quiz de onboarding. Potencial colaboradora futura.
+- **Diego** — gestor do Ale, confirmou dificuldade de vender tech pra hotéis
+- **Heiko** — Duke, pode ter papel na expansão
 
 ## Próximos passos
-- [ ] Montar proposta financeira/técnica pro Duke (separando Concierge, SID, CMNET)
-- [ ] Alinhar com Matheus sobre identidade e modelo de negócio
-- [ ] Definir pricing
+- [ ] Ale digerir e levar visão processada pro Matheus
+- [ ] Enquadrar proposta Duke como laboratório
+- [ ] Gamificação + quiz da Stella = primeiro experimento tangível
+- [ ] Modelo de receita — quando houver clareza de valor

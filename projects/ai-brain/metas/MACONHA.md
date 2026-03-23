@@ -60,6 +60,22 @@ Conversa com Kai sobre o padrão de culpa. Conexões:
 
 ## Log Semanal
 
+### Semana 23-29 Mar 2026 (meta: max 2x)
+
+| Dia | Fumou? | Nota |
+|-----|--------|------|
+| Seg 23 | — | |
+| Ter 24 | — | |
+| Qua 25 | — | |
+| Qui 26 | — | |
+| Sex 27 | — | |
+| Sáb 28 | — | |
+| Dom 29 | — | |
+
+**Total: 0/2**
+
+---
+
 ### Semana 16-22 Mar 2026 (meta: max 2x)
 
 | Dia | Fumou? | Nota |
@@ -69,10 +85,12 @@ Conversa com Kai sobre o padrão de culpa. Conexões:
 | Qua 18 | Não | |
 | Qui 19 | Não | |
 | Sex 20 | Não | |
-| Sáb 21 | — | |
-| Dom 22 | — | |
+| Sáb 21 | Sim | Sensação boa, valeu a pena |
+| Dom 22 | Sim | |
 
-**Total: 1/2**
+**Total: 3/2** ⚠️ acima da meta
+
+**Reflexão (22/03):** Semana fechou 3x (seg, sáb, dom) — 1 acima da meta. Positivo: 4 dias off seguidos (ter-sex) resetaram tolerância, e o efeito no sábado foi bom. Próxima semana: max 2x.
 
 **Reflexão (17/03):** Cinco dias seguidos (sex-seg) confirmaram o padrão: consumo frequente → tolerância alta → efeito fraco → desvantagens pesam mais que vantagens. Brigadeiro de maconha no domingo não deu brisa boa — sinal claro de tolerância. Decisão: guardar a maconha, fazer um período off para resetar tolerância. O efeito pós (cansaço, névoa) está pesando mais que o efeito pró (relaxamento).
 

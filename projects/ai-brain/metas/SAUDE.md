@@ -348,6 +348,7 @@ Entre séries do lift principal. 50-100 reps por categoria por treino.
 | 19/03 Qui | Cardio colete | 10kg. 3x4:00 + 3x3:00 corrida |
 | 20/03 Sex | Bench Ciclo 2 Sem 3 | TM 70. Aquec: 5x30, 5x36, 3x40. Principal: 5x56, 5x60, 6x66. FSL 5x5@50. Acessórios: 3x20 canoinha, 3x20 puxada baixa triângulo, 3x tríceps curl, 2x bíceps curl |
 | 21/03 Sáb | Cardio colete (Deload) | 10kg. 4x2:00 + 3x1:30 corrida. Volume reduzido conforme deload |
+| 22/03 Dom | OFF | |
 
 **Ciclo 2 Leader completo (Bench 20/03 foi o último lift).** Entrando no 7th Week Deload.
 

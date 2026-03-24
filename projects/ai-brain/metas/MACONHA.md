@@ -64,7 +64,7 @@ Conversa com Kai sobre o padrão de culpa. Conexões:
 
 | Dia | Fumou? | Nota |
 |-----|--------|------|
-| Seg 23 | — | |
+| Seg 23 | Não | |
 | Ter 24 | — | |
 | Qua 25 | — | |
 | Qui 26 | — | |

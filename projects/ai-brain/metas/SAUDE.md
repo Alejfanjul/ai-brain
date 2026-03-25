@@ -377,10 +377,10 @@ Entre séries do lift principal. 50-100 reps por categoria por treino.
 | 22/03 Dom | OFF | |
 | 23/03 Seg | OFF | |
 | 24/03 Ter | Squat Deload | TM 108 (app). 5x50, 5x60, 5x70. FSL 5x5@50. Acessórios: 3x20 ab wheel, 3x20 lat pulldown, 3x20 bíceps curl, 2x20 panturrilha ✓ |
-| 25/03 Qua | OHP Deload | 5x30, 5x35, 5x39. Assistance leve |
-| 26/03 Qui | Cardio colete (Deload) | 10kg. 4x2:00 + 3x1:30 corrida |
-| 27/03 Sex | Deadlift Deload | 5x81, 5x94, 5x106. Assistance leve |
-| 28/03 Sáb | Corrida sem colete | Tiros ou corrida leve |
+| 25/03 Qua | Tiros sem colete | Aquec 7min trote leve + 6x150m (~80%). Descanso 1:30 entre corridas ✓ |
+| 26/03 Qui | OHP Deload | 5x30, 5x35, 5x39. Assistance leve |
+| 27/03 Sex | Cardio colete (Deload) | 10kg. 4x2:00 + 3x1:30 corrida |
+| 28/03 Sáb | Deadlift Deload | 5x81, 5x94, 5x106. Assistance leve |
 | 29/03 Dom | Bench Deload | 5x47, 5x54, 5x62. Assistance leve |
 
 ---

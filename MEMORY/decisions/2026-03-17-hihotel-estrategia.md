@@ -62,8 +62,19 @@ Sessão completa: `MEMORY/sessions/2026-03-21-hihotel-identidade-visao-estrategi
 - **Diego** — gestor do Ale, confirmou dificuldade de vender tech pra hotéis
 - **Heiko** — Duke, pode ter papel na expansão
 
+### Sessão 2026-03-26 (ponto de inflexão)
+- **Ale e Matheus convergindo independentemente pra saída do Duke** — Matheus quase pediu demissão dia 25, Ale dia 26
+- **Data considerada para saída: 1º de abril de 2026**
+- Duke não respondeu em 2+ semanas com informações básicas pra proposta financeira
+- Cultura do Duke descrita como "apagar incêndio, atalhos" — incompatível com o que querem construir
+- Ale e Matheus conversaram sobre começar a construir site da HiHotel e definir produtos
+- Postura: se o Duke quiser continuar, precisa oferecer mais dinheiro + autonomia. Senão, seguem sozinhos
+
+Sessão completa: `MEMORY/sessions/2026-03-26-riottel-decisao-saida-duke.md`
+
 ## Próximos passos
-- [ ] Ale digerir e levar visão processada pro Matheus
-- [ ] Enquadrar proposta Duke como laboratório
-- [ ] Gamificação + quiz da Stella = primeiro experimento tangível
-- [ ] Modelo de receita — quando houver clareza de valor
+- [ ] Decisão final sobre saída do Duke (~1º de abril)
+- [ ] Alinhar postura de saída com Matheus (sair juntos, como HiHotel, não como funcionários)
+- [ ] Construir site e materiais de venda da HiHotel
+- [ ] Definir produtos/serviços para comercialização
+- [ ] Buscar primeiro hotel-alvo fora do Duke

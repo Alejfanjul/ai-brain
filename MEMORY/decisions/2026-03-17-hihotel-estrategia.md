@@ -64,7 +64,7 @@ Sessão completa: `MEMORY/sessions/2026-03-21-hihotel-identidade-visao-estrategi
 
 ### Sessão 2026-03-26 (ponto de inflexão)
 - **Ale e Matheus convergindo independentemente pra saída do Duke** — Matheus quase pediu demissão dia 25, Ale dia 26
-- **Data considerada para saída: 1º de abril de 2026**
+- **Data definida para entrega da carta de demissão: 31 de março de 2026 (segunda-feira)**
 - Duke não respondeu em 2+ semanas com informações básicas pra proposta financeira
 - Cultura do Duke descrita como "apagar incêndio, atalhos" — incompatível com o que querem construir
 - Ale e Matheus conversaram sobre começar a construir site da HiHotel e definir produtos
@@ -73,7 +73,7 @@ Sessão completa: `MEMORY/sessions/2026-03-21-hihotel-identidade-visao-estrategi
 Sessão completa: `MEMORY/sessions/2026-03-26-riottel-decisao-saida-duke.md`
 
 ## Próximos passos
-- [ ] Decisão final sobre saída do Duke (~1º de abril)
+- [x] Decisão final sobre saída do Duke — carta de demissão em 31/03/2026
 - [ ] Alinhar postura de saída com Matheus (sair juntos, como HiHotel, não como funcionários)
 - [ ] Construir site e materiais de venda da HiHotel
 - [ ] Definir produtos/serviços para comercialização

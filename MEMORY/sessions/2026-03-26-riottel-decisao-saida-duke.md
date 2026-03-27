@@ -49,7 +49,9 @@ Mais de duas semanas após apresentação da HiHotel/Riottel ao Duke. Diretoria 
 
 ## Estado emocional ao final
 
-Ale afirmou que "já deu" — não como impulso, mas como conclusão que vem se formando. Vai deixar cozinhar, mas a direção está clara.
+Ale afirmou que "já deu" — não como impulso, mas como conclusão que vem se formando.
+
+**Atualização (27/03):** Decisão confirmada. Ale vai entregar carta de demissão na **segunda-feira, 31 de março de 2026**. Entre 27-31/03, foco em iniciar estruturação da HiHotel para o mundo exterior (site, produtos, materiais).
 
 ---
 

@@ -1,8 +1,8 @@
 # HiHotel — Estratégia e Identidade
 
 **Data início:** 2026-03-17
-**Última atualização:** 2026-03-21
-**Status:** Em formação — identidade emergindo
+**Última atualização:** 2026-03-30
+**Status:** Cartas de demissão entregues — HiHotel em estruturação
 
 Ale e Matheus estão construindo a **HiHotel**, empresa de tecnologia hoteleira.
 
@@ -18,7 +18,7 @@ Ale e Matheus estão construindo a **HiHotel**, empresa de tecnologia hoteleira.
 SID e Concierge são duas faces da mesma moeda, não produtos separados.
 
 ## Sócios
-- **Ale** — Estratégia & Produto. Background: BRF (marketing, transformação cultural), consultoria, Four Seasons, UFSC.
+- **Ale** — Estratégia & Produto. Background multissetorial: BRF (marketing, transformação cultural), consultoria, Four Seasons, UFSC. Não é hoteleiro de carreira — o diferencial é perspectiva cruzada de indústrias, aplicada a um setor parado no tempo.
 - **Matheus** — Tecnologia & Infraestrutura. Dev Pleno, Scrum Master, Azure Certified, autor de apostilas.
 
 ## Duke Beach Hotel = Laboratório
@@ -64,7 +64,7 @@ Sessão completa: `MEMORY/sessions/2026-03-21-hihotel-identidade-visao-estrategi
 
 ### Sessão 2026-03-26 (ponto de inflexão)
 - **Ale e Matheus convergindo independentemente pra saída do Duke** — Matheus quase pediu demissão dia 25, Ale dia 26
-- **Data definida para entrega da carta de demissão: 31 de março de 2026 (segunda-feira)**
+- **Cartas de demissão entregues em 30 de março de 2026** (anteciparam 1 dia)
 - Duke não respondeu em 2+ semanas com informações básicas pra proposta financeira
 - Cultura do Duke descrita como "apagar incêndio, atalhos" — incompatível com o que querem construir
 - Ale e Matheus conversaram sobre começar a construir site da HiHotel e definir produtos
@@ -73,8 +73,8 @@ Sessão completa: `MEMORY/sessions/2026-03-21-hihotel-identidade-visao-estrategi
 Sessão completa: `MEMORY/sessions/2026-03-26-riottel-decisao-saida-duke.md`
 
 ## Próximos passos
-- [x] Decisão final sobre saída do Duke — carta de demissão em 31/03/2026
-- [ ] Alinhar postura de saída com Matheus (sair juntos, como HiHotel, não como funcionários)
+- [x] Decisão final sobre saída do Duke — cartas entregues em 30/03/2026
+- [x] Alinhar postura de saída com Matheus — saíram juntos
 - [ ] Construir site e materiais de venda da HiHotel
 - [ ] Definir produtos/serviços para comercialização
 - [ ] Buscar primeiro hotel-alvo fora do Duke

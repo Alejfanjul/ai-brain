@@ -378,10 +378,16 @@ Entre séries do lift principal. 50-100 reps por categoria por treino.
 | 23/03 Seg | OFF | |
 | 24/03 Ter | Squat Deload | TM 108 (app). 5x50, 5x60, 5x70. FSL 5x5@50. Acessórios: 3x20 ab wheel, 3x20 lat pulldown, 3x20 bíceps curl, 2x20 panturrilha ✓ |
 | 25/03 Qua | Tiros sem colete | Aquec 7min trote leve + 6x150m (~80%). Descanso 1:30 entre corridas ✓ |
-| 26/03 Qui | OHP Deload | 5x30, 5x35, 5x39. Assistance leve |
-| 27/03 Sex | Cardio colete (Deload) | 10kg. 4x2:00 + 3x1:30 corrida |
-| 28/03 Sáb | Deadlift Deload | 5x81, 5x94, 5x106. Assistance leve |
-| 29/03 Dom | Bench Deload | 5x47, 5x54, 5x62. Assistance leve |
+| 26/03 Qui | OHP Deload | TM 46. Aquec: 5x20, 5x26, 5x30. Principal: 5x30, 5x36, 5x40. FSL 5x5@30. Acessórios: 3x20 ab wheel, 3x20 puxada baixa triângulo, 3x20 tríceps, 2x20 bíceps curl ✓ |
+| 27/03 Sex | OFF | |
+| 28/03 Sáb | Cardio colete (Deload) | 10kg. 4x2:00 + 3x1:30 corrida ✓ |
+| 29/03 Dom | OFF | |
+| 30/03 Seg | OFF | |
+| 31/03 Ter | Deadlift Deload | 5x81, 5x94, 5x106. Assistance leve |
+| 01/04 Qua | Cardio colete / Tiros | |
+| 02/04 Qui | Bench Deload | 5x47, 5x54, 5x62. Assistance leve |
+| 03/04 Sex | Cardio colete / Tiros | |
+| 04/04 Sáb | OFF | Descanso antes do Ciclo 3 |
 
 ---
 

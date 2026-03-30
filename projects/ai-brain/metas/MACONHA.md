@@ -60,19 +60,37 @@ Conversa com Kai sobre o padrão de culpa. Conexões:
 
 ## Log Semanal
 
+### Semana 30 Mar - 05 Abr 2026 (meta: max 2x)
+
+| Dia | Fumou? | Nota |
+|-----|--------|------|
+| Seg 30 | — | |
+| Ter 31 | — | |
+| Qua 01 | — | |
+| Qui 02 | — | |
+| Sex 03 | — | |
+| Sáb 04 | — | |
+| Dom 05 | — | |
+
+**Total: 0/2**
+
+---
+
 ### Semana 23-29 Mar 2026 (meta: max 2x)
 
 | Dia | Fumou? | Nota |
 |-----|--------|------|
 | Seg 23 | Não | |
-| Ter 24 | — | |
-| Qua 25 | — | |
-| Qui 26 | — | |
-| Sex 27 | — | |
-| Sáb 28 | — | |
-| Dom 29 | — | |
+| Ter 24 | Não | |
+| Qua 25 | Não | |
+| Qui 26 | Sim | Raiva do trabalho — gatilho emocional |
+| Sex 27 | Não | |
+| Sáb 28 | Sim | Final de semana, vontade natural |
+| Dom 29 | Sim | Brigadeiro + fumou. Sentiu que a soma foi demais pra um fim de semana rotineiro |
 
-**Total: 0/2**
+**Total: 3/2**
+
+**Reflexão:** Padrão ficando mais claro — vontade natural no fim de semana (sáb/dom) e uso durante a semana só por gatilho emocional (raiva do trabalho na qui). Ideal: manter só no fim de semana, e mesmo assim dosar (brigadeiro + fumar no mesmo dia parece excessivo como rotina, ok esporadicamente). Quinta foi exceção, não regra — o gatilho foi emocional, não hábito.
 
 ---
 

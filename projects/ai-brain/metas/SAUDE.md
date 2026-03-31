@@ -383,7 +383,7 @@ Entre séries do lift principal. 50-100 reps por categoria por treino.
 | 28/03 Sáb | Cardio colete (Deload) | 10kg. 4x2:00 + 3x1:30 corrida ✓ |
 | 29/03 Dom | OFF | |
 | 30/03 Seg | OFF | |
-| 31/03 Ter | Deadlift Deload | 5x81, 5x94, 5x106. Assistance leve |
+| 31/03 Ter | Deadlift Deload | TM 120. Aquec: 5x60, 5x60, 3x70. Principal: 5x80, 5x90, 5x100. FSL 5x5@80. Acessórios: 3x20 canoinha, 3x20 lat pulldown, 3x20 tríceps, 2x20 panturrilha ✓ |
 | 01/04 Qua | Cardio colete / Tiros | |
 | 02/04 Qui | Bench Deload | 5x47, 5x54, 5x62. Assistance leve |
 | 03/04 Sex | Cardio colete / Tiros | |

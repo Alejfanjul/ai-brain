@@ -1,7 +1,7 @@
 # HiHotel — Estratégia e Identidade
 
 **Data início:** 2026-03-17
-**Última atualização:** 2026-03-30
+**Última atualização:** 2026-03-31
 **Status:** Cartas de demissão entregues — HiHotel em estruturação
 
 Ale e Matheus estão construindo a **HiHotel**, empresa de tecnologia hoteleira.
@@ -50,12 +50,26 @@ O Duke não é cliente — é laboratório. Proposta: "vocês nos dão acesso ao
 
 Sessão completa: `MEMORY/sessions/2026-03-21-hihotel-identidade-visao-estrategica.md`
 
+### Sessão 2026-03-31 (ontologia + verbos + go-to-market)
+- **Ontologia hoteleira** é a peça que unifica tudo — modelo semântico entre dados e interfaces (inspirado na Palantir)
+- Resolve o receio do Matheus sobre módulos desconectados: não são módulos, são janelas sobre a mesma ontologia
+- **Go-to-market:** produto como porta de entrada (ex: app restaurante, 2 meses grátis, risco zero pro hotel). Não vender consultiva.
+- **Verbos da HiHotel:** aprender, ensinar, coordenar, elevar, reconhecer, conectar, traduzir, lembrar. Nenhum é verbo de software — são verbos de liderança. HiHotel = líder digital.
+- **Claude Vault** (Matheus): interface IA pro recepcionista, com agentes conectados. Nome provisório.
+- **Arquitetura conceitual:** Pessoas ↔ Verbos ↔ Interfaces ↔ Ontologia ↔ Dados
+- **Próximo passo:** extrair ontologia dos repos SID e Concierge (rascunho de objetos, relações, ações)
+- Storytelling criado pra Ale ler com Matheus: `MEMORY/sessions/2026-03-31-hihotel-storytelling-matheus.md`
+
+Sessão completa: `MEMORY/sessions/2026-03-31-hihotel-ontologia-verbos-identidade.md`
+
 ## Referências intelectuais
 - **Nate** (newsletter): Jevons Paradox, domain experts viram builders → `sources/2026-03-14-nate-ai-cut-execution-cost-by-10x-the-companies-cutting.md`
 - **Seth Godin**: 3ª geração de IA = criar valor conectando pessoas → `sources/2026-02-15-seth-godin-the-next-generation-of-ai-businesses.md`
 - **Pokémon GO / Niantic**: plataforma como veículo de captura de dados invisível
 - **Waze**: uso gera dados sem esforço, rede é o ativo (Google comprou por US$1bi+)
 - **Daniel Misler**: ineficiência organizacional, papéis baseados em status
+- **Palantir Ontology**: camada semântica entre dados e interfaces. Gêmeo digital. Modelo pra IA + humanos raciocinarem juntos.
+- **Alex Osterwalder — The Invincible Company**: explore vs. exploit. HiHotel está no modo explore.
 
 ## Pessoas relevantes
 - **Stella** — garçonete Duke, promovida a assistente A&B. Sugeriu quiz de onboarding. Potencial colaboradora futura.
@@ -75,6 +89,8 @@ Sessão completa: `MEMORY/sessions/2026-03-26-riottel-decisao-saida-duke.md`
 ## Próximos passos
 - [x] Decisão final sobre saída do Duke — cartas entregues em 30/03/2026
 - [x] Alinhar postura de saída com Matheus — saíram juntos
+- [ ] **Extrair ontologia dos repos SID e Concierge** — rascunho de objetos, relações, ações
+- [ ] Ale + Matheus lerem storytelling juntos (`MEMORY/sessions/2026-03-31-hihotel-storytelling-matheus.md`)
 - [ ] Construir site e materiais de venda da HiHotel
-- [ ] Definir produtos/serviços para comercialização
+- [ ] Definir primeiro produto de entrada (app restaurante ou outro)
 - [ ] Buscar primeiro hotel-alvo fora do Duke

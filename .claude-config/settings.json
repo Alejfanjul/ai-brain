@@ -19,7 +19,8 @@
       "Read(//c/Users/Alejandro/Downloads/**)",
       "Read(//c/Users/Alejandro/Desktop/**)",
       "Read(//c/Users/Alejandro/sistema-os/docs/proposta-pj/**)",
-      "Read(//c/Users/Alejandro/concierge-platform/**)"
+      "Read(//c/Users/Alejandro/concierge-platform/**)",
+      "mcp__pencil"
     ],
     "deny": [
       "Bash(rm -rf *)",

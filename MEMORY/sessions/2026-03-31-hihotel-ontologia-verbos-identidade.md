@@ -168,6 +168,16 @@ Os verbos ficam entre as pessoas e as interfaces — definem COMO cada interface
 
 ---
 
+## Nota: visualização de ontologias
+
+Ale perguntou sobre libraries pra representação visual. Opções levantadas:
+- **Cytoscape.js** ou **React Flow** — as mais indicadas pra visualização interativa web de objetos e relações
+- **Mermaid** — pra prototipar rápido em Markdown
+- **Protégé** (Stanford) — editor formal de ontologias (OWL), pode ser overkill por agora
+- Sugestão: começar com Figma ou Mermaid pra validar modelo, migrar pra lib interativa quando maduro
+
+---
+
 ## Estado emocional
 
 Ale entrou pensando em go-to-market ("estou confuso"), descobriu a ontologia como peça que faltava, definiu os verbos da empresa, e saiu com uma direção sólida. Pediu registro com "muita riqueza de detalhes" porque "essa conversa é muito preciosa" e quer reler. Sente que deu um passo numa direção sólida.

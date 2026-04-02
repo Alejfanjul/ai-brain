@@ -86,11 +86,32 @@ Sessão completa: `MEMORY/sessions/2026-03-31-hihotel-ontologia-verbos-identidad
 
 Sessão completa: `MEMORY/sessions/2026-03-26-riottel-decisao-saida-duke.md`
 
+### Sessão 2026-04-01 (negociação Duke + dinâmica Matheus)
+- Richard (RH) procurou Ale e Matheus, não tinha contexto da negociação
+- Custo real: Ale R$6.6k + Matheus R$8k = R$14.6k/mês
+- HiHotel LTDA, Simples Nacional, faturamento R$16-18k
+- **Princípio:** toda atividade soma pra HiHotel E pro Duke, senão não entra
+- Escopo: Duke Beach apenas (NÃO Duke Eventos). Não fazer sites avulsos.
+- IP: SID é do Duke, Concierge é da HiHotel, conhecimento é da HiHotel
+- Diego adiciona ruído (custo errado, IP sem autoridade) — não é decisor
+- Ale leu storytelling com Matheus → discussão produtiva com atrito sobre ontologia
+- Dinâmica de poder verbalizada: Ale assume frente, Matheus quer mais espaço
+- Ambos resolveram com maturidade. Separação formal de domínios é prematura por agora.
+- Rascunho de proposta criado: `MEMORY/sessions/2026-04-01-rascunho-proposta-duke.md`
+
+Sessão completa: `MEMORY/sessions/2026-04-01-hihotel-negociacao-duke-dinamica-matheus.md`
+
 ## Próximos passos
-- [x] Decisão final sobre saída do Duke — cartas entregues em 30/03/2026
-- [x] Alinhar postura de saída com Matheus — saíram juntos
-- [ ] **Extrair ontologia dos repos SID e Concierge** — rascunho de objetos, relações, ações
-- [ ] Ale + Matheus lerem storytelling juntos (`MEMORY/sessions/2026-03-31-hihotel-storytelling-matheus.md`)
+
+### Urgente (próximos dias)
+- [ ] Entregar lista de atividades pro Richard
+- [ ] Revisar rascunho da proposta (Ale + Matheus)
+- [ ] Definir valor e apresentar ao Duke (pra Richard/Heiko, não pro Diego)
+- [ ] Contratar contador e iniciar abertura da empresa
+
+### Importante (segundo momento)
+- [ ] Extrair ontologia dos repos SID e Concierge
+- [x] Ale + Matheus lerem storytelling juntos
 - [ ] Construir site e materiais de venda da HiHotel
-- [ ] Definir primeiro produto de entrada (app restaurante ou outro)
+- [ ] Definir primeiro produto de entrada
 - [ ] Buscar primeiro hotel-alvo fora do Duke

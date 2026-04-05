@@ -24,9 +24,9 @@
 
 > Atualizado em 17/03/2026 — análise de dados confirmou duas travas necessárias.
 
-**Regra (duas travas):**
-1. **Nunca dois dias seguidos** (evita efeito cascata: névoa, cansaço, desregulação alimentar)
-2. **Max 2x por semana** (evita tolerância e névoa acumulada)
+**Regra:**
+1. **Max 2x por semana** (trava principal — evita tolerância e névoa acumulada)
+2. **Nunca 3+ dias seguidos** (2 consecutivos ok se dentro do limite semanal; o estrago começa no terceiro dia)
 
 **Critério real:** Atrapalha sono, treino ou produtividade? Se sim, passou do ponto.
 **Log:** Semanal, reflexivo. Frequência importa de novo — o corpo mostrou isso.
@@ -35,6 +35,7 @@
 - 21/02: Removeu meta numérica, focou em consciência. Funcionou por um tempo.
 - 09/03: Semana de ~5x mostrou que sem trava, o uso escala de volta. Meta numérica volta como guardrail.
 - 17/03: Análise cruzada maconha x treino confirmou que o problema é consecutividade + frequência alta. Duas travas definidas.
+- 05/04: Ajuste na trava de consecutividade (2 seguidos ok, 3+ não). Insight: fumar funciona como permissão pra descansar sem culpa — o problema não é a maconha, é não conseguir parar sem ela. Meta de 2x nunca foi cumprida desde que foi criada (0/5 semanas).
 
 **Sinal de atenção (não de alerta):**
 - Fumar virando automático/diário em vez de escolha consciente
@@ -65,14 +66,16 @@ Conversa com Kai sobre o padrão de culpa. Conexões:
 | Dia | Fumou? | Nota |
 |-----|--------|------|
 | Seg 30 | Não | |
-| Ter 31 | — | |
-| Qua 01 | — | |
-| Qui 02 | — | |
-| Sex 03 | — | |
-| Sáb 04 | — | |
+| Ter 31 | Não | |
+| Qua 01 | Não | |
+| Qui 02 | Sim | Primeira vez na semana — brisa boa |
+| Sex 03 | Sim | Segunda vez — ok |
+| Sáb 04 | Sim | Meio baseado. Não valeu a pena |
 | Dom 05 | — | |
 
-**Total: 0/2**
+**Total: 3/2** ⚠️ acima da meta + 3 dias consecutivos
+
+**Reflexão:** Quebrou as duas travas (max 2x + nunca consecutivo). Seg-qua foi limpo, mas a partir de quinta entrou no padrão cascata. Padrão confirmado de novo: 1ª vez é maravilhosa, 2ª é boa, 3ª não vale a pena. A terceira vez foi por inércia — chega a noite, não quer mais fazer nada, fuma por falta de alternativa. Não foi escolha consciente. Sabe que não deveria ter fumado, e o dado reforça o que o corpo já sabia.
 
 ---
 

@@ -387,7 +387,10 @@ Entre séries do lift principal. 50-100 reps por categoria por treino.
 | 01/04 Qua | Cardio colete / Tiros | |
 | 02/04 Qui | Bench Deload | 5x47, 5x54, 5x62. Assistance leve |
 | 03/04 Sex | Cardio colete / Tiros | |
-| 04/04 Sáb | OFF | Descanso antes do Ciclo 3 |
+| 02/04 Qui | Bench Deload ✓ | TM 70. Aquec: 5x30, 5x36, 3x40. Principal: 5x46, 5x56, 5x60. Série extra: 5x50. FSL 5x5@46. Acessórios: 3x20 ab wheel, 3x20 lat pulldown, 3x20 tríceps, 3x20 bíceps |
+| 03/04 Sex | OFF | Dor na perna. Reformou móvel em casa |
+| 04/04 Sáb | OFF | Dor na perna (Tandrilax). Limpou banheiro — possível agravamento. Dificuldade de agachar/levantar |
+| 05/04 Dom | OFF | Recuperação perna |
 
 ---
 

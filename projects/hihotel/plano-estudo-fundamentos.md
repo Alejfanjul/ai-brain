@@ -11,6 +11,31 @@
 
 ---
 
+## Como usar este plano (em qualquer máquina)
+
+Para iniciar um módulo em uma sessão nova do Claude, use este prompt:
+
+```
+Estou seguindo meu plano de estudo de fundamentos técnicos.
+Leia o plano em projects/hihotel/plano-estudo-fundamentos.md
+e os artefatos já completados em projects/hihotel/artefatos/.
+
+Vamos fazer o módulo [X.X].
+
+Regras da sessão:
+- Ensina o conceito aplicando ao domínio real da HiHotel (Duke Beach Hotel)
+- Cada módulo produz um artefato concreto que fica no repo
+- Tom: direto e técnico, mas explicando como se eu fosse fundador não-técnico
+- Usa os artefatos anteriores como base (cada módulo constrói sobre o anterior)
+- No final, lista o vocabulário novo e atualiza o status no plano
+```
+
+> **Importante:** Os artefatos anteriores são a memória do progresso.
+> O Claude vai ler os artefatos completados pra saber o que você já aprendeu
+> e construir em cima. Não precisa reexplicar o histórico.
+
+---
+
 ## Estrutura
 
 Três blocos, em sequência. Cada módulo é uma sessão de ~1h.
@@ -374,7 +399,7 @@ e como o app de restaurante seria deployado.
 | Bloco | Módulo | Status |
 |-------|--------|--------|
 | 1 | 1.1 Entidades e Relacionamentos | [x] 2026-04-05 |
-| 1 | 1.2 Diagrama de Classes (UML) | [ ] |
+| 1 | 1.2 Diagrama de Classes (UML) | [x] 2026-04-05 |
 | 1 | 1.3 DDD: Linguagem e Contextos | [ ] |
 | 1 | 1.4 Ontologia na Prática | [ ] |
 | 2 | 2.1 Camadas e Responsabilidades | [ ] |

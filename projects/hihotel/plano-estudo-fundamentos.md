@@ -373,7 +373,7 @@ e como o app de restaurante seria deployado.
 
 | Bloco | Módulo | Status |
 |-------|--------|--------|
-| 1 | 1.1 Entidades e Relacionamentos | [ ] |
+| 1 | 1.1 Entidades e Relacionamentos | [x] 2026-04-05 |
 | 1 | 1.2 Diagrama de Classes (UML) | [ ] |
 | 1 | 1.3 DDD: Linguagem e Contextos | [ ] |
 | 1 | 1.4 Ontologia na Prática | [ ] |

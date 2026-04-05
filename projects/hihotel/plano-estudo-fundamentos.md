@@ -83,7 +83,7 @@ Mesa, Pedido, Item do Cardápio, Conta, Cliente, Garçom
 | Relacionamento | Conexão entre entidades | Hóspede FAZ Reserva |
 | Cardinalidade | Quantos de cada lado | 1:N = um para muitos |
 
-**Status:** [ ] Não iniciado
+**Status:** [x] Completo — 2026-04-05
 
 ---
 
@@ -111,7 +111,7 @@ Primeiro diagrama visual que você pode mostrar pro Matheus.
 | Herança | "É um tipo de" | PedidoDelivery herda de Pedido |
 | Multiplicidade | Cardinalidade no diagrama | 1..* = um ou mais |
 
-**Status:** [ ] Não iniciado
+**Status:** [x] Completo — 2026-04-05
 
 ---
 
@@ -140,7 +140,7 @@ Primeiro diagrama visual que você pode mostrar pro Matheus.
 | Value Object | Objeto sem identidade própria | Endereço (descreve, não identifica) |
 | Aggregate | Cluster de objetos tratado como unidade | Pedido + Itens do Pedido |
 
-**Status:** [ ] Não iniciado
+**Status:** [x] Completo — 2026-04-05
 
 ---
 

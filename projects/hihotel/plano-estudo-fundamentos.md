@@ -400,7 +400,7 @@ e como o app de restaurante seria deployado.
 |-------|--------|--------|
 | 1 | 1.1 Entidades e Relacionamentos | [x] 2026-04-05 |
 | 1 | 1.2 Diagrama de Classes (UML) | [x] 2026-04-05 |
-| 1 | 1.3 DDD: Linguagem e Contextos | [ ] |
+| 1 | 1.3 DDD: Linguagem e Contextos | [x] 2026-04-05 |
 | 1 | 1.4 Ontologia na Prática | [ ] |
 | 2 | 2.1 Camadas e Responsabilidades | [ ] |
 | 2 | 2.2 APIs e Contratos | [ ] |

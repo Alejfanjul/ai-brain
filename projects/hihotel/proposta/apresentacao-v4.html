@@ -1,0 +1,1010 @@
+<!DOCTYPE html>
+<html lang="pt-BR"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hi Hotel — Parceria Estratégica</title>
+<link rel="preconnect" href="https://fonts.googleapis.com/">
+<link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  @property --border-angle {
+    syntax: '<angle>';
+    initial-value: 0deg;
+    inherits: false;
+  }
+  @property --border-angle-rev {
+    syntax: '<angle>';
+    initial-value: 360deg;
+    inherits: false;
+  }
+
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --bg-deep: #0B1120;
+    --bg-card: #111D2E;
+    --bg-card-hover: #162438;
+    --text-primary: #EDEDED;
+    --text-secondary: #8A9AB5;
+    --text-muted: #4A5A73;
+    --accent-gold: #C9A961;
+    --accent-gold-dim: rgba(201, 169, 97, 0.15);
+    --accent-teal: #4ECDC4;
+    --accent-teal-dim: rgba(78, 205, 196, 0.12);
+    --accent-green: #34D399;
+    --accent-blue: #60A5FA;
+    --accent-red: #F87171;
+    --font-display: 'Cormorant Garamond', 'Georgia', serif;
+    --font-body: 'Inter', -apple-system, 'Segoe UI', sans-serif;
+    --section-padding: clamp(3rem, 8vh, 6rem) clamp(1.5rem, 5vw, 4rem);
+  }
+
+  html {
+    scroll-behavior: smooth;
+    scroll-snap-type: y mandatory;
+    overflow-y: scroll;
+    scrollbar-width: thin;
+    scrollbar-color: var(--accent-gold) var(--bg-deep);
+  }
+
+  body {
+    background: var(--bg-deep);
+    color: var(--text-primary);
+    font-family: var(--font-body);
+    font-weight: 300;
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+
+  /* ── Animated background orbs ── */
+  .bg-orbs { position: fixed; inset: 0; z-index: 0; pointer-events: none; overflow: hidden; }
+  .bg-orb { position: absolute; border-radius: 50%; filter: blur(80px); will-change: transform; translate: 0 var(--parallax-y, 0); }
+
+  .bg-orb--gold { width: 700px; height: 700px; background: radial-gradient(circle, rgba(201,169,97,0.35) 0%, rgba(201,169,97,0.08) 40%, transparent 70%); top: -10%; left: -5%; animation: float-1 35s ease-in-out infinite; }
+  .bg-orb--teal { width: 600px; height: 600px; background: radial-gradient(circle, rgba(78,205,196,0.25) 0%, rgba(78,205,196,0.06) 40%, transparent 70%); top: 40%; right: -10%; animation: float-2 40s ease-in-out infinite; }
+  .bg-orb--blue { width: 800px; height: 800px; background: radial-gradient(circle, rgba(59,130,246,0.18) 0%, rgba(59,130,246,0.04) 40%, transparent 70%); bottom: -15%; left: 30%; animation: float-3 45s ease-in-out infinite; }
+  .bg-orb--warm { width: 500px; height: 500px; background: radial-gradient(circle, rgba(201,169,97,0.22) 0%, rgba(201,169,97,0.05) 40%, transparent 70%); top: 60%; left: -8%; animation: float-4 38s ease-in-out infinite; }
+
+  @keyframes float-1 { 0%, 100% { transform: translate(0,0) scale(1); } 25% { transform: translate(15vw,20vh) scale(1.1); } 50% { transform: translate(5vw,50vh) scale(0.95); } 75% { transform: translate(20vw,10vh) scale(1.05); } }
+  @keyframes float-2 { 0%, 100% { transform: translate(0,0) scale(1); } 25% { transform: translate(-20vw,-15vh) scale(1.05); } 50% { transform: translate(-10vw,20vh) scale(1.1); } 75% { transform: translate(-25vw,5vh) scale(0.9); } }
+  @keyframes float-3 { 0%, 100% { transform: translate(0,0) scale(1); } 33% { transform: translate(-15vw,-25vh) scale(1.08); } 66% { transform: translate(10vw,-15vh) scale(0.95); } }
+  @keyframes float-4 { 0%, 100% { transform: translate(0,0) scale(1); } 30% { transform: translate(20vw,-10vh) scale(1.15); } 60% { transform: translate(10vw,-30vh) scale(0.9); } }
+
+  /* ── Noise overlay ── */
+  body::after { content: ''; position: fixed; inset: 0; z-index: 1; pointer-events: none; opacity: 0.03; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); background-repeat: repeat; background-size: 256px; }
+
+  /* ── Scroll progress bar ── */
+  .scroll-progress { position: fixed; top: 0; left: 0; width: 100%; height: 3px; background: linear-gradient(90deg, var(--accent-gold), var(--accent-teal)); transform-origin: left; transform: scaleX(var(--scroll-pct, 0)); z-index: 60; transition: transform 0.1s ease-out; }
+
+  /* ── Sections ── */
+  section { min-height: 100vh; scroll-snap-align: start; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: var(--section-padding); position: relative; z-index: 2; }
+
+  /* ── Typography ── */
+  h1, h2, h3 { font-family: var(--font-display); font-weight: 600; line-height: 1.15; }
+  h1 { font-size: clamp(2.8rem, 6vw, 5.5rem); }
+  h2 { font-size: clamp(2rem, 4vw, 3.5rem); color: var(--text-primary); }
+  h3 { font-size: clamp(1.2rem, 2vw, 1.6rem); color: var(--accent-gold); font-weight: 700; }
+
+  .subtitle { font-family: var(--font-body); font-size: clamp(1rem, 1.8vw, 1.3rem); color: var(--text-secondary); font-weight: 300; letter-spacing: 0.03em; max-width: 600px; }
+  .label { font-family: var(--font-body); font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.2em; color: var(--accent-gold); margin-bottom: 1rem; }
+  .emphasis { font-family: var(--font-display); font-style: italic; font-size: clamp(1.4rem, 2.5vw, 2rem); color: var(--text-primary); line-height: 1.5; max-width: 700px; }
+
+  /* ── Reveal animation ── */
+  .reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.8s ease, transform 0.8s ease; }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+  .reveal-delay-1 { transition-delay: 0.15s; }
+  .reveal-delay-2 { transition-delay: 0.3s; }
+  .reveal-delay-3 { transition-delay: 0.45s; }
+  .reveal-delay-4 { transition-delay: 0.6s; }
+  .reveal-delay-5 { transition-delay: 0.75s; }
+  .reveal-delay-6 { transition-delay: 0.9s; }
+
+  /* ── Navigation dots ── */
+  .nav-dots { position: fixed; right: 2rem; top: 50%; transform: translateY(-50%); z-index: 50; display: flex; flex-direction: column; gap: 1rem; }
+  .nav-dot { width: 10px; height: 10px; border-radius: 50%; background: var(--text-muted); border: none; cursor: pointer; transition: all 0.3s ease; position: relative; }
+  .nav-dot.active { background: var(--accent-gold); box-shadow: 0 0 12px rgba(201,169,97,0.4); transform: scale(1.3); }
+  .nav-dot::after { content: attr(data-label); position: absolute; right: 20px; top: 50%; transform: translateY(-50%); white-space: nowrap; font-family: var(--font-body); font-size: 0.7rem; font-weight: 500; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-secondary); opacity: 0; transition: opacity 0.3s ease; pointer-events: none; }
+  .nav-dot:hover::after { opacity: 1; }
+
+  /* ── Hero ── */
+  #hero { background: var(--bg-deep) url('hotel_blueprint.png') center center / contain no-repeat; position: relative; }
+  #hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 65% 70% at 50% 50%, rgba(11,17,32,0.55) 0%, rgba(11,17,32,0.6) 35%, rgba(11,17,32,0.85) 60%, rgba(11,17,32,1) 82%); z-index: 1; }
+  #hero > *:not(.circuit-svg) { position: relative; z-index: 2; }
+  #hero h1 { color: var(--text-primary); margin-bottom: 1.5rem; }
+  #hero h1 em { font-style: normal; color: var(--accent-gold); }
+  .hero-line { width: 60px; height: 2px; background: var(--accent-gold); margin: 2rem auto; opacity: 0.6; }
+
+  /* ── Circuit SVG overlay ── */
+  .circuit-svg { position: absolute; inset: 0; width: 100%; height: 100%; z-index: 1; pointer-events: none; overflow: hidden; }
+  .circuit-base path { fill: none; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+  .circuit-base .teal { stroke: #4ECDC4; opacity: 0.12; }
+  .circuit-base .gold { stroke: #C9A961; opacity: 0.10; }
+  .circuit-glow path { fill: none; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; stroke-dasharray: 40 960; }
+  .circuit-glow .teal { stroke: #4ECDC4; filter: url(#glow-teal); }
+  .circuit-glow .gold { stroke: #C9A961; filter: url(#glow-gold); }
+  .glow-1 { animation: circuit-flow 6s linear infinite; }
+  .glow-2 { animation: circuit-flow 8s linear infinite; animation-delay: -2s; }
+  .glow-3 { animation: circuit-flow 7s linear infinite; animation-delay: -4s; }
+  .glow-4 { animation: circuit-flow 9s linear infinite; animation-delay: -1s; }
+  .glow-5 { animation: circuit-flow 5s linear infinite; animation-delay: -3s; }
+  .glow-6 { animation: circuit-flow 10s linear infinite; animation-delay: -5s; }
+  .glow-7 { animation: circuit-flow 7.5s linear infinite; animation-delay: -6s; }
+  @keyframes circuit-flow { to { stroke-dashoffset: -1000; } }
+  .circuit-nodes circle { opacity: 0.6; animation: node-pulse 3s ease-in-out infinite; }
+  .circuit-nodes .teal { fill: #4ECDC4; }
+  .circuit-nodes .gold { fill: #C9A961; }
+  .node-d1 { animation-delay: 0s !important; }
+  .node-d2 { animation-delay: 0.5s !important; }
+  .node-d3 { animation-delay: 1s !important; }
+  .node-d4 { animation-delay: 1.5s !important; }
+  .node-d5 { animation-delay: 2s !important; }
+  .node-d6 { animation-delay: 2.5s !important; }
+  @keyframes node-pulse { 0%, 100% { opacity: 0.4; r: 3; } 50% { opacity: 1; r: 5; } }
+
+  /* ── Profiles ── */
+  .profiles { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 2.5rem; max-width: 850px; width: 100%; }
+  .profile-card { background: var(--bg-card); border: 1px solid rgba(255,255,255,0.04); border-radius: 12px; padding: 2rem; text-align: left; transition: all 0.3s ease; }
+  .profile-card:hover { background: var(--bg-card-hover); border-color: rgba(255,255,255,0.08); }
+  .profile-name { font-family: var(--font-display); font-size: 1.6rem; font-weight: 600; color: var(--text-primary); margin-bottom: 0.2rem; }
+  .profile-title { font-size: 0.8rem; font-weight: 500; color: var(--accent-gold); margin-bottom: 1rem; }
+  .profile-achievements { list-style: none; padding: 0; }
+  .profile-achievements li { font-size: 0.85rem; color: var(--text-secondary); padding: 0.35rem 0; padding-left: 1rem; position: relative; line-height: 1.5; }
+  .profile-achievements li::before { content: ''; position: absolute; left: 0; top: 0.7rem; width: 4px; height: 4px; border-radius: 50%; background: var(--accent-gold); opacity: 0.6; }
+
+  /* ── Vision 3-level grid ── */
+  .levels-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 2.5rem; max-width: 900px; width: 100%; }
+  .level-card { background: var(--bg-card); border: 1px solid rgba(255,255,255,0.04); border-radius: 12px; padding: 1.8rem 1.5rem; text-align: left; transition: all 0.3s ease; position: relative; overflow: hidden; }
+  .level-card::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 3px; border-radius: 12px 12px 0 0; }
+  .level-card--strategic::before { background: var(--accent-gold); }
+  .level-card--tactical::before { background: var(--accent-teal); }
+  .level-card--operational::before { background: var(--accent-blue); }
+  .level-card:hover { background: var(--bg-card-hover); transform: translateY(-2px); border-color: rgba(255,255,255,0.08); }
+  .level-tag { font-size: 0.65rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.15em; margin-bottom: 0.8rem; }
+  .level-card--strategic .level-tag { color: var(--accent-gold); }
+  .level-card--tactical .level-tag { color: var(--accent-teal); }
+  .level-card--operational .level-tag { color: var(--accent-blue); }
+  .level-card h3 { font-family: var(--font-body); font-size: 1rem; font-weight: 600; color: var(--text-primary); margin-bottom: 0.5rem; }
+  .level-card p { color: var(--text-secondary); font-size: 0.85rem; line-height: 1.6; }
+
+  /* ── Modules grid (replaces radial map) ── */
+  .modules-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.2rem; margin-top: 2.5rem; max-width: 1100px; width: 100%; }
+  .module-card { background: var(--bg-card); border: 1px solid rgba(255,255,255,0.04); border-radius: 12px; padding: 1.5rem; text-align: left; transition: all 0.3s ease; position: relative; }
+  .module-card:hover { background: var(--bg-card-hover); transform: translateY(-2px); border-color: rgba(255,255,255,0.08); }
+  .module-card-header { display: flex; align-items: center; gap: 0.8rem; margin-bottom: 0.8rem; }
+  .module-card-header svg { width: 24px; height: 24px; color: var(--accent-gold); flex-shrink: 0; }
+  .module-card-header h3 { font-family: var(--font-body); font-size: 0.95rem; font-weight: 600; color: var(--text-primary); }
+  .module-card p { font-size: 0.82rem; color: var(--text-secondary); line-height: 1.5; }
+  .module-status { display: inline-block; font-size: 0.6rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; padding: 0.2rem 0.5rem; border-radius: 4px; margin-bottom: 0.6rem; }
+  .status--live { background: rgba(52,211,153,0.12); color: var(--accent-green); }
+  .status--building { background: rgba(96,165,250,0.12); color: var(--accent-blue); }
+  .status--planned { background: rgba(201,169,97,0.12); color: var(--accent-gold); }
+
+  /* ── Momento / Validation section ── */
+  .validation-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin-top: 2.5rem; max-width: 950px; width: 100%; }
+  .validation-card { background: var(--bg-card); border: 1px solid rgba(255,255,255,0.04); border-radius: 12px; padding: 2rem; text-align: left; transition: all 0.3s ease; position: relative; overflow: hidden; }
+  .validation-card::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 3px; background: var(--accent-gold); border-radius: 12px 12px 0 0; }
+  .validation-card:hover { background: var(--bg-card-hover); border-color: rgba(255,255,255,0.08); }
+  .validation-card .number { font-family: var(--font-display); font-size: 3rem; font-weight: 700; color: var(--accent-gold); opacity: 0.2; position: absolute; top: 0.5rem; right: 1rem; line-height: 1; }
+  .validation-card h3 { font-family: var(--font-body); font-size: 1rem; font-weight: 600; color: var(--text-primary); margin-bottom: 0.5rem; }
+  .validation-card p { font-size: 0.85rem; color: var(--text-secondary); line-height: 1.6; }
+
+  /* ── Opportunities ── */
+  .opportunities-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.2rem; margin-top: 2.5rem; max-width: 1000px; width: 100%; }
+  .opportunity-card { background: var(--bg-card); border: 1px solid rgba(201,169,97,0.08); border-radius: 12px; padding: 1.5rem; text-align: left; transition: all 0.3s ease; position: relative; overflow: hidden; }
+  .opportunity-card::before { content: ''; position: absolute; top: 0; left: 0; width: 3px; height: 100%; background: var(--accent-gold); opacity: 0.5; border-radius: 3px 0 0 3px; }
+  .opportunity-card:hover { background: var(--bg-card-hover); transform: translateY(-2px); border-color: rgba(201,169,97,0.2); }
+  .opportunity-card h3 { font-family: var(--font-body); font-size: 0.95rem; font-weight: 600; color: var(--text-primary); margin-bottom: 0.4rem; }
+  .opportunity-how { font-size: 0.8rem; color: var(--accent-teal); margin-bottom: 0.3rem; font-weight: 400; }
+  .opportunity-benefit { font-size: 0.8rem; color: var(--text-secondary); line-height: 1.5; }
+
+  /* ── Connection visual ── */
+  .connection-visual { margin-top: 2.5rem; max-width: 800px; width: 100%; }
+  .connection-ring { position: relative; display: flex; flex-direction: column; align-items: center; gap: 0rem; }
+  .connection-departments { display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; }
+  .dept-node { position: relative; background: var(--bg-card); border: 1px solid rgba(255,255,255,0.06); border-radius: 10px; padding: 0.8rem 1.2rem; text-align: center; min-width: 120px; flex: 1 1 0; }
+  .dept-node::before {
+    content: '';
+    position: absolute;
+    inset: -1px;
+    border-radius: 11px;
+    padding: 1px;
+    background: conic-gradient(from var(--border-angle), transparent 70%, rgba(78,205,196,0.8) 85%, rgba(78,205,196,0) 100%);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    animation: card-border-glow 20s linear infinite;
+    opacity: 0;
+    pointer-events: none;
+  }
+  .dept-node:nth-child(1)::before { animation-delay: 0s; }
+  .dept-node:nth-child(2)::before { animation-delay: 2.25s; }
+  .dept-node:nth-child(3)::before { animation-delay: 4.5s; }
+  .dept-node:nth-child(4)::before { animation-delay: 6.75s; }
+  .dept-node:nth-child(5)::before { animation-delay: 9s; }
+  .dept-node:nth-child(6)::before { animation-delay: 11.25s; }
+  @keyframes card-border-glow {
+    0% { --border-angle: 0deg; opacity: 0; }
+    1% { --border-angle: 0deg; opacity: 1; }
+    10.25% { --border-angle: 360deg; opacity: 1; }
+    11.25% { --border-angle: 360deg; opacity: 0; }
+    100% { --border-angle: 360deg; opacity: 0; }
+  }
+  .dept-node-name { font-size: 0.85rem; font-weight: 500; color: var(--text-primary); }
+  .dept-node-sub { font-size: 0.65rem; color: var(--text-muted); margin-top: 0.1rem; }
+  .connection-bridge { position: relative; width: 100%; padding: 1.5rem 0; display: flex; justify-content: center; }
+  .connection-bridge-lines { position: absolute; top: 0; left: 10%; right: 10%; height: 100%; }
+  .bridge-line { position: absolute; height: 1px; background: linear-gradient(90deg, transparent, rgba(78,205,196,0.25), transparent); width: 100%; animation: bridge-glow 4s ease-in-out infinite; }
+  .bridge-line:nth-child(1) { top: 25%; animation-delay: 0s; }
+  .bridge-line:nth-child(2) { top: 50%; animation-delay: 1.3s; }
+  .bridge-line:nth-child(3) { top: 75%; animation-delay: 2.6s; }
+  @keyframes bridge-glow { 0%, 100% { opacity: 0.2; } 50% { opacity: 0.8; } }
+  .connection-hi-hotel { position: relative; z-index: 2; background: linear-gradient(135deg, var(--bg-card) 0%, rgba(78,205,196,0.06) 100%); border: 1px solid rgba(78,205,196,0.15); border-radius: 12px; padding: 1.2rem 2rem; text-align: center; }
+  .connection-hi-hotel::before, .connection-hi-hotel::after {
+    content: ''; position: absolute; inset: -1px; border-radius: 13px; padding: 1px;
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor; mask-composite: exclude; opacity: 0; pointer-events: none;
+  }
+  .connection-hi-hotel::before {
+    background: conic-gradient(from var(--border-angle), transparent 70%, rgba(78,205,196,0.9) 85%, transparent 100%);
+    animation: hi-glow-teal 20s linear infinite; animation-delay: 13.5s;
+  }
+  .connection-hi-hotel::after {
+    background: conic-gradient(from var(--border-angle-rev), transparent 70%, rgba(201,169,97,0.9) 85%, transparent 100%);
+    animation: hi-glow-gold 20s linear infinite; animation-delay: 13.5s;
+  }
+  @keyframes hi-glow-teal { 0% { --border-angle: 0deg; opacity: 0; } 1% { --border-angle: 0deg; opacity: 1; } 21.5% { --border-angle: 720deg; opacity: 1; } 22.5% { --border-angle: 720deg; opacity: 0; } 100% { --border-angle: 720deg; opacity: 0; } }
+  @keyframes hi-glow-gold { 0% { --border-angle-rev: 360deg; opacity: 0; } 1% { --border-angle-rev: 360deg; opacity: 1; } 21.5% { --border-angle-rev: -360deg; opacity: 1; } 22.5% { --border-angle-rev: -360deg; opacity: 0; } 100% { --border-angle-rev: -360deg; opacity: 0; } }
+  .connection-hi-name { font-family: var(--font-display); font-size: 1.4rem; font-weight: 600; color: var(--accent-teal); margin-bottom: 0.4rem; }
+  .connection-hi-role { font-size: 0.75rem; color: var(--text-secondary); font-weight: 400; letter-spacing: 0.03em; }
+  .connection-verbs { display: flex; justify-content: center; gap: 1.5rem; margin-top: 1.5rem; flex-wrap: wrap; }
+  .connection-verb { display: flex; align-items: center; gap: 0.4rem; }
+  .connection-verb-icon { width: 20px; height: 20px; color: var(--accent-teal); opacity: 0.7; }
+  .connection-verb-text { font-size: 0.75rem; font-weight: 500; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 0.08em; }
+  .connection-arrows { display: flex; flex-direction: column; align-items: center; gap: 2px; padding: 0.8rem 0; }
+  .connection-arrow { width: 1px; height: 12px; background: rgba(78,205,196,0.2); }
+  .connection-arrow-head { width: 0; height: 0; border-left: 4px solid transparent; border-right: 4px solid transparent; }
+  .connection-arrow-head--down { border-top: 5px solid rgba(78,205,196,0.3); }
+  .connection-arrow-head--up { border-bottom: 5px solid rgba(78,205,196,0.3); }
+
+  /* ── Portfolio ── */
+  .portfolio-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.5rem; margin-top: 2.5rem; max-width: 1000px; width: 100%; }
+  .product-card { position: relative; background: var(--bg-card); border: 1px solid rgba(255,255,255,0.04); border-radius: 12px; padding: 2.2rem 1.8rem 1.8rem; text-align: left; display: flex; flex-direction: column; animation: product-highlight 16s ease-in-out infinite; }
+  .product-card:nth-child(1) { animation-delay: 0s; }
+  .product-card:nth-child(2) { animation-delay: 4s; }
+  .product-card:nth-child(3) { animation-delay: 8s; }
+  .product-card:nth-child(4) { animation-delay: 12s; }
+  @keyframes product-highlight {
+    0%, 100% { background: var(--bg-card); transform: translateY(0); border-color: rgba(255,255,255,0.04); }
+    2% { background: var(--bg-card-hover); transform: translateY(-2px); border-color: rgba(255,255,255,0.08); }
+    19% { background: var(--bg-card-hover); transform: translateY(-2px); border-color: rgba(255,255,255,0.08); }
+    22% { background: var(--bg-card); transform: translateY(0); border-color: rgba(255,255,255,0.04); }
+  }
+  .product-header { display: flex; align-items: center; gap: 0.8rem; margin-bottom: 0.6rem; }
+  .product-header svg { width: 36px; height: 36px; color: var(--accent-gold); flex-shrink: 0; }
+  .product-header h3 { font-family: var(--font-body); font-size: 1rem; font-weight: 600; color: var(--text-primary); }
+  .product-card p { font-size: 0.85rem; color: var(--text-secondary); line-height: 1.5; }
+  .product-badge { position: absolute; top: 0; left: 50%; transform: translate(-50%, -50%); font-size: 0.6rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; padding: 0.25rem 0.6rem; border-radius: 4px; white-space: nowrap; }
+  .product-badge--active { background: rgba(52,211,153,0.12); color: var(--accent-green); }
+  .product-badge--dev { background: rgba(96,165,250,0.12); color: var(--accent-blue); }
+  .product-badge--planned { background: rgba(201,169,97,0.12); color: var(--accent-gold); }
+
+  /* ── Stakes section ── */
+  .stakes-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; margin-top: 2.5rem; max-width: 900px; width: 100%; }
+  .stake-card { background: var(--bg-card); border: 1px solid rgba(255,255,255,0.04); border-radius: 12px; padding: 2rem 1.5rem; text-align: left; transition: all 0.3s ease; position: relative; overflow: hidden; }
+  .stake-card:hover { background: var(--bg-card-hover); transform: translateY(-2px); }
+  .stake-card .stake-number { font-family: var(--font-display); font-size: 4rem; font-weight: 700; color: var(--accent-gold); opacity: 0.08; position: absolute; top: -0.3rem; right: 0.8rem; line-height: 1; }
+  .stake-card h3 { font-family: var(--font-body); font-size: 1rem; font-weight: 600; color: var(--text-primary); margin-bottom: 0.5rem; }
+  .stake-card p { font-size: 0.82rem; color: var(--text-secondary); line-height: 1.6; }
+
+  /* ── Key phrase ── */
+  .key-phrase { margin-top: 2.5rem; padding: 1.5rem 2rem; border-left: 3px solid var(--accent-gold); background: var(--accent-gold-dim); border-radius: 0 8px 8px 0; max-width: 700px; text-align: left; }
+  .key-phrase p { font-family: var(--font-display); font-style: italic; font-size: clamp(1.1rem, 1.8vw, 1.4rem); color: var(--text-primary); line-height: 1.6; }
+
+  /* ── Dividers ── */
+  .section-divider { position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); width: 40%; height: 1px; background: linear-gradient(90deg, transparent, rgba(201,169,97,0.15), transparent); }
+  .closing-line { width: 40px; height: 2px; background: var(--accent-gold); margin: 2rem auto; opacity: 0.4; }
+
+  /* ── Keyboard hint ── */
+  .keyboard-hint { position: fixed; bottom: 2rem; left: 50%; transform: translateX(-50%); font-family: var(--font-body); font-size: 0.7rem; color: var(--text-muted); letter-spacing: 0.1em; text-transform: uppercase; opacity: 1; transition: opacity 1s ease; z-index: 50; }
+  .keyboard-hint.hidden { opacity: 0; }
+  .keyboard-hint kbd { display: inline-block; padding: 0.15rem 0.5rem; background: var(--bg-card); border: 1px solid rgba(255,255,255,0.1); border-radius: 4px; font-family: var(--font-body); font-size: 0.65rem; margin: 0 0.15rem; }
+
+  /* ── Backlog compact list ── */
+  .backlog-list { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-top: 1.5rem; justify-content: center; max-width: 800px; }
+  .backlog-tag { background: var(--bg-card); border: 1px solid rgba(201,169,97,0.12); border-radius: 20px; padding: 0.4rem 1rem; font-size: 0.75rem; color: var(--text-secondary); font-weight: 400; transition: all 0.3s ease; }
+  .backlog-tag:hover { border-color: rgba(201,169,97,0.3); color: var(--text-primary); }
+
+  /* ── Responsive ── */
+  @media (max-width: 768px) {
+    .nav-dots { right: 1rem; }
+    .nav-dot::after { display: none; }
+    .levels-grid { grid-template-columns: 1fr; }
+    .profiles { grid-template-columns: 1fr; }
+    .opportunities-grid { grid-template-columns: 1fr; }
+    .modules-grid { grid-template-columns: 1fr; }
+    .stakes-grid { grid-template-columns: 1fr; }
+    .portfolio-grid { grid-template-columns: 1fr; }
+    .validation-grid { grid-template-columns: 1fr; }
+    section { padding: clamp(2rem, 5vh, 4rem) clamp(1rem, 4vw, 2rem); }
+  }
+</style>
+</head>
+<body>
+
+<!-- Scroll progress -->
+<div class="scroll-progress" style="--scroll-pct: 0;"></div>
+
+<!-- Animated background -->
+<div class="bg-orbs">
+  <div class="bg-orb bg-orb--gold" data-speed="0.12" style="--parallax-y: 0px;"></div>
+  <div class="bg-orb bg-orb--teal" data-speed="-0.08" style="--parallax-y: 0px;"></div>
+  <div class="bg-orb bg-orb--blue" data-speed="0.05" style="--parallax-y: 0px;"></div>
+  <div class="bg-orb bg-orb--warm" data-speed="-0.1" style="--parallax-y: 0px;"></div>
+</div>
+
+<!-- Navigation dots -->
+<nav class="nav-dots" aria-label="Navegação">
+  <button class="nav-dot active" data-target="hero" data-label="Início" aria-label="Início"></button>
+  <button class="nav-dot" data-target="quem-somos" data-label="Hi Hotel" aria-label="Hi Hotel"></button>
+  <button class="nav-dot" data-target="sid-hoje" data-label="SID Hoje" aria-label="SID Hoje"></button>
+  <button class="nav-dot" data-target="modulos" data-label="Módulos" aria-label="Módulos"></button>
+  <button class="nav-dot" data-target="momento" data-label="O Momento" aria-label="O Momento"></button>
+  <button class="nav-dot" data-target="oportunidade" data-label="Oportunidade" aria-label="Oportunidade"></button>
+  <button class="nav-dot" data-target="conexao" data-label="Conexão" aria-label="Conexão"></button>
+  <button class="nav-dot" data-target="portfolio" data-label="Produtos" aria-label="Produtos"></button>
+  <button class="nav-dot" data-target="em-jogo" data-label="Em Jogo" aria-label="Em Jogo"></button>
+  <button class="nav-dot" data-target="convergencia" data-label="Convergência" aria-label="Convergência"></button>
+</nav>
+
+<!-- Keyboard hint -->
+<div class="keyboard-hint"><kbd>↓</kbd> <kbd>↑</kbd> para navegar</div>
+
+
+<!-- ═══════════════════════════════════════ -->
+<!-- 1. HERO -->
+<!-- ═══════════════════════════════════════ -->
+<section id="hero">
+  <svg class="circuit-svg" viewBox="0 0 1376 768" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <filter id="glow-teal" x="-50%" y="-50%" width="200%" height="200%">
+        <feGaussianBlur in="SourceGraphic" stdDeviation="3.5" result="blur"></feGaussianBlur>
+        <feColorMatrix in="blur" type="matrix" values="0 0 0 0 0.31  0 0 0 0 0.80  0 0 0 0 0.77  0 0 0 0.9 0" result="color"></feColorMatrix>
+        <feMerge><feMergeNode in="color"></feMergeNode><feMergeNode in="SourceGraphic"></feMergeNode></feMerge>
+      </filter>
+      <filter id="glow-gold" x="-50%" y="-50%" width="200%" height="200%">
+        <feGaussianBlur in="SourceGraphic" stdDeviation="3.5" result="blur"></feGaussianBlur>
+        <feColorMatrix in="blur" type="matrix" values="0 0 0 0 0.79  0 0 0 0 0.66  0 0 0 0 0.38  0 0 0 0.9 0" result="color"></feColorMatrix>
+        <feMerge><feMergeNode in="color"></feMergeNode><feMergeNode in="SourceGraphic"></feMergeNode></feMerge>
+      </filter>
+    </defs>
+    <g class="circuit-base">
+      <path class="teal" d="M 100 665 L 100 35" pathLength="1000"></path>
+      <path class="teal" d="M 100 590 L 475 590 L 540 560 L 745 540" pathLength="1000"></path>
+      <path class="teal" d="M 100 510 L 380 510 L 380 470 L 650 470 L 650 430 L 900 430" pathLength="1000"></path>
+      <path class="teal" d="M 100 430 L 320 430 L 320 380 L 600 380 L 600 330 L 950 330 L 950 280 L 1200 280" pathLength="1000"></path>
+      <path class="teal" d="M 100 250 L 400 250 L 400 210 L 750 210 L 750 170 L 1100 170" pathLength="1000"></path>
+      <path class="teal" d="M 100 160 L 350 160 L 350 120 L 800 120 L 800 80 L 1300 80" pathLength="1000"></path>
+      <path class="teal" d="M 745 540 L 745 430" pathLength="1000"></path>
+      <path class="teal" d="M 900 430 L 900 330" pathLength="1000"></path>
+      <path class="teal" d="M 1200 280 L 1200 170" pathLength="1000"></path>
+      <path class="gold" d="M 80 680 L 475 680 L 540 680 L 540 630 L 745 630 L 745 680 L 1050 680" pathLength="1000"></path>
+      <path class="gold" d="M 475 430 L 475 370 L 680 370 L 680 280 L 950 280 L 950 170 L 1300 170" pathLength="1000"></path>
+      <path class="gold" d="M 400 250 L 400 180 L 650 180 L 650 120 L 1000 120 L 1000 60 L 1350 60" pathLength="1000"></path>
+    </g>
+    <g class="circuit-glow">
+      <path class="teal glow-1" d="M 100 665 L 100 35" pathLength="1000"></path>
+      <path class="teal glow-2" d="M 100 590 L 475 590 L 540 560 L 745 540" pathLength="1000"></path>
+      <path class="teal glow-3" d="M 100 510 L 380 510 L 380 470 L 650 470 L 650 430 L 900 430" pathLength="1000"></path>
+      <path class="teal glow-4" d="M 100 430 L 320 430 L 320 380 L 600 380 L 600 330 L 950 330 L 950 280 L 1200 280" pathLength="1000"></path>
+      <path class="teal glow-5" d="M 100 250 L 400 250 L 400 210 L 750 210 L 750 170 L 1100 170" pathLength="1000"></path>
+      <path class="teal glow-6" d="M 100 160 L 350 160 L 350 120 L 800 120 L 800 80 L 1300 80" pathLength="1000"></path>
+      <path class="gold glow-7" d="M 80 680 L 475 680 L 540 680 L 540 630 L 745 630 L 745 680 L 1050 680" pathLength="1000"></path>
+      <path class="gold glow-3" d="M 475 430 L 475 370 L 680 370 L 680 280 L 950 280 L 950 170 L 1300 170" pathLength="1000"></path>
+      <path class="gold glow-5" d="M 400 250 L 400 180 L 650 180 L 650 120 L 1000 120 L 1000 60 L 1350 60" pathLength="1000"></path>
+    </g>
+    <g class="circuit-nodes">
+      <circle class="teal node-d1" cx="100" cy="590" r="3"></circle>
+      <circle class="teal node-d2" cx="100" cy="510" r="3"></circle>
+      <circle class="teal node-d3" cx="100" cy="430" r="3"></circle>
+      <circle class="teal node-d4" cx="100" cy="250" r="3"></circle>
+      <circle class="teal node-d5" cx="100" cy="160" r="3"></circle>
+      <circle class="teal node-d6" cx="745" cy="540" r="3"></circle>
+      <circle class="teal node-d1" cx="900" cy="430" r="3"></circle>
+      <circle class="teal node-d3" cx="1200" cy="280" r="3"></circle>
+      <circle class="teal node-d5" cx="1100" cy="170" r="3"></circle>
+      <circle class="teal node-d2" cx="1300" cy="80" r="3"></circle>
+      <circle class="gold node-d4" cx="540" cy="680" r="3"></circle>
+      <circle class="gold node-d6" cx="745" cy="630" r="3"></circle>
+      <circle class="gold node-d1" cx="1050" cy="680" r="3"></circle>
+      <circle class="gold node-d3" cx="1300" cy="170" r="3"></circle>
+      <circle class="gold node-d5" cx="1350" cy="60" r="3"></circle>
+    </g>
+  </svg>
+
+  <div class="reveal">
+    <p class="label">Hi Hotel apresenta</p>
+  </div>
+  <h1 class="reveal reveal-delay-1">
+    <em>Hotelaria</em><br>Inteligente
+  </h1>
+  <div class="hero-line reveal reveal-delay-2"></div>
+  <p class="subtitle reveal reveal-delay-3">
+    Conectando pessoas, processos e tecnologia para o hotel funcionar como um todo.
+  </p>
+  <div class="section-divider"></div>
+</section>
+
+
+<!-- ═══════════════════════════════════════ -->
+<!-- 2. QUEM SOMOS — HI HOTEL -->
+<!-- ═══════════════════════════════════════ -->
+<section id="quem-somos">
+  <div class="reveal">
+    <p class="label">Hi Hotel</p>
+    <h2>Nasce para potencializar<br>a capacidade humana</h2>
+  </div>
+
+  <p class="subtitle reveal reveal-delay-1" style="margin-top: 1.5rem; max-width: 700px;">
+    Soluções inteligentes para hotelaria: software, infraestrutura, processos e design de experiência. Criada por quem vive o hotel por dentro.
+  </p>
+
+  <div class="profiles">
+    <div class="profile-card reveal reveal-delay-2">
+      <p class="profile-name">Alejandro</p>
+      <p class="profile-title">Estratégia & Produto</p>
+      <ul class="profile-achievements">
+        <li>Criador do SID — concebeu a arquitetura e a visão de produto</li>
+        <li>5 anos na BRF — liderou transformação cultural em 4 continentes, 16 laboratórios, 112 pessoas</li>
+        <li>Consultor de empresas por 4 anos — sistemas, gestão e treinamentos</li>
+        <li>Coach certificado (ICI) — vida, negócios e carreira</li>
+        <li>Four Seasons Whistler (luxo, Canadá)</li>
+        <li>Bacharel em Administração — UFSC</li>
+        <li>Trilíngue: português, inglês e espanhol</li>
+      </ul>
+    </div>
+
+    <div class="profile-card reveal reveal-delay-3">
+      <p class="profile-name">Matheus</p>
+      <p class="profile-title">Tecnologia & Infraestrutura</p>
+      <ul class="profile-achievements">
+        <li>Criador da TV Concierge — plataforma de TV para hotéis</li>
+        <li>Dev Web Pleno e Scrum Master — squads ágeis, Docker, AWS</li>
+        <li>Autor de 4 apostilas ISBN para formação de programadores</li>
+        <li>Certificado Microsoft Azure Data Fundamentals</li>
+        <li>Pós-graduado em Eng. da Computação e Gestão de TI</li>
+        <li>Responsável por toda a infra tecnológica do Duke</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="key-phrase reveal reveal-delay-4" style="padding: 1.2rem 1.5rem;">
+    <p style="font-size: clamp(0.95rem, 1.5vw, 1.15rem);">Estamos abrindo uma empresa. O SID e a TV Concierge fazem parte da Hi Hotel. Queremos que o Duke seja nosso primeiro parceiro.</p>
+  </div>
+
+  <div class="section-divider"></div>
+</section>
+
+
+<!-- ═══════════════════════════════════════ -->
+<!-- 3. O SID HOJE — VISÃO PRODUTO -->
+<!-- ═══════════════════════════════════════ -->
+<section id="sid-hoje">
+  <div class="reveal">
+    <p class="label">O que é o SID</p>
+    <h2>Experiência premium para o hóspede.<br>Controle real para o gestor.</h2>
+  </div>
+
+  <p class="subtitle reveal reveal-delay-1" style="margin-top: 1.5rem; max-width: 750px;">
+    O SID conecta dados, pessoas e decisões nos três níveis do hotel — para que cada hóspede sinta a diferença e cada líder tenha visibilidade.
+  </p>
+
+  <div class="levels-grid">
+    <div class="level-card level-card--operational reveal reveal-delay-2">
+      <p class="level-tag">Operacional</p>
+      <h3>Quem faz</h3>
+      <p>O garçom registra feedback. A governança recebe a OS. O hóspede sente a diferença. Tudo rastreado, com SLA.</p>
+    </div>
+    <div class="level-card level-card--tactical reveal reveal-delay-3">
+      <p class="level-tag">Tático</p>
+      <h3>Quem decide</h3>
+      <p>O chef ajusta o cardápio com dados reais. O líder vê performance do turno. A Carol Maria mede a cultura na prática.</p>
+    </div>
+    <div class="level-card level-card--strategic reveal reveal-delay-4">
+      <p class="level-tag">Estratégico</p>
+      <h3>Quem direciona</h3>
+      <p>O CEO toma decisões com dados consolidados. Revenue management com inteligência competitiva. Visão 360° do hotel.</p>
+    </div>
+  </div>
+
+  <div class="key-phrase reveal reveal-delay-5" style="margin-top: 3rem;">
+    <p>O diferencial não é "ter IA". É transformar IA em rotina operacional governada — onde cada dado vira ação e cada ação é rastreável.</p>
+  </div>
+
+  <div class="section-divider"></div>
+</section>
+
+
+<!-- ═══════════════════════════════════════ -->
+<!-- 4. MÓDULOS ATUAIS & STATUS -->
+<!-- ═══════════════════════════════════════ -->
+<section id="modulos" style="min-height: auto; padding-top: 5rem; padding-bottom: 5rem;">
+  <div class="reveal">
+    <p class="label">Ecossistema SID</p>
+    <h2>O que já existe.<br>O que está sendo construído.</h2>
+  </div>
+
+  <div class="modules-grid">
+    <!-- Personalização -->
+    <div class="module-card reveal reveal-delay-1">
+      <span class="module-status status--live">Em produção</span>
+      <div class="module-card-header">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+        <h3>Personalização de Hóspedes</h3>
+      </div>
+      <p>Questionário pré-estadia, perfil acionável, preferências salvas. Operação total — jornada do hóspede já começa antes do check-in.</p>
+    </div>
+
+    <!-- Análise de Concorrentes -->
+    <div class="module-card reveal reveal-delay-1">
+      <span class="module-status status--live">Em produção</span>
+      <div class="module-card-header">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+        <h3>Análise de Concorrentes</h3>
+      </div>
+      <p>Monitoramento de 5 concorrentes em produção (Maui, Amora, Nau Royal, TW Guaimbé, DPNY). Market intelligence para decisões de pricing.</p>
+    </div>
+
+    <!-- Dashboard de Vendas -->
+    <div class="module-card reveal reveal-delay-2">
+      <span class="module-status status--live">Em produção</span>
+      <div class="module-card-header">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+        <h3>Dashboard de Vendas</h3>
+      </div>
+      <p>Total de vendas, diária média, ticket médio, LOS, qtde de reservas. Dados validados com engenharia reversa dos indicadores do HITS.</p>
+    </div>
+
+    <!-- Gestão de Acessos -->
+    <div class="module-card reveal reveal-delay-2">
+      <span class="module-status status--live">Em produção</span>
+      <div class="module-card-header">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        <h3>Gestão de Acessos</h3>
+      </div>
+      <p>3 camadas: nível, papel e setor. Self sign-in, aprovação hierárquica, criptografia ponta a ponta. Controle granular de quem acessa o quê.</p>
+    </div>
+
+    <!-- OS -->
+    <div class="module-card reveal reveal-delay-3">
+      <span class="module-status status--live">Em produção</span>
+      <div class="module-card-header">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+        <h3>Ordem de Serviço</h3>
+      </div>
+      <p>Estrutura implementada. Orquestração pendente com cozinha, salão e governança — o SID conecta departamentos com rastreabilidade e SLA.</p>
+    </div>
+
+    <!-- Duke Eventos -->
+    <div class="module-card reveal reveal-delay-3">
+      <span class="module-status status--building">Em implementação</span>
+      <div class="module-card-header">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+        <h3>Duke Eventos</h3>
+      </div>
+      <p>Geração de propostas padronizadas e atraentes com IA. O cliente verifica disponibilidade, recebe orçamento e já compõe extras.</p>
+    </div>
+
+    <!-- Hóspedes -->
+    <div class="module-card reveal reveal-delay-4">
+      <span class="module-status status--building">Em implementação</span>
+      <div class="module-card-header">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+        <h3>Hóspedes</h3>
+      </div>
+      <p>Perfil 360° com tags estruturadas por IA, badges visuais, histórico de preferências e potencial de fidelização. O hóspede é lembrado — não apenas registrado.</p>
+    </div>
+  </div>
+
+  <!-- Backlog como tags compactas -->
+  <p class="label reveal reveal-delay-4" style="margin-top: 3rem;">Backlog de produto</p>
+  <div class="backlog-list reveal reveal-delay-5">
+    <span class="backlog-tag">Dashboard Marketing</span>
+    <span class="backlog-tag">Módulo Doorman</span>
+    <span class="backlog-tag">Módulo Restaurante</span>
+    <span class="backlog-tag">Módulo RH</span>
+    <span class="backlog-tag">Módulo Training</span>
+    <span class="backlog-tag">Programa de Fidelidade</span>
+    <span class="backlog-tag">Módulo Manutenção</span>
+    <span class="backlog-tag">Governança Avançada</span>
+  </div>
+
+  <div class="section-divider"></div>
+</section>
+
+
+<!-- ═══════════════════════════════════════ -->
+<!-- 5. O MOMENTO — VALIDAÇÃO + CMNET -->
+<!-- ═══════════════════════════════════════ -->
+<section id="momento">
+  <div class="reveal">
+    <p class="label">O momento</p>
+    <h2>O que torna este<br>momento único</h2>
+  </div>
+
+  <p class="subtitle reveal reveal-delay-1" style="margin-top: 1rem; max-width: 700px;">
+    O Duke tem uma janela de oportunidade para estruturar a nova tecnologia já no início — antes que a complexidade cresça.
+  </p>
+
+  <div class="validation-grid">
+    <div class="validation-card reveal reveal-delay-2">
+      <span class="number">1</span>
+      <h3>Possível troca de PMS</h3>
+      <p>Se a transição para o CMNET se confirmar, o SID — que hoje depende do HITS — vai precisar ser reconstruído para funcionar com o novo PMS. É um projeto técnico que exige quem conhece o código e a operação.</p>
+    </div>
+
+    <div class="validation-card reveal reveal-delay-3">
+      <span class="number">2</span>
+      <h3>Controle e compliance</h3>
+      <p>O hotel precisa de mais governança sobre o que entra e sai. Investidores precisam ter visibilidade real do negócio. Isso exige processos, ferramentas e estrutura, não apenas boa vontade.</p>
+    </div>
+
+    <div class="validation-card reveal reveal-delay-4">
+      <span class="number">3</span>
+      <h3>Experiência existente</h3>
+      <p>O SID já está em operação com módulos reais, dados acumulados e processos rodando. Não é começar do zero — é estruturar o que já funciona para que cresça com segurança.</p>
+    </div>
+  </div>
+
+  <div class="key-phrase reveal reveal-delay-5">
+    <p>A tecnologia já está no hotel. A questão agora é como ela evolui — e com quem.</p>
+  </div>
+
+  <div class="section-divider"></div>
+</section>
+
+
+<!-- ═══════════════════════════════════════ -->
+<!-- 6. OPORTUNIDADE — COMO AJUDAMOS -->
+<!-- ═══════════════════════════════════════ -->
+<section id="oportunidade">
+  <div class="reveal">
+    <p class="label">Oportunidade</p>
+    <h2>Os problemas que<br>importam resolver</h2>
+  </div>
+
+  <p class="subtitle reveal reveal-delay-1" style="margin-top: 1rem; max-width: 700px;">
+    Nosso modelo: "Tenho um problema. Vai." <br>Entendemos o objetivo por trás da demanda, propomos caminhos e resolvemos. Incremental, definitivo.
+  </p>
+
+  <div class="opportunities-grid">
+    <div class="opportunity-card reveal reveal-delay-2">
+      <h3>Reimplantação de sistemas (CMNET)</h3>
+      <p class="opportunity-how">Coordenamos a migração, integramos com o SID, garantimos continuidade</p>
+      <p class="opportunity-benefit">Transição sem caos. Hotel não para. Dados não se perdem.</p>
+    </div>
+
+    <div class="opportunity-card reveal reveal-delay-2">
+      <h3>Experiência premium consistente</h3>
+      <p class="opportunity-how">Mapeamos processos com líderes + implementamos no SID</p>
+      <p class="opportunity-benefit">Serviço de excelência independente de quem está no turno.</p>
+    </div>
+
+    <div class="opportunity-card reveal reveal-delay-3">
+      <h3>Cultura viva com Carol Maria</h3>
+      <p class="opportunity-how">Transformamos valores em práticas diárias mensuráveis no SID</p>
+      <p class="opportunity-benefit">Cultura que o hóspede sente, não que fica no papel.</p>
+    </div>
+
+    <div class="opportunity-card reveal reveal-delay-3">
+      <h3>Eficiência financeira & RH</h3>
+      <p class="opportunity-how">Automatizamos fluxos, integramos dados, reduzimos retrabalho</p>
+      <p class="opportunity-benefit">O RH leva 1 dia para um relatório que a IA faz em 20 minutos. Não por incapacidade — por falta de ferramenta.</p>
+    </div>
+
+    <div class="opportunity-card reveal reveal-delay-4">
+      <h3>Patrimônio sob controle</h3>
+      <p class="opportunity-how">Reimplantação completa do estoque + módulo de manutenção</p>
+      <p class="opportunity-benefit">Investidores satisfeitos, zero surpresas no inventário.</p>
+    </div>
+
+    <div class="opportunity-card reveal reveal-delay-4">
+      <h3>Inteligência acessível ao time</h3>
+      <p class="opportunity-how">Ferramentas de IA ao alcance de todo o time — não só da direção</p>
+      <p class="opportunity-benefit">O conhecimento multiplica quando a ferramenta certa está na mão certa.</p>
+    </div>
+  </div>
+
+  <div class="section-divider"></div>
+</section>
+
+
+<!-- ═══════════════════════════════════════ -->
+<!-- 7. COMO NOS CONECTAMOS -->
+<!-- ═══════════════════════════════════════ -->
+<section id="conexao">
+  <div class="reveal">
+    <p class="label">Como nos conectamos</p>
+    <h2>Parceiro tecnológico.<br>Não fornecedor.</h2>
+  </div>
+
+  <p class="subtitle reveal reveal-delay-1" style="margin-top: 1rem; max-width: 700px;">
+    Cada departamento continua com seu time e liderança. A Hi Hotel atua como parceiro conselheiro — conecta, potencializa e materializa as ideias em software, hardware e processos.
+  </p>
+
+  <div class="connection-visual reveal reveal-delay-2">
+    <div class="connection-ring">
+      <div class="connection-departments">
+        <div class="dept-node">
+          <p class="dept-node-name">Direção</p>
+          <p class="dept-node-sub">Estratégia & visão</p>
+        </div>
+        <div class="dept-node">
+          <p class="dept-node-name">Líderes</p>
+          <p class="dept-node-sub">Coordenação</p>
+        </div>
+        <div class="dept-node">
+          <p class="dept-node-name">Recepção</p>
+          <p class="dept-node-sub">Atendimento</p>
+        </div>
+        <div class="dept-node">
+          <p class="dept-node-name">Restaurante</p>
+          <p class="dept-node-sub">A&B</p>
+        </div>
+        <div class="dept-node">
+          <p class="dept-node-name">Governança</p>
+          <p class="dept-node-sub">Qualidade</p>
+        </div>
+        <div class="dept-node">
+          <p class="dept-node-name">Financeiro</p>
+          <p class="dept-node-sub">Controle</p>
+        </div>
+      </div>
+
+      <div class="connection-arrows">
+        <div class="connection-arrow-head connection-arrow-head--up"></div>
+        <div class="connection-arrow"></div>
+        <div class="connection-arrow"></div>
+      </div>
+
+      <div class="connection-bridge">
+        <div class="connection-bridge-lines">
+          <div class="bridge-line"></div>
+          <div class="bridge-line"></div>
+          <div class="bridge-line"></div>
+        </div>
+        <div class="connection-hi-hotel">
+          <p class="connection-hi-name">Hi Hotel</p>
+          <p class="connection-hi-role">Parceiro tecnológico — conecta visão, dados e execução</p>
+        </div>
+      </div>
+
+      <div class="connection-verbs">
+        <div class="connection-verb">
+          <svg class="connection-verb-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+          <span class="connection-verb-text">Arquitetamos</span>
+        </div>
+        <div class="connection-verb">
+          <svg class="connection-verb-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+          <span class="connection-verb-text">Construímos</span>
+        </div>
+        <div class="connection-verb">
+          <svg class="connection-verb-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 12h8M12 8v8"/></svg>
+          <span class="connection-verb-text">Conectamos</span>
+        </div>
+        <div class="connection-verb">
+          <svg class="connection-verb-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/></svg>
+          <span class="connection-verb-text">Elevamos</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-divider"></div>
+</section>
+
+
+<!-- ═══════════════════════════════════════ -->
+<!-- 8. PORTFÓLIO -->
+<!-- ═══════════════════════════════════════ -->
+<section id="portfolio">
+  <div class="reveal">
+    <p class="label">Nossos produtos</p>
+    <h2>Mais do que um sistema.<br>Um ecossistema.</h2>
+  </div>
+
+  <div class="portfolio-grid">
+    <div class="product-card reveal reveal-delay-1">
+      <span class="product-badge product-badge--active">Em operação</span>
+      <div class="product-header">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+        <h3>SID</h3>
+      </div>
+      <p>Sistema nervoso do hotel. OS, personalização, revenue management, vendas, acessos, eventos e mais. Plataforma modular e expansível.</p>
+    </div>
+    <div class="product-card reveal reveal-delay-2">
+      <span class="product-badge product-badge--dev">Em desenvolvimento</span>
+      <div class="product-header">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="7" width="20" height="15" rx="2"/><polyline points="17 2 12 7 7 2"/></svg>
+        <h3>Concierge Platform</h3>
+      </div>
+      <p>Plataforma de TV para hotéis com self-check-in e self-check-out. O hóspede resolve o básico, a equipe foca no excepcional.</p>
+    </div>
+    <div class="product-card reveal reveal-delay-3">
+      <span class="product-badge product-badge--planned">Planejado</span>
+      <div class="product-header">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M12 18h.01"/></svg>
+        <h3>App Hóspede</h3>
+      </div>
+      <p>Canal direto com o hotel. Solicitações, informações, experiência personalizada na palma da mão.</p>
+    </div>
+    <div class="product-card reveal reveal-delay-4">
+      <span class="product-badge product-badge--planned">Futuro</span>
+      <div class="product-header">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="3" width="20" height="18" rx="2"/><path d="M9 12h6M9 16h6M9 8h6"/></svg>
+        <h3>Totens</h3>
+      </div>
+      <p>Pontos de autoatendimento para solicitação de serviços e informações.</p>
+    </div>
+  </div>
+
+  <div class="key-phrase reveal reveal-delay-5">
+    <p>O Duke pode ser o primeiro parceiro completo — ou adotar peças isoladas. A escolha é conjunta.</p>
+  </div>
+
+  <div class="section-divider"></div>
+</section>
+
+
+<!-- ═══════════════════════════════════════ -->
+<!-- 9. O QUE ESTÁ EM JOGO -->
+<!-- ═══════════════════════════════════════ -->
+<section id="em-jogo">
+  <div class="reveal">
+    <p class="label">O que está em jogo</p>
+    <h2>Transparência<br>para decidir juntos</h2>
+  </div>
+
+  <p class="subtitle reveal reveal-delay-1" style="margin-top: 1rem; max-width: 700px;">
+    Queremos ser diretos sobre os pontos que precisamos alinhar para que a parceria funcione para os dois lados.
+  </p>
+
+  <div class="stakes-grid">
+    <div class="stake-card reveal reveal-delay-2">
+      <span class="stake-number">1</span>
+      <h3>Quem é dono do código?</h3>
+      <p>Hoje, o SID foi construído dentro do Duke, com recursos do Duke. A pergunta é: o hotel quer manter essa propriedade? Essa resposta define como estruturamos a relação daqui pra frente.</p>
+    </div>
+
+    <div class="stake-card reveal reveal-delay-3">
+      <span class="stake-number">2</span>
+      <h3>Duke como laboratório vivo</h3>
+      <p>O Duke é o primeiro case real da Hi Hotel. Um hotel de luxo em operação, com demanda real, testando o SID no dia a dia. Isso tem valor para os dois lados.</p>
+    </div>
+
+    <div class="stake-card reveal reveal-delay-4">
+      <span class="stake-number">3</span>
+      <h3>Continuidade e suporte de TI</h3>
+      <p>A infraestrutura do hotel depende de quem a conhece por dentro. Com a troca para CMNET, essa continuidade se torna ainda mais crítica.</p>
+    </div>
+  </div>
+
+  <div class="key-phrase reveal reveal-delay-5" style="margin-top: 2rem;">
+    <p>Estamos abertos a construir o formato que faça sentido para os dois lados. A resposta a essas perguntas define o modelo — e a gente quer chegar nesse modelo junto.</p>
+  </div>
+
+  <div class="section-divider"></div>
+</section>
+
+
+<!-- ═══════════════════════════════════════ -->
+<!-- 10. CONVERGÊNCIA -->
+<!-- ═══════════════════════════════════════ -->
+<section id="convergencia">
+  <div class="reveal">
+    <p class="label">Próximos passos</p>
+  </div>
+  <h2 class="reveal reveal-delay-1">
+    Obrigado, Heiko e Diego.
+  </h2>
+  <div class="closing-line reveal reveal-delay-2"></div>
+  <p class="subtitle reveal reveal-delay-3" style="margin-top: 1.5rem; max-width: 650px;">
+    Para a próxima conversa, seria bom termos clareza sobre:
+  </p>
+  <div class="stakes-grid reveal reveal-delay-4" style="max-width: 700px;">
+    <div class="stake-card" style="padding: 1.5rem;">
+      <span class="stake-number">1</span>
+      <p style="color: var(--text-primary); font-weight: 500;">Como o Duke quer estruturar a relação com a tecnologia que já roda no hotel?</p>
+    </div>
+    <div class="stake-card" style="padding: 1.5rem;">
+      <span class="stake-number">2</span>
+      <p style="color: var(--text-primary); font-weight: 500;">Qual o papel que a Hi Hotel pode ter na transição para o CMNET?</p>
+    </div>
+    <div class="stake-card" style="padding: 1.5rem;">
+      <span class="stake-number">3</span>
+      <p style="color: var(--text-primary); font-weight: 500;">Qual prazo faz sentido para definirmos o próximo passo juntos?</p>
+    </div>
+  </div>
+  <p class="subtitle reveal reveal-delay-5" style="margin-top: 2rem; opacity: 0.5; font-size: 0.85rem;">
+    Na próxima conversa, trazemos uma proposta formal baseada no que fizer sentido para os dois lados.
+  </p>
+</section>
+
+
+<script>
+  // ── Intersection Observer for reveals ──
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
+  }, { threshold: 0.15 });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+  // ── Active section tracking ──
+  const sections = document.querySelectorAll('section');
+  const dots = document.querySelectorAll('.nav-dot');
+  const hint = document.querySelector('.keyboard-hint');
+
+  const sectionObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const id = entry.target.id;
+        dots.forEach(dot => dot.classList.toggle('active', dot.dataset.target === id));
+      }
+    });
+  }, { threshold: 0.5 });
+  sections.forEach(s => sectionObserver.observe(s));
+
+  // ── Dot navigation ──
+  dots.forEach(dot => {
+    dot.addEventListener('click', () => {
+      const target = document.getElementById(dot.dataset.target);
+      if (target) target.scrollIntoView({ behavior: 'smooth' });
+    });
+  });
+
+  // ── Keyboard navigation ──
+  let currentSection = 0;
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowDown' || e.key === 'PageDown') {
+      e.preventDefault();
+      currentSection = Math.min(currentSection + 1, sections.length - 1);
+      sections[currentSection].scrollIntoView({ behavior: 'smooth' });
+    } else if (e.key === 'ArrowUp' || e.key === 'PageUp') {
+      e.preventDefault();
+      currentSection = Math.max(currentSection - 1, 0);
+      sections[currentSection].scrollIntoView({ behavior: 'smooth' });
+    }
+  });
+
+  const indexObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) currentSection = Array.from(sections).indexOf(entry.target);
+    });
+  }, { threshold: 0.5 });
+  sections.forEach(s => indexObserver.observe(s));
+
+  // ── Parallax + Progress + Hint ──
+  const orbs = document.querySelectorAll('.bg-orb');
+  const progressBar = document.querySelector('.scroll-progress');
+  let hintHidden = false;
+  let ticking = false;
+
+  window.addEventListener('scroll', () => {
+    if (!ticking) {
+      requestAnimationFrame(() => {
+        const scrollY = window.scrollY;
+        const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+        const scrollPct = docHeight > 0 ? scrollY / docHeight : 0;
+        progressBar.style.setProperty('--scroll-pct', scrollPct);
+        orbs.forEach(orb => {
+          const speed = parseFloat(orb.dataset.speed) || 0;
+          orb.style.setProperty('--parallax-y', `${scrollY * speed}px`);
+        });
+        if (!hintHidden && scrollY > 100) { hint.classList.add('hidden'); hintHidden = true; }
+        ticking = false;
+      });
+      ticking = true;
+    }
+  }, { passive: true });
+</script>
+
+</body></html>

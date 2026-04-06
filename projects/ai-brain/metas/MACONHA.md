@@ -61,6 +61,22 @@ Conversa com Kai sobre o padrão de culpa. Conexões:
 
 ## Log Semanal
 
+### Semana 06-12 Abr 2026 (meta: max 2x)
+
+| Dia | Fumou? | Nota |
+|-----|--------|------|
+| Seg 06 | Não | |
+| Ter 07 | | |
+| Qua 08 | | |
+| Qui 09 | | |
+| Sex 10 | | |
+| Sáb 11 | | |
+| Dom 12 | | |
+
+**Total: ?/2**
+
+---
+
 ### Semana 30 Mar - 05 Abr 2026 (meta: max 2x)
 
 | Dia | Fumou? | Nota |
@@ -71,7 +87,7 @@ Conversa com Kai sobre o padrão de culpa. Conexões:
 | Qui 02 | Sim | Primeira vez na semana — brisa boa |
 | Sex 03 | Sim | Segunda vez — ok |
 | Sáb 04 | Sim | Meio baseado. Não valeu a pena |
-| Dom 05 | — | |
+| Dom 05 | Não | |
 
 **Total: 3/2** ⚠️ acima da meta + 3 dias consecutivos
 

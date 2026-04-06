@@ -391,6 +391,15 @@ Entre séries do lift principal. 50-100 reps por categoria por treino.
 | 03/04 Sex | OFF | Dor na perna. Reformou móvel em casa |
 | 04/04 Sáb | OFF | Dor na perna (Tandrilax). Limpou banheiro — possível agravamento. Dificuldade de agachar/levantar |
 | 05/04 Dom | OFF | Recuperação perna |
+| 06/04 Seg | OFF | Joelho melhorando, ainda em recuperação |
+
+**Contexto da lesão:** Queda na escada — perna esquerda escorregou de um degrau para o outro com a perna reta, impacto concentrado no joelho. Região do joelho inchou. Tomando Tandrilax, dor diminuindo.
+
+**Plano da semana (07-12 Abr):**
+- Ter 07: Bench (joelho não participa — deitado no banco)
+- Qua 08: Deadlift SE joelho permitir agachar sem dor. Alternativas: OHP ou OFF
+- Lower body (Squat): só quando joelho estiver 100%
+- Cardio/corrida: suspenso até joelho normalizar
 
 ---
 

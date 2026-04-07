@@ -48,6 +48,8 @@ Mostrar que não é promessa — já tem coisa rodando.
 
 **Mensagem:** "Isso já existe. Não é projeto futuro. A questão é: como fazer com que mais gente use e que resolva problemas reais de cada área."
 
+**Reforço:** "Tudo isso foi construído por nós, sobre o sistema atual. Com a migração pro CMNET, somos quem garante que nada se perde e que os novos sistemas já nascem integrados."
+
 ---
 
 ## SLIDE 4 — O problema que a gente quer resolver
@@ -59,6 +61,7 @@ Exemplos concretos (sem apontar culpados):
 - "Informações importantes sobre hóspedes existem, mas não chegam na pessoa certa na hora certa."
 - "Processos dependem da memória de quem está no turno. Quando a pessoa falta, o processo falha."
 - "Tempo é gasto com retrabalho que poderia ser eliminado com a ferramenta certa."
+- "O hotel vai trocar o sistema central (HITS → CMNET). Isso afeta todos os departamentos. Os sistemas que já funcionam hoje precisam acompanhar essa transição sem parar de funcionar."
 
 **Frase-chave:** "O problema não é falta de esforço. É falta de infraestrutura que conecte as coisas."
 
@@ -95,8 +98,8 @@ Este é o slide mais importante. Cada gestor precisa se ver aqui.
 **Mensagem:** "A gente não fica esperando pedido. A gente propõe, alinha com vocês, e constrói."
 
 Formato de trabalho:
-- **Reunião quinzenal com gestores** — entender prioridades, mostrar progresso, alinhar próximos passos.
-- **Reunião mensal com direção** — visão geral, decisões de escopo.
+- **Alinhamento quinzenal com gestores** — pauta flexível: pode ser demonstração de progresso, levantamento de necessidades, ou ajuste de prioridades. O formato se adapta ao momento, o ritmo não muda. Pode ser individual ou em grupo, conforme o tema — nem toda quinzena precisa ser plenária.
+- **Alinhamento mensal com direção** — visão geral, decisões de escopo, direcionamento estratégico.
 - **A HiHotel transita pelo hotel inteiro** — não está abaixo de nenhum departamento. Se conecta com todos.
 - **Cada gestor tem voz direta** — não precisa de intermediário pra pedir, sugerir ou reclamar.
 

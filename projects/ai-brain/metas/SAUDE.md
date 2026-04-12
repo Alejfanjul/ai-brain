@@ -395,11 +395,23 @@ Entre séries do lift principal. 50-100 reps por categoria por treino.
 
 **Contexto da lesão:** Queda na escada — perna esquerda escorregou de um degrau para o outro com a perna reta, impacto concentrado no joelho. Região do joelho inchou. Tomando Tandrilax, dor diminuindo.
 
-**Plano da semana (07-12 Abr):**
-- Ter 07: Bench (joelho não participa — deitado no banco)
-- Qua 08: Deadlift SE joelho permitir agachar sem dor. Alternativas: OHP ou OFF
-- Lower body (Squat): só quando joelho estiver 100%
-- Cardio/corrida: suspenso até joelho normalizar
+**Deload estendido** (21/03 - 06/04) por conta da lesão no joelho. Todos os 4 lifts completados. Joelho recuperado.
+
+---
+
+### Semana 07-12 Abr (Ciclo 3 - Semana 1)
+
+> **Ciclo 3 — Anchor.** TMs novos: Squat 112 | Bench 72 | Deadlift ? | OHP ?
+
+| Data | Treino | Notas |
+|------|--------|-------|
+| 07/04 Ter | Bench Ciclo 3 Sem 1 | TM 72. Aquec: 5x30, 5x36, 5x40. Principal: 5x48, 5x56, 5x60. FSL 5x5@48. Acessórios: feitos (não lembrados) |
+| 08/04 Qua | OFF | |
+| 09/04 Qui | OFF | |
+| 10/04 Sex | OFF | |
+| 11/04 Sáb | Squat Ciclo 3 Sem 1 | TM 112. Aquec: 5x46, 5x56, 3x66. Principal: 5x76, 5x86, 5x96. FSL 5x5@76 |
+
+**Treinos: 2** (semana leve — retorno pós-lesão joelho)
 
 ---
 
@@ -417,8 +429,8 @@ Entre séries do lift principal. 50-100 reps por categoria por treino.
 - [x] Completar deload Ciclo 1 (Bench 11/02)
 - [x] Subir TM +2.5kg (upper) / +5kg (lower)
 - [x] Ciclo 2 Leader — Prep and Fat Loss (3 semanas: 14/02 - 20/03)
-- [ ] 7th Week Deload (21-29/03) ← **em andamento**
-- [ ] Escolher Anchor template (Original 5/3/1 recomendado)
+- [x] 7th Week Deload (21/03 - 06/04, estendido por lesão joelho)
+- [ ] Ciclo 3 — Anchor (em andamento, Sem 1 iniciada 07/04)
 - [ ] Anchor (3 semanas)
 - [ ] 7th Week TM Test — testar TMs com 3-5 reps
 

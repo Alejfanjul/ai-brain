@@ -66,14 +66,14 @@ Conversa com Kai sobre o padrão de culpa. Conexões:
 | Dia | Fumou? | Nota |
 |-----|--------|------|
 | Seg 06 | Não | |
-| Ter 07 | | |
-| Qua 08 | | |
-| Qui 09 | | |
-| Sex 10 | | |
-| Sáb 11 | | |
-| Dom 12 | | |
+| Ter 07 | Não | |
+| Qua 08 | Não | |
+| Qui 09 | Sim | |
+| Sex 10 | Sim | |
+| Sáb 11 | Sim | |
+| Dom 12 | Sim | Provavelmente |
 
-**Total: ?/2**
+**Total: 4/2** ⚠️ acima da meta + 4 dias consecutivos
 
 ---
 

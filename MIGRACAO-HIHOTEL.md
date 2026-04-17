@@ -1,7 +1,7 @@
 # Migração ai-brain ↔ HiHotel — Painel de Trabalho
 
 **Criado:** 2026-04-17
-**Status:** Fase 1 concluída (Cat 3 em exceção) · Fase 2 concluída · próxima: Fase 3
+**Status:** todas as fases concluídas — migração finalizada em 2026-04-17. Triagem fina dos 23 arquivos migrados acontece no HiHotel, com calma.
 
 ## Regras combinadas
 
@@ -17,8 +17,8 @@
 |---|---|---|
 | 1 | Lixo do `ai-brain` | 🟢 Cat 1, 2, 4 executadas (8 arquivos + edit README). Cat 3 em exceção. |
 | 2 | Lixo do `HiHotel` | 🟢 concluída — 1 arquivo deletado + 2 TIPs criados |
-| 3 | Estratégia de migração (original × síntese × fragmento) | ⚪ a fazer |
-| 4 | Executar migração | ⚪ a fazer |
+| 3 | Estratégia de migração | 🟢 concluída — Opção B: pasta-quarentena no HiHotel, promoção arquivo-a-arquivo adiante |
+| 4 | Executar migração | 🟢 concluída — 23 arquivos movidos para `HiHotel/migracao-ai-brain/` + 2 descartes extras |
 
 ---
 
@@ -121,3 +121,43 @@ Varredura do HiHotel praticamente zero lixo (repo disciplinado).
 |---|---|---|---|
 | 2026-04-17 | Deletar `.gitkeep` órfão em `notas/` | `fb41f63` | Pasta já tem conteúdo real |
 | 2026-04-17 | Criar 2 TIPs (tipo ideia) | `29639e8` | `2026-04-17-avaliar-condensacao-identidade.md`, `2026-04-17-consolidar-claude-readme-overlap.md` |
+
+# Log de execução — Fase 3 + 4
+
+**Pivot da estratégia:** depois de conversa com Matheus, o default virou **"preservar em dúvida"** — a empresa e o repo estão jovens, ainda não dá pra saber o que vai ser útil. Só descarte inequívoco; todo resto migra pra pasta-quarentena no HiHotel pra triagem com calma.
+
+**Estratégia adotada:** Opção B — pasta `HiHotel/migracao-ai-brain/` recebe tudo, promoção arquivo-a-arquivo pra destino final (`identidade/`, `clientes/duke/`, `empresa/`, `tip/`, etc.) acontece depois, com contexto.
+
+## Descartes adicionais (ai-brain)
+
+| Arquivo | Motivo | Commit |
+|---|---|---|
+| `projects/hihotel/proposta/memoria-claude.md` | Memória de sessão Claude de março, referencia proposta v4 inexistente | `c9fd5f0` |
+| `projects/hihotel/quadro-estrutura-prioridades-2026-04-16.md` | Duplicata do conteúdo em `HiHotel/notas/2026-04-15-metodologia-organizacao.md` | `c9fd5f0` |
+
+## Migração (ai-brain → HiHotel)
+
+| Origem em ai-brain | Qtd | Destino em HiHotel |
+|---|---|---|
+| `projects/hihotel/proposta/` | 15 | `migracao-ai-brain/proposta/` |
+| `projects/hihotel/artefatos/` | 3 | `migracao-ai-brain/artefatos/` |
+| `projects/hihotel/genese-visao-dez2024.md` | 1 | `migracao-ai-brain/` (raiz) |
+| `projects/hihotel/plano-estudo-fundamentos.md` | 1 | `migracao-ai-brain/` (raiz) |
+| `templates/patterns/interview_process/` | 3 | `migracao-ai-brain/interview-process-pattern/` |
+| **Total** | **23** | |
+
+| Repo | Commit | Ação |
+|---|---|---|
+| HiHotel | `87f3c92` | Recepção: 23 arquivos + `migracao-ai-brain/README.md` com mapa de origem |
+| ai-brain | `e4eb07f` | Deleção: 23 arquivos + pastas `projects/hihotel/` e `templates/` removidas por ficarem vazias |
+
+## Não migrados (ficam no ai-brain)
+
+- `cloud-setup-instructions.md` — infra do Claude Code, não é HiHotel
+- Demais projetos pessoais (`projects/ai-brain/`, `projects/ai-brand/`, `projects/fitness-coach/`, `projects/moonlight-sunshine/`, `projects/speech-to-text/`)
+
+## Próximos passos (fora deste plano)
+
+A triagem fina no HiHotel tem dono: quando bater o clima, abrir `HiHotel/migracao-ai-brain/` e promover arquivo-a-arquivo. Quando a pasta esvaziar, escrever ADR em `HiHotel/decisoes/` com as lições do processo.
+
+Este documento (`MIGRACAO-HIHOTEL.md`) pode ser deletado do `ai-brain` a qualquer momento — o histórico da migração está preservado nos commits citados acima e no README da pasta-quarentena.

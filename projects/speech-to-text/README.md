@@ -102,6 +102,7 @@ Ver `tools/whisper-dictation/SETUP.md` — inclui todas as lições aprendidas.
 - [x] Deps instaladas (py -3.11 -m pip install)
 - [x] Teste funcional (hotkey + mic + transcrição pt-BR)
 - [x] Autostart configurado (setup-startup.bat → VBS na pasta Startup)
+- [x] Acessibilidade: borda colorida na tela (Stargardt — visão periférica)
 - [ ] Teste em VSCode terminal, browser, notepad
 
 ### Fase 2: sistema-os POPs (futuro)

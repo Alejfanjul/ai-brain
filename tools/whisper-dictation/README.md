@@ -47,9 +47,15 @@ Editar `config.json`:
   "hotkey": "F9",
   "language": "pt",
   "sample_rate": 16000,
-  "channels": 1
+  "channels": 1,
+  "border_overlay_enabled": true,
+  "border_thickness": 12
 }
 ```
+
+### Borda acessível
+
+Durante gravação/transcrição, uma borda colorida aparece em toda a volta da tela (visível pela visão periférica — pensado para Stargardt / baixa visão central). Liga/desliga pelo menu da system tray ou na chave `border_overlay_enabled` do config. Detalhes em [SETUP.md](SETUP.md#borda-colorida-na-tela-acessibilidade).
 
 ### Opções via linha de comando
 
@@ -62,6 +68,7 @@ py -3.11 dictation.py --hotkey "ctrl+alt+space" --language en
 ```
 transcribe.py      ← Core reusável (Whisper API call)
 dictation.py       ← Wrapper desktop (hotkey + mic + paste)
+border_overlay.py  ← Borda colorida na tela (acessibilidade)
 config.json        ← Configurações
 install.sh         ← Instalação guiada (roda no WSL)
 setup-startup.bat  ← Configura autostart com Windows

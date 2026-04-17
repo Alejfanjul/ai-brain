@@ -2,5 +2,8 @@
   "hotkey": "F9",
   "language": "pt",
   "sample_rate": 16000,
-  "channels": 1
+  "channels": 1,
+  "border_overlay_enabled": true,
+  "border_thickness": 12,
+  "silence_threshold": 30
 }

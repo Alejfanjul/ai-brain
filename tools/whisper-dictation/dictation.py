@@ -31,6 +31,7 @@ import pyperclip
 import sounddevice as sd
 from scipy.io import wavfile
 
+from border_overlay import BorderOverlay
 from transcribe import transcribe_audio
 
 # --- Logging ---
@@ -162,20 +163,26 @@ try:
         _tray_icon.icon = _get_tray_image(state)
         _tray_icon.title = _TRAY_TOOLTIPS.get(state, "Whisper Dictation")
 
-    def _flash_tray(state: AppState, duration: float = 2.0) -> None:
-        """Flash temporário no tray (sucesso/erro), depois volta para idle."""
-        if _tray_icon is None:
-            return
-        _update_tray(state)
-        time.sleep(duration)
-        _update_tray(AppState.IDLE)
+    def _start_tray(on_quit_callback, on_toggle_border=None, is_border_enabled=None) -> None:
+        """Inicia o tray icon em thread daemon.
 
-    def _start_tray(on_quit_callback) -> None:
-        """Inicia o tray icon em thread daemon."""
+        on_toggle_border: callback chamado ao clicar no item "Borda acessível"
+        is_border_enabled: callable() -> bool, estado atual da borda (pra checkmark)
+        """
         global _tray_icon
-        menu = pystray.Menu(
-            pystray.MenuItem("Sair", lambda icon, item: on_quit_callback()),
-        )
+
+        menu_items = []
+        if on_toggle_border is not None and is_border_enabled is not None:
+            menu_items.append(
+                pystray.MenuItem(
+                    "Borda acessível",
+                    lambda icon, item: on_toggle_border(),
+                    checked=lambda item: is_border_enabled(),
+                )
+            )
+        menu_items.append(pystray.MenuItem("Sair", lambda icon, item: on_quit_callback()))
+
+        menu = pystray.Menu(*menu_items)
         _tray_icon = pystray.Icon(
             "whisper-dictation",
             icon=_get_tray_image(AppState.IDLE),
@@ -199,10 +206,7 @@ except ImportError:
     def _update_tray(state: AppState) -> None:
         pass
 
-    def _flash_tray(state: AppState, duration: float = 2.0) -> None:
-        pass
-
-    def _start_tray(on_quit_callback) -> None:
+    def _start_tray(on_quit_callback, on_toggle_border=None, is_border_enabled=None) -> None:
         pass
 
     def _stop_tray() -> None:
@@ -216,6 +220,18 @@ DEFAULT_CONFIG = {
     "language": "pt",
     "sample_rate": 16000,
     "channels": 1,
+    "border_overlay_enabled": True,
+    "border_thickness": 12,
+    "silence_threshold": 30,
+}
+
+
+_BORDER_COLORS = {
+    AppState.IDLE: None,
+    AppState.RECORDING: "#FF0000",
+    AppState.PROCESSING: "#FFC800",
+    AppState.SUCCESS: "#00CC00",
+    AppState.ERROR: "#CC0000",
 }
 
 
@@ -309,11 +325,55 @@ class DictationApp:
         self._state_lock = threading.Lock()
         self.stream = None
         self._main_thread_id = None
+        self.border_overlay = BorderOverlay(
+            thickness=config.get("border_thickness", 12),
+            enabled=config.get("border_overlay_enabled", True),
+        )
 
     def _set_state(self, state: AppState) -> None:
-        """Atualiza estado e reflete no tray icon."""
+        """Atualiza estado e reflete no tray icon + borda."""
         self._state = state
         _update_tray(state)
+        color = _BORDER_COLORS.get(state)
+        if color is None:
+            self.border_overlay.hide()
+        else:
+            self.border_overlay.show(color)
+
+    def toggle_border_overlay(self) -> None:
+        """Liga/desliga a borda e persiste no config.json."""
+        new_state = not self.border_overlay.enabled
+        self.border_overlay.set_enabled(new_state)
+        self.config["border_overlay_enabled"] = new_state
+        save_config(self.config)
+        logger.info(f"  [border] {'Ativada' if new_state else 'Desativada'}")
+        # Se ligou no meio de uma gravação/transcrição, mostra imediatamente
+        if new_state:
+            color = _BORDER_COLORS.get(self._state)
+            if color is not None:
+                self.border_overlay.show(color)
+        if _tray_icon is not None:
+            try:
+                _tray_icon.update_menu()
+            except Exception:
+                pass
+
+    def is_border_enabled(self) -> bool:
+        return self.border_overlay.enabled
+
+    def _flash_and_reset(self, state: AppState, duration: float = 2.0) -> None:
+        """Mostra estado temporário (success/error), depois volta para IDLE.
+
+        Só reseta se o estado ainda for o mesmo (usuário pode ter começado outra gravação).
+        """
+        self._set_state(state)
+
+        def _reset():
+            time.sleep(duration)
+            if self._state == state:
+                self._set_state(AppState.IDLE)
+
+        threading.Thread(target=_reset, daemon=True).start()
 
     def preflight_checks(self) -> list[str]:
         """Verifica pré-requisitos. Retorna lista de erros (vazia = tudo OK)."""
@@ -341,7 +401,11 @@ class DictationApp:
     def start(self):
         """Inicia o app de dictation."""
         _acquire_lock()
-        _start_tray(on_quit_callback=self._quit)
+        _start_tray(
+            on_quit_callback=self._quit,
+            on_toggle_border=self.toggle_border_overlay,
+            is_border_enabled=self.is_border_enabled,
+        )
 
         errors = self.preflight_checks()
         if errors:
@@ -377,6 +441,7 @@ class DictationApp:
             _unregister_hotkey(HOTKEY_ID)
             self._cleanup()
             _stop_tray()
+            self.border_overlay.stop()
             _release_lock()
             logger.info("Dictation encerrado.")
 
@@ -437,7 +502,7 @@ class DictationApp:
             logger.info("  [REC] Gravando... (aperte hotkey para parar)")
         except Exception as e:
             logger.error(f"  [ERRO] Falha ao abrir microfone: {e}")
-            self._set_state(AppState.ERROR)
+            self._flash_and_reset(AppState.ERROR)
 
     def _stop_stream(self):
         """Para o stream de áudio de forma segura."""
@@ -500,11 +565,13 @@ class DictationApp:
         normalized = text.strip().lower().rstrip(".")
         return any(h in normalized for h in self._HALLUCINATION_PATTERNS)
 
-    def _is_silence(self, audio_data: np.ndarray, threshold: float = 200.0) -> bool:
+    def _is_silence(self, audio_data: np.ndarray) -> bool:
         """Verifica se o áudio está abaixo do threshold de energia (silêncio).
 
-        threshold=200 para int16 é bem conservador — voz normal fica acima de 500.
+        Threshold é configurável em config.json (silence_threshold). Padrão 30:
+        permissivo para mics com gain baixo mas ainda filtra silêncio total.
         """
+        threshold = self.config.get("silence_threshold", 30)
         rms = np.sqrt(np.mean(audio_data.astype(np.float64) ** 2))
         logger.debug(f"  [audio] RMS energy: {rms:.1f} (threshold: {threshold})")
         return rms < threshold
@@ -537,23 +604,17 @@ class DictationApp:
             if text and text.strip() and not self._is_hallucination(text):
                 self._paste_text(text)
                 logger.info(f'  [OK] "{text}"')
-                self._set_state(AppState.SUCCESS)
-                if _tray_available:
-                    threading.Thread(
-                        target=_flash_tray,
-                        args=(AppState.SUCCESS, 2.0),
-                        daemon=True,
-                    ).start()
+                self._flash_and_reset(AppState.SUCCESS)
             elif text and self._is_hallucination(text):
                 logger.info(f'  [!] Alucinação filtrada: "{text}"')
                 self._set_state(AppState.IDLE)
             else:
                 logger.info("  [!] Transcrição vazia.")
-                self._set_state(AppState.ERROR)
+                self._flash_and_reset(AppState.ERROR)
 
         except Exception as e:
             logger.error(f"  [ERRO] {e}")
-            self._set_state(AppState.ERROR)
+            self._flash_and_reset(AppState.ERROR)
 
         finally:
             if temp_path:
@@ -586,18 +647,29 @@ class DictationApp:
         self._stop_stream()
 
 
+CONFIG_PATH = Path(__file__).parent / "config.json"
+
+
 def load_config() -> dict:
     """Carrega configuração do config.json ou usa defaults."""
-    config_path = Path(__file__).parent / "config.json"
-
     config = DEFAULT_CONFIG.copy()
 
-    if config_path.exists():
-        with open(config_path) as f:
+    if CONFIG_PATH.exists():
+        with open(CONFIG_PATH) as f:
             user_config = json.load(f)
             config.update(user_config)
 
     return config
+
+
+def save_config(config: dict) -> None:
+    """Persiste configuração no config.json (apenas chaves conhecidas)."""
+    try:
+        to_save = {k: config[k] for k in DEFAULT_CONFIG if k in config}
+        with open(CONFIG_PATH, "w") as f:
+            json.dump(to_save, f, indent=2, ensure_ascii=False)
+    except Exception as e:
+        logger.warning(f"  [config] Falha ao salvar: {e}")
 
 
 def main():

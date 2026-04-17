@@ -128,7 +128,28 @@ Quando `pystray` e `pillow` estão instalados, aparece um ícone circular na sys
 | Erro (flash 2s) | Vermelho escuro | "Whisper — Erro" |
 
 - Clique direito no ícone → "Sair" para encerrar o processo
+- Clique direito → "Borda acessível" liga/desliga a borda colorida na tela (ver seção abaixo). A preferência é salva em `config.json`
 - Se o ícone não aparece, as libs não estão instaladas — funciona normalmente sem ele
+
+## Borda colorida na tela (acessibilidade)
+
+Pensada pra quem tem baixa visão central (ex: Stargardt). Enquanto grava/transcreve, uma borda fina aparece nas quatro bordas da tela, mudando de cor conforme o estado — a visão periférica percebe mesmo sem olhar diretamente.
+
+| Estado | Cor da borda |
+|--------|--------------|
+| Pronto (IDLE) | Invisível |
+| Gravando | Vermelho |
+| Transcrevendo | Amarelo |
+| Sucesso (flash 2s) | Verde |
+| Erro (flash 2s) | Vermelho escuro |
+
+**Configuração** (em `config.json`):
+- `border_overlay_enabled`: `true`/`false` — liga/desliga
+- `border_thickness`: pixels (padrão 12)
+
+**Click-through**: a borda não bloqueia cliques do mouse (atravessa via `WS_EX_TRANSPARENT`). Pode trabalhar normalmente com ela ativa.
+
+**Quando desligar**: gravação de tela, apresentação ou videoconferência — o toggle no menu da tray resolve rápido.
 
 ### Fixar ícone na barra de tarefas
 

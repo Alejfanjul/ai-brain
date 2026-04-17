@@ -1,7 +1,7 @@
 # Migração ai-brain ↔ HiHotel — Painel de Trabalho
 
 **Criado:** 2026-04-17
-**Status:** Fase 1 em execução — Cat 1, 2, 4 executadas; Cat 3 em exceção
+**Status:** Fase 1 concluída (Cat 3 em exceção) · Fase 2 concluída · próxima: Fase 3
 
 ## Regras combinadas
 
@@ -16,7 +16,7 @@
 | Fase | Escopo | Estado |
 |---|---|---|
 | 1 | Lixo do `ai-brain` | 🟢 Cat 1, 2, 4 executadas (8 arquivos + edit README). Cat 3 em exceção. |
-| 2 | Lixo do `HiHotel` | ⚪ a fazer |
+| 2 | Lixo do `HiHotel` | 🟢 concluída — 1 arquivo deletado + 2 TIPs criados |
 | 3 | Estratégia de migração (original × síntese × fragmento) | ⚪ a fazer |
 | 4 | Executar migração | ⚪ a fazer |
 
@@ -112,3 +112,12 @@ Podem virar candidatos a lixo em futuros passes, mas hoje estão vivos.
 | 2026-04-17 | Cat 2 — HTMLs duplicados | `dde0972` | 3 arquivos |
 | 2026-04-17 | Cat 4 — Templates + README | `071b308` | 4 arquivos + edit README |
 | — | Cat 3 — Versões superadas | — | ⚠️ exceção: manter como referência pra próxima proposta (reavaliar em Fase 4, possivelmente mover pra `HiHotel/clientes/duke/historico/`) |
+
+# Log de execução — Fase 2
+
+Varredura do HiHotel praticamente zero lixo (repo disciplinado).
+
+| Data | Ação | Commit (HiHotel) | Detalhe |
+|---|---|---|---|
+| 2026-04-17 | Deletar `.gitkeep` órfão em `notas/` | `fb41f63` | Pasta já tem conteúdo real |
+| 2026-04-17 | Criar 2 TIPs (tipo ideia) | `29639e8` | `2026-04-17-avaliar-condensacao-identidade.md`, `2026-04-17-consolidar-claude-readme-overlap.md` |

@@ -8,7 +8,6 @@ Hub central de conhecimento e projetos para construção de uma empresa de uma p
 ai-brain/
 ├── sources/           ← Conhecimento capturado (newsletters, vídeos, cursos, artigos)
 ├── projects/          ← Projetos em andamento
-├── templates/         ← Templates para capturas e projetos
 ├── scripts/           ← Scripts de captura automática
 └── CONTEXT.md         ← Guia de autores e como usar o repositório
 ```
@@ -74,12 +73,6 @@ tail -f /tmp/ml_extract.log   # Extração de memórias
 |---------|---------|-----------|
 | ai-brain | Execução | Sistema de memória e conhecimento com IA |
 | marca-pessoal | Exploração | Construção de presença pessoal |
-
-### Criar novo projeto
-
-```bash
-cp templates/PROJECT-EXPLORATION.md projects/nome-do-projeto/README.md
-```
 
 ## Guia de Autores
 
